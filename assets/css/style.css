@@ -1,0 +1,129 @@
+/* styling banner */
+.banner .banner-container .banner-img img{
+    min-width: 100%;
+}
+
+/* start styling upcoming home section */
+
+    /* start styling banner responsive mobile */
+    @media only screen and (max-width: 767px){
+        .upcoming .upcoming-desc img{
+            width: 100%;
+        }
+
+        .upcoming .upcoming-container .swiperUpcomingContainer, 
+        .upcoming .upcoming-container .swiper .swiper-wrapper .swiper-slide .upcoming-desc .swiperUpcoming{
+        width: 100%;
+        }
+    }
+    /* end styling banner responsive mobile */
+
+    /* start styling banner responsive desktop */
+    @media only screen and (min-width: 768px){
+        .upcoming .upcoming-desc img{
+            width: 70%;
+        }
+
+        .upcoming .upcoming-container .swiperUpcomingContainer{
+            width: 100%;
+        }
+
+        .upcoming .upcoming-container .swiper .swiper-wrapper .swiper-slide .upcoming-desc .swiperUpcoming{
+            width: 50%;
+        }
+    }
+    /* end styling banner responsive desktop */
+
+.upcoming .upcoming-container .swiper .swiper-wrapper .swiper-slide .upcoming-desc{
+    background-color: #FF9900;
+    border-radius: 10px;
+}
+
+.upcoming .upcoming-desc .upcoming-event-desc a{
+    background-color: #174EA6;
+    transition: all ease-in-out .2s;
+}
+
+.upcoming .upcoming-desc .upcoming-event-desc a:hover{
+    background-color: #2469d6;
+}
+
+/* end styling upcoming home section */
+
+/* start styling programme home section */
+.programme .programme-container .programme-box .programme-list{
+    min-height: 350px;
+}
+
+.programme .programme-container .programme-box .programme-list:hover{
+    transform: scale(1.1);
+}
+
+.programme-container .programme-box .programme-list a{
+    color: #1746A2;
+}
+.programme-container .programme-box .programme-list a:hover{
+    color: #215dd1;
+}
+/* end styling programme home section */
+
+/* start styling partner home section */
+.partner .partner-container img{
+    max-width: 50%;
+}
+/* end styling partner home section */
+
+/* start styling testimonial home section */
+.testimonial .swiper .odd{
+    background-color: #FFDD95; min-height: 300px;
+}
+
+.testimonial .swiper .even{
+    background-color: #EBEBD3; min-height: 300px;
+}
+
+.testimonial .swiper .swiper-slide #testi-name{
+    color: #1746A2; font-weight: 700;
+}
+
+.testimonial .swiper .swiper-slide #testi-role{
+    color: #FF731D;
+}
+/* end styling testimonial home section */
+
+/* start styling mentor home section */
+.mentors .mentors-container .mentors-img img{
+    max-width: 250px;
+}
+
+.mentors .mentors-container .mentors-img h4{
+    color: #FF9900;
+}
+
+.mentors-info .mentors-exp{
+    bottom: 0px;
+    left: 0;
+    height: 0;
+    width: 100%;
+    position: absolute;
+    background-color: #ff9900;
+    opacity: 0.8;
+    transition: all ease-in-out .5s;
+}
+
+.mentors-info:hover .mentors-exp{
+    height: 100%;
+}
+
+.mentors-info .mentors-exp ul{
+    opacity: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    transition: all ease-in-out .5s;
+}
+
+.mentors-info:hover .mentors-exp ul{
+    opacity: 1;
+}
+/* end styling mentor home section */

@@ -1,0 +1,47 @@
+/* import font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* reset html */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background-color: #FFF7E9;
+    height: 100%;
+}
+
+body a{
+    text-decoration: none;
+}
+
+/* start styling swiper section */
+.partner .swiper, .testimonial .swiper, .alumni .swiper{
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-button-upcoming-container-next, .swiper-button-upcoming-container-prev{
+    color: #1746A2;
+}
+
+.swiper-button-upcoming-events-next, .swiper-button-upcoming-events-prev{
+    color: #fff;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #1746A2;
+}
+
+    @media only screen and (max-width: 992px){
+        .swiper-button-upcoming-container-next, .swiper-button-upcoming-container-prev{
+            display: none;
+        }
+
+    }
+/* end styling swiper section */
