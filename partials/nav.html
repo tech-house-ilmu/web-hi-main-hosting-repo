@@ -17,7 +17,20 @@
                 <div class="navbar-nav ms-auto text-center d-flex align-items-center justify-content-center fw-semibold"
                     data-aos="fade-left">
                     <a class="nav-link active rounded-pill" aria-current="page" href="/">Home</a>
-                    <a class="nav-link mx-0 mx-md-1 mx-lg-3 rounded-pill" href="/programme/">Programme</a>
+
+                    <!-- Programme Dropdown -->
+                    <div class="nav-item dropdown">
+                        <span class="nav-link mx-0 mx-md-1 mx-lg-3 rounded-pill" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="cursor: pointer;">
+                            Programme
+                            <i class="fa-solid fa-chevron-down ms-1"></i>
+                        </span>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/programme/HI-programmes/">Programme</a></li>
+                            <li><a class="dropdown-item" href="/programme/HI-opportunities/">HI Opportunities</a></li>
+                        </ul>
+                    </div>
+
                     <a class="nav-link rounded-pill" href="/partnership/">Partnership</a>
                     <a class="nav-link mx-0 mx-md-1 mx-lg-3 rounded-pill" href="/article/">Article</a>
                     <a class="nav-link rounded-pill" href="/career/">Career</a>
