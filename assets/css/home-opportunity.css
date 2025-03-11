@@ -1,0 +1,213 @@
+
+body{
+    background-color: #fff7e9 !important;
+}
+
+header{
+    text-align: center;
+}
+
+header h3{
+    padding-top: 5px;
+}
+
+h1{
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.oranye-HI{
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+header .blue-HI{
+    color: #01153E;
+}
+
+header .oranye-HI{
+    color: #FE9000;
+}
+
+.logo-company img{
+    padding: 5px;
+    width: clamp(2rem, 8vw, 4rem);
+    height: auto
+}
+
+.card{
+    overflow: hidden;
+    width: 15rem;
+    height: 20.6rem;
+    border-radius: 20px;
+    border: 2px solid #FE9000;
+}
+
+a:hover .card {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.ikutlomba::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-ikutlomba.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.rhyme::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-rhyme.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.epn::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-epn.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.emweek::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-emweek.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.smartpath::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-smartpath.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.korma::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-korma.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.iye::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-iye.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.ruang-aksi::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-ruang-aksi.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.pemuda-internasional::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: url(/assets/img/poster-pemuda-internasional.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.programe{
+    margin-top: 5rem;
+}
+
+.title-program{
+    font-size:clamp(0.9rem, 3vw, 1.2rem);;
+}
+
+.Platform {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+
+
+
+.info img{
+    width: 30px;
+    height: 35px;
+}
+
+
+.more{
+    background-image: url(/assets/img/poster-HITCC.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    width: 15rem;
+    height: 20.6rem;
+    position: relative;
+}
+
+.more p{
+    position: relative;
+    z-index: 1;
+}
+
+.more::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+}
