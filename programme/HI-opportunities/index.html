@@ -5,702 +5,736 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HI Opportunities | House Ilmu Indonesia</title>
-    <link rel="icon" href="../../assets/img/logo.png">
+    <link rel="icon" href="/assets/img/logo.png">
     <!-- Link CDN Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <!-- fount awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Link CDN Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link CDN Animation on Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- css local styles -->
-    <link rel="stylesheet" href="../../assets/css/style-card.css">
-
+    <link rel="stylesheet" href="/assets/css/opp-cards.css">
+    <!-- Link CSS Navbar -->
     <link rel="stylesheet" href="/assets/css/navbar-footer.css">
-        <!-- Link CSS Programme Page -->
+    <!-- Link CSS Programme Page -->
     <link rel="stylesheet" href="/assets/css/programme.css">
-
-
+    <!-- Link CSS Global Reset -->
+    <link rel="stylesheet" href="/assets/css/global.css">
 </head>
 
 <body>
-    <!--Main-->
-    <div class="container mt-4">
+    <!-- Navigation content -->
+    <div id="nav-container"></div>
+
+    <!-- Main -->
+    <section class="container-xxl my-4">
         <!-- Search Bar -->
-        <div class="search-container text-white">
+        <div class="search-container container text-white">
             <div class="input-group">
                 <input type="text" id="searchInput" class="form-control"
                     placeholder="Search by Internship, competition, volunteer, & exchange">
-                <button class="btn search-btn-costum btn-lg">
-                    <svg width="20" height="18" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M27.85 24L17.6125 15.6C16.8 16.1333 15.8656 16.5556 14.8094 16.8667C13.7531 17.1778 12.6292 17.3333 11.4375 17.3333C8.48542 17.3333 5.98698 16.4944 3.94219 14.8167C1.8974 13.1389 0.875 11.0889 0.875 8.66667C0.875 6.24444 1.8974 4.19444 3.94219 2.51667C5.98698 0.838889 8.48542 0 11.4375 0C14.3896 0 16.888 0.838889 18.9328 2.51667C20.9776 4.19444 22 6.24444 22 8.66667C22 9.64444 21.8104 10.5667 21.4313 11.4333C21.0521 12.3 20.5375 13.0667 19.8875 13.7333L30.125 22.1333L27.85 24ZM11.4375 14.6667C13.4688 14.6667 15.1953 14.0833 16.6172 12.9167C18.0391 11.75 18.75 10.3333 18.75 8.66667C18.75 7 18.0391 5.58333 16.6172 4.41667C15.1953 3.25 13.4688 2.66667 11.4375 2.66667C9.40625 2.66667 7.67969 3.25 6.25781 4.41667C4.83594 5.58333 4.125 7 4.125 8.66667C4.125 10.3333 4.83594 11.75 6.25781 12.9167C7.67969 14.0833 9.40625 14.6667 11.4375 14.6667Z"
-                            fill="white" />
-                    </svg>
+                <button class="btn search-btn-custom btn-lg">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                     Search</button>
             </div>
             <!-- button filtered -->
-            <div class="mt-3 d-flex fiter-component align-items-center gap-2">
+            <!-- filter masih d-none karna belum fix isinya -->
+            <div class="filter-component d-none align-items-center mt-3 gap-2">
                 <span class="text-white">Urutkan:</span>
-                <button class="btn filter-btn-costum text-white">Terbaru
-                    <svg width="16" height="12" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28.8401 2.03805L15.7018 16.0586L2.56348 2.03805" stroke="white" stroke-width="4"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <button class="btn filter-btn-custom text-white">Terbaru
+                    <i class="fa-solid fa-chevron-down ms-1"></i>
                 </button>
-                <button class="btn filter-btn-costum text-white">Jenis
-                    <svg width="16" height="12" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28.8401 2.03805L15.7018 16.0586L2.56348 2.03805" stroke="white" stroke-width="4"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <button class="btn filter-btn-custom text-white">Jenis
+                    <i class="fa-solid fa-chevron-down ms-1"></i>
                 </button>
-                <button class="btn filter-btn-costum text-white">Tipe
-                    <svg width="16" height="12" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28.8401 2.03805L15.7018 16.0586L2.56348 2.03805" stroke="white" stroke-width="4"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <button class="btn filter-btn-custom text-white">Tipe
+                    <i class="fa-solid fa-chevron-down ms-1"></i>
                 </button>
-                <button class="btn filter-btn-costum text-white">Lokasi
-                    <svg width="16" height="12" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28.8401 2.03805L15.7018 16.0586L2.56348 2.03805" stroke="white" stroke-width="4"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <button class="btn filter-btn-custom text-white">Lokasi
+                    <i class="fa-solid fa-chevron-down ms-1"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Category Buttons as Cards -->
-        <div class="d-flex mt-4 gap-5 category-card justify-content-center">
-            <div class="bg-custom category-item card text-center border-custom p-0" style="width: 184px; height:126px;">
-                <img src="../../assets/img/card/3.jpg" alt="Logo House Ilmu Indonesia" class="img-fluid"
-                    style="height:75px;">
+        <!-- Category Cards -->
+        <div class="category-card container justify-content-between mt-4 gap-1">
+            <div class="category-item text-center border-custom p-0">
+                <img src="/assets/img-opp/semua.jpg" alt="Logo House Ilmu Indonesia">
                 <div class="d-flex justify-content-center card-img">
                     <span class="category-label">Semua</span>
                 </div>
             </div>
-            <div class="bg-custom category-item card text-center border-custom p-0" style="width: 184px; height:126px;">
-                <img src="../../assets/img/card/2.jpg" alt="Logo House Ilmu Indonesia" class="img-fluid"
-                    style="height:76px;">
+            <div class="category-item text-center border-custom p-0">
+                <img src="/assets/img-opp/internship.jpg" alt="Logo House Ilmu Indonesia">
                 <div class="card-img d-flex justify-content-center">
                     <span class="category-label">Internship</span>
                 </div>
             </div>
-            <div class="bg-custom category-item card text-center border-custom p-0" style="width: 184px; height:126px;">
-                <img src="../../assets/img/card/4.jpg" alt="Logo House Ilmu Indonesia" class="img-fluid"
-                    style="height:76px;">
+            <div class="category-item text-center border-custom p-0">
+                <img src="/assets/img-opp/competition.jpg" alt="Logo House Ilmu Indonesia">
                 <div class="card-img d-flex justify-content-center">
                     <span class="category-label">Competition</span>
                 </div>
             </div>
-            <div class="bg-custom category-item card text-center border-custom p-0" style="width: 184px; height:126px;">
-                <img src="../../assets/img/card/11.jpg" alt="Logo House Ilmu Indonesia" class="img-fluid"
-                    style="height:76px;">
+            <div class="category-item text-center border-custom p-0">
+                <img src="/assets/img-opp/volunteer.jpg" alt="Logo House Ilmu Indonesia">
                 <div class="card-img d-flex justify-content-center">
                     <span class="category-label">Volunteer</span>
                 </div>
             </div>
-            <div class="bg-custom category-item card text-center border-custom p-0" style="width: 184px; height:126px;">
-                <img src="../../assets/img/card/5.jpg" alt="Logo House Ilmu Indonesia" class="img-fluid"
-                    style="height:76px;">
+            <div class="category-item text-center border-custom p-0">
+                <img src="/assets/img-opp/exchange.jpg" alt="Logo House Ilmu Indonesia">
                 <div class="card-img d-flex justify-content-center">
                     <span class="category-label">Exchange</span>
                 </div>
             </div>
         </div>
 
-        <!-- Cards 3.1-->
-        <div class="row mt-4 g-3 justify-content-center">
-            <!-- volunter -->
-            <div class="col-md-4">
+        <div class="cards-container container-xxl d-flex flex-wrap my-4 gap-3 justify-content-center align-items-start">
+            <div class="volunteer card-box px-4 px-md-0">
                 <a href="/programme/volunteer/volunteer-volunteerkuy.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/volunter/folunterkuy.png" class="card-img-top" alt="Card Image">
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/volunteer/volunteer-berugaq-full.jpg" class="card-img-top"
+                        alt="Card Image">
                     <div class="card-overlay"></div>
                     <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Volunteerkuy</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Produktifkuy</span>
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/volunteer/logo-volunteerkuy.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Volunteerkuy</h1>
+                                <h5>Produktifkuy</h5>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-money-bill-wave"></i> Free
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-handshake-angle"></i> Campaign Volunteer
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 17 - 23 Maret 2024
-                        </p>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Free</p>
+                                <p>Campaign Volunteer</p>
+                                <p>16 Maret 2025</p>
+                            </div>
+                        </div>
                         <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
                     </div>
                 </a>
             </div>
-            <!-- lomba card -->
-            <div class="col-md-4">
-                <a href="/programme/lomba/lomba-rdk.html" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/poster/rdk.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">RDK Competition</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">RDK UGM</span>
-                            </div>
-                        </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Umum
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-award"></i> Seni
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 8 Maret 2025
-                        </p>
-                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-            <!-- internship card -->
-            <div class="col-md-4">
-                <a href="/programme/internship/intern-smartpath.html" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/intern/smartp.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Smartpath Internship</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Smartpath</span>
-                            </div>
-                        </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Internship (WFH)
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-briefcase"></i> Administration & Finance, dll
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 3 Bulan
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-calendar-days"></i> 31 Maret 2025
-                        </p>
-                        <!-- <span class="badge custom-badge">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-
-
-            <!-- Exchange -->
-            <div class="col-md-4">
+            <div class="exchange card-box px-4 px-md-0">
                 <a href="/programme/exchange/exchange-international-youth-exchange.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/exchange/iye.png" class="card-img-top" alt="Card Image">
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/exchange/exchange-international-youth-exchange-full.png"
+                        class="card-img-top" alt="Card Image">
                     <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">International Youth
-                                    Exchange Chapter Singapore & Malaysia Gelombang 3</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">IYE</span>
+                    <div style="top: 0%;" class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/exchange/logo-international-youth-exchange.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1 style="font-size: clamp(0.8rem, 1vw, 0.9rem);">International Youth Exchange Chapter
+                                    Singapore & Malaysia Gelombang 3</h1>
+                                <h5 style="font-size: clamp(0.8rem, 1vw, 0.8rem);">International Youth Exchange</h5>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-money-bill-wave"></i> Fully Funded
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-handshake-angle"></i> Student Exchange
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 25 April 2025
-                        </p>
-                        <!-- <span class="badge custom-badge">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-
-            <!-- card 3.2 -->
-            <!-- lomba card -->
-            <div class="col-md-4">
-                <a href="/programme/lomba/lomba-ikutlomba.html" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/poster/puisi.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Lomba Puisi Nasional 2025
-                                </h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Ikutlomba.id</span>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-2">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-user-graduate"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-1">
+                                <p>Fully Funded</p>
+                                <p>Student Exchange</p>
+                                <p>25 April 2025</p>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Umum
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-award"></i> Menulis
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 10 April 2025
-                        </p>
                         <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
                     </div>
                 </a>
             </div>
-            <!-- internship card -->
-            <div class="col-md-4">
-                <a href="/programme/internship/intern-pemuda-internasional-customer-service.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/intern/pic.png" class="card-img-top" alt="Card Image">
+            <div class="lomba competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-ikutlomba.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-ikutlomba.png" class="card-img-top" alt="Card Image">
                     <div class="card-overlay"></div>
                     <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Virtual Internship</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Pemuda Internasional</span>
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-ikutlomba.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Lomba Puisi Nasional 2025</h1>
+                                <h5>ikutlomba.id</h5>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Internship WFH
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-briefcase"></i> Customer Service
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 3 Bulan
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-calendar-days"></i> 8 April 2025
-                        </p>
-                        <!-- <span class="badge custom-badge">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-            <!-- volunter -->
-            <div class="col-md-4">
-                <a href="/programme/volunteer/volunteer-ekspedisi-bermuda-takengon.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/volunter/bermuda3.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Bermuda #3 Takengon</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Produktifkuy</span>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center  gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Umum</p>
+                                <p>Lomba Menulis</p>
+                                <p>10 April 2025</p>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-money-bill-wave"></i> Fully funded Regular
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-handshake-angle"></i> Volunteer Konservasi
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 17 Maret 2025
-                        </p>
                         <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
                     </div>
                 </a>
             </div>
-
-            <!-- card 3.3 -->
-            <!-- volunter -->
-            <div class="col-md-4">
-                <a href="/programme/volunteer/volunteer-ekspedisi-pelosok-negeri.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/volunter/plosokn.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Ekpedisi Plosok Negeri Vol7
-                                </h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Ekpedisi Plosok
-                                    Negeri</span>
-                            </div>
-                        </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-money-bill-wave"></i> Fully funded
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-handshake-angle"></i> Volunteer (Konservasi)
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 26 Maret 2025
-                        </p>
-                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-            <!-- lomba card -->
-            <div class="col-md-4">
-                <a href="/programme/lomba/lomba-rhyme.html" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/poster/rhy.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Ramadhan Harmony of Youth
-                                    Muslim Education (RHYME) 2025</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Metronous</span>
-                            </div>
-                        </div>
-                        <p class="mt-2 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> SD/SMP/SMA Sederajat dan Mahasiswa
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-award"></i> Akademik
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 15 Maret 2025
-                        </p>
-                        <!-- <span class="badge custom-badge">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-            <!-- internship card -->
-            <div class="col-md-4">
+            <div class="internship card-box px-4 px-md-0">
                 <a href="/programme/internship/intern-pemuda-internasional-content-creator.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/intern/picc.png" class="card-img-top" alt="Card Image">
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/internship/intern-pemuda-internasional-full.png" class="card-img-top"
+                        alt="Card Image">
                     <div class="card-overlay"></div>
                     <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Virtual Internship</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Pemuda Internasional</span>
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/internship/logo-pemuda-internasional.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1 style="font-size: clamp(0.9rem, 1vw, 1rem);">VIRTUAL INTERNSHIP PEMUDA INTERNASIONAL
+                                </h1>
+                                <h5>Pemuda Internasional</h5>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Internship WFH
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-briefcase"></i> Content Creator
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 3 Bulan
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-calendar-days"></i> 8 April 2025
-                        </p>
-                        <!-- <span class="badge custom-badge">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-
-            <!-- card 3.4 -->
-            <!-- lomba card -->
-            <div class="col-md-4">
-                <a href="/programme/lomba/lomba-unisa-bandung.html" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/poster/literasi.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Lomba Esai dan Video
-                                    Literasi Nasional 2025</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Universitas Aisyiyah
-                                    Bandung</span>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-briefcase"></i>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Internship WFH</p>
+                                <p>Content Creator</p>
+                                <p>3 Bulan</p>
+                                <p>8 April 2025</p>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> SMA/SMK/MA Sederajat
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-award"></i> Menulis
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 7 Maret 2025
-                        </p>
-                        <!-- <span class="badge custom-badge mt-4">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-            <!-- internship card -->
-            <div class="col-md-4">
-                <a href="#" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/cardimg.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Indonesia Mengajar
-                                    Internship Batch 7</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Indonesia Mengajar</span>
-                            </div>
-                        </div>
-                        <p class="mt-1 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Internship WFH
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-briefcase"></i> Campaign Specialist, dll
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 4 Bulan
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-calendar-days"></i> 3 Maret 2025
-                        </p>
-                        <!-- <span class="badge custom-badge">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-            <!-- volunter -->
-            <div class="col-md-4">
-                <a href="/programme/volunteer/volunteer-ekspedisi-ruang-aksi.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/volunter/ruangaksi.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Ekpedisi Ruang Aksi #6</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Ruang Aksi Milenial</span>
-                            </div>
-                        </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-money-bill-wave"></i> Fully Funded
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-handshake-angle"></i> Volunteer (Pengajaran)
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 25 Maret 2025
-                        </p>
                         <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
                     </div>
                 </a>
             </div>
-
-            <!--card 3.5  -->
-            <!-- volunter -->
-            <div class="col-md-4">
-                <a href="/programme/volunteer/volunteer-ovj.html" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/volunter/karimun.png" class="card-img-top" alt="Card Image">
+            <div class="internship card-box px-4 px-md-0">
+                <a href="/programme/internship/intern-pemuda-internasional-customer-service.html"
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/internship/intern-pemuda-internasional-full.png" class="card-img-top"
+                        alt="Card Image">
                     <div class="card-overlay"></div>
                     <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">OVJ #1 - KARIMUNJAWA - 2025
-                                </h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Ruang Aksi Milenial</span>
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/internship/logo-pemuda-internasional.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1 style="font-size: clamp(0.9rem, 1vw, 1rem);">VIRTUAL INTERNSHIP PEMUDA INTERNASIONAL
+                                </h1>
+                                <h5>Pemuda Internasional</h5>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-money-bill-wave"></i> Fully Funded
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-handshake-angle"></i> Volunteer(Pengajaran/Konservasi/Bansos)
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> -
-                        </p>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-briefcase"></i>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Internship WFH</p>
+                                <p>Customer Service</p>
+                                <p>3 Bulan</p>
+                                <p>8 April 2025</p>
+                            </div>
+                        </div>
                         <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
                     </div>
                 </a>
             </div>
-            <!-- internship card -->
-            <div class="col-md-4">
+            <div class="volunteer card-box px-4 px-md-0">
+                <a href="/programme/volunteer/volunteer-ekspedisi-bermuda-takengon.html"
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/volunteer/volunteer-bermuda.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/volunteer/logo-bermuda.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Bermuda #3 Takengon</h1>
+                                <h5>MUWAFAQ</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Fully funded Regular </p>
+                                <p>Volunteer Konservasi</p>
+                                <p>17 Maret 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="lomba card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-ikutlomba.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-rhyme-full.jpg" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-rhyme.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Ramadhan Harmony of Youth Muslim Education (RHYME) 2025</h1>
+                                <h5>Metronous</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>SD/SMP/SMA Sederajat dan Mahasiswa</p>
+                                <p>Lomba Akademik</p>
+                                <p>15 Maret 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="volunteer card-box px-4 px-md-0">
+                <a href="/programme/volunteer/volunteer-ekspedisi-pelosok-negeri.html"
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/volunteer/volunteer-ekspedisi-pelosok-negeri-full.png"
+                        class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/volunteer/logo-ekspedisi-pelosok-negeri.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>EKSPEDISI PELOSOK NEGERI VOL 7</h1>
+                                <h5>EKSPEDISI PELOSOK NEGERI</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Fully funded</p>
+                                <p>Volunteer (Konservasi)</p>
+                                <p>26 Maret 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="internship card-box px-4 px-md-0">
                 <a href="/programme/internship/intern-hype-leaders-partnership.html"
-                    class="card card-custom text-decoration-none">
-                    <!-- ganti dengan img poster aslinya -->
-                    <img src="../../assets/img/card/cardimg.jpg" class="card-img-top" alt="Card Image">
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/internship/intern-hype-leaders-full.jpg" class="card-img-top"
+                        alt="Card Image">
                     <div class="card-overlay"></div>
                     <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Hype Leaders 2.0</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Kasir Pintar </span>
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/internship/logo-hype-leaders.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Hype Leaders 2.0</h1>
+                                <h5>Kasir Pintar </h5>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Internship WFA
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-briefcase"></i> Partnership
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 6 Bulan
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-calendar-days"></i> 18 April
-                        </p>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-briefcase"></i>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Internship WFA</p>
+                                <p>Partnership</p>
+                                <p>6 Bulan</p>
+                                <p>18 April 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
                     </div>
                 </a>
             </div>
-            <!-- lomba card -->
-            <div class="col-md-4">
-                <a href="/programme/lomba/lomba-korma.html" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/poster/korma.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">KORMA: Kompetisi Ramadhan
-                                </h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Universitas Telkom</span>
-                            </div>
-                        </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> SMA/SMK/MA Sederajat dan Mahasiswa/i
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-award"></i> Seni
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 20 Maret
-                        </p>
-                        <!-- <span class="badge custom-badge mt-4">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-
-            <!-- card 3.6 -->
-            <!-- lomba card -->
-            <div class="col-md-4">
-                <a href="/programme/lomba/lomba-emweek11th-mindxplore.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/poster/emw.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Competition Enginering
-                                    Management Week11th</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Manajemen Rekayasa
-                                    UISI</span>
-                            </div>
-                        </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> SMA/SMK/MA Sederajat
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-award"></i> Akademik
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 25 April 2025
-                        </p>
-                        <!-- <span class="badge custom-badge mt-4">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-
-            <!-- lomba card -->
-            <div class="col-md-4">
-                <a href="/programme/lomba/lomba-emweek11th-ideatures.html"
-                    class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/poster/emw1.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Competition Enginering
-                                    Management
-                                    Week11th</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Manajemen Rekayasa
-                                    UISI</span>
-                            </div>
-                        </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Pelajar dan Mahasiswa
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-award"></i> Menulis
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 17 Maret 2025
-                        </p>
-                        <!-- <span class="badge custom-badge mt-4">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-
-            <!-- card 3.6 -->
-            <!-- volunter -->
-            <!-- volunter card here -->
-
-            <!-- card 3.7 -->
-            <!-- lomba card -->
-            <div class="col-md-4">
-                <a href="/programme/lomba/lomba-emweek11th-reels.html" class="card card-custom text-decoration-none">
-                    <img src="../../assets/img/card/poster/emw2.png" class="card-img-top" alt="Card Image">
-                    <div class="card-overlay"></div>
-                    <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Competition Enginering
-                                    Management
-                                    Week11th</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Manajemen Rekayasa
-                                    UISI</span>
-                            </div>
-                        </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Umum
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-award"></i> Seni
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 15 April 2025
-                        </p>
-                        <!-- <span class="badge custom-badge mt-4">Kesempatan lebih tinggi</span> -->
-                    </div>
-                </a>
-            </div>
-            <!-- internship card -->
-            <div class="col-md-4">
+            <div class="internship card-box px-4 px-md-0">
                 <a href="/programme/internship/intern-hype-leaders-content-creator.html"
-                    class="card card-custom text-decoration-none">
-                    <!-- ganti dengan img poster aslinya -->
-                    <img src="../../assets/img/card/cardimg.jpg" class="card-img-top" alt="Card Image">
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/internship/intern-hype-leaders-full.jpg" class="card-img-top"
+                        alt="Card Image">
                     <div class="card-overlay"></div>
                     <div class="card-body small-text">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/img/card/logo-hi.png" alt="Logo House Ilmu Indonesia" class="logo">
-                            <div class="mb-0 d-flex flex-column" style="margin-top: -4px;">
-                                <h5 class="mb-0" style="font-size: 20px; font-weight: bold;">Hype Leaders 2.0</h5>
-                                <span class="" style="font-size: 20px; font-family:poppins">Kasir Pintar </span>
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/internship/logo-hype-leaders.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Hype Leaders 2.0</h1>
+                                <h5>Kasir Pintar </h5>
                             </div>
                         </div>
-                        <p class="mt-4 mb-2 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                        <p><i class="fa-solid fa-user"></i> Internship WFA
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-briefcase"></i> Content Creator
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-clock"></i> 6 Bulan
-                        </p>
-                        <p class="mt-4 mb-4 d-flex align-items-center" style="font-size: 20px; font-family:poppins">
-                            <i class="fa-solid fa-calendar-days"></i> 18 April
-                        </p>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-briefcase"></i>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Internship WFA</p>
+                                <p>Content Creator</p>
+                                <p>6 Bulan</p>
+                                <p>18 April 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="lomba competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-emweek11th-mindxplore.html"
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-emweek11th-full.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-emweek11th.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>COMPETITION ENGINEERING MANAGEMENT WEEK11th</h1>
+                                <h5>Universitas Internasional Semen Indonesia</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>SMA/SMK/MA Sederajat</p>
+                                <p>Lomba Akademik (MINDXPLORE)</p>
+                                <p>25 April 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="lomba competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-emweek11th-ideatures.html"
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-emweek11th-full.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-emweek11th.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>COMPETITION ENGINEERING MANAGEMENT WEEK11th</h1>
+                                <h5>Universitas Internasional Semen Indonesia</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>SMA/SMK/MA Sederajat</p>
+                                <p>Lomba Akademik (IDEATURES)</p>
+                                <p>25 April 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="lomba competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-emweek11th-reels.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-emweek11th-full.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-emweek11th.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>COMPETITION ENGINEERING MANAGEMENT WEEK11th</h1>
+                                <h5>Universitas Internasional Semen Indonesia</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>SMA/SMK/MA Sederajat</p>
+                                <p>Lomba Akademik (EM REELS)</p>
+                                <p>25 April 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="volunteer card-box px-4 px-md-0">
+                <a href="/programme/volunteer/volunteer-ekspedisi-ruang-aksi.html"
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/volunteer/volunteer-ekspedisi-ruang-aksi-full.png" class="card-img-top"
+                        alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/volunteer/logo-ekspedisi-ruang-aksi.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>EKSPEDISI RUANG AKSI #6</h1>
+                                <h5>Ruang Aksi Milenial</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Fully funded</p>
+                                <p>Volunteer (Pengajaran)</p>
+                                <p>25 Maret 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="internship card-box px-4 px-md-0">
+                <a href="/programme/internship/intern-smartpath.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/internship/intern-smartpath-full.png" class="card-img-top"
+                        alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/internship/logo-smartpath.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Smartpath Internship</h1>
+                                <h5>Smart Path</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-briefcase"></i>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Internship (WFH)</p>
+                                <p>Human Resource, Graphic Designer, Data Analyst, etc</p>
+                                <p>3 Bulan</p>
+                                <p>31 Maret 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="lomba competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-korma.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-korma-full.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-korma.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>KORMA: Kompetisi Ramadhan</h1>
+                                <h5>Telkom University</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>SMA/SMK/MA Sederajat dan Mahasiswa/i</p>
+                                <p>Lomba Seni</p>
+                                <p>20 Maret 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="lomba competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-rdk.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-rdk-full.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-rdk.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>RDK Competition</h1>
+                                <h5>Jama’ah Shalahuddin UGM</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Pelajar, Mahasiswa, dan Masyarakat Umum</p>
+                                <p>Lomba Seni</p>
+                                <p>8 Maret 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="volunteer card-box px-4 px-md-0">
+                <a href="/programme/volunteer/volunteer-berugaq.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/volunteer/volunteer-berugaq-full.jpg" class="card-img-top"
+                        alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/volunteer/logo-berugaq.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Berugaq Nusantara Vol #1</h1>
+                                <h5>AKSIMAGER</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Fully funded</p>
+                                <p>Volunteer Konservasi </p>
+                                <p>1 April 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="lomba competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-unisa-bandung.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-unisa-full.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-unisa.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Lomba Esai dan Video Literasi Nasional 2025</h1>
+                                <h5>Universitas 'Aisyiyah Bandung</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>SMA/SMK/MA Sederajat</p>
+                                <p>Lomba Menulis</p>
+                                <p>7 Maret 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            <div class="volunteer card-box px-4 px-md-0">
+                <a href="/programme/volunteer/volunteer-ovj.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/volunteer/volunteer-ovj-full.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/volunteer/logo-ovj.png" class="logo col-3"
+                                alt="Logo House Ilmu Indonesia">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>OPEN VOLUNTEER OVJ #1 - KARIMUNJAWA – 2025</h1>
+                                <h5>YATCIndonesia</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Fully funded</p>
+                                <p>Volunteer (Pengajaran) </p>
+                                <p>12 April 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
                     </div>
                 </a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer content -->
+    <div id="footer-container"></div>
 
 
-    <!-- local js for card category -->
-<script src="../../assets/js/filter-card.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- CDN Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
@@ -713,7 +747,9 @@
     <script src="/assets/js/global/nav.js"></script>
     <!-- Initialize Footer -->
     <script src="/assets/js/global/footer.js"></script>
- 
+    <!-- local js for card category -->
+    <script src="/assets/js/filter-card.js"></script>
+
 </body>
 
 </html>
