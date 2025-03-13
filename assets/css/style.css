@@ -1,129 +1,260 @@
 /* styling banner */
-.banner .banner-container .banner-img img{
-    min-width: 100%;
+.banner .banner-container .banner-img img {
+  min-width: 100%;
 }
 
 /* start styling upcoming home section */
 
-    /* start styling banner responsive mobile */
-    @media only screen and (max-width: 767px){
-        .upcoming .upcoming-desc img{
-            width: 100%;
-        }
+/* start styling banner responsive mobile */
+@media only screen and (max-width: 767px) {
+  .upcoming .upcoming-desc img {
+    width: 100%;
+  }
 
-        .upcoming .upcoming-container .swiperUpcomingContainer, 
-        .upcoming .upcoming-container .swiper .swiper-wrapper .swiper-slide .upcoming-desc .swiperUpcoming{
-        width: 100%;
-        }
-    }
-    /* end styling banner responsive mobile */
+  .upcoming .upcoming-container .swiperUpcomingContainer,
+  .upcoming
+    .upcoming-container
+    .swiper
+    .swiper-wrapper
+    .swiper-slide
+    .upcoming-desc
+    .swiperUpcoming {
+    width: 100%;
+  }
+}
+/* end styling banner responsive mobile */
 
-    /* start styling banner responsive desktop */
-    @media only screen and (min-width: 768px){
-        .upcoming .upcoming-desc img{
-            width: 70%;
-        }
+/* start styling banner responsive desktop */
+@media only screen and (min-width: 768px) {
+  .upcoming .upcoming-desc img {
+    width: 70%;
+  }
 
-        .upcoming .upcoming-container .swiperUpcomingContainer{
-            width: 100%;
-        }
+  .upcoming .upcoming-container .swiperUpcomingContainer {
+    width: 100%;
+  }
 
-        .upcoming .upcoming-container .swiper .swiper-wrapper .swiper-slide .upcoming-desc .swiperUpcoming{
-            width: 50%;
-        }
-    }
-    /* end styling banner responsive desktop */
+  .upcoming
+    .upcoming-container
+    .swiper
+    .swiper-wrapper
+    .swiper-slide
+    .upcoming-desc
+    .swiperUpcoming {
+    width: 50%;
+  }
+}
+/* end styling banner responsive desktop */
 
-.upcoming .upcoming-container .swiper .swiper-wrapper .swiper-slide .upcoming-desc{
-    background-color: #FF9900;
-    border-radius: 10px;
+.upcoming
+  .upcoming-container
+  .swiper
+  .swiper-wrapper
+  .swiper-slide
+  .upcoming-desc {
+  background-color: #ff9900;
+  border-radius: 10px;
 }
 
-.upcoming .upcoming-desc .upcoming-event-desc a{
-    background-color: #174EA6;
-    transition: all ease-in-out .2s;
+.upcoming .upcoming-desc .upcoming-event-desc a {
+  background-color: #174ea6;
+  transition: all ease-in-out 0.2s;
 }
 
-.upcoming .upcoming-desc .upcoming-event-desc a:hover{
-    background-color: #2469d6;
+.upcoming .upcoming-desc .upcoming-event-desc a:hover {
+  background-color: #2469d6;
 }
 
 /* end styling upcoming home section */
 
+/* start styling opportunities home section */
+
+.opportunities .opp-title span.oranye-HI {
+  color: #fe9000;
+}
+.opportunities .opp-title span.blue-HI {
+  color: #01153e;
+}
+
+.opportunities .opp-title h1,
+.opportunities .opp-title span.oranye-HI {
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.opportunities .opp-card .card {
+  overflow: hidden;
+  width: 15rem;
+  min-height: 300px;
+  max-height: 500px;
+  border-radius: 20px;
+  border: 2px solid #fe9000;
+}
+.opportunities #card-1:before,
+.opportunities #card-2::before,
+.opportunities #card-3::before,
+.opportunities #card-4::before,
+.opportunities #card-5::before,
+.opportunities #card-6::before,
+.opportunities #card-7::before,
+.opportunities #card-8::before,
+.opportunities #card-9::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 45%;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.opportunities #card-1::before {
+  background-image: url(/assets/img-opp/lomba/lomba-ikutlomba.png);
+}
+.opportunities #card-2::before {
+  background-image: url(/assets/img-opp/lomba/lomba-rhyme-full.jpg);
+}
+.opportunities #card-3::before {
+  background-image: url(/assets/img-opp/volunteer/volunteer-ekspedisi-pelosok-negeri-full.png);
+}
+.opportunities #card-4::before {
+  background-image: url(/assets/img-opp/lomba/lomba-emweek11th-full.png);
+}
+.opportunities #card-5::before {
+  background-image: url(/assets/img-opp/internship/intern-smartpath-full.png);
+}
+.opportunities #card-6::before {
+  background-image: url(/assets/img-opp/lomba/lomba-korma-full.png);
+}
+.opportunities #card-7::before {
+  background-image: url(/assets/img-opp/exchange/exchange-international-youth-exchange-full.png);
+}
+.opportunities #card-8::before {
+  background-image: url(/assets/img-opp/volunteer/volunteer-ekspedisi-ruang-aksi-full.png);
+}
+.opportunities #card-9::before {
+  background-image: url(/assets/img-opp/internship/intern-pemuda-internasional-full.png);
+}
+
+.opportunities .opp-card .opp-card-title {
+  margin-top: 50%;
+}
+
+.opportunities .opp-card .opp-card-title .opp-programe-name .opp-title {
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+}
+
+.opportunities .opp-card .opp-card-title .opp-programe-name .organizer {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+.opportunities .opp-card a:hover .card {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+.opportunities .opp-card a .more {
+  background-image: url(/assets/img/poster-HITCC.jpeg);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.opportunities .opp-card a.more::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* end styling opportunities home section */
+
 /* start styling programme home section */
-.programme .programme-container .programme-box .programme-list{
-    min-height: 350px;
+.programme .programme-container .programme-box .programme-list {
+  min-height: 350px;
 }
 
-.programme .programme-container .programme-box .programme-list:hover{
-    transform: scale(1.1);
+.programme .programme-container .programme-box .programme-list:hover {
+  transform: scale(1.1);
 }
 
-.programme-container .programme-box .programme-list a{
-    color: #1746A2;
+.programme-container .programme-box .programme-list a {
+  color: #1746a2;
 }
-.programme-container .programme-box .programme-list a:hover{
-    color: #215dd1;
+.programme-container .programme-box .programme-list a:hover {
+  color: #215dd1;
 }
 /* end styling programme home section */
 
 /* start styling partner home section */
-.partner .partner-container img{
-    max-width: 50%;
+.partner .partner-container img {
+  max-width: 50%;
 }
 /* end styling partner home section */
 
 /* start styling testimonial home section */
-.testimonial .swiper .odd{
-    background-color: #FFDD95; min-height: 300px;
+.testimonial .swiper .odd {
+  background-color: #ffdd95;
+  min-height: 300px;
 }
 
-.testimonial .swiper .even{
-    background-color: #EBEBD3; min-height: 300px;
+.testimonial .swiper .even {
+  background-color: #ebebd3;
+  min-height: 300px;
 }
 
-.testimonial .swiper .swiper-slide #testi-name{
-    color: #1746A2; font-weight: 700;
+.testimonial .swiper .swiper-slide #testi-name {
+  color: #1746a2;
+  font-weight: 700;
 }
 
-.testimonial .swiper .swiper-slide #testi-role{
-    color: #FF731D;
+.testimonial .swiper .swiper-slide #testi-role {
+  color: #ff731d;
 }
 /* end styling testimonial home section */
 
 /* start styling mentor home section */
-.mentors .mentors-container .mentors-img img{
-    max-width: 250px;
+.mentors .mentors-container .mentors-img img {
+  max-width: 250px;
 }
 
-.mentors .mentors-container .mentors-img h4{
-    color: #FF9900;
+.mentors .mentors-container .mentors-img h4 {
+  color: #ff9900;
 }
 
-.mentors-info .mentors-exp{
-    bottom: 0px;
-    left: 0;
-    height: 0;
-    width: 100%;
-    position: absolute;
-    background-color: #ff9900;
-    opacity: 0.8;
-    transition: all ease-in-out .5s;
+.mentors-info .mentors-exp {
+  bottom: 0px;
+  left: 0;
+  height: 0;
+  width: 100%;
+  position: absolute;
+  background-color: #ff9900;
+  opacity: 0.8;
+  transition: all ease-in-out 0.5s;
 }
 
-.mentors-info:hover .mentors-exp{
-    height: 100%;
+.mentors-info:hover .mentors-exp {
+  height: 100%;
 }
 
-.mentors-info .mentors-exp ul{
-    opacity: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    transition: all ease-in-out .5s;
+.mentors-info .mentors-exp ul {
+  opacity: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  transition: all ease-in-out 0.5s;
 }
 
-.mentors-info:hover .mentors-exp ul{
-    opacity: 1;
+.mentors-info:hover .mentors-exp ul {
+  opacity: 1;
 }
 /* end styling mentor home section */
