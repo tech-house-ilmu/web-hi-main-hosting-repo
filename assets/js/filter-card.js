@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const categoryItems = document.querySelectorAll(".category-item");
-  const allCards = document.querySelectorAll(".col-md-4");
+  const allCards = document.querySelectorAll(".card-box");
+  const cardsContainer = document.querySelector(".cards-container");
 
   categoryItems.forEach((item) => {
     item.addEventListener("click", function () {
@@ -8,69 +9,71 @@ document.addEventListener("DOMContentLoaded", function () {
         .innerText.trim()
         .toLowerCase();
 
+      let hasResults = false;
+
       allCards.forEach((card) => {
-        let isMatch = false;
-
-        // Ambil teks dari <h5> dan semua <p> dalam card
-        const titleElement = card.querySelector(".card-body h5");
-        const paragraphs = card.querySelectorAll(".card-body p");
-        const titleText = titleElement
-          ? titleElement.innerText.trim().toLowerCase()
-          : "";
-        let paragraphText = "";
-
-        paragraphs.forEach((p) => {
-          paragraphText += p.innerText.trim().toLowerCase() + " ";
-        });
-
-        // kategori berdasarkan judul atau teks dalam paragraf
-        const categoryMap = {
-          internship: ["internship"],
-          competition: ["competition", "lomba", "seni","akademik", "menulis"],
-          volunteer: ["volunteer"],
-          exchange: ["exchange"],
-        };
-
-        if (category in categoryMap) {
-          categoryMap[category].forEach((keyword) => {
-            if (
-              titleText.includes(keyword) ||
-              paragraphText.includes(keyword)
-            ) {
-              isMatch = true;
-            }
-          });
-        }
+        // Jika kategori "semua", tampilkan semua card
         if (category === "semua") {
-          isMatch = true;
+          card.style.display = "block";
+          hasResults = true;
+        } else {
+          // Cek apakah card memiliki class sesuai kategori yang dipilih
+          if (card.classList.contains(category)) {
+            card.style.display = "block";
+            hasResults = true;
+          } else {
+            card.style.display = "none";
+          }
         }
-        card.style.display = isMatch ? "block" : "none";
       });
-    });
-  });
-});
 
-
-// search
-document.addEventListener("DOMContentLoaded", function () {
-  const searchInput = document.querySelector(".form-control");
-  const cards = document.querySelectorAll(".card-custom");
-
-  searchInput.addEventListener("input", function () {
-    const query = searchInput.value.toLowerCase();
-
-    cards.forEach((card) => {
-      const title = card.querySelector("h5").textContent.toLowerCase();
-      if (title.includes(query)) {
-        card.style.display = "block"; 
+      // Atur tata letak berdasarkan hasil filter
+      if (category !== "semua" && hasResults) {
+        cardsContainer.classList.add("justify-content-start");
+        cardsContainer.classList.remove("justify-content-around");
       } else {
-        card.style.display = "none";
+        cardsContainer.classList.add("justify-content-around");
+        cardsContainer.classList.remove("justify-content-start");
       }
     });
   });
 });
 
+// search
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.querySelector(".form-control");
+  const cards = document.querySelectorAll(".card-box");
+  const cardsContainer = document.querySelector(".cards-container");
 
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.trim().toLowerCase();
+    let hasResults = false;
+
+    cards.forEach((card) => {
+      const titleElements = card.querySelectorAll("h1, h5");
+      let combinedTitle = "";
+
+      titleElements.forEach((element) => {
+        combinedTitle += element.textContent.toLowerCase() + " ";
+      });
+
+      if (combinedTitle.includes(query)) {
+        card.style.display = "block";
+        hasResults = true;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    if (hasResults) {
+      cardsContainer.classList.add("justify-content-start");
+      cardsContainer.classList.remove("justify-content-around");
+    } else {
+      cardsContainer.classList.add("justify-content-around");
+      cardsContainer.classList.remove("justify-content-start");
+    }
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".clickable-card");
