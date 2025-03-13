@@ -1,0 +1,184 @@
+body {
+  overflow: auto;
+}
+
+.border-custom {
+  border: 2px solid #fe9000 !important;
+  border-radius: 10px !important;
+}
+
+/* styling kotak pencarian */
+.search-container {
+  background-color: #01153e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 15px rgba(112, 111, 109, 0.6),
+    0px 10px 20px rgba(14, 13, 13, 0.4);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.search-container button.search-btn-custom {
+  background-color: #fe9000;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 1rem;
+}
+.search-container button.search-btn-custom:hover {
+  background-color: #ff7300;
+}
+
+.filter-component .filter-btn-custom {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-component .filter-btn-custom:hover {
+  background-color: #ff7300;
+  transform: scale(1.05);
+}
+
+@media only screen and (max-width: 768px) {
+  .search-container {
+    padding: 10px;
+    height: 60px !important;
+  }
+
+  .filter-btn-custom {
+    display: none;
+  }
+
+  .filter-component span {
+    display: none;
+  }
+}
+
+/* styling kategori opp cards */
+.category-card {
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  gap: 10px;
+}
+
+.category-card .category-item {
+  background-color: #01153e;
+  width: 1500px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card .category-item img {
+  width: 100%;
+  height: 90px;
+  border-radius: 8px 8px 0 0;
+}
+
+.category-card .category-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.category-card .category-label {
+  font-size: clamp(0.7rem, 1vw, 1.3rem);
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+  .category-card .category-item img {
+    width: 150px;
+    height: 90px;
+  }
+}
+
+/* Styling Card */
+.card-custom {
+  position: relative;
+  border: 2px solid #fe9000;
+  border-radius: 15px;
+  box-shadow: 0 0 4px 2px rgba(51, 51, 51, 0.603);
+  overflow: hidden;
+  min-height: 200px;
+  max-height: 400px;
+  width: 240px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek Hover Card */
+.card-custom:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(51, 51, 51, 0.8);
+  border-color: #fe9000;
+}
+
+.card-custom .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 33%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+/* Card text (di atas gambar) */
+.card-box .card-custom .card-body {
+  position: absolute;
+  top: 3%;
+  left: 0;
+  width: 100%;
+  padding: 0.9rem;
+  color: black;
+  z-index: 2;
+}
+
+.card-box .card-body .card-title h1 {
+  font-size: clamp(1rem, 1vw, 2rem);
+  font-weight: bold;
+}
+
+.card-box .card-body .card-title h5 {
+  font-size: clamp(1rem, 1.3vw, 1.5rem);
+}
+
+@media only screen and (min-width: 1200px) {
+  .card-box .card-body .card-title h1 {
+    font-size: 0.9rem;
+  }
+
+  .card-box .card-body .card-title h5 {
+    font-size: 0.8rem;
+  }
+
+  .card-box .card-custom .card-body {
+    top: 10%;
+  }
+}
+
+.card-box .card-body .card-details i {
+  font-size: 1.5rem;
+}
+
+.card-box .card-body .card-details p {
+  font-size: 0.8rem;
+  height: 30px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+/* label keterangan tambahan kondisi event: kesempatan lebih tinggi dan lainnya */
+.card-box .card-body .custom-badge {
+  background-color: #e8abb7 !important;
+  color: #dc143c !important;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
