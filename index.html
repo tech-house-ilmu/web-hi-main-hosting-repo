@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda | House Ilmu Indonesia</title>
-    <link rel="icon" href="assets/img/logo.png">
+    <link rel="icon" href="/assets/img/logo.png">
     <!-- Link CDN Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -18,11 +18,37 @@
     <!-- Link CDN Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!-- Link CSS Navbar -->
-    <link rel="stylesheet" href="assets/css/navbar-footer.css">
+    <link rel="stylesheet" href="/assets/css/navbar-footer.css">
     <!-- Link CSS Homepage  -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <!-- Link CSS Global Reset -->
-    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <style>
+        @media only screen and (max-width: 767px) {
+            .upcoming .upcoming-desc img {
+                width: 70vw;
+            }
+        }
+
+        .upcoming .upcoming-event-desc p,
+        .upcoming .upcoming-event-desc ul li {
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
+        }
+
+        @media only screen and (max-width: 767px) {
+
+            .upcoming .upcoming-event-desc p,
+            .upcoming .upcoming-event-desc ul li {
+                font-size: clamp(0.8rem, 1vw, 0.8rem);
+            }
+        }
+
+        .upcoming .upcoming-event-desc ul {
+            list-style: none;
+            text-align: start;
+            padding: 0;
+        }
+    </style>
 </head>
 
 
@@ -38,9 +64,9 @@
                 <h1 style="color: #FFDD95; font-size: 4rem" class="fw-bold mb-3">Prepare Your Career With Us</h1>
                 <p class="text-light lh-base fs-5" style="letter-spacing: 3px;">Persiapkan karirmu bersama para ahli
                     yang siap memandumu dalam mengapai karir impian</p>
-                <div class="container-xl col-0 col-md-12 d-flex flex-row align-items-center">
+                <div class="container-xl col-0 col-md-12 d-flex flex-row align-items-center pt-4 gap-1">
                     <i class="fa-solid fa-user fs-4" style="color: #f69259;"></i>
-                    <p class="pt-4 ps-2" style="color: #f69259;">>100 Orang Mempersiapkan Karir </p>
+                    <p style="color: #f69259; font-size: clamp(0.7rem, 1vw, 1rem);">> 100 Orang Mempersiapkan Karir </p>
                 </div>
             </div>
             <!-- End banner text -->
@@ -48,7 +74,7 @@
             <!-- Start banner image -->
             <div class="banner-img col-0 col-lg-6 d-none d-lg-flex justify-content-center align-items-center ms-5"
                 data-aos="fade-left">
-                <img src="assets/img/banner-cindy2.png" alt="banner person image">
+                <img src="/assets/img/banner-cindy2.png" alt="banner person image">
             </div>
             <!-- End banner image -->
         </div>
@@ -56,132 +82,17 @@
     <!-- Banner section -->
 
     <!--Upcoming event section -->
-    <!-- Gunakan sintaks ini jika upcoming events hanya 1 -->
     <section class="upcoming container-fluid" style="background-color: #FFDD95;">
-        <div class="container-xl d-flex flex-column justify-content-center align-items-center py-4">
-            <h1 class="col-12 text-center fw-bold py-4" style="color: #083D77;">Upcoming Event</h1>
-            <div
-                class="upcoming-desc container-xl d-flex flex-column flex-md-row justify-content-around align-items-center py-3">
-                <!-- Start upcoming swiper -->
-                <div class="swiper swiperUpcoming col-12 col-md-6 mb-4" data-aos="fade-right">
-                    <!-- Start swiper images -->
-                    <div class="swiper-wrapper d-flex flex-row justify-content-around align-items-center">
-                        <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                            <img class="" src="assets/img/career-checkpoint-januari2025.png" alt="poster cv review 1">
-                        </div>
-                    </div>
-                    <!-- End swiper images -->
-
-                    <!-- Start swiper button -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                    <!-- End swiper button -->
-                </div>
-                <!-- End upcoming swiper -->
-
-                <!-- Start upcoming event description -->
-                <div class="upcoming-event-desc col-12 col-md-6 d-flex flex-column align-items-center text-center fw-semibold"
-                    data-aos="fade-left">
-                    <p class="px-0 px-md-3 mb-4 fs-3">Masih bingung gimana bikin CV yang stand out? 🚀
-                        Yuk, ikutan Career Checkpoint GRATIS dari @houseilmu.id!
-                        Cuma di Januari, jadi buruan daftar sekarang! 🎯
-                    </p>
-                    <a class="col-lg-4 col-md-6 fs-5 py-3 px-4 rounded-pill text-light fw-bold"
-                        href="https://bit.ly/CVREVIEWSUBMISSION" target="_blank">Daftar Sekarang Yuk!</a>
-                </div>
-                <!-- End upcoming event description -->
-                <!-- </div> -->
-                <!-- </div> -->
+        <!-- Gunakan sintaks ini jika upcoming events hanya 1 dan hanya 1 gambar poster -->
+        <div id="singleEvent"></div>
+        <!-- Gunakan sintaks ini jika upcoming events hanya 1 dan dengan lebih dari 1 poster gambar -->
+        <!-- <div id="singleEventSwiper"></div> -->
+        <!-- Gunakan sintaks ini jika upcoming events lebih dari 1 dan tiap event gambar poster hanya 1 -->
+        <!-- <div id="multiEvents"></div> -->
+        <!-- Gunakan sintaks ini jika upcoming events lebih dari 1 dan tiap event gambar poster lebih dari 1 -->
+        <!-- <div id="multiEventsSwiper"></div> -->
     </section>
     <!-- Upcoming event section -->
-
-    <!-- Upcoming event section double swiper -->
-    <!--Gunakan sintaks ini jika upcoming events lebih dari 1 -->
-    <!--    <section class="upcoming container-fluid" style="background-color: #FFDD95;">-->
-    <!--    <div class="container-xxl d-flex flex-column justify-content-center align-items-center py-4">-->
-    <!--        <h1 class="col-12 text-center fw-bold py-4" style="color: #083D77;">Upcoming Event</h1>-->
-    <!--        <div class="upcoming-container container-xxl d-flex justify-content-center align-items-center">-->
-    <!-- Start main swiper upcoming -->
-    <!--            <div class="swiper swiperUpcomingContainer">-->
-    <!--                <div class="swiper-wrapper d-flex flex-row justify-content-around align-items-center">-->
-
-    <!-- Start container sub swiper -->
-    <!--                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">-->
-    <!--                        <div class="upcoming-desc container-xl d-flex flex-column flex-md-row justify-content-around align-items-center py-3">-->
-    <!-- Start sub swiper -->
-    <!--                            <div class="swiper swiperUpcoming col-12 col-md-6 mb-4">-->
-    <!--                                <div class="swiper-wrapper d-flex flex-row justify-content-around align-items-center">-->
-    <!--                                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">-->
-    <!--                                        <img src="assets/img/chillups.jpeg" alt="poster chillups 1">-->
-    <!--                                    </div>-->
-    <!--                                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">-->
-    <!--                                        <img src="assets/img/chillups2.jpeg" alt="poster chillups 2">-->
-    <!--                                    </div>-->
-    <!--                                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">-->
-    <!--                                        <img src="assets/img/chillups3.jpeg" alt="poster chillups 3">-->
-    <!--                                    </div>-->
-    <!--                                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">-->
-    <!--                                        <img src="assets/img/chillups4.jpeg" alt="poster chillups 4">-->
-    <!--                                    </div>-->
-    <!--                                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">-->
-    <!--                                        <img src="assets/img/chillups5.jpeg" alt="poster chillups 5">-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <!-- Sub swiper button -->
-    <!--                                <div class="swiper-button-next swiper-button-upcoming-events-next"></div>-->
-    <!--                                <div class="swiper-button-prev swiper-button-upcoming-events-prev"></div>-->
-    <!--                                <div class="swiper-pagination swiper-pagination-upcoming-events"></div>-->
-    <!--                            </div>-->
-    <!-- End sub swiper -->
-    <!-- Start sub swiper description -->
-    <!--                            <div class="upcoming-event-desc col-12 col-md-6 d-flex flex-column align-items-center text-center fw-semibold">-->
-    <!--                                <p>👾 What is ChillUps? 👾 <br> This is the best gathering where we can relax while upgrading ourselves together! For those of you who are still confused about post-campus life, you can join right away!😎.</p>-->
-    <!--                                <a class="col-lg-4 col-md-6 py-3 px-4 rounded-pill text-light fw-bold" href="https://bit.ly/chillups24" target="_blank">Daftar</a>-->
-    <!--                            </div>-->
-    <!-- End sub swiper description -->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!-- End container sub swiper -->
-
-    <!-- Start container sub swiper -->
-    <!--                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">-->
-    <!--                        <div class="upcoming-desc container-xl d-flex flex-column flex-md-row justify-content-around align-items-center py-3">-->
-    <!-- Start sub swiper -->
-    <!--                            <div class="swiper swiperUpcoming col-12 col-md-6 mb-4">-->
-    <!--                                <div class="swiper-wrapper d-flex flex-row justify-content-around align-items-center">-->
-    <!--                                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">-->
-    <!--                                        <img src="assets/img/bodtalks-sept-2024.jpg" alt="">-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <!-- Sub swiper button -->
-    <!--                                <div class="swiper-button-next swiper-button-upcoming-events-next"></div>-->
-    <!--                                <div class="swiper-button-prev swiper-button-upcoming-events-prev"></div>-->
-    <!--                                <div class="swiper-pagination swiper-pagination-upcoming-events"></div>-->
-    <!--                            </div>-->
-    <!-- End sub swiper -->
-    <!-- Start sub swiper description -->
-    <!--                            <div class="upcoming-event-desc col-12 col-md-6 d-flex flex-column align-items-center text-center fw-semibold">-->
-    <!--                                <p>🚀 BoD Talks: Pengembangan Soft Skill di Dunia Kerja 🚀</p>-->
-    <!--                                <a class="col-lg-4 col-md-6 py-3 px-4 rounded-pill text-light fw-bold" href="https://bit.ly/BoDTalks" target="_blank">Daftar</a>-->
-    <!--                            </div>-->
-    <!-- End sub swiper description -->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!-- End container sub swiper -->
-
-    <!--                </div>-->
-    <!-- Start main swiper button -->
-    <!--                <div class="swiper-button-next swiper-button-upcoming-container-next"></div>-->
-    <!--                <div class="swiper-button-prev swiper-button-upcoming-container-prev"></div>-->
-    <!--                <div class="swiper-pagination swiper-pagination-upcoming-container"></div>-->
-    <!-- End main swiper button -->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!-- End main swiper upcoming -->
-    <!--    </div>-->
-    <!--</section>-->
-    <!-- Upcoming event section double swiper -->
 
     <!--Start oppt section-->
     <section class="opportunities mt-4">
@@ -521,19 +432,19 @@
             <div class="swiper swiperPartner">
                 <div class="swiper-wrapper d-flex flex-row justify-content-around align-items-center py-5">
                     <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img class="" src="assets/img/logo-cakap.png" alt="logo partner cakap">
+                        <img src="/assets/img/logo-cakap.png" alt="logo partner cakap">
                     </div>
                     <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img class="" src="assets/img/logo-indorelawan.png" alt="logo partner indorelawan">
+                        <img src="/assets/img/logo-indorelawan.png" alt="logo partner indorelawan">
                     </div>
                     <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img class="" src="assets/img/logo-pemimpinid.jpg" alt="logo partner pemimpinid">
+                        <img src="/assets/img/logo-pemimpinid.jpg" alt="logo partner pemimpinid">
                     </div>
                     <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img class="" src="assets/img/logo-institut-id.png" alt="logo partner institut id">
+                        <img src="/assets/img/logo-institut-id.png" alt="logo partner institut id">
                     </div>
                     <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img class="" src="assets/img/logo-phillip-sekuritas.png" alt="logo partner phillip sekuritas">
+                        <img src="/assets/img/logo-phillip-sekuritas.png" alt="logo partner phillip sekuritas">
                     </div>
                 </div>
                 <!-- Swiper partner button -->
@@ -557,7 +468,7 @@
                     <div
                         class="swiper-slide odd p-4 rounded-3 col-2 d-flex flex-column justify-content-center align-items-center">
                         <div class="testimonial-img d-flex flex-row justify-content-center align-items-center">
-                            <img class="img-fluid col-6 col-lg-5" src="assets/img/logo.png" alt="">
+                            <img class="img-fluid col-6 col-lg-5" src="/assets/img/logo.png" alt="">
                             <div class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start">
                                 <p class="mt-2" id="testi-name">Oktavia</p>
                                 <p id="testi-role">Peserta Risyik</p>
@@ -572,7 +483,7 @@
                     <div
                         class="swiper-slide even p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center">
                         <div class="testimonial-img d-flex flex-row justify-content-center align-items-center">
-                            <img class="img-fluid col-6 col-lg-5" src="assets/img/logo.png" alt="">
+                            <img class="img-fluid col-6 col-lg-5" src="/assets/img/logo.png" alt="">
                             <div class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start">
                                 <p class="mt-2" id="testi-name">Melinda</p>
                                 <p id="testi-role">Peserta Risyik</p>
@@ -586,7 +497,7 @@
                     <div
                         class="swiper-slide odd p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center">
                         <div class="testimonial-img d-flex flex-row justify-content-center align-items-center">
-                            <img class="img-fluid col-6 col-lg-5" src="assets/img/logo.png" alt="">
+                            <img class="img-fluid col-6 col-lg-5" src="/assets/img/logo.png" alt="">
                             <div class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start">
                                 <p class="mt-2" id="testi-name">Oktavia</p>
                                 <p id="testi-role">Peserta Risyik</p>
@@ -601,7 +512,7 @@
                     <div
                         class="swiper-slide even p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center">
                         <div class="testimonial-img d-flex flex-row justify-content-center align-items-center">
-                            <img class="img-fluid col-6 col-lg-5" src="assets/img/logo.png" alt="">
+                            <img class="img-fluid col-6 col-lg-5" src="/assets/img/logo.png" alt="">
                             <div class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start">
                                 <p class="mt-2" id="testi-name">Melinda</p>
                                 <p id="testi-role">Peserta Risyik</p>
@@ -631,7 +542,7 @@
                 <!-- Start mentors box -->
                 <div class="d-flex flex-column justify-content-center align-items-center m-2">
                     <div class="mentors-info d-flex flex-column align-items-center position-relative">
-                        <img class="rounded-3" src="assets/img/Lutfia Rahmannisa_CEO.png" alt="">
+                        <img class="rounded-3" src="/assets/img/Lutfia Rahmannisa_CEO.png" alt="">
                         <div class="mentors-exp d-flex justify-content-evenly align-items-center gap-2 rounded-3">
                             <ul>
                                 <li>Leadership</li>
@@ -759,11 +670,13 @@
     <!-- CDN animate on scroll -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- Initialize swiper and aos -->
-    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
     <!-- Initialize Navigation -->
     <script src="/assets/js/global/nav.js"></script>
     <!-- Initialize Footer -->
     <script src="/assets/js/global/footer.js"></script>
+    <!-- Initialize Navigation -->
+    <script src="/assets/js/global/upcomingEvent.js"></script>
 
 </body>
 
