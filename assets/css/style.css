@@ -113,31 +113,10 @@
 }
 
 .opportunities #card-1::before {
-  background-image: url(/assets/img-opp/lomba/lomba-ikutlomba.png);
+  background-image: url(/assets/img-opp/volunteer/volunteer_semesta.png);
 }
 .opportunities #card-2::before {
-  background-image: url(/assets/img-opp/lomba/lomba-rhyme-full.jpg);
-}
-.opportunities #card-3::before {
-  background-image: url(/assets/img-opp/volunteer/volunteer-ekspedisi-pelosok-negeri-full.png);
-}
-.opportunities #card-4::before {
-  background-image: url(/assets/img-opp/lomba/lomba-emweek11th-full.png);
-}
-.opportunities #card-5::before {
-  background-image: url(/assets/img-opp/internship/intern-smartpath-full.png);
-}
-.opportunities #card-6::before {
-  background-image: url(/assets/img-opp/lomba/lomba-korma-full.png);
-}
-.opportunities #card-7::before {
-  background-image: url(/assets/img-opp/exchange/exchange-international-youth-exchange-full.png);
-}
-.opportunities #card-8::before {
-  background-image: url(/assets/img-opp/volunteer/volunteer-ekspedisi-ruang-aksi-full.png);
-}
-.opportunities #card-9::before {
-  background-image: url(/assets/img-opp/internship/intern-pemuda-internasional-full.png);
+  background-image: url(/assets/img-opp/internship/internship-jackal.png);
 }
 
 .opportunities .opp-card .opp-card-title {
