@@ -125,20 +125,15 @@
   background-image: url(/assets/img-opp/lomba/lomba-leadersid.png);
 }
 .opportunities #card-5::before {
-  background-image: url(/assets/img-opp/internship/intern-smartpath-full.png);
+  background-image: url(/assets/img-opp/volunteer/volunteer_semesta.png);
 }
 .opportunities #card-6::before {
-  background-image: url(/assets/img-opp/lomba/lomba-korma-full.png);
+  background-image: url(/assets/img-opp/internship/internship-jackal.png);
 }
 .opportunities #card-7::before {
-  background-image: url(/assets/img-opp/exchange/exchange-international-youth-exchange-full.png);
+  background-image: url(/assets/img-opp/volunteer/poster-bercatha.jpg);
 }
-.opportunities #card-8::before {
-  background-image: url(/assets/img-opp/volunteer/volunteer-ekspedisi-ruang-aksi-full.png);
-}
-.opportunities #card-9::before {
-  background-image: url(/assets/img-opp/internship/intern-pemuda-internasional-full.png);
-}
+
 
 .opportunities .opp-card .opp-card-title {
   margin-top: 50%;
