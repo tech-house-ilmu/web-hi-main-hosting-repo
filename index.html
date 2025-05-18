@@ -1,149 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beranda | House Ilmu Indonesia</title>
-    <link rel="icon" href="/assets/img/logo.png">
+    <link rel="icon" href="/assets/img/logo.png" />
     <!-- Link CDN Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <!-- Link CDN Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Link CDN Animation on Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Link CDN Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <!-- Link CSS Navbar -->
-    <link rel="stylesheet" href="/assets/css/navbar-footer.css">
+    <link rel="stylesheet" href="/assets/css/navbar-footer.css" />
     <!-- Link CSS Homepage  -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
     <!-- Link CSS Global Reset -->
-    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/global.css" />
     <style>
-        @media only screen and (max-width: 767px) {
-            .upcoming .upcoming-desc img {
-                width: 70vw;
-            }
+      @media only screen and (max-width: 767px) {
+        .upcoming .upcoming-desc img {
+          width: 70vw;
         }
+      }
 
+      .upcoming .upcoming-event-desc p,
+      .upcoming .upcoming-event-desc ul li {
+        font-size: clamp(0.8rem, 1vw, 0.9rem);
+      }
+
+      @media only screen and (max-width: 767px) {
         .upcoming .upcoming-event-desc p,
         .upcoming .upcoming-event-desc ul li {
-            font-size: clamp(0.8rem, 1vw, 0.9rem);
+          font-size: clamp(0.8rem, 1vw, 0.8rem);
         }
+      }
 
-        @media only screen and (max-width: 767px) {
-
-            .upcoming .upcoming-event-desc p,
-            .upcoming .upcoming-event-desc ul li {
-                font-size: clamp(0.8rem, 1vw, 0.8rem);
-            }
-        }
-
-        .upcoming .upcoming-event-desc ul {
-            list-style: none;
-            text-align: start;
-            padding: 0;
-        }
+      .upcoming .upcoming-event-desc ul {
+        list-style: none;
+        text-align: start;
+        padding: 0;
+      }
     </style>
-</head>
+  </head>
 
-
-<body>
+  <body>
     <!-- Navigation content -->
     <div id="nav-container"></div>
 
     <!-- Banner section -->
-    <section class="banner container-fluid" style="background-color: #01153e;">
-        <div class="banner-container container-xl d-flex flex-row justify-content-center align-items-center">
-            <!-- Start banner text -->
-            <div class="banner-text col-12 col-lg-6 px-2 py-4" data-aos="fade-right">
-                <h1 style="color: #FFDD95; font-size: 4rem" class="fw-bold mb-3">Prepare Your Career With Us</h1>
-                <p class="text-light lh-base fs-5" style="letter-spacing: 3px;">Persiapkan karirmu bersama para ahli
-                    yang siap memandumu dalam mengapai karir impian</p>
-                <div class="container-xl col-0 col-md-12 d-flex flex-row align-items-center pt-4 gap-1">
-                    <i class="fa-solid fa-user fs-4" style="color: #f69259;"></i>
-                    <p style="color: #f69259; font-size: clamp(0.7rem, 1vw, 1rem);">> 100 Orang Mempersiapkan Karir </p>
-                </div>
-            </div>
-            <!-- End banner text -->
-
-            <!-- Start banner image -->
-            <div class="banner-img col-0 col-lg-6 d-none d-lg-flex justify-content-center align-items-center ms-5"
-                data-aos="fade-left">
-                <img src="/assets/img/banner-cindy2.png" alt="banner person image">
-            </div>
-            <!-- End banner image -->
+    <section class="banner container-fluid" style="background-color: #01153e">
+      <div
+        class="banner-container container-xl d-flex flex-row justify-content-center align-items-center"
+      >
+        <!-- Start banner text -->
+        <div
+          class="banner-text col-12 col-lg-6 px-2 py-4"
+          data-aos="fade-right"
+        >
+          <h1 style="color: #ffdd95; font-size: 4rem" class="fw-bold mb-3">
+            Prepare Your Career With Us
+          </h1>
+          <p class="text-light lh-base fs-5" style="letter-spacing: 3px">
+            Persiapkan karirmu bersama para ahli yang siap memandumu dalam
+            mengapai karir impian
+          </p>
+          <div
+            class="container-xl col-0 col-md-12 d-flex flex-row align-items-center pt-4 gap-1"
+          >
+            <i class="fa-solid fa-user fs-4" style="color: #f69259"></i>
+            <p style="color: #f69259; font-size: clamp(0.7rem, 1vw, 1rem)">
+              > 100 Orang Mempersiapkan Karir
+            </p>
+          </div>
         </div>
+        <!-- End banner text -->
+
+        <!-- Start banner image -->
+        <div
+          class="banner-img col-0 col-lg-6 d-none d-lg-flex justify-content-center align-items-center ms-5"
+          data-aos="fade-left"
+        >
+          <img src="/assets/img/banner-cindy2.png" alt="banner person image" />
+        </div>
+        <!-- End banner image -->
+      </div>
     </section>
     <!-- Banner section -->
 
     <!--Upcoming event section -->
-    <section class="upcoming container-fluid" style="background-color: #FFDD95;">
-        <!-- Gunakan sintaks ini jika upcoming events hanya 1 dan hanya 1 gambar poster -->
-        <div id="singleEvent"></div>
-        <!-- Gunakan sintaks ini jika upcoming events hanya 1 dan dengan lebih dari 1 poster gambar -->
-        <!-- <div id="singleEventSwiper"></div> -->
-        <!-- Gunakan sintaks ini jika upcoming events lebih dari 1 dan tiap event gambar poster hanya 1 -->
-        <!-- <div id="multiEvents"></div> -->
-        <!-- Gunakan sintaks ini jika upcoming events lebih dari 1 dan tiap event gambar poster lebih dari 1 -->
-        <!-- <div id="multiEventsSwiper"></div> -->
+    <section class="upcoming container-fluid" style="background-color: #ffdd95">
+      <!-- Gunakan sintaks ini jika upcoming events hanya 1 dan hanya 1 gambar poster -->
+      <div id="singleEvent"></div>
+      <!-- Gunakan sintaks ini jika upcoming events hanya 1 dan dengan lebih dari 1 poster gambar -->
+      <!-- <div id="singleEventSwiper"></div> -->
+      <!-- Gunakan sintaks ini jika upcoming events lebih dari 1 dan tiap event gambar poster hanya 1 -->
+      <!-- <div id="multiEvents"></div> -->
+      <!-- Gunakan sintaks ini jika upcoming events lebih dari 1 dan tiap event gambar poster lebih dari 1 -->
+      <!-- <div id="multiEventsSwiper"></div> -->
     </section>
     <!-- Upcoming event section -->
 
     <!--Start oppt section-->
     <section class="opportunities mt-4">
-        <div class="opp-title text-center my-4">
-            <h1><span class="blue-HI fw-bold">House of</span> <span class="oranye-HI fw-bold">opportunities</span></h1>
-            <h3><span class="blue-HI">"From </span><span class="oranye-HI">Students </span><span class="blue-HI">to
-                </span><span class="oranye-HI">Students </span><span class="blue-HI">with House Ilmu!"</span></h3>
-        </div>
+      <div class="opp-title text-center my-4">
+        <h1>
+          <span class="blue-HI fw-bold">House of</span>
+          <span class="oranye-HI fw-bold">opportunities</span>
+        </h1>
+        <h3>
+          <span class="blue-HI">"From </span
+          ><span class="oranye-HI">Students </span
+          ><span class="blue-HI">to </span
+          ><span class="oranye-HI">Students </span
+          ><span class="blue-HI">with House Ilmu!"</span>
+        </h3>
+      </div>
 
-        <div class="opp-card container-xxl d-flex">
-            <div class="card-container d-flex flex-wrap justify-content-center gap-3 gap-md-2 gap-xxl-3 ms-xl-4">
-
-                <a href="/programme/lomba/lomba-ikutlomba.html">
-                    <div id="card-1" class="card ikutlomba">
+      <div class="opp-card container-xxl d-flex">
+        <div
+          class="card-container d-flex flex-wrap justify-content-center gap-3 gap-md-2 gap-xxl-3 ms-xl-4"
+        >
+        <a href="/programme/beasiswa/beasiswa-bestro.html">
+                    <div id="card-1" class="card">
                         <div class="opp-card-title d-flex align-items-center">
                             <div class="logo-company col-4 p-3">
-                                <img class="img-fluid" src="/assets/img-opp/lomba/logo-ikutlomba.png"
+                                <img class="img-fluid" src="/assets/img-opp/beasiswa/logo-bestro.png"
                                     alt="Logo Company">
                             </div>
                             <div class="opp-programe-name col-8 d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder">Lomba Puisi Nasional 2025</h1>
-                                <h5 class="organizer fw-semibold fs-6">ikutlomba</h5>
+                                <h1 class="opp-title fw-bolder mt-3">BESTRO S1 2025</h1>
+                                <h5 class="organizer fw-semibold fs-6">Petrokimia Gresik</h5>
                             </div>
                         </div>
 
-                        <div class="opp-card-details d-flex pb-2">
+                        <div class="opp-card-details d-flex pb-2 mt-3">
                             <div class="d-flex flex-column col-4 align-items-center gap-2">
-                                <i class="fa-solid fa-user pt-1"></i>
-                                <i class="fa-award fa-solid pt-1"></i>
                                 <i class="fa-solid fa-money-bill-wave pt-1"></i>
+                                <i class="fa-solid fa-graduation-cap pt-1"></i>
+                                <i class="fa-solid fa-certificate pt-1"></i>
                                 <i class="fa-solid fa-clock pt-1"></i>
                             </div>
                             <div class="d-flex flex-column col-8 align-items-start gap-1">
-                                <p>Lomba</p>
-                                <p>Menulis</p>
-                                <p>Free</p>
-                                <p>10 April 2025</p>
+                                <p>Fully Funded</p>
+                                <p>Beasiswa</p>
+                                <p>S1 / D4</p>
+                                <p>15 Juni 2025</p>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                <a href="/programme/lomba/lomba-rhyme.html">
-                    <div id="card-2" class="card ikutlomba">
+                <a href="/programme/beasiswa/beasiswa-u-go.html">
+                    <div id="card-2" class="card beasiswa-ugo">
                         <div class="opp-card-title d-flex align-items-center">
                             <div class="logo-company col-4 p-3">
-                                <img class="img-fluid" src="/assets/img-opp/lomba/logo-rhyme.png" alt="Logo Company">
+                                <img class="img-fluid" src="/assets/img-opp/beasiswa/logo-U-GO.png"
+                                    alt="Logo Company">
+                            </div>
+                            <div class="opp-programe-name col-8 d-flex flex-column gap-1">
+                                <h1 class="opp-title fw-bolder" style="font-size: clamp(0.9rem, 1vw, 1rem);">U-Go Scholarship 2025</h1>
+                                <h5 class="organizer fw-semibold fs-6">Beasiswa U-Go</h5>
+                            </div>
+                        </div>
+
+                        <div class="opp-card-details d-flex pb-2">
+                            <div class="d-flex flex-column col-4 align-items-center gap-2">
+                                <i class="fa-solid fa-money-bill-wave pt-1"></i>
+                                <i class="fa-solid fa-graduation-cap pt-1"></i>
+                                <i class="fa-solid fa-certificate pt-1"></i>
+                                <i class="fa-solid fa-clock pt-1"></i>
+                            </div>
+                            <div class="d-flex flex-column col-8 align-items-start gap-1">
+                                <p>Partial Funded</p>
+                                <p>Beasiswa</p>
+                                <p>S1 / D4</p>
+                                <p>23 Mei 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/programme/lomba/lomba-rencana-bisnis-berkelanjutan-kemendag.html">
+                    <div id="card-3" class="card rencana-bisnis">
+                        <div class="opp-card-title d-flex align-items-center">
+                            <div class="logo-company col-4 p-3">
+                                <img class="img-fluid" src="/assets/img-opp/lomba/logo-kemendag.png" alt="Logo Company">
                             </div>
                             <div class="opp-programe-name col-8  d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder">RHYME 2025</h1>
-                                <h5 class="organizer fw-semibold fs-6">Metronous</h5>
+                                <h1 class="opp-title fw-bolder" style="font-size: clamp(0.7rem, 2vw, 0.9rem);">Kompetisi Nasional Rencana Bisnis Berkelanjutan</h1>
+                                <h5 class="organizer fw-semibold fs-6 " style="font-size: clamp(0.7rem, 1vw, 1.5 rem);">USN</h5>
                             </div>
                         </div>
 
@@ -158,114 +220,21 @@
                                 <p>Lomba</p>
                                 <p>Akademik</p>
                                 <p>Free</p>
-                                <p>15 Maret 2025</p>
+                                <p>23 Mei 2025</p>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                <a href="/programme/volunteer/volunteer-ekspedisi-pelosok-negeri.html">
-                    <div id="card-3" class="card ikutlomba">
+                <a href="/programme/lomba/lomba-leaders.html">
+                    <div id="card-4" class="card diponegoro">
                         <div class="opp-card-title d-flex align-items-center">
                             <div class="logo-company col-4 p-3">
-                                <img class="img-fluid" src="/assets/img-opp/volunteer/logo-ekspedisi-pelosok-negeri.png"
-                                    alt="Logo Company">
+                                <img class="img-fluid" src="/assets/img-opp/lomba/logo-leadersid.png" alt="Logo Company">
                             </div>
                             <div class="opp-programe-name col-8  d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder" style="font-size: clamp(0.9rem, 1vw, 1rem);">Ekspedisi
-                                    Pelosok Negeri Vol 7</h1>
-                                <h5 class="organizer fw-semibold" style="font-size: clamp(0.8rem, 1vw, 0.9rem);">
-                                    Literasi
-                                    Lumbung Foundation</h5>
-                            </div>
-                        </div>
-
-                        <div class="opp-card-details d-flex pb-2">
-                            <div class="d-flex flex-column col-4 align-items-center gap-2">
-                                <i class="fa-solid fa-user pt-1"></i>
-                                <i class="fa-solid fa-handshake-angle pt-1"></i>
-                                <i class="fa-solid fa-money-bill-wave pt-1"></i>
-                                <i class="fa-solid fa-clock pt-1"></i>
-                            </div>
-                            <div class="d-flex flex-column col-8 align-items-start gap-1">
-                                <p>Volunteer</p>
-                                <p>Konservasi</p>
-                                <p>Fully funded</p>
-                                <p>26 Maret 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="/programme/lomba/lomba-emweek11th-mindxplore.html">
-                    <div id="card-4" class="card ikutlomba">
-                        <div class="opp-card-title d-flex align-items-center">
-                            <div class="logo-company col-4 p-3">
-                                <img class="img-fluid" src="/assets/img-opp/lomba/logo-emweek11th.png"
-                                    alt="Logo Company">
-                            </div>
-                            <div class="opp-programe-name col-8  d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder">EMWEEK 11th IDEATURES</h1>
-                                <h5 class="organizer fw-semibold fs-6">UISI</h5>
-                            </div>
-                        </div>
-
-                        <div class="opp-card-details d-flex pb-2">
-                            <div class="d-flex flex-column col-4 align-items-center gap-2">
-                                <i class="fa-solid fa-user pt-1"></i>
-                                <i class="fa-solid fa-award pt-1"></i>
-                                <i class="fa-solid fa-money-bill-wave pt-1"></i>
-                                <i class="fa-solid fa-clock pt-1"></i>
-                            </div>
-                            <div class="d-flex flex-column col-8 align-items-start gap-1">
-                                <p>Lomba</p>
-                                <p>Menulis</p>
-                                <p>20k - 35k</p>
-                                <p>25 April 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="/programme/internship/intern-smartpath.html">
-                    <div id="card-5" class="card ikutlomba">
-                        <div class="opp-card-title d-flex align-items-center">
-                            <div class="logo-company col-4 p-3">
-                                <img class="img-fluid" src="/assets/img-opp/internship/logo-smartpath.png"
-                                    alt="Logo Company">
-                            </div>
-                            <div class="opp-programe-name col-8  d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder">Smartpath Internship</h1>
-                                <h5 class="organizer fw-semibold fs-6">Smartpath</h5>
-                            </div>
-                        </div>
-
-                        <div class="opp-card-details d-flex pb-2">
-                            <div class="d-flex flex-column col-4 align-items-center gap-2">
-                                <i class="fa-solid fa-user pt-1"></i>
-                                <i class="fa-solid fa-briefcase pt-1"></i>
-                                <i class="fa-solid fa-calendar-days pt-1"></i>
-                                <i class="fa-solid fa-clock pt-1"></i>
-                            </div>
-                            <div class="d-flex flex-column col-8 align-items-start gap-1">
-                                <p>Internship</p>
-                                <p>Human Resource</p>
-                                <p>3 Bulan</p>
-                                <p>31 Maret 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="/programme/lomba/lomba-korma.html">
-                    <div id="card-6" class="card ikutlomba">
-                        <div class="opp-card-title d-flex align-items-center">
-                            <div class="logo-company col-4 p-3">
-                                <img class="img-fluid" src="/assets/img-opp/lomba/logo-korma.png" alt="Logo Company">
-                            </div>
-                            <div class="opp-programe-name col-8  d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder">KORMA</h1>
-                                <h5 class="organizer fw-semibold fs-6">prada.telyu</h5>
+                                <h1 class="opp-title fw-bolder" style="font-size: clamp(0.7rem, 1vw, 0.9rem);">Diponegoro Poster Competition</h1>
+                                <h5 class="organizer fw-semibold fs-6 mt-1 " style="font-size: clamp(0.7rem, 1vw, 1.5 rem);">Leaders.id</h5>
                             </div>
                         </div>
 
@@ -280,285 +249,433 @@
                                 <p>Lomba</p>
                                 <p>Seni</p>
                                 <p>Free</p>
-                                <p>20 Maret 2025</p>
+                                <p>30 Juni 2025</p>
                             </div>
                         </div>
                     </div>
                 </a>
+          <a href="\programme\volunteer\volunteer-semesta.html">
+            <div id="card-5" class="card semesta-jelajah gap-1">
+              <div class="opp-card-title d-flex align-items-center">
+                <div class="logo-company col-4 p-3">
+                  <img
+                    class="img-fluid"
+                    src="/assets/img-opp/volunteer/logo_semesta.png"
+                    alt="Logo Company"
+                  />
+                </div>
+                <div class="opp-programe-name col-8 d-flex flex-column gap-1">
+                  <h1
+                    class="opp-title fw-bolder"
+                    style="font-size: clamp(0.9rem, 1vw, 1rem)"
+                  >
+                    Semesta Jelajah Nusantara #2
+                  </h1>
+                  <h5
+                    class="organizer fw-semibold"
+                    style="font-size: clamp(0.8rem, 1vw, 0.9rem)"
+                  >
+                    Semesta Manusia
+                  </h5>
+                </div>
+              </div>
 
-                <a href="/programme/exchange/exchange-international-youth-exchange.html">
-                    <div id="card-7" class="card ikutlomba">
-                        <div class="opp-card-title d-flex align-items-center">
-                            <div class="logo-company col-4 p-3">
-                                <img class="img-fluid"
-                                    src="/assets/img-opp/exchange/logo-international-youth-exchange.png"
-                                    alt="Logo Company">
-                            </div>
-                            <div class="opp-programe-name col-8  d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder" style="font-size: clamp(0.7rem, 1vw, 0.9rem);">
-                                    International Youth Exchange Chapter Singapore & Malaysia</h1>
-                                <h5 class="organizer fw-semibold" style="font-size: clamp(0.6rem, 1vw, 0.8rem);">
-                                    International Youth Exchange</h5>
-                            </div>
-                        </div>
-
-                        <div class="opp-card-details d-flex pb-2">
-                            <div class="d-flex flex-column col-4 align-items-center gap-2">
-                                <i class="fa-solid fa-user pt-1"></i>
-                                <i class="fa-solid fa-user-graduate pt-1"></i>
-                                <i class="fa-solid fa-money-bill-wave pt-1"></i>
-                                <i class="fa-solid fa-clock pt-1"></i>
-                            </div>
-                            <div class="d-flex flex-column col-8 align-items-start gap-1">
-                                <p>Exchange</p>
-                                <p>Student Exchange</p>
-                                <p>Fully Funded</p>
-                                <p>25 April 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="/programme/volunteer/volunteer-ekspedisi-ruang-aksi.html" class="d-flex d-lg-none d-xl-flex">
-                    <div id="card-8" class="card ikutlomba">
-                        <div class="opp-card-title d-flex align-items-center">
-                            <div class="logo-company col-4 p-3">
-                                <img class="img-fluid" src="/assets/img-opp/volunteer/logo-ekspedisi-ruang-aksi.png"
-                                    alt="Logo Company">
-                            </div>
-                            <div class="opp-programe-name col-8  d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder pe-1" style="font-size: clamp(0.9rem, 1vw, 1rem);">
-                                    Ekspedisi Ruang Aksi</h1>
-                                <h5 class="organizer fw-semibold" style="font-size: clamp(0.8rem, 1vw, 0.9rem);">
-                                    Ruang Aksi Milenial</h5>
-                            </div>
-                        </div>
-
-                        <div class="opp-card-details d-flex pb-2">
-                            <div class="d-flex flex-column col-4 align-items-center gap-2">
-                                <i class="fa-solid fa-user pt-1"></i>
-                                <i class="fa-solid fa-handshake-angle pt-1"></i>
-                                <i class="fa-solid fa-money-bill-wave pt-1"></i>
-                                <i class="fa-solid fa-clock pt-1"></i>
-                            </div>
-                            <div class="d-flex flex-column col-8 align-items-start gap-1">
-                                <p>Volunteer</p>
-                                <p>Pengajaran</p>
-                                <p>Fully Funded</p>
-                                <p>25 Maret 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="/programme/internship/intern-pemuda-internasional-content-creator.html"
-                    class="d-flex d-none d-xl-flex">
-                    <div id="card-9" class="card ikutlomba">
-                        <div class="opp-card-title d-flex align-items-center">
-                            <div class="logo-company col-4 p-3">
-                                <img class="img-fluid" src="/assets/img-opp/internship/logo-pemuda-internasional.png"
-                                    alt="Logo Company">
-                            </div>
-                            <div class="opp-programe-name col-8  d-flex flex-column gap-1">
-                                <h1 class="opp-title fw-bolder" style="font-size: clamp(0.9rem, 1vw, 1rem);">Internship
-                                    Pemuda Internasional</h1>
-                                <h5 class="organizer fw-semibold" style="font-size: clamp(0.8rem, 1vw, 0.9rem);">
-                                    Pemuda Internasional</h5>
-                            </div>
-                        </div>
-
-                        <div class="opp-card-details d-flex pb-2">
-                            <div class="d-flex flex-column col-4 align-items-center gap-2">
-                                <i class="fa-solid fa-user pt-1"></i>
-                                <i class="fa-solid fa-briefcase pt-1"></i>
-                                <i class="fa-solid fa-money-bill-wave pt-1"></i>
-                                <i class="fa-solid fa-clock pt-1"></i>
-                            </div>
-                            <div class="d-flex flex-column col-8 align-items-start gap-1">
-                                <p>Internship</p>
-                                <p>Content Creator</p>
-                                <p>3 Bulan</p>
-                                <p>8 April 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!--more-->
-                <a href="/programme/HI-opportunities/">
-                    <div class="card more d-flex justify-content-center align-items-center">
-                        <p class="text-white fs-4 z-1">See More...</p>
-                    </div>
-                </a>
+              <div class="opp-card-details d-flex pb-2">
+                <div class="d-flex flex-column col-4 align-items-center gap-2">
+                  <i class="fa-solid fa-user pt-1"></i>
+                  <i class="fa-solid fa-handshake-angle pt-1"></i>
+                  <i class="fa-solid fa-money-bill-wave pt-1"></i>
+                  <i class="fa-solid fa-clock pt-1"></i>
+                </div>
+                <div class="d-flex flex-column col-8 align-items-start gap-1">
+                  <p>Volunteer</p>
+                  <p>Konservasi</p>
+                  <p>Fully funded</p>
+                  <p>30 Mei 2025</p>
+                </div>
+              </div>
             </div>
+          </a>
+
+          <a
+            href="\programme\internship\intern-jackal-holidays-content-creator.html"
+          >
+            <div id="card-6" class="card jackal">
+              <div class="opp-card-title d-flex align-items-center">
+                <div class="logo-company col-4 p-3">
+                  <img
+                    class="img-fluid"
+                    src="/assets/img-opp/internship/logo_jackal.png"
+                    alt="Logo Company"
+                  />
+                </div>
+                <div class="opp-programe-name col-8 d-flex flex-column gap-1">
+                  <h1 class="opp-title fw-bolder">
+                    Paid Internship - Content Creator
+                  </h1>
+                  <h5 class="organizer fw-semibold fs-6">Jackal Holidays</h5>
+                </div>
+              </div>
+
+              <div class="opp-card-details d-flex pb-2">
+                <div class="d-flex flex-column col-4 align-items-center gap-2">
+                  <i class="fa-solid fa-user pt-1"></i>
+                  <i class="fa-solid fa-briefcase pt-1"></i>
+                  <i class="fa-solid fa-calendar-days pt-1"></i>
+                  <i class="fa-solid fa-clock pt-1"></i>
+                </div>
+                <div class="d-flex flex-column col-8 align-items-start gap-1">
+                  <p>Internship</p>
+                  <p>Content Creator</p>
+                  <p></p>
+                  <p>3 Bulan</p>
+                  <p>20 Mei 2025</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="\programme\volunteer\volunteer-berchata.html">
+            <div id="card-7" class="card berchata gap-1">
+              <div class="opp-card-title d-flex align-items-center">
+                <div class="logo-company col-4 p-3">
+                  <img
+                    class="img-fluid"
+                    src="/assets/img-opp/volunteer/logo bercatha.png"
+                    alt="Logo Company"
+                  />
+                </div>
+                <div class="opp-programe-name col-8 d-flex flex-column gap-1">
+                  <h1
+                    class="opp-title fw-bolder"
+                  >
+                    BERCHATA #5
+                  </h1>
+                  <h5
+                    class="organizer fw-semibold"
+                  >
+                    Catha Indonesia
+                  </h5>
+                </div>
+              </div>
+
+              <div class="opp-card-details d-flex pb-2">
+                <div class="d-flex flex-column col-4 align-items-center gap-2">
+                  <i class="fa-solid fa-user pt-1"></i>
+                  <i class="fa-solid fa-handshake-angle pt-1"></i>
+                  <i class="fa-solid fa-money-bill-wave pt-1"></i>
+                  <i class="fa-solid fa-clock pt-1"></i>
+                </div>
+                <div class="d-flex flex-column col-8 align-items-start gap-1">
+                  <p>Volunteer</p>
+                  <p>Konservasi</p>
+                  <p>Fully funded</p>
+                  <p>09 Juni 2025</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!--more-->
+          <a href="/programme/HI-opportunities/">
+            <div
+              class="card more d-flex justify-content-center align-items-center"
+            >
+              <p class="text-white fs-4 z-1">See More...</p>
+            </div>
+          </a>
         </div>
+      </div>
     </section>
     <!--End oppt section-->
 
     <!-- Start programme section -->
     <section class="programme container-xl mt-4">
-        <div class="programme-container d-flex flex-column justify-content-center align-items-center py-5">
-            <h1 class="col-12 text-center pb-5 fw-bold" style="color: #083D77;">Choose the program that works for you
-            </h1>
-            <div class="programme-box d-flex flex-column flex-lg-row justify-content-around align-items-center">
-                <!-- Start programme box -->
-                <div class="programme-list col-12 col-lg-4 d-flex flex-column align-items-start justify-content-center rounded-4 mb-2 mb-lg-0 px-5 py-5"
-                    style="background-color: #EE964B;" data-aos="fade-right">
-                    <h2 class="pt-3 pb-3 fw-bold" style="color: #1746A2;">Sudut Karir</h2>
-                    <p>Hybrid event yang membahas tentang career preparation secara menyeluruh dari tiap tahapan
-                        recruitment.</p>
-                    <a class="ms-auto fw-semibold" href="programme/#sudutkarir">Learn More...</a>
-                </div>
-                <!-- End programme box -->
+      <div
+        class="programme-container d-flex flex-column justify-content-center align-items-center py-5"
+      >
+        <h1 class="col-12 text-center pb-5 fw-bold" style="color: #083d77">
+          Choose the program that works for you
+        </h1>
+        <div
+          class="programme-box d-flex flex-column flex-lg-row justify-content-around align-items-center"
+        >
+          <!-- Start programme box -->
+          <div
+            class="programme-list col-12 col-lg-4 d-flex flex-column align-items-start justify-content-center rounded-4 mb-2 mb-lg-0 px-5 py-5"
+            style="background-color: #ee964b"
+            data-aos="fade-right"
+          >
+            <h2 class="pt-3 pb-3 fw-bold" style="color: #1746a2">
+              Sudut Karir
+            </h2>
+            <p>
+              Hybrid event yang membahas tentang career preparation secara
+              menyeluruh dari tiap tahapan recruitment.
+            </p>
+            <a class="ms-auto fw-semibold" href="programme/#sudutkarir"
+              >Learn More...</a
+            >
+          </div>
+          <!-- End programme box -->
 
-                <!-- Start programme box -->
-                <div class="programme-list col-12 col-lg-4 d-flex flex-column align-items-start justify-content-center rounded-4 mt-2 mt-lg-0 px-5 py-5"
-                    style="background-color: #FE9000;" data-aos="fade-left">
-                    <h2 class="pt-3 pb-3 fw-bold" style="color: #1746A2;">Review CV</h2>
-                    <p>Program diskusi santai untuk mengembangkan soft skill dan life skill bersama expert</p>
-                    <a class="ms-auto fw-semibold" href="programme/#review">Learn More...</a>
-                </div>
-                <!-- End programme box -->
-            </div>
+          <!-- Start programme box -->
+          <div
+            class="programme-list col-12 col-lg-4 d-flex flex-column align-items-start justify-content-center rounded-4 mt-2 mt-lg-0 px-5 py-5"
+            style="background-color: #fe9000"
+            data-aos="fade-left"
+          >
+            <h2 class="pt-3 pb-3 fw-bold" style="color: #1746a2">Review CV</h2>
+            <p>
+              Program diskusi santai untuk mengembangkan soft skill dan life
+              skill bersama expert
+            </p>
+            <a class="ms-auto fw-semibold" href="programme/#review"
+              >Learn More...</a
+            >
+          </div>
+          <!-- End programme box -->
         </div>
+      </div>
     </section>
     <!-- End programme section -->
 
     <!-- Start partner section -->
-    <section class="partner container-fluid mt-5" style="background-color: #FFDD95;">
-        <div class="partner-container container-xl d-flex flex-column justify-content-center align-items-center">
-            <h1 class="col-12 text-center fw-bold pt-5 mt-2" style="color: #083D77;">Who work with us?</h1>
-            <!-- Start partner swiper -->
-            <div class="swiper swiperPartner">
-                <div class="swiper-wrapper d-flex flex-row justify-content-around align-items-center py-5">
-                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img src="/assets/img/logo-cakap.png" alt="logo partner cakap">
-                    </div>
-                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img src="/assets/img/logo-indorelawan.png" alt="logo partner indorelawan">
-                    </div>
-                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img src="/assets/img/logo-pemimpinid.jpg" alt="logo partner pemimpinid">
-                    </div>
-                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img src="/assets/img/logo-institut-id.png" alt="logo partner institut id">
-                    </div>
-                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
-                        <img src="/assets/img/logo-phillip-sekuritas.png" alt="logo partner phillip sekuritas">
-                    </div>
-                </div>
-                <!-- Swiper partner button -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+    <section
+      class="partner container-fluid mt-5"
+      style="background-color: #ffdd95"
+    >
+      <div
+        class="partner-container container-xl d-flex flex-column justify-content-center align-items-center"
+      >
+        <h1 class="col-12 text-center fw-bold pt-5 mt-2" style="color: #083d77">
+          Who work with us?
+        </h1>
+        <!-- Start partner swiper -->
+        <div class="swiper swiperPartner">
+          <div
+            class="swiper-wrapper d-flex flex-row justify-content-around align-items-center py-5"
+          >
+            <div
+              class="swiper-slide d-flex flex-column justify-content-center align-items-center"
+            >
+              <img src="/assets/img/logo-cakap.png" alt="logo partner cakap" />
             </div>
-            <!-- End partner swiper -->
+            <div
+              class="swiper-slide d-flex flex-column justify-content-center align-items-center"
+            >
+              <img
+                src="/assets/img/logo-indorelawan.png"
+                alt="logo partner indorelawan"
+              />
+            </div>
+            <div
+              class="swiper-slide d-flex flex-column justify-content-center align-items-center"
+            >
+              <img
+                src="/assets/img/logo-pemimpinid.jpg"
+                alt="logo partner pemimpinid"
+              />
+            </div>
+            <div
+              class="swiper-slide d-flex flex-column justify-content-center align-items-center"
+            >
+              <img
+                src="/assets/img/logo-institut-id.png"
+                alt="logo partner institut id"
+              />
+            </div>
+            <div
+              class="swiper-slide d-flex flex-column justify-content-center align-items-center"
+            >
+              <img
+                src="/assets/img/logo-phillip-sekuritas.png"
+                alt="logo partner phillip sekuritas"
+              />
+            </div>
+          </div>
+          <!-- Swiper partner button -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
         </div>
+        <!-- End partner swiper -->
+      </div>
     </section>
     <!-- End partner section -->
 
     <!-- Start testimonial section -->
     <section class="testimonial container-xxl mt-5">
-        <div class="testimonial-container container-xxl d-flex flex-column justify-content-center align-items-center ">
-            <h1 class="col-12 text-center fw-bold py-3 mt-2" style="color: #083D77;">What they says about us?</h1>
-            <!-- Start swiper testimonial -->
-            <div class="swiper swiperTestimonial">
-                <div class="swiper-wrapper d-flex flex-row justify-content-around">
-                    <!-- Start testimonial box -->
-                    <div
-                        class="swiper-slide odd p-4 rounded-3 col-2 d-flex flex-column justify-content-center align-items-center">
-                        <div class="testimonial-img d-flex flex-row justify-content-center align-items-center">
-                            <img class="img-fluid col-6 col-lg-5" src="/assets/img/logo.png" alt="">
-                            <div class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start">
-                                <p class="mt-2" id="testi-name">Oktavia</p>
-                                <p id="testi-role">Peserta Risyik</p>
-                            </div>
-                        </div>
-                        <p class="col-12 fw-semibold">“Sesinya di house ilmu keren banget. Aku jadi punya insight dan
-                            wawasan baru. Bagian yang aku paling suka adalah mentoring. Jangan lupa daftar acara
-                            selanjutnya ya!”</p>
-                    </div>
-                    <!-- End testimonial box -->
-                    <!-- Start testimonial box -->
-                    <div
-                        class="swiper-slide even p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center">
-                        <div class="testimonial-img d-flex flex-row justify-content-center align-items-center">
-                            <img class="img-fluid col-6 col-lg-5" src="/assets/img/logo.png" alt="">
-                            <div class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start">
-                                <p class="mt-2" id="testi-name">Melinda</p>
-                                <p id="testi-role">Peserta Risyik</p>
-                            </div>
-                        </div>
-                        <p class="col-12 fw-semibold">“Merasa impactful banget karena diajarin bagaimana bangun team
-                            bulding, management dan mindset kepemimpinan.”</p>
-                    </div>
-                    <!-- End testimonial box -->
-                    <!-- Start testimonial box -->
-                    <div
-                        class="swiper-slide odd p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center">
-                        <div class="testimonial-img d-flex flex-row justify-content-center align-items-center">
-                            <img class="img-fluid col-6 col-lg-5" src="/assets/img/logo.png" alt="">
-                            <div class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start">
-                                <p class="mt-2" id="testi-name">Oktavia</p>
-                                <p id="testi-role">Peserta Risyik</p>
-                            </div>
-                        </div>
-                        <p class="col-12 fw-semibold">“Sesinya di house ilmu keren banget. Aku jadi punya insight dan
-                            wawasan baru. Bagian yang aku paling suka adalah mentoring. Jangan lupa daftar acara
-                            selanjutnya ya!”</p>
-                    </div>
-                    <!-- End testimonial box -->
-                    <!-- Start testimonial box -->
-                    <div
-                        class="swiper-slide even p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center">
-                        <div class="testimonial-img d-flex flex-row justify-content-center align-items-center">
-                            <img class="img-fluid col-6 col-lg-5" src="/assets/img/logo.png" alt="">
-                            <div class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start">
-                                <p class="mt-2" id="testi-name">Melinda</p>
-                                <p id="testi-role">Peserta Risyik</p>
-                            </div>
-                        </div>
-                        <p class="col-12 fw-semibold">“Merasa impactful banget karena diajarin bagaimana bangun team
-                            bulding, management dan mindset kepemimpinan.”</p>
-                    </div>
-                    <!-- End testimonial box -->
+      <div
+        class="testimonial-container container-xxl d-flex flex-column justify-content-center align-items-center"
+      >
+        <h1 class="col-12 text-center fw-bold py-3 mt-2" style="color: #083d77">
+          What they says about us?
+        </h1>
+        <!-- Start swiper testimonial -->
+        <div class="swiper swiperTestimonial">
+          <div class="swiper-wrapper d-flex flex-row justify-content-around">
+            <!-- Start testimonial box -->
+            <div
+              class="swiper-slide odd p-4 rounded-3 col-2 d-flex flex-column justify-content-center align-items-center"
+            >
+              <div
+                class="testimonial-img d-flex flex-row justify-content-center align-items-center"
+              >
+                <img
+                  class="img-fluid col-6 col-lg-5"
+                  src="/assets/img/logo.png"
+                  alt=""
+                />
+                <div
+                  class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start"
+                >
+                  <p class="mt-2" id="testi-name">Oktavia</p>
+                  <p id="testi-role">Peserta Risyik</p>
                 </div>
-                <!-- Swiper testimonial button -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+              </div>
+              <p class="col-12 fw-semibold">
+                “Sesinya di house ilmu keren banget. Aku jadi punya insight dan
+                wawasan baru. Bagian yang aku paling suka adalah mentoring.
+                Jangan lupa daftar acara selanjutnya ya!”
+              </p>
             </div>
-            <!-- End swiper testimonial -->
+            <!-- End testimonial box -->
+            <!-- Start testimonial box -->
+            <div
+              class="swiper-slide even p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center"
+            >
+              <div
+                class="testimonial-img d-flex flex-row justify-content-center align-items-center"
+              >
+                <img
+                  class="img-fluid col-6 col-lg-5"
+                  src="/assets/img/logo.png"
+                  alt=""
+                />
+                <div
+                  class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start"
+                >
+                  <p class="mt-2" id="testi-name">Melinda</p>
+                  <p id="testi-role">Peserta Risyik</p>
+                </div>
+              </div>
+              <p class="col-12 fw-semibold">
+                “Merasa impactful banget karena diajarin bagaimana bangun team
+                bulding, management dan mindset kepemimpinan.”
+              </p>
+            </div>
+            <!-- End testimonial box -->
+            <!-- Start testimonial box -->
+            <div
+              class="swiper-slide odd p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center"
+            >
+              <div
+                class="testimonial-img d-flex flex-row justify-content-center align-items-center"
+              >
+                <img
+                  class="img-fluid col-6 col-lg-5"
+                  src="/assets/img/logo.png"
+                  alt=""
+                />
+                <div
+                  class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start"
+                >
+                  <p class="mt-2" id="testi-name">Oktavia</p>
+                  <p id="testi-role">Peserta Risyik</p>
+                </div>
+              </div>
+              <p class="col-12 fw-semibold">
+                “Sesinya di house ilmu keren banget. Aku jadi punya insight dan
+                wawasan baru. Bagian yang aku paling suka adalah mentoring.
+                Jangan lupa daftar acara selanjutnya ya!”
+              </p>
+            </div>
+            <!-- End testimonial box -->
+            <!-- Start testimonial box -->
+            <div
+              class="swiper-slide even p-4 rounded-3 col-3 d-flex flex-column justify-content-center align-items-center"
+            >
+              <div
+                class="testimonial-img d-flex flex-row justify-content-center align-items-center"
+              >
+                <img
+                  class="img-fluid col-6 col-lg-5"
+                  src="/assets/img/logo.png"
+                  alt=""
+                />
+                <div
+                  class="testimonial-profile col-6 col-lg-7 d-flex flex-column align-items-start"
+                >
+                  <p class="mt-2" id="testi-name">Melinda</p>
+                  <p id="testi-role">Peserta Risyik</p>
+                </div>
+              </div>
+              <p class="col-12 fw-semibold">
+                “Merasa impactful banget karena diajarin bagaimana bangun team
+                bulding, management dan mindset kepemimpinan.”
+              </p>
+            </div>
+            <!-- End testimonial box -->
+          </div>
+          <!-- Swiper testimonial button -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
         </div>
+        <!-- End swiper testimonial -->
+      </div>
     </section>
     <!-- End testimonial section -->
 
     <!-- Start mentors section -->
-    <section class="mentors container-fluid mt-5" style="background-color: #FFDD95;">
-        <div class="mentors-container container-xl d-flex flex-column justify-content-center align-items-center py-4">
-            <h1 class="col-12 text-center fw-bold py-3 mt-2" style="color: #083D77;">Learn From The Experts</h1>
-            <div class="mentors-img d-flex flex-wrap flex-md-row justify-content-around align-items-center py-3 mb-3"
-                data-aos="fade-up">
-                <!-- Start mentors box -->
-                <div class="d-flex flex-column justify-content-center align-items-center m-2">
-                    <div class="mentors-info d-flex flex-column align-items-center position-relative">
-                        <img class="rounded-3" src="/assets/img/Lutfia Rahmannisa_CEO.png" alt="">
-                        <div class="mentors-exp d-flex justify-content-evenly align-items-center gap-2 rounded-3">
-                            <ul>
-                                <li>Leadership</li>
-                                <li>Innovation Management</li>
-                                <li>Project Management</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="text-center px-4 p-3 rounded-bottom" style="background-color: #1746A2;">
-                        <h4 class="fw-bold">Lutfia Rahmannisa</h4>
-                        <h6 class="text-light fw-semibold mb-4">CEO of House Ilmu</h6>
-                    </div>
-                </div>
-                <!-- End mentors box -->
-                <!-- Start mentors box -->
-                <!-- <div class="d-flex flex-column justify-content-center align-items-center m-2">
+    <section
+      class="mentors container-fluid mt-5"
+      style="background-color: #ffdd95"
+    >
+      <div
+        class="mentors-container container-xl d-flex flex-column justify-content-center align-items-center py-4"
+      >
+        <h1 class="col-12 text-center fw-bold py-3 mt-2" style="color: #083d77">
+          Learn From The Experts
+        </h1>
+        <div
+          class="mentors-img d-flex flex-wrap flex-md-row justify-content-around align-items-center py-3 mb-3"
+          data-aos="fade-up"
+        >
+          <!-- Start mentors box -->
+          <div
+            class="d-flex flex-column justify-content-center align-items-center m-2"
+          >
+            <div
+              class="mentors-info d-flex flex-column align-items-center position-relative"
+            >
+              <img
+                class="rounded-3"
+                src="/assets/img/Lutfia Rahmannisa_CEO.png"
+                alt=""
+              />
+              <div
+                class="mentors-exp d-flex justify-content-evenly align-items-center gap-2 rounded-3"
+              >
+                <ul>
+                  <li>Leadership</li>
+                  <li>Innovation Management</li>
+                  <li>Project Management</li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="text-center px-4 p-3 rounded-bottom"
+              style="background-color: #1746a2"
+            >
+              <h4 class="fw-bold">Lutfia Rahmannisa</h4>
+              <h6 class="text-light fw-semibold mb-4">CEO of House Ilmu</h6>
+            </div>
+          </div>
+          <!-- End mentors box -->
+          <!-- Start mentors box -->
+          <!-- <div class="d-flex flex-column justify-content-center align-items-center m-2">
                     <div class="mentors-info d-flex flex-column align-items-center position-relative">
                         <img class="rounded-3" src="assets/img/Cindy Ayustin Afina_COO.jpg" alt="">
                         <div class="mentors-exp d-flex justify-content-evenly align-items-center gap-2 rounded-3">
@@ -574,87 +691,138 @@
                         <h6 class="text-light fw-semibold mb-4">COO of House Ilmu</h6>
                     </div>
                 </div>  -->
-                <!-- End mentors box -->
-            </div>
+          <!-- End mentors box -->
         </div>
+      </div>
     </section>
     <!-- End mentors section -->
 
     <!-- Start faq section -->
     <section class="faq container-xl mt-5">
-        <div class="faq-container d-flex flex-column justify-content-center py-4">
-            <h1 class="col-12 text-center fw-bold py-3 mt-2" style="color: #083D77;">Frequently Ask Questions</h1>
-            <div class="faq-list accordion" id="accordionExample">
-                <!-- Start faq box -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            Apa itu house ilmu?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>House Ilmu adalah sebuah platform yang bergerak di career development dengan
-                                mengedepankan unsur sosial untuk memberikan impact bagi generasi muda</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End faq box -->
-
-                <!-- Start faq box -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Apa saja layanan yang ditawarkan oleh House Ilmu?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>House Ilmu menawarkan berbagai layanan seperti bimbingan karir dan pelatihan keterampilan
-                                seperti review cv dan sudut karir.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End faq box -->
-
-                <!-- Start faq box -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Bagaimana cara mendaftar program House Ilmu?
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>Kamu dapat bergabung dengan House Ilmu dengan mendaftar melalui form yang ada di website
-                                kami. Setelah itu, tim akan menghubungi untuk langkah selanjutnya.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End faq box -->
-
-                <!-- Start faq box -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            Bagaimana cara menghubungi tim House Ilmu?
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>Kamu dapat menghubungi tim House Ilmu melalui email, telepon, atau formulir kontak yang
-                                tersedia di website kami.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End faq box -->
-
+      <div class="faq-container d-flex flex-column justify-content-center py-4">
+        <h1 class="col-12 text-center fw-bold py-3 mt-2" style="color: #083d77">
+          Frequently Ask Questions
+        </h1>
+        <div class="faq-list accordion" id="accordionExample">
+          <!-- Start faq box -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                Apa itu house ilmu?
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p>
+                  House Ilmu adalah sebuah platform yang bergerak di career
+                  development dengan mengedepankan unsur sosial untuk memberikan
+                  impact bagi generasi muda
+                </p>
+              </div>
             </div>
+          </div>
+          <!-- End faq box -->
+
+          <!-- Start faq box -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Apa saja layanan yang ditawarkan oleh House Ilmu?
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p>
+                  House Ilmu menawarkan berbagai layanan seperti bimbingan karir
+                  dan pelatihan keterampilan seperti review cv dan sudut karir.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End faq box -->
+
+          <!-- Start faq box -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Bagaimana cara mendaftar program House Ilmu?
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p>
+                  Kamu dapat bergabung dengan House Ilmu dengan mendaftar
+                  melalui form yang ada di website kami. Setelah itu, tim akan
+                  menghubungi untuk langkah selanjutnya.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End faq box -->
+
+          <!-- Start faq box -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                Bagaimana cara menghubungi tim House Ilmu?
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p>
+                  Kamu dapat menghubungi tim House Ilmu melalui email, telepon,
+                  atau formulir kontak yang tersedia di website kami.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End faq box -->
         </div>
+      </div>
     </section>
     <!-- End faq section -->
 
@@ -662,9 +830,11 @@
     <div id="footer-container"></div>
 
     <!-- CDN Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <!-- CDN swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!-- CDN animate on scroll -->
@@ -677,7 +847,5 @@
     <script src="/assets/js/global/footer.js"></script>
     <!-- Initialize Navigation -->
     <script src="/assets/js/global/upcomingEvent.js"></script>
-
-</body>
-
+  </body>
 </html>
