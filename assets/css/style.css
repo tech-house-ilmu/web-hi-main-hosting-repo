@@ -116,19 +116,19 @@
   background-image: url(/assets/img-opp/beasiswa/bestro.png);
 }
 .opportunities #card-2::before {
-  background-image: url(/assets/img-opp/beasiswa/U-GO.png);
+  background-image: url(/assets/img-opp/beasiswa/poster-gongbu.png);
 }
 .opportunities #card-3::before {
-  background-image: url(/assets/img-opp/lomba/lomba-rencana-bisnis-kemendag.png);
+  background-image: url(/assets/img-opp/lomba/poster-essay-bisnis-digital.png);
 }
 .opportunities #card-4::before {
   background-image: url(/assets/img-opp/lomba/lomba-leadersid.png);
 }
 .opportunities #card-5::before {
-  background-image: url(/assets/img-opp/volunteer/volunteer_semesta.png);
+  background-image: url(/assets/img-opp/volunteer/poster-nusantara-membara.jpg);
 }
 .opportunities #card-6::before {
-  background-image: url(/assets/img-opp/internship/internship-jackal.png);
+  background-image: url(/assets/img-opp/internship/poster-project-intern.jpg);
 }
 .opportunities #card-7::before {
   background-image: url(/assets/img-opp/volunteer/poster-bercatha.jpg);
@@ -140,11 +140,11 @@
 }
 
 .opportunities .opp-card .opp-card-title .opp-programe-name .opp-title {
-  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
 }
 
 .opportunities .opp-card .opp-card-title .opp-programe-name .organizer {
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
 }
 
 .opportunities .opp-card a:hover .card {
