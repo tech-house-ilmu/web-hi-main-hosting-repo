@@ -113,43 +113,38 @@
 }
 
 .opportunities #card-1::before {
-  background-image: url(/assets/img-opp/lomba/lomba-rencana-bisnis-kemendag.png);
+  background-image: url(/assets/img-opp/beasiswa/bestro.png);
 }
 .opportunities #card-2::before {
-  background-image: url(/assets/img-opp/lomba/lomba-leadersid.png);
+  background-image: url(/assets/img-opp/beasiswa/poster-gongbu.png);
 }
 .opportunities #card-3::before {
-  background-image: url(/assets/img-opp/volunteer/volunteer-ekspedisi-pelosok-negeri-full.png);
+  background-image: url(/assets/img-opp/lomba/poster-essay-bisnis-digital.png);
 }
 .opportunities #card-4::before {
-  background-image: url(/assets/img-opp/lomba/lomba-emweek11th-full.png);
+  background-image: url(/assets/img-opp/lomba/lomba-leadersid.png);
 }
 .opportunities #card-5::before {
-  background-image: url(/assets/img-opp/internship/intern-smartpath-full.png);
+  background-image: url(/assets/img-opp/volunteer/poster-nusantara-membara.jpg);
 }
 .opportunities #card-6::before {
-  background-image: url(/assets/img-opp/lomba/lomba-korma-full.png);
+  background-image: url(/assets/img-opp/internship/poster-project-intern.jpg);
 }
 .opportunities #card-7::before {
-  background-image: url(/assets/img-opp/exchange/exchange-international-youth-exchange-full.png);
+  background-image: url(/assets/img-opp/internship/poster-kumparan.jpg);
 }
-.opportunities #card-8::before {
-  background-image: url(/assets/img-opp/volunteer/volunteer-ekspedisi-ruang-aksi-full.png);
-}
-.opportunities #card-9::before {
-  background-image: url(/assets/img-opp/internship/intern-pemuda-internasional-full.png);
-}
+
 
 .opportunities .opp-card .opp-card-title {
   margin-top: 50%;
 }
 
 .opportunities .opp-card .opp-card-title .opp-programe-name .opp-title {
-  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
 }
 
 .opportunities .opp-card .opp-card-title .opp-programe-name .organizer {
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
 }
 
 .opportunities .opp-card a:hover .card {
