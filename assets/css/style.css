@@ -57,12 +57,12 @@
 }
 
 .upcoming .upcoming-desc .upcoming-event-desc a {
-  background-color: #174ea6;
+  background-color: #ff9900;
   transition: all ease-in-out 0.2s;
 }
 
 .upcoming .upcoming-desc .upcoming-event-desc a:hover {
-  background-color: #2469d6;
+  background-color: #d17f03;
 }
 
 /* end styling upcoming home section */
@@ -133,7 +133,6 @@
 .opportunities #card-7::before {
   background-image: url(/assets/img-opp/internship/poster-kumparan.jpg);
 }
-
 
 .opportunities .opp-card .opp-card-title {
   margin-top: 50%;
