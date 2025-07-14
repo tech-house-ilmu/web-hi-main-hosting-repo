@@ -113,25 +113,25 @@
 }
 
 .opportunities #card-1::before {
-  background-image: url(/assets/img-opp/beasiswa/bestro.png);
+  background-image: url(/assets/img-opp/beasiswa/poster-ilmac.png);
 }
 .opportunities #card-2::before {
-  background-image: url(/assets/img-opp/beasiswa/poster-gongbu.png);
+  background-image: url(/assets/img-opp/beasiswa/poster-cahaya-prestasi.png);
 }
 .opportunities #card-3::before {
-  background-image: url(/assets/img-opp/lomba/poster-essay-bisnis-digital.png);
+  background-image: url(/assets/img-opp/lomba/lomba-Bisnis-nasional.png);
 }
 .opportunities #card-4::before {
-  background-image: url(/assets/img-opp/lomba/lomba-leadersid.png);
+  background-image: url(/assets/img-opp/lomba/lomba-Pengembangan-Website-Sekolah.png);
 }
 .opportunities #card-5::before {
-  background-image: url(/assets/img-opp/volunteer/poster-nusantara-membara.jpg);
+  background-image: url(/assets/img-opp/volunteer/poster-YB3.jpg);
 }
 .opportunities #card-6::before {
-  background-image: url(/assets/img-opp/internship/poster-project-intern.jpg);
+  background-image: url(/assets/img-opp/internship/poster-gradify.png);
 }
 .opportunities #card-7::before {
-  background-image: url(/assets/img-opp/internship/poster-kumparan.jpg);
+  background-image: url(/assets/img-opp/internship/poster-pemuda-internasional.png);
 }
 
 .opportunities .opp-card .opp-card-title {

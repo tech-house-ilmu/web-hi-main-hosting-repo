@@ -101,8 +101,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 4px 2px rgba(51, 51, 51, 0.603);
   overflow: hidden;
-  min-height: 200px;
-  max-height: 400px;
+  height: 300px;
   width: 240px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -165,6 +164,7 @@ body {
 .card-box .card-body .card-details i {
   font-size: 1.5rem;
 }
+
 
 .card-box .card-body .card-details p {
   font-size: 0.8rem;
