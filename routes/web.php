@@ -5,7 +5,7 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArticlePageController;
 use App\Http\Controllers\TestimoniController;
-use App\Http\Controllers\VpDetailsController;
+use App\Http\Controllers\LeadersDetailsController;
 use App\Http\Controllers\HITCCProgrammeController;
 
 /******************************** HOME *********************************************/ 
@@ -14,8 +14,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /******************************** ABOUT *********************************************/ 
 
-
-Route::get('/about-us', [VpDetailsController::class, 'VpDetails'])->name('about');
+Route::get('/about-us', [LeadersDetailsController::class, 'LeadersDetails'])->name('about');
 
 /******************************** CAREER *********************************************/ 
 
@@ -47,9 +46,3 @@ Route::get('/programme/HI-opportunities/{category}/{slug}', [HITCCProgrammeContr
 
 Route::get('/article', [ArticlePageController::class, 'index'])->name('article.index');
 Route::get('/articles/{slug}', [ArticlePageController::class, 'show'])->name('article.show');
-
-
-
-Route::get('/testimoni', [TestimoniController::class, 'testimoni']);
-
-Route::get('/VpDetailsAbout', [VpDetailsController::class, 'VpDetails'])->name('VpDetails');
