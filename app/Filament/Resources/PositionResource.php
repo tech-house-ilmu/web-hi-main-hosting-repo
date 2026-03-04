@@ -94,6 +94,17 @@ class PositionResource extends Resource
                 Tables\Columns\IconColumn::make('is_visible')
                     ->label('Visible')
                     ->boolean(),
+
+                Tables\Columns\TextColumn::make('created_at')
+                ->label('Dibuat')
+                ->dateTime('d/m/Y H:i')
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+            ])
+            ->filters([
+                Tables\Filters\SelectFilter::make('division_id')
+                    ->label('Division')
+                    ->relationship('division', 'name')
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

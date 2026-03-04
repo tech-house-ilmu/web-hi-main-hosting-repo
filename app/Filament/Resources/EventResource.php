@@ -78,6 +78,12 @@ class EventResource extends Resource
             IconColumn::make('is_active')
                 ->label('Status Aktif')
                 ->boolean(),
+
+            Tables\Columns\TextColumn::make('created_at')
+            ->label('Dibuat')
+            ->dateTime('d/m/Y H:i')
+            ->sortable()
+            ->toggleable(isToggledHiddenByDefault: true),
         ])
         ->filters([
             //
@@ -85,7 +91,7 @@ class EventResource extends Resource
         ->actions([
             Tables\Actions\EditAction::make(),
             Tables\Actions\DeleteAction::make(),
-        ]) // <-- TAMBAHKAN BLOK INI
+        ])
         ->bulkActions([
             Tables\Actions\BulkActionGroup::make([
                 Tables\Actions\DeleteBulkAction::make(),

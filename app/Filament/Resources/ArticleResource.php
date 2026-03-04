@@ -69,6 +69,12 @@ class ArticleResource extends Resource
                 TextColumn::make('title')->searchable()->sortable()->limit(50),
                 TextColumn::make('author')->sortable(),
                 BadgeColumn::make('category')->badge()->sortable(),
+
+                Tables\Columns\TextColumn::make('created_at')
+                ->label('Dibuat')
+                ->dateTime('d/m/Y H:i')
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('category')

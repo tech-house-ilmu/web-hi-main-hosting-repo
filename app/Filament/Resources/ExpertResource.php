@@ -52,6 +52,11 @@ class ExpertResource extends Resource
                 IconColumn::make('is_active')
                     ->label('Aktif')
                     ->boolean(),
+                Tables\Columns\TextColumn::make('created_at')
+                ->label('Dibuat')
+                ->dateTime('d/m/Y H:i')
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

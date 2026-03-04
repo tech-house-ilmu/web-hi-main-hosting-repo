@@ -433,10 +433,30 @@ class HITCCProgrammeResource extends Resource
                 TextColumn::make('category.name')->label('Kategori')->sortable()->searchable(),
                 TextColumn::make('title_program')->label('Judul Program')->sortable()->searchable(),
                 TextColumn::make('registration_deadline')->label('Deadline')->date()->sortable(),
+
+                Tables\Columns\TextColumn::make('created_at')
+                ->label('Dibuat')
+                ->dateTime('d/m/Y H:i')
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->reorderable('sort_order')
             ->filters([
-                //
+                    Tables\Filters\SelectFilter::make('hitcc_category_id')
+                    ->label('Kategori')
+                    ->relationship('category', 'name'),
+
+                Tables\Filters\TernaryFilter::make('deadline_status')
+                    ->label('Status Deadline')
+                    ->placeholder('Semua')
+                    ->trueLabel('Masih Aktif')
+                    ->falseLabel('Sudah Lewat')
+                    ->queries(
+                        true: fn (Builder $query) =>
+                            $query->whereDate('registration_deadline', '>=', now()),
+                        false: fn (Builder $query) =>
+                            $query->whereDate('registration_deadline', '<', now()),
+                    ),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
