@@ -87,23 +87,27 @@
                 <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Chief Officer</h1>
 
                 <div class="chief-member d-flex flex-wrap justify-content-center align-items-stretch gap-4">
-                    @forelse($VpDetailsAbout->where('vp_details_position', 'CEO') as $ceo)
+                    @php
+                        $chiefPositions = ['CEO', 'CTO', 'CMO', 'COO', 'CFO']; // daftar posisi chief yang bisa ditulis
+                    @endphp
+
+                    @forelse($LeadersDetailsAbout->whereIn('leaders_details_position', $chiefPositions) as $chief)
                         <div class="member-card" data-aos="fade-up">
                             <div class="member-image-container">
-                                <img src="{{ asset('storage/' . $ceo->vp_details_img) }}" 
-                                     alt="{{ $ceo->vp_details_name }}"
-                                     loading="lazy"
-                                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzlhOWE5YSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPj88L3RleHQ+PC9zdmc+'">
+                                <img src="{{ asset('storage/' . $chief->leaders_details_img) }}" 
+                                    alt="{{ $chief->leaders_details_name }}"
+                                    loading="lazy"
+                                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzlhOWE5YSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPj88L3RleHQ+PC9zdmc+'">
                                 
                                 <div class="member-overlay">
                                     <div class="member-social-links">
-                                        @if($ceo->vp_details_linkedin)
-                                            <a href="{{ $ceo->vp_details_linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link">
+                                        @if($chief->leaders_details_linkedin)
+                                            <a href="{{ $chief->leaders_details_linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link">
                                                 <i class="fab fa-linkedin"></i>
                                             </a>
                                         @endif
-                                        @if($ceo->vp_details_email)
-                                            <a href="mailto:{{ $ceo->vp_details_email }}" class="social-link">
+                                        @if($chief->leaders_details_email)
+                                            <a href="mailto:{{ $chief->leaders_details_email }}" class="social-link">
                                                 <i class="fas fa-envelope"></i>
                                             </a>
                                         @endif
@@ -112,17 +116,18 @@
                             </div>
                             
                             <div class="member-info">
-                                <h3 class="member-position">{{ $ceo->vp_details_position }}</h3>
-                                <h5 class="member-name">{{ $ceo->vp_details_name }}</h5>
+                                <h3 class="member-position">{{ $chief->leaders_details_position }}</h3>
+                                <h5 class="member-name">{{ $chief->leaders_details_name }}</h5>
                             </div>
                         </div>
-                    @empty
+                        @empty
                         <div class="no-data-message">
                             <i class="fas fa-users"></i>
-                            <p>CEO information will be available soon.</p>
+                            <p>Data Chief belum ada.</p>
                         </div>
                     @endforelse
                 </div>
+
             </div>
 
             <!-- Vice President Section -->
@@ -130,23 +135,24 @@
                 <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Vice President</h1>
 
                 <div class="vice-member d-flex flex-wrap justify-content-center align-items-stretch gap-4">
-                    @forelse($VpDetailsAbout->where('vp_details_position', '!=', 'CEO') as $vp)
+
+                    @forelse($LeadersDetailsAbout->where('leaders_details_position', 'VP') as $leaders)
                         <div class="member-card" data-aos="fade-up">
                             <div class="member-image-container">
-                                <img src="{{ asset('storage/' . $vp->vp_details_img) }}" 
-                                     alt="{{ $vp->vp_details_name }}"
-                                     loading="lazy"
-                                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzlhOWE5YSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPj88L3RleHQ+PC9zdmc+'">
-                                
+                                <img src="{{ asset('storage/' . $leaders->leaders_details_img) }}" 
+                                    alt="{{ $leaders->leaders_details_name }}"
+                                    loading="lazy"
+                                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzlhOWE5YSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPj88L3RleHQ+PC9zdmc+'">
+
                                 <div class="member-overlay">
                                     <div class="member-social-links">
-                                        @if($vp->vp_details_linkedin)
-                                            <a href="{{ $vp->vp_details_linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link">
+                                        @if($leaders->leaders_details_linkedin)
+                                            <a href="{{ $leaders->leaders_details_linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link">
                                                 <i class="fab fa-linkedin"></i>
                                             </a>
                                         @endif
-                                        @if($vp->vp_details_email)
-                                            <a href="mailto:{{ $vp->vp_details_email }}" class="social-link">
+                                        @if($leaders->leaders_details_email)
+                                            <a href="mailto:{{ $leaders->leaders_details_email }}" class="social-link">
                                                 <i class="fas fa-envelope"></i>
                                             </a>
                                         @endif
@@ -155,17 +161,25 @@
                             </div>
                             
                             <div class="member-info">
-                                <h3 class="member-position">{{ $vp->vp_details_position }}</h3>
-                                <h5 class="member-name">{{ $vp->vp_details_name }}</h5>
+                                @php
+                                    $position = $leaders->leaders_details_position;
+
+                                    if ($leaders->leaders_details_position_division) {
+                                        $position .= ' ' . $leaders->leaders_details_position_division;
+                                    }
+                                @endphp
+                                <h3 class="member-position">{{ $position }}</h3>
+                                <h5 class="member-name">{{ $leaders->leaders_details_name }}</h5>
                             </div>
                         </div>
-                    @empty
+                        @empty
                         <div class="no-data-message">
                             <i class="fas fa-users"></i>
-                            <p>Vice President information will be available soon.</p>
+                            <p>Data Vice President belum ada.</p>
                         </div>
                     @endforelse
                 </div>
+
             </div>
         </div>
     </section>
@@ -174,9 +188,9 @@
     <style>
         /* Custom gap for better spacing */
         .chief-member, .vice-member {
-    gap: 3rem !important; /* 40px */
-    padding: 0 2rem; /* 24px padding kiri-kanan */
-}
+            gap: 3rem !important; /* 40px */
+            padding: 0 2rem; /* 24px padding kiri-kanan */
+        }
 
         /* Member Card Styles */
         .member-card {
