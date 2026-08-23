@@ -1,0 +1,91 @@
+Notes by yutakana
+
+Framework : laravel 11.x (PHP 8.2)
+Routing : app.php
+Database : MySQL / MariaDB
+Auth : Laravel Auth dengan integrasi Filament Guard
+
+
+1. HITCCProgramme.php: Model utama (parent) untuk semua program, menyimpan data umum
+(company, logo, banner/poster, link apply, batas pendaftaran, dsb).  
+2. HITCCCategory.php: Menyimpan kategori program (Internship, Volunteer, Scholarship, 
+Exchange, Competition). 
+
+
+Sub Model 1-1 dengan HITCCProgramee.php
+      1. HITCCInternship.php: Data magang (allowance, jobdesc, kualifikasi IPK/jurusan, jam
+      kerja, benefit).                                                                     
+      2. HITCCVolunteer.php: Data relawan/kegiatan sosial.                                 
+      3. HITCCScholarship.php: Data beasiswa dan persyaratan dokumen.                      
+      4. HITCCExchange.php: Data pertukaran pemuda/pelajar ke luar/dalam negeri.           
+      5. HITCCCompetition.php: Data perlombaan dan kompetisi. 
+
+Career Portal
+  1. Division.php: Divisi internal (misal: Technology, Human Capital, Marketing, Business   
+  Development, Product Development, CEO).                                                  
+  2. Position.php: Lowongan posisi/pekerjaan per divisi, dilengkapi auto-slug generator dan 
+  toggle is_visible.                                                                       
+  3. TestimoniAlumniCareer.php: Testimoni khusus alumni magang/staff House Ilmu.  
+
+
+Artikel dan berita                                                                                           
+Article.php: Manajemen artikel/blog edukasi, dilengkapi slug, kategori, author, editor,
+dan upload thumbnail gambar dengan pembersihan storage otomatis. 
+
+Event dan Komunitas
+  1. Event.php: Event/webinar aktif yang ditampilkan di halaman beranda.                    
+  2. Expert.php: Data mentor / narasumber / pembicara ahli.                                 
+  3. Testimoni.php: Testimoni pengguna umum di landing page.   
+
+
+Profile dan Struktur Organisasi
+  1. LeadersDetailsAbout.php: Data profil pimpinan dan struktur organisasi untuk halaman    
+  About Us.                                                                                
+  2. User.php: Akun administrator pengelola dashboard Filament.   
+
+
+
+Di panel admin /admin, terdapat 8 Resource CRUD:
+  
+  1. HITCCProgrammeResource.php: Form multi-kategori dinamis (form field dan target        
+  direktori upload otomatis berganti sesuai kategori yang dipilih).
+  2. PositionResource.php: Kelola lowongan kerja & divisi.
+  3. ArticleResource.php: Kelola artikel dengan Rich Text Editor & upload gambar.          
+  4. EventResource.php: Kelola banner dan jadwal event.
+  5. ExpertResource.php: Kelola profil mentor/ahli.
+  6. LeadersDetailsAboutResource.php: Kelola data jajaran pimpinan.
+  7. TestimoniResource.php: Kelola testimoni umum landing page.
+  8. TestimoniAlumniCareerResource.php: Kelola testimoni alumni magang/karir.
+
+
+
+ENDPOINT
+  1. / : HomeController.php (index)
+  2. /about-us : LeadersDetailsController.php (LeadersDetails)
+  3. /career : CareerController.php (index)
+  4. /career/{division} : CareerController.php (listByDivision)
+  5. /career/{division}/{slug} : CareerController.php (show)
+  6. /programme/HI-opportunities : HITCCProgrammeController.php (index)
+  7. /programme/HI-opportunities/{category}/{slug} : HITCCProgrammeController.php (show)   
+  8. /article : ArticlePageController.php (index)
+  9. /articles/{slug} : ArticlePageController.php (show)
+  10. /programme/HI-programmes : Direct View (pages.programme.HI-programmes.index)         
+  11. /partnership : Direct View (pages.partnership.partnership)
+  12. /partnership/partnership-affiliate-details : Direct View (pages.partnership.         
+  partnership-affiliate-details.index)
+  13. /partnership/partnership-event-details : Direct View (pages.partnership.partnership- 
+  event-details.index)
+  14. /partnership/partnership-details : Direct View (pages.partnership.partnership-       
+  details.index)
+  15. /partnership/partnership-konten-details : Direct View (pages.partnership.partnership-
+  konten-details.index)
+  16. /admin/login : Filament Authentication (Filament\Pages\Login)
+  17. /admin : Filament Dashboard (Filament\Pages\Dashboard)
+  18. /admin/articles : ArticleResource.php
+  19. /admin/events : EventResource.php
+  20. /admin/experts : ExpertResource.php
+  21. /admin/hitcc-programmes : HITCCProgrammeResource.php
+  22. /admin/leaders-details-abouts : LeadersDetailsAboutResource.php
+  23. /admin/positions : PositionResource.php
+  24. /admin/testimonis : TestimoniResource.php
+  25. /admin/testimoni-alumni-careers : TestimoniAlumniCareerResource.php
