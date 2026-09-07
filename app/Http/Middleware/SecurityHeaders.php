@@ -24,6 +24,11 @@ class SecurityHeaders
         // referrer policy
         $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
 
+        // hsts
+        if ($request->isSecure() || app()->environment('production')) {
+            $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+        }
+
         header_remove('X-Powered-By');
         $response->headers->remove('X-Powered-By');
 
