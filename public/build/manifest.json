@@ -1,20 +1,16 @@
 {
-  "public/img/homepage/poster-HITCC.jpeg": {
-    "file": "assets/poster-HITCC-D_jfP1HB.jpeg",
-    "src": "public/img/homepage/poster-HITCC.jpeg"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-Bk-d0G7Z.css",
+    "file": "assets/app-DR-6uVvR.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-D8fjOwIH.js",
+    "file": "assets/app-BtA_dsBm.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-B_l4pjL9.css"
+      "assets/app-GEV_umWj.css"
     ]
   }
 }

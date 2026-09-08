@@ -131,27 +131,7 @@
     background-repeat: no-repeat;
 }
 
-.opportunities #card-1::before {
-    background-image: url("/public/img/homepage/img-opp/beasiswa/bestro.png");
-}
-.opportunities #card-2::before {
-    background-image: url("/public/img/homepage/img-opp/beasiswa/U-GO.png");
-}
-.opportunities #card-3::before {
-    background-image: url("/public/img/homepage/img-opp/lomba/lomba-rencana-bisnis-kemendag.png");
-}
-.opportunities #card-4::before {
-    background-image: url("/public/img/homepage/img-opp/lomba/lomba-leadersid.png");
-}
-.opportunities #card-5::before {
-    background-image: url("/public/img/homepage/img-opp/volunteer/volunteer_semesta.png");
-}
-.opportunities #card-6::before {
-    background-image: url("/public/img/homepage/img-opp/internship/internship-jackal.png");
-}
-.opportunities #card-7::before {
-    background-image: url("/public/img/homepage/img-opp/volunteer/poster-bercatha.jpg");
-}
+
 
 .opportunities .opp-card .opp-card-title {
     margin-top: 50%;
@@ -171,7 +151,7 @@
 }
 
 .opportunities .opp-card a .more {
-    background-image: url("/public/img/homepage/poster-HITCC.jpeg");
+    background-image: url("/img/homepage/poster-HITCC.webp");
     background-size: cover;
     background-position: center;
     height: 100%;
