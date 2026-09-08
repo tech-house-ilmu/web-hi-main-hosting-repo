@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('testimoni_position')->nullable();
             $table->string('testimoni_description')->nullable();
             $table->timestamps();
-            
+
         });
     }
 

@@ -18,11 +18,11 @@
     <!-- Category Cards -->
     @php
         $categoryImages = [
-            'internship' => 'img/homepage/img-opp/internship.jpg',
-            'volunteer' => 'img/homepage/img-opp/volunteer.jpg',
-            'exchange' => 'img/homepage/img-opp/exchange.jpg',
-            'scholarship' => 'img/homepage/img-opp/beasiswa.jpeg',
-            'competition' => 'img/homepage/img-opp/competition.jpg',
+            'internship' => 'img/homepage/img-opp/internship.webp',
+            'volunteer' => 'img/homepage/img-opp/volunteer.webp',
+            'exchange' => 'img/homepage/img-opp/exchange.webp',
+            'scholarship' => 'img/homepage/img-opp/beasiswa.webp',
+            'competition' => 'img/homepage/img-opp/competition.webp',
         ];
     @endphp
 
@@ -30,7 +30,7 @@
         <!-- Semua -->
         <a href="#" data-category="all" 
           class="category-item text-center border-custom p-0 {{ request('category') == 'all' || !request('category') ? 'active' : '' }}">
-            <img src="{{ asset('img/homepage/img-opp/semua.jpg') }}" alt="Semua"/>
+            <img src="{{ asset('img/homepage/img-opp/semua.webp') }}" alt="Semua"/>
             <div class="d-flex justify-content-center card-img">
                 <span class="category-label">Semua</span>
             </div>

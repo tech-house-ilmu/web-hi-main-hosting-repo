@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\HITCCCategory;
+use Illuminate\Database\Seeder;
 
 class HITCCCategorySeeder extends Seeder
 {
@@ -18,7 +18,10 @@ class HITCCCategorySeeder extends Seeder
         ];
 
         foreach ($categories as $category) {
-            HITCCCategory::create($category);
+            HITCCCategory::firstOrCreate(
+                ['slug' => $category['slug']],
+                $category
+            );
         }
     }
 }

@@ -3,16 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\LeadersDetailsAbout;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class LeadersDetailsController extends Controller
 {
-    public function LeadersDetails()
+    /**
+     * Display the About Us page with leadership details.
+     */
+    public function index(): View
     {
-        $LeadersDetailsAbout = LeadersDetailsAbout::latest()->get();
-        return view('pages.about-us.about', compact('LeadersDetailsAbout'));
-
         $leaders = LeadersDetailsAbout::latest()->get();
-    return view('pages.about-us.about', compact('leaders'));
+
+        return view('pages.about-us.about', [
+            'leaders' => $leaders,
+            'LeadersDetailsAbout' => $leaders,
+        ]);
+    }
+
+    /**
+     * Backward-compatible alias for previous method name.
+     */
+    public function LeadersDetails(): View
+    {
+        return $this->index();
     }
 }

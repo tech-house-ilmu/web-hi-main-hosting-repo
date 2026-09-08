@@ -2,11 +2,11 @@
     @forelse($opportunities as $opp)
     <div class="card-box px-4 px-md-0">
         <a href="{{ route('programme.hi.show', ['category' => $opp->category->slug, 'slug' => $opp->slug]) }}" class="card-custom d-flex align-items-center" style="height: 300px;">
-            <img src="{{ $opp->bg_poster_img ? Storage::url($opp->bg_poster_img) : asset('img/homepage/img-opp/default.png') }}" style="background: cover/center no-repeat; width: 100%; height: 100%;" alt="{{ $opp->title }}">
+            <img src="{{ $opp->bg_poster_img ? Storage::url($opp->bg_poster_img) : asset('img/homepage/img-opp/default.png') }}" style="background: cover/center no-repeat; width: 100%; height: 100%;" alt="{{ $opp->title }}" loading="lazy" decoding="async">
             <div class="card-overlay"></div>
             <div class="card-body small-text">
                 <div class="card-title d-flex align-items-center gap-2">
-                    <img src="{{ $opp->logo_company_img ? Storage::url($opp->logo_company_img) : asset('img/logo.png') }}" class="logo col-3" alt="Logo">
+                    <img src="{{ $opp->logo_company_img ? Storage::url($opp->logo_company_img) : asset('img/logo.webp') }}" class="logo col-3" alt="Logo" loading="lazy" decoding="async">
                     <div class="col-9 d-flex flex-column gap-2 text-primary_HI">
                         <h1 style="font-size: clamp(0.8rem, 1vw, 0.9rem);">{{ $opp->title_program }}</h1>
                         <h5 style="font-size: clamp(0.8rem, 1vw, 0.8rem);">{{ $opp->company_name }}</h5>

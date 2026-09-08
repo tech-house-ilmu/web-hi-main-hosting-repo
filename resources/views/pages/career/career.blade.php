@@ -2,8 +2,6 @@
 
 @section('title', 'Career | House Ilmu Indonesia')
 
-@section('head')
-
 @section('content')
         <!-- Start career page title section -->
     <section class="career-title container-xl mt-5">
@@ -22,37 +20,37 @@
             <!-- Start culture icons -->
             <div class="culture-icons d-flex flex-wrap justify-content-center align-items-center mb-5" data-aos="fade-right">
                 <div class="cultures d-flex flex-column align-items-center mx-2 mx-md-2 mx-lg-4 ">
-                    <!-- <img class="py-3" src="../assets/img/logo.png" alt=""> -->
+                    <!-- <img class="py-3" src="../assets/img/logo.webp" alt=""> -->
                     <i class="fa-regular fa-smile fs-1 py-3"></i>
                     <p class="fw-semibold text-light">Fun</p>
                 </div>
                 <div class="cultures d-flex flex-column align-items-center mx-2 mx-md-2 mx-lg-4 ">
-                    <!-- <img class="py-3" src="../assets/img/logo.png" alt=""> -->
+                    <!-- <img class="py-3" src="../assets/img/logo.webp" alt=""> -->
                     <i class="fa-solid fa-lightbulb fs-1 py-3"></i>
                     <p class="fw-semibold text-light">Innovative</p>
                 </div>
                 <div class="cultures d-flex flex-column align-items-center mx-2 mx-md-2 mx-lg-4 ">
-                    <!-- <img class="py-3" src="../assets/img/logo.png" alt=""> -->
+                    <!-- <img class="py-3" src="../assets/img/logo.webp" alt=""> -->
                     <i class="fa fa-balance-scale fs-1 py-3"></i>
                     <p class="fw-semibold text-light">Equitable</p>
                 </div>
                 <div class="cultures d-flex flex-column align-items-center mx-2 mx-md-2 mx-lg-4 ">
-                    <!-- <img class="py-3" src="../assets/img/logo.png" alt=""> -->
+                    <!-- <img class="py-3" src="../assets/img/logo.webp" alt=""> -->
                     <i class="fa fa-book fs-1 py-3"></i>
                     <p class="fw-semibold text-light">Learning</p>
                 </div>
                 <div class="cultures d-flex flex-column align-items-center mx-2 mx-md-2 mx-lg-4 ">
-                    <!-- <img class="py-3" src="../assets/img/logo.png" alt=""> -->
+                    <!-- <img class="py-3" src="../assets/img/logo.webp" alt=""> -->
                     <i class="fa-solid fa-clock fs-1 py-3"></i>
                     <p class="fw-semibold text-light">Discipline</p>
                 </div>
                 <div class="cultures d-flex flex-column align-items-center mx-2 mx-md-2 mx-lg-4 ">
-                    <!-- <img class="py-3" src="../assets/img/logo.png" alt=""> -->
+                    <!-- <img class="py-3" src="../assets/img/logo.webp" alt=""> -->
                     <i class="fa fa-heart fs-1 py-3"></i>
                     <p class="fw-semibold text-light">Caring</p>
                 </div>
                 <div class="cultures d-flex flex-column align-items-center mx-2 mx-md-2 mx-lg-4 ">
-                    <!-- <img class="py-3" src="../assets/img/logo.png" alt=""> -->
+                    <!-- <img class="py-3" src="../assets/img/logo.webp" alt=""> -->
                     <i class=" fa fa-comments fs-1 py-3"></i>
                     <p class="fw-semibold text-light">Communication</p>
                 </div>
@@ -82,11 +80,13 @@
                                             <img style="width: 65px; height: 65px; object-fit: cover; border: 3px solid #083D77; box-shadow: 0 4px 12px rgba(8, 61, 119, 0.3);" 
                                                 src="{{ Storage::url($alumni->testimoni_alumni_img) }}" 
                                                 alt="{{ $alumni->testimoni_alumni_name }}"
+                                                loading="lazy" decoding="async"
                                                 class="rounded-circle">
                                         @else
                                             <img style="width: 65px; height: 65px; object-fit: cover; border: 3px solid #083D77; box-shadow: 0 4px 12px rgba(8, 61, 119, 0.3);" 
-                                                src="{{ asset('img/logo.png') }}" 
+                                                src="{{ asset('img/logo.webp') }}" 
                                                 alt="logo house ilmu"
+                                                loading="lazy" decoding="async"
                                                 class="rounded-circle">
                                         @endif
                                     </div>
@@ -110,8 +110,9 @@
                                 <div class="alumni-profile-section d-flex align-items-start mb-3 pb-3" style="border-bottom: 2px solid #f8f9fa;">
                                     <div class="alumni-img me-3" style="flex-shrink: 0;">
                                         <img style="width: 65px; height: 65px; object-fit: cover; border: 3px solid #083D77; box-shadow: 0 4px 12px rgba(8, 61, 119, 0.3);" 
-                                            src="{{ asset('img/logo.png') }}" 
+                                            src="{{ asset('img/logo.webp') }}" 
                                             alt="logo house ilmu"
+                                            loading="lazy" decoding="async"
                                             class="rounded-circle">
                                     </div>
                                     <div class="alumni-details text-start" style="flex-grow: 1;">
@@ -149,7 +150,7 @@
                         <h2 class="fw-bold py-2 py-xl-3">CEO</h2>
                         <h2 class="fw-bold py-1 opacity-0 d-xl-none">CEO</h2>
                         <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="/career/ceo"><span class="fw-bold p-3 rounded-4">See
+                            <a class="py-4 rounded-4" href="{{ route('career.division', 'ceo') }}"><span class="fw-bold p-3 rounded-4">See
                                     More...</span></a>
                         </div>
                     </div>
@@ -159,7 +160,7 @@
                         data-aos="fade-left">
                         <h2 class="fw-bold py-3">Human Capital</h2>
                         <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="/career/human-capital"><span class="fw-bold p-3 rounded-4">See
+                            <a class="py-4 rounded-4" href="{{ route('career.division', 'human-capital') }}"><span class="fw-bold p-3 rounded-4">See
                                     More...</span></a>
                         </div>
                     </div>
@@ -169,7 +170,7 @@
                         data-aos="fade-right">
                         <h2 class="fw-bold py-3">Product Development</h2>
                         <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="/career/product-development"><span
+                            <a class="py-4 rounded-4" href="{{ route('career.division', 'product-development') }}"><span
                                     class="fw-bold p-3 rounded-4">See More...</span></a>
                         </div>
                     </div>
@@ -179,7 +180,7 @@
                         data-aos="fade-left">
                         <h2 class="fw-bold py-3">Business Development</h2>
                         <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="/career/business-development"><span
+                            <a class="py-4 rounded-4" href="{{ route('career.division', 'business-development') }}"><span
                                     class="fw-bold p-3 rounded-4">See More...</span></a>
                         </div>
                     </div>
@@ -194,7 +195,7 @@
                         data-aos="fade-right">
                         <h2 class="fw-bold py-3">Technology</h2>
                         <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="/career/technology"><span class="fw-bold p-3 rounded-4">See
+                            <a class="py-4 rounded-4" href="{{ route('career.division', 'technology') }}"><span class="fw-bold p-3 rounded-4">See
                                     More...</span></a>
                         </div>
                     </div>
@@ -204,7 +205,7 @@
                         data-aos="fade-left">
                         <h2 class="fw-bold py-3">Marketing</h2>
                         <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="/career/marketing"><span class="fw-bold p-3 rounded-4">See
+                            <a class="py-4 rounded-4" href="{{ route('career.division', 'marketing') }}"><span class="fw-bold p-3 rounded-4">See
                                     More...</span></a>
                         </div>
                     </div>

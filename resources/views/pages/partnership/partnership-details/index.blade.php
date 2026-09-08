@@ -2,8 +2,6 @@
 
 @section('title', 'Partnership | House Ilmu Indonesia')
 
-@section('head')
-
 @section('content')
     <!-- Start partnership section -->
     <section class="partnership-details container-xl my-5">

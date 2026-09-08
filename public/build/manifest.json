@@ -1,20 +1,18 @@
 {
-  "public/img/homepage/poster-HITCC.jpeg": {
-    "file": "assets/poster-HITCC-D_jfP1HB.jpeg",
-    "src": "public/img/homepage/poster-HITCC.jpeg"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-BHGrUWm9.css",
+    // ini bisa jadi error
+    "file": "assets/app-IwnQAsB8.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-zWXbV9oo.js",
+    // ini bisa jadi error
+    "file": "assets/app-BtA_dsBm.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-B_l4pjL9.css"
+      "assets/app-GEV_umWj.css"
     ]
   }
 }

@@ -1,11 +1,11 @@
 @extends('layout.app')
 
-@section('head')
+@section('title', $programme->title_program . ' | House Ilmu Indonesia')
 
 @section('content')
 <section class="breadcrumb container-fluid">
     <div class="container-xxl d-flex flex-row align-items-center py-3 gap-2">
-        <a href="/programme/HI-opportunities/" title="">Semua</a>
+        <a href="{{ route('programme.hi.index') }}" title="">Semua</a>
         <i class="fa-solid fa-chevron-right"></i>
         <p>{{ $programme->category->name }}</p>
     </div>
@@ -17,7 +17,7 @@
             style="background: url('{{ $programme->bg_poster_img ? Storage::url($programme->bg_poster_img) : asset('assets/img-opp/default-poster.png') }}') center/cover no-repeat;">
             <div class="overlay position-absolute"></div>
             <img class="col-3 col-md-2 logo p-2"
-                src="{{ $programme->logo_company_img ? Storage::url($programme->logo_company_img) : asset('assets/img/logo.png') }}"
+                src="{{ $programme->logo_company_img ? Storage::url($programme->logo_company_img) : asset('assets/img/logo.webp') }}"
                 alt="{{ $programme->title_program }}" style="height: 100%;">
             <div class="opp-organizer col-9 col-md-10 d-flex flex-column gap-2">
                 <h1 style="font-size: clamp(1.2rem, 2vw, 2.5rem);">{{ $programme->title_program }}</h1>
@@ -344,14 +344,7 @@
                 @endif
             </div>
         </div>
-        <div class="HIproducts d-flex flex-column flex-md-wrap flex-lg-wrap justify-content-start align-items-center align-content-lg-start mt-3">
-            <div class="d-flex flex-wrap justify-content-around gap-3">
-                <div id="opp-HIproducts1" class="col-8 col-md-4 col-lg-5"></div>
-                <div id="opp-HIproducts2" class="col-8 col-md-4 col-lg-5"></div>
-                <div id="opp-HIproducts3" class="col-8 col-md-4 col-lg-5"></div>
-                <div id="opp-HIproducts4" class="col-8 col-md-4 col-lg-5"></div>
-            </div>
-        </div>
+        @include('partials.hi-products')
     </div>
 </div>
 @endsection

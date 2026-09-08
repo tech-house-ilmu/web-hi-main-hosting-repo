@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Division;
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Position extends Model
 {
@@ -26,13 +25,13 @@ class Position extends Model
     }
 
     protected static function booted()
-{
-    static::creating(function ($position) {
-        $position->slug = Str::slug($position->title);
-    });
+    {
+        static::creating(function ($position) {
+            $position->slug = Str::slug($position->title);
+        });
 
-    static::updating(function ($position) {
-        $position->slug = Str::slug($position->title);
-    });
-}
+        static::updating(function ($position) {
+            $position->slug = Str::slug($position->title);
+        });
+    }
 }

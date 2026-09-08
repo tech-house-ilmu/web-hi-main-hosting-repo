@@ -4,8 +4,8 @@ namespace App\Filament\Resources\TestimoniAlumniCareerResource\Pages;
 
 use App\Filament\Resources\TestimoniAlumniCareerResource;
 use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
 use Filament\Notifications\Notification;
+use Filament\Resources\Pages\EditRecord;
 
 class EditTestimoniAlumniCareer extends EditRecord
 {
@@ -18,12 +18,12 @@ class EditTestimoniAlumniCareer extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
-    
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
     }
-    
+
     protected function getSavedNotification(): ?Notification
     {
         return Notification::make()
