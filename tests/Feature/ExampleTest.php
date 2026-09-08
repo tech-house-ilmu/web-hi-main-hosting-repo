@@ -47,4 +47,55 @@ class ExampleTest extends TestCase
         $response = $this->get(route('article.index'));
         $response->assertStatus(200);
     }
+
+    public function test_article_detail_page_returns_200_for_existing_slug(): void
+    {
+        $article = \App\Models\Article::create([
+            'title' => 'Test Artikel SEO',
+            'text' => '<p>Konten artikel test</p>',
+            'img' => 'articles/test.webp',
+            'author' => 'Author Test',
+            'date' => now(),
+            'slug' => 'test-artikel-seo',
+            'category' => 'Skill Development',
+        ]);
+
+        $response = $this->get(route('article.show', $article->slug));
+        $response->assertStatus(200);
+        $response->assertSee('Test Artikel SEO');
+    }
+
+    public function test_article_detail_page_returns_404_for_invalid_slug(): void
+    {
+        $response = $this->get(route('article.show', 'slug-yang-tidak-ada'));
+        $response->assertStatus(404);
+    }
+
+    public function test_filament_admin_denies_access_to_non_admin_user(): void
+    {
+        $user = \App\Models\User::create([
+            'name' => 'Regular User',
+            'email' => 'user@mail.com',
+            'password' => 'secret123',
+            'is_admin' => false,
+        ]);
+
+        $this->actingAs($user);
+        $response = $this->get('/admin');
+        $response->assertStatus(403);
+    }
+
+    public function test_filament_admin_allows_access_to_admin_user(): void
+    {
+        $admin = \App\Models\User::create([
+            'name' => 'Admin User',
+            'email' => 'superadmin@mail.com',
+            'password' => 'secret123',
+            'is_admin' => true,
+        ]);
+
+        $this->actingAs($admin);
+        $response = $this->get('/admin');
+        $response->assertStatus(200);
+    }
 }

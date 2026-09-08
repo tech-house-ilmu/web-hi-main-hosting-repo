@@ -80,11 +80,13 @@
                                             <img style="width: 65px; height: 65px; object-fit: cover; border: 3px solid #083D77; box-shadow: 0 4px 12px rgba(8, 61, 119, 0.3);" 
                                                 src="{{ Storage::url($alumni->testimoni_alumni_img) }}" 
                                                 alt="{{ $alumni->testimoni_alumni_name }}"
+                                                loading="lazy" decoding="async"
                                                 class="rounded-circle">
                                         @else
                                             <img style="width: 65px; height: 65px; object-fit: cover; border: 3px solid #083D77; box-shadow: 0 4px 12px rgba(8, 61, 119, 0.3);" 
                                                 src="{{ asset('img/logo.webp') }}" 
                                                 alt="logo house ilmu"
+                                                loading="lazy" decoding="async"
                                                 class="rounded-circle">
                                         @endif
                                     </div>
@@ -110,6 +112,7 @@
                                         <img style="width: 65px; height: 65px; object-fit: cover; border: 3px solid #083D77; box-shadow: 0 4px 12px rgba(8, 61, 119, 0.3);" 
                                             src="{{ asset('img/logo.webp') }}" 
                                             alt="logo house ilmu"
+                                            loading="lazy" decoding="async"
                                             class="rounded-circle">
                                     </div>
                                     <div class="alumni-details text-start" style="flex-grow: 1;">

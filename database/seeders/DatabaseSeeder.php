@@ -17,8 +17,10 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'admin',
                 'password' => 'tes123',
+                'is_admin' => true,
             ]
         );
+        User::where('email', 'admin@mail.com')->update(['is_admin' => true]);
 
         $this->call([
             DivisionSeeder::class,

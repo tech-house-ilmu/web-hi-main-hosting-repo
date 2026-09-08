@@ -21,7 +21,7 @@ $cards = $opportunities instanceof \Illuminate\Support\Collection ? $opportuniti
                 {{-- Body --}}
                 <div class="card-body-home position-absolute top-0 ms-2 w-100 h-100 d-flex flex-column justify-content-center align-items-start px-3 py-2" style="z-index: 1;">
                     <div class="card-title-home d-flex align-items-center gap-2 mb-2">
-                        <img src="{{ $opp->logo_company_img ? Storage::url($opp->logo_company_img) : asset('img/logo.webp') }}" class="logo col-3" alt="Logo">
+                        <img src="{{ $opp->logo_company_img ? Storage::url($opp->logo_company_img) : asset('img/logo.webp') }}" class="logo col-3" alt="Logo" loading="lazy" decoding="async">
                         <div class="col-9 d-flex flex-column gap-1 text-black">
                             <h1 class="m-0" style="font-size: clamp(1rem, 1vw, 1.4rem);">{{ $opp->title_program }}</h1>
                             <p class="m-0" style="font-size: clamp(0.9rem, 1vw, 1rem);">{{ $opp->company_name }}</p>

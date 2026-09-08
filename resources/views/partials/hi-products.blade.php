@@ -12,7 +12,7 @@
         @foreach($products as $product)
             <div class="col-8 col-md-4 col-lg-5 productsHI-container mb-3">
                 <div class="productsHI-details p-3 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
-                    <img src="{{ asset($product['img']) }}" alt="{{ $product['name'] }}" class="rounded-top-3 mb-2" style="width: 100%; height: 120px; object-fit: cover;">
+                    <img src="{{ asset($product['img']) }}" alt="{{ $product['name'] }}" class="rounded-top-3 mb-2" style="width: 100%; height: 120px; object-fit: cover;" loading="lazy" decoding="async">
                     <h6 class="fw-bold text-white mb-1">{{ $product['name'] }}</h6>
                     <p class="text-white mb-3 small">{{ $product['desc'] }}</p>
                     <a href="{{ $product['link'] }}" class="btn btn-sm btn-primary rounded-pill text-white mt-auto">Detail</a>

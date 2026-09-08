@@ -88,7 +88,7 @@
 
         <!-- Start banner image -->
         <div class="banner-img col-0 col-lg-6 d-none d-lg-flex justify-content-center align-items-center ms-5" data-aos="fade-left">
-          <img src="{{ asset('img/homepage/banner-cindy2.webp') }}" alt="banner person image" />
+          <img src="{{ asset('img/homepage/banner-cindy2.webp') }}" alt="banner person image" loading="lazy" decoding="async" />
         </div>
         <!-- End banner image -->
       </div>
@@ -214,19 +214,19 @@
         <div class="splide__track">
           <ul class="splide__list flex items-center">
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-cakap.webp') }}" class="w-56 mx-auto d-block" alt="logo partner cakap">
+              <img src="{{ asset('img/homepage/logo-cakap.webp') }}" class="w-56 mx-auto d-block" alt="logo partner cakap" loading="lazy" decoding="async">
             </li>
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-indorelawan.webp') }}" class="w-56 mx-auto d-block" alt="logo partner indorelawan">
+              <img src="{{ asset('img/homepage/logo-indorelawan.webp') }}" class="w-56 mx-auto d-block" alt="logo partner indorelawan" loading="lazy" decoding="async">
             </li>
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-pemimpinid.webp') }}" class="w-56 mx-auto d-block" alt="logo partner pemimpinid">
+              <img src="{{ asset('img/homepage/logo-pemimpinid.webp') }}" class="w-56 mx-auto d-block" alt="logo partner pemimpinid" loading="lazy" decoding="async">
             </li>
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-institut-id.webp') }}" class="w-56 mx-auto d-block" alt="logo partner institut id">
+              <img src="{{ asset('img/homepage/logo-institut-id.webp') }}" class="w-56 mx-auto d-block" alt="logo partner institut id" loading="lazy" decoding="async">
             </li>
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-phillip-sekuritas.webp') }}" class="w-56 mx-auto d-block" alt="logo partner phillip sekuritas">
+              <img src="{{ asset('img/homepage/logo-phillip-sekuritas.webp') }}" class="w-56 mx-auto d-block" alt="logo partner phillip sekuritas" loading="lazy" decoding="async">
             </li>
           </ul>
         </div>
@@ -247,7 +247,7 @@
                 <li class="splide__slide even rounded-lg bg-transparent flex">
     <div class="testimonial-box flex flex-col p-8 gap-4 w-full h-full" style="background-color: #f7d58b">
         <div class="flex justify-start">
-            <img src="{{ asset('storage/' . $testimoni->testimoni_img) }}" style="width: 100px;" alt="" />
+            <img src="{{ asset('storage/' . $testimoni->testimoni_img) }}" style="width: 100px;" alt="{{ $testimoni->testimoni_name }}" loading="lazy" decoding="async" />
 
             <div class="ms-3 mt-2">
                 <p id="testi-name" class="fw-bold m-0">{{ $testimoni->testimoni_name }}</p>
@@ -287,7 +287,7 @@
                 
                 {{-- Area Gambar (tidak ada perubahan) --}}
                 <div class="mentors-info d-flex flex-column justify-content-center align-items-center position-relative">
-                  <img style="width: 100%" class="rounded-top-3 img-fluid" src="{{ Storage::url($expert->image) }}" alt="{{ $expert->name }}" />
+                  <img style="width: 100%" class="rounded-top-3 img-fluid" src="{{ Storage::url($expert->image) }}" alt="{{ $expert->name }}" loading="lazy" decoding="async" />
                   <div class="mentors-exp d-flex justify-content-evenly align-items-center gap-2 rounded-top-3">
                     <ul>
                       @foreach ($expert->skills as $skill)

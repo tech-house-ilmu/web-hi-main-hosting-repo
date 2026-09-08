@@ -1,6 +1,13 @@
 @extends('layout.app')
 
 @section('title', $article->title . ' | House Ilmu Indonesia')
+@section('meta_description', Str::limit(strip_tags($article->text), 150))
+@section('og_title', $article->title)
+@section('og_description', Str::limit(strip_tags($article->text), 150))
+@section('og_image', asset('storage/' . $article->img))
+@section('twitter_title', $article->title)
+@section('twitter_description', Str::limit(strip_tags($article->text), 150))
+@section('twitter_image', asset('storage/' . $article->img))
 
 @section('content')
     <section class="article container-xl mt-5">
@@ -20,7 +27,7 @@
             <!-- End title & author details section -->
             <!-- Start article text section -->
             <img class="min-h-[300px] max-h-[500px] w-full object-contain rounded-4 my-5" src="{{ asset('storage/' . $article->img) }}"
-                alt="gambar artikel {{ Str::slug($article->title) }}">
+                alt="gambar artikel {{ Str::slug($article->title) }}" loading="lazy" decoding="async">
             <div class="article-text container-xl bg-secondary_HI outline outline-8 outline-primary_HI p-4 rounded-lg text-white">
                 {!! str_replace('<img', '<img class="img-fluid"', $article->text) !!}
             </div>

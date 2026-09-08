@@ -32,14 +32,14 @@
                             data-ref="mixitup-target"
                             data-category="{{ Str::slug($article->category) }}"
                         >
-                            <img class="w-full h-60 object-cover rounded-md mb-4" src="{{ asset('storage/' . $article->img) }}" alt="gambar article {{ Str::slug($article->category) }}">
+                            <img class="w-full h-60 object-cover rounded-md mb-4" src="{{ asset('storage/' . $article->img) }}" alt="gambar article {{ Str::slug($article->category) }}" loading="lazy" decoding="async">
                             
                             <h2 class="text-lg font-semibold mb-2 line-clamp-2">{{ $article->title }}</h2>
                             
                             <p class="text-sm text-gray-700 mb-4 line-clamp-4">{{ Str::limit(strip_tags($article->text), 150) }}</p>
                             
                             <div class="flex items-center mt-auto pt-4 border-t border-gray-300">
-                                <img class="w-10 h-10 rounded-full mr-3" src="{{ asset('img/logo.webp') }}" alt="logo house ilmu">
+                                <img class="w-10 h-10 rounded-full mr-3" src="{{ asset('img/logo.webp') }}" alt="logo house ilmu" loading="lazy" decoding="async">
                                 <div>
                                     <p class="text-sm font-medium">{{ $article->author }}</p>
                                     <p class="text-xs text-gray-500">{{ \Carbon\Carbon::parse($article->date)->format('d F Y') }}</p>
@@ -51,6 +51,12 @@
                     <p class="col-span-full text-center text-muted">Belum ada artikel yang tersedia.</p>
                 @endforelse
             </div>
+
+            @if($articles->hasPages())
+                <div class="mt-8 flex justify-center">
+                    {{ $articles->links() }}
+                </div>
+            @endif
         </div>
     </section>
 @endsection
