@@ -9,9 +9,6 @@ export default {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
-    server: {
-        port: 5173,
-    },
     variants: {
         extend: {
             opacity: ["group-hover"],
@@ -35,7 +32,7 @@ export default {
             },
         },
     },
-    plugins: [require("@tailwindcss/line-clamp")],
+    plugins: [],
     corePlugins: {
         preflight: false,
     },

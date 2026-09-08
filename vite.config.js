@@ -8,8 +8,4 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        port: 5174, // ganti sesuai kebutuhan, misal 5174, 5175, dll
-        strictPort: true, // supaya error kalau port sudah dipakai
-    },
 });

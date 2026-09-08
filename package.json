@@ -16,11 +16,11 @@
     },
     "dependencies": {
         "@alpinejs/collapse": "^3.14.9",
-        "@tailwindcss/line-clamp": "^0.4.4",
-        "@tailwindcss/postcss": "^4.1.12",
+        "@splidejs/splide": "^4.1.4",
         "alpinejs": "^3.14.9",
+        "aos": "^2.3.4",
         "bootstrap": "^5.3.7",
-        "laravel-mix": "^6.0.49",
+        "mixitup": "^3.3.2",
         "swiper": "^11.2.10"
     }
 }
