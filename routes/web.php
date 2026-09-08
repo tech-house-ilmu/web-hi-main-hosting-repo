@@ -5,6 +5,8 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\HITCCProgrammeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LeadersDetailsController;
+use App\Http\Controllers\HITCCProgrammeController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,13 @@ Route::prefix('programme')->name('programme.')->group(function () {
     Route::get('/HI-opportunities/{category}/{slug}', [HITCCProgrammeController::class, 'show'])->name('hi.show');
 });
 
+Route::get('/article', [ArticlePageController::class, 'index'])->name('article.index');
+Route::get('/articles/{slug}', [ArticlePageController::class, 'show'])->name('article.show');
+
+// Comments 
+Route::get('/comments', [CommentController::class, 'index']);
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::get('/captcha/image', [CommentController::class, 'captchaImage'])->name('captcha.image');
 // Articles
 Route::prefix('article')->name('article.')->group(function () {
     Route::get('/', [ArticlePageController::class, 'index'])->name('index');

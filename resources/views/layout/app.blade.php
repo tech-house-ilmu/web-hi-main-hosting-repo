@@ -19,6 +19,8 @@
         @yield('content')
     </main>
 
+    @include('partials.comments')
+
     @include('partials.footer-homepage')
 
     @include('partials.cdn')

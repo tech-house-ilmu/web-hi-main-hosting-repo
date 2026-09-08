@@ -1,10 +1,12 @@
 {
   "resources/css/app.css": {
+    // ini bisa jadi error
     "file": "assets/app-IwnQAsB8.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
+    // ini bisa jadi error
     "file": "assets/app-BtA_dsBm.js",
     "name": "app",
     "src": "resources/js/app.js",
