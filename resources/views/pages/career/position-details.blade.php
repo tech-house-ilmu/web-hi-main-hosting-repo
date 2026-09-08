@@ -8,7 +8,7 @@
         <!-- Start career apply section -->
     <section class="details-career container-xl mt-5">
         <div class="back d-inline">
-            <a href="../"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
+            <a href="{{ route('career.division', $division->slug) }}"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
         </div>
         <div class="details-career-container container d-flex flex-column justify-content-center align-items-start">
             <h1 class="py-4 fw-bold text-center" style="color: #FF731D;">{{ $position->title }}</h1>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education | House Ilmu Indonesia</title>
-    <link rel="icon" href="{{ asset('img/logo.png') }}">
+    <link rel="icon" href="{{ asset('img/logo.webp') }}">
     <!-- Link CDN Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -38,7 +38,7 @@
             </div>
             <!-- End title & author details section -->
             <!-- Start article text section -->
-            <img class="img-fluid rounded-4 my-5" src="{{ asset('img/homepage/article/skill-development1.jpg') }}"
+            <img class="img-fluid rounded-4 my-5" src="{{ asset('img/homepage/article/skill-development1.webp') }}"
                 alt="gambar article skill-development">
             <div class="article-text container-xl">
                 <p class="indent">Hola Kawaners! Saat ini, banyak orang merasa sulit untuk mencapai kesuksesan tanpa

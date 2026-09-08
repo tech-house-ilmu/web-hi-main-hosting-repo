@@ -21,7 +21,7 @@ $cards = $opportunities instanceof \Illuminate\Support\Collection ? $opportuniti
                 {{-- Body --}}
                 <div class="card-body-home position-absolute top-0 ms-2 w-100 h-100 d-flex flex-column justify-content-center align-items-start px-3 py-2" style="z-index: 1;">
                     <div class="card-title-home d-flex align-items-center gap-2 mb-2">
-                        <img src="{{ $opp->logo_company_img ? Storage::url($opp->logo_company_img) : asset('img/logo.png') }}" class="logo col-3" alt="Logo">
+                        <img src="{{ $opp->logo_company_img ? Storage::url($opp->logo_company_img) : asset('img/logo.webp') }}" class="logo col-3" alt="Logo">
                         <div class="col-9 d-flex flex-column gap-1 text-black">
                             <h1 class="m-0" style="font-size: clamp(1rem, 1vw, 1.4rem);">{{ $opp->title_program }}</h1>
                             <p class="m-0" style="font-size: clamp(0.9rem, 1vw, 1rem);">{{ $opp->company_name }}</p>
@@ -105,7 +105,7 @@ $cards = $opportunities instanceof \Illuminate\Support\Collection ? $opportuniti
 
     {{-- Kotak See More --}}
     <div class="card-box-home d-flex justify-content-center align-content-around px-4 px-md-0" style="width: 300px;">
-        <a href="{{ route('programme.hi.index') }}" class="card-custom d-flex flex-column justify-content-center align-items-center" style="height: 280px; border-radius: 8px; background: url('{{ asset('img/homepage/poster-HITCC.jpeg') }}') center/cover;">
+        <a href="{{ route('programme.hi.index') }}" class="card-custom d-flex flex-column justify-content-center align-items-center" style="height: 280px; border-radius: 8px; background: url('{{ asset('img/homepage/poster-HITCC.webp') }}') center/cover;">
             <div class="card-body d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100" style="z-index:1;">
                 <p class="text-white fs-4 m-0">See More...</p>
             </div>

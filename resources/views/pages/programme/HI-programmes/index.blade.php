@@ -2,8 +2,6 @@
 
 @section('title', 'HI Programmes | House Ilmu Indonesia')
 
-@section('head')
-
 @section('content')
         <!-- Start programme title section -->
     <section class="program-title container-xl mt-5">
@@ -23,7 +21,7 @@
         <div id="counter" class="programs-container container-xl d-flex flex-column flex-md-row justify-content-around align-items-center align-items-md-stretch">
 
             <div class="card my-2 my-md-0 mx-0 mx-md-2" data-aos="fade-up">
-                <img src="{{ asset('img/homepage/programme/review-cv.jpg') }}" class="card-img-top" alt="gambar review cv">
+                <img src="{{ asset('img/homepage/programme/review-cv.webp') }}" class="card-img-top" alt="gambar review cv">
                 <div class="card-body px-4 d-flex flex-column" style="background-color: #FFDD95;">
                     <a href="#review">
                         <h3 id="card-1" class="card-title py-3 my-4 rounded-pill fw-bold text-center text-white bg-[#04284E] 
@@ -45,7 +43,7 @@
             </div>
 
             <div class="card my-2 my-md-0" data-aos="fade-up">
-                <img src="{{ asset('img/homepage/programme/sudut-karir2.png') }}" class="card-img-top" alt="gambar sudut karir">
+                <img src="{{ asset('img/homepage/programme/sudut-karir2.webp') }}" class="card-img-top" alt="gambar sudut karir">
                 <div class="card-body px-4 d-flex flex-column" style="background-color: #F69259;">
                     <a href="#sudutkarir">
                         <h3 id="card-2" class="card-title py-3 my-4 rounded-pill fw-bold text-center text-white bg-[#04284E] 
@@ -75,7 +73,7 @@
             <div class="flex flex-col justify-center items-center px-2">
                 <h1 class="rounded-pill text-center text-white font-bold w-full py-2 my-2 bg-secondary_HI lg:py-3">Review CV</h1>
                 <div class="relative flex flex-col justify-center items-center">
-                    <img class="img-fluid py-2 rounded-4" src="{{ asset('img/homepage/programme/review-cv.jpg') }}" alt="gambar review cv">
+                    <img class="img-fluid py-2 rounded-4" src="{{ asset('img/homepage/programme/review-cv.webp') }}" alt="gambar review cv">
                     <div class="programs-rate inline py-2 px-3 rounded-lg" style="background-color: #fff;">
                         <i class="fa-solid fa-star" style="color: #ffd233;"></i>
                         <span class="font-bold">5.0</span>
@@ -106,7 +104,7 @@
             <div class="flex flex-col justify-center items-center px-2">
                 <h1 class="rounded-pill text-center text-white font-bold w-full py-2 my-2 bg-secondary_HI lg:py-3">Sudut Karir</h1>
                 <div class="relative flex flex-col justify-center items-center">
-                    <img class="img-fluid py-2 rounded-4" src="{{ asset('img/homepage/programme/sudut-karir2.png') }}" alt="gambar sudut karir">
+                    <img class="img-fluid py-2 rounded-4" src="{{ asset('img/homepage/programme/sudut-karir2.webp') }}" alt="gambar sudut karir">
                     <div class="programs-rate inline py-2 px-3 rounded-lg" style="background-color: #fff;">
                         <i class="fa-solid fa-star" style="color: #ffd233;"></i>
                         <span class="font-bold">5.0</span>

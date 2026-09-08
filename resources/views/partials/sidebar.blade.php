@@ -8,7 +8,7 @@
         <!-- Sidebar Header -->
         <div class="sidebar-menu d-flex flex-column">
             <div class="d-flex justify-content-evenly align-items-start px-2 py-2">
-                    <img src="{{ asset('img/logo.png') }}" alt="Logo"/>
+                    <img src="{{ asset('img/logo.webp') }}" alt="Logo"/>
                     <div class="sidebar-text">
                         <h6 class="sidebar-title">House Ilmu Indonesia</h6>
                         <span class="sidebar-sub-title fw-light">Dashboard Admin</span>

@@ -9,6 +9,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const scrollBtn = document.getElementById('scrollToTopBtn');
+        if (!scrollBtn) return;
 
         // Scroll listener untuk muncul / hilang tombol
         window.addEventListener('scroll', function () {

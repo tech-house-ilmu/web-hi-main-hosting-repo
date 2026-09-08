@@ -2,8 +2,6 @@
 
 @section('title', $article->title . ' | House Ilmu Indonesia')
 
-@section('head')
-
 @section('content')
     <section class="article container-xl mt-5">
         <!-- Start back button -->

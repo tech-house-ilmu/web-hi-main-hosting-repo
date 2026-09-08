@@ -7,11 +7,11 @@
 
 @section('og_title', 'Mentoring, Review CV, & Webinar Karir – House Ilmu Indonesia')
 @section('og_description', 'Platform mentoring buat persiapin karir kamu! Yuk bergabung bersama House Ilmu Indonesia!')
-@section('og_image', asset('img/house-ilmu-indonesia.jpeg'))
+@section('og_image', asset('img/house-ilmu-indonesia.webp'))
 
 @section('twitter_title', 'Mentoring, Review CV, & Webinar Karir – House Ilmu Indonesia')
 @section('twitter_description', 'Platform mentoring buat persiapin karir kamu! Yuk bergabung bersama House Ilmu Indonesia!')
-@section('twitter_image', asset('img/house-ilmu-indonesia.jpeg'))
+@section('twitter_image', asset('img/house-ilmu-indonesia.webp'))
 
 @section('head')
   <style>
@@ -88,7 +88,7 @@
 
         <!-- Start banner image -->
         <div class="banner-img col-0 col-lg-6 d-none d-lg-flex justify-content-center align-items-center ms-5" data-aos="fade-left">
-          <img src="{{ asset('img/homepage/banner-cindy2.png') }}" alt="banner person image" />
+          <img src="{{ asset('img/homepage/banner-cindy2.webp') }}" alt="banner person image" />
         </div>
         <!-- End banner image -->
       </div>
@@ -214,19 +214,19 @@
         <div class="splide__track">
           <ul class="splide__list flex items-center">
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-cakap.png') }}" class="w-56 mx-auto d-block" alt="logo partner cakap">
+              <img src="{{ asset('img/homepage/logo-cakap.webp') }}" class="w-56 mx-auto d-block" alt="logo partner cakap">
             </li>
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-indorelawan.png') }}" class="w-56 mx-auto d-block" alt="logo partner indorelawan">
+              <img src="{{ asset('img/homepage/logo-indorelawan.webp') }}" class="w-56 mx-auto d-block" alt="logo partner indorelawan">
             </li>
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-pemimpinid.jpg') }}" class="w-56 mx-auto d-block" alt="logo partner pemimpinid">
+              <img src="{{ asset('img/homepage/logo-pemimpinid.webp') }}" class="w-56 mx-auto d-block" alt="logo partner pemimpinid">
             </li>
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-institut-id.png') }}" class="w-56 mx-auto d-block" alt="logo partner institut id">
+              <img src="{{ asset('img/homepage/logo-institut-id.webp') }}" class="w-56 mx-auto d-block" alt="logo partner institut id">
             </li>
             <li class="splide__slide">
-              <img src="{{ asset('img/homepage/logo-phillip-sekuritas.png') }}" class="w-56 mx-auto d-block" alt="logo partner phillip sekuritas">
+              <img src="{{ asset('img/homepage/logo-phillip-sekuritas.webp') }}" class="w-56 mx-auto d-block" alt="logo partner phillip sekuritas">
             </li>
           </ul>
         </div>

@@ -48,8 +48,8 @@
             <div class="timeline-desc-container container-xl d-flex flex-row flex-md-column justify-content-start" data-aos="fade-up">
                 <!-- Start timeline bullet image -->
                 <div class="timeline-img d-flex justify-content-center my-0 my-md-2 mx-3 mx-md-0">
-                    <img class="horizontal-img d-none d-md-block" src="{{ asset('img/homepage/about/timeline-horizontal.png') }}" alt="timeline image">
-                    <img class="vertical-img d-block d-md-none" src="{{ asset('img/homepage/about/timeline-vertical.png') }}"
+                    <img class="horizontal-img d-none d-md-block" src="{{ asset('img/homepage/about/timeline-horizontal.webp') }}" alt="timeline image">
+                    <img class="vertical-img d-block d-md-none" src="{{ asset('img/homepage/about/timeline-vertical.webp') }}"
                         alt="timeline image">
                 </div>
                 <!-- End timeline bullet image -->
@@ -88,10 +88,11 @@
 
                 <div class="chief-member d-flex flex-wrap justify-content-center align-items-stretch gap-4">
                     @php
+                        $leadersList = $leaders ?? $LeadersDetailsAbout ?? collect();
                         $chiefPositions = ['CEO', 'CTO', 'CMO', 'COO', 'CFO']; // daftar posisi chief yang bisa ditulis
                     @endphp
 
-                    @forelse($LeadersDetailsAbout->whereIn('leaders_details_position', $chiefPositions) as $chief)
+                    @forelse($leadersList->whereIn('leaders_details_position', $chiefPositions) as $chief)
                         <div class="member-card" data-aos="fade-up">
                             <div class="member-image-container">
                                 <img src="{{ asset('storage/' . $chief->leaders_details_img) }}" 
@@ -136,7 +137,7 @@
 
                 <div class="vice-member d-flex flex-wrap justify-content-center align-items-stretch gap-4">
 
-                    @forelse($LeadersDetailsAbout->where('leaders_details_position', 'VP') as $leaders)
+                    @forelse($leadersList->where('leaders_details_position', 'VP') as $leaders)
                         <div class="member-card" data-aos="fade-up">
                             <div class="member-image-container">
                                 <img src="{{ asset('storage/' . $leaders->leaders_details_img) }}" 

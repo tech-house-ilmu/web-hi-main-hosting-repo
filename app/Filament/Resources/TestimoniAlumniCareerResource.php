@@ -9,18 +9,17 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 
 class TestimoniAlumniCareerResource extends Resource
 {
     protected static ?string $model = TestimoniAlumniCareer::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
-    
+
     protected static ?string $navigationLabel = 'Testimoni Alumni';
-    
+
     protected static ?string $modelLabel = 'Testimoni Alumni';
-    
+
     protected static ?string $pluralModelLabel = 'Testimoni Alumni';
 
     public static function form(Form $form): Form
@@ -38,19 +37,19 @@ class TestimoniAlumniCareerResource extends Resource
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
                             ->maxSize(2048)
                             ->columnSpanFull(),
-                        
+
                         Forms\Components\TextInput::make('testimoni_alumni_name')
                             ->label('Nama Alumni')
                             ->required()
                             ->maxLength(100)
                             ->columnSpan(1),
-                        
+
                         Forms\Components\TextInput::make('testimoni_alumni_position')
                             ->label('Posisi/Jabatan')
                             ->required()
                             ->maxLength(100)
                             ->columnSpan(1),
-                        
+
                         Forms\Components\Textarea::make('testimoni_alumni_description')
                             ->label('Testimoni/Deskripsi')
                             ->required()
@@ -72,17 +71,17 @@ class TestimoniAlumniCareerResource extends Resource
                     ->circular()
                     ->size(60)
                     ->defaultImageUrl('/images/default-avatar.png'), // OPSIONAL: gambar default
-                
+
                 Tables\Columns\TextColumn::make('testimoni_alumni_name')
                     ->label('Nama Alumni')
                     ->searchable()
                     ->sortable(),
-                
+
                 Tables\Columns\TextColumn::make('testimoni_alumni_position')
                     ->label('Posisi')
                     ->searchable()
                     ->sortable(),
-                
+
                 Tables\Columns\TextColumn::make('testimoni_alumni_description')
                     ->label('Testimoni')
                     ->limit(50)
@@ -91,9 +90,10 @@ class TestimoniAlumniCareerResource extends Resource
                         if (strlen($state) <= 50) {
                             return null;
                         }
+
                         return $state;
                     }),
-                
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat')
                     ->dateTime('d/m/Y H:i')

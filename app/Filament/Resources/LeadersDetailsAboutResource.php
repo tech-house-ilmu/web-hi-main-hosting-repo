@@ -3,60 +3,60 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\LeadersDetailsAboutResource\Pages;
-use App\Filament\Resources\LeadersDetailsAboutResource\RelationManagers;
 use App\Models\LeadersDetailsAbout;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Table;
 
 class LeadersDetailsAboutResource extends Resource
 {
     protected static ?string $model = LeadersDetailsAbout::class;
+
     protected static ?string $navigationLabel = 'Chief dan VP';
+
     protected static ?string $pluralLabel = 'Chief dan VP';
+
     protected static ?string $modelLabel = 'Data';
+
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-            Forms\Components\FileUpload::make('leaders_details_img')
-            ->label('Gambar Leader')
-            ->columnSpanFull()
-            ->required(),
-            Forms\Components\TextInput::make('leaders_details_name')
-            ->label('Nama Leader')
-            ->required(),
-            Forms\Components\Select::make('leaders_details_position')
-            ->label('Posisi')
-            ->options([
-                'CEO' => 'CEO',
-                'COO' => 'COO',
-                'CTO' => 'CTO',
-                'CFO' => 'CFO',
-                'CMO' => 'CMO',
-                'VP' => 'VP',
-                // 'Head Of' => 'Head Of',
-            ])
-            ->reactive()
-            ->required(),
-            Forms\Components\TextInput::make('leaders_details_position_division')
-            ->label('Divisi')
-            ->placeholder('Contoh: Technology, Marketing')
-            ->visible(fn ($get) => in_array($get('leaders_details_position'), ['VP']))
-            ->required(fn ($get) => in_array($get('leaders_details_position'), ['VP'])),
-            Forms\Components\TextInput::make('leaders_details_linkedin')
-            ->label('Link LinkedIn Leader')
-            ->required(),
-            Forms\Components\TextInput::make('leaders_details_email')
-            ->label('Link Email Leader')
-            ->email()->required(),  
+                Forms\Components\FileUpload::make('leaders_details_img')
+                    ->label('Gambar Leader')
+                    ->columnSpanFull()
+                    ->required(),
+                Forms\Components\TextInput::make('leaders_details_name')
+                    ->label('Nama Leader')
+                    ->required(),
+                Forms\Components\Select::make('leaders_details_position')
+                    ->label('Posisi')
+                    ->options([
+                        'CEO' => 'CEO',
+                        'COO' => 'COO',
+                        'CTO' => 'CTO',
+                        'CFO' => 'CFO',
+                        'CMO' => 'CMO',
+                        'VP' => 'VP',
+                        // 'Head Of' => 'Head Of',
+                    ])
+                    ->reactive()
+                    ->required(),
+                Forms\Components\TextInput::make('leaders_details_position_division')
+                    ->label('Divisi')
+                    ->placeholder('Contoh: Technology, Marketing')
+                    ->visible(fn ($get) => in_array($get('leaders_details_position'), ['VP']))
+                    ->required(fn ($get) => in_array($get('leaders_details_position'), ['VP'])),
+                Forms\Components\TextInput::make('leaders_details_linkedin')
+                    ->label('Link LinkedIn Leader')
+                    ->required(),
+                Forms\Components\TextInput::make('leaders_details_email')
+                    ->label('Link Email Leader')
+                    ->email()->required(),
             ]);
     }
 
@@ -70,10 +70,10 @@ class LeadersDetailsAboutResource extends Resource
                 Tables\Columns\TextColumn::make('leaders_details_linkedin')->label('LinkedIn'),
                 Tables\Columns\TextColumn::make('leaders_details_email')->label('Email'),
                 Tables\Columns\TextColumn::make('created_at')
-                ->label('Dibuat')
-                ->dateTime('d/m/Y H:i')
-                ->sortable()
-                ->toggleable(isToggledHiddenByDefault: true),
+                    ->label('Dibuat')
+                    ->dateTime('d/m/Y H:i')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('experts', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); 
-            $table->string('position');   
-            $table->string('image');      
-            $table->json('skills');       
+            $table->string('name');
+            $table->string('position');
+            $table->string('image');
+            $table->json('skills');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

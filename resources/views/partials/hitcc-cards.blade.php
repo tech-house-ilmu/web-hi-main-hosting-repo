@@ -6,7 +6,7 @@
             <div class="card-overlay"></div>
             <div class="card-body small-text">
                 <div class="card-title d-flex align-items-center gap-2">
-                    <img src="{{ $opp->logo_company_img ? Storage::url($opp->logo_company_img) : asset('img/logo.png') }}" class="logo col-3" alt="Logo">
+                    <img src="{{ $opp->logo_company_img ? Storage::url($opp->logo_company_img) : asset('img/logo.webp') }}" class="logo col-3" alt="Logo">
                     <div class="col-9 d-flex flex-column gap-2 text-primary_HI">
                         <h1 style="font-size: clamp(0.8rem, 1vw, 0.9rem);">{{ $opp->title_program }}</h1>
                         <h5 style="font-size: clamp(0.8rem, 1vw, 0.8rem);">{{ $opp->company_name }}</h5>

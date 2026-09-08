@@ -12,8 +12,6 @@ class Event extends Model
     protected $guarded = [];
 
     /**
-     * 
-     *
      * @var array
      */
     protected $casts = [
