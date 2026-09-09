@@ -12,12 +12,14 @@ class CommentController extends Controller
     public function index(Request $request)
     {
         $pageSlug = $request->query('page_slug', url()->current());
-        $comments = Comment::where('page_slug', $pageSlug)
-            ->whereNull('parent_id')
-            ->with('replies')
-            ->latest()
-            ->take(10)
-            ->get();
+        $comments = Cache::remember("comments_index_{$pageSlug}", 60, function () use ($pageSlug) {
+            return Comment::where('page_slug', $pageSlug)
+                ->whereNull('parent_id')
+                ->with('replies')
+                ->latest()
+                ->take(10)
+                ->get();
+        });
         SimpleCaptcha::generate();
 
         return view('partials.comments', compact('comments', 'pageSlug'));

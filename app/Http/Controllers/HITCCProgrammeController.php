@@ -5,13 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\HITCCCategory;
 use App\Models\HITCCProgramme;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class HITCCProgrammeController extends Controller
 {
-    /**
-     * Display a listing of opportunities with optional category and search filtering.
-     */
     public function index(Request $request): View|string
     {
         $category = $request->get('category');
@@ -34,7 +32,9 @@ class HITCCProgrammeController extends Controller
         }
 
         $opportunities = $query->orderBy('sort_order')->paginate(20)->withQueryString();
-        $categories = HITCCCategory::all();
+        $categories = Cache::remember('programme_categories', 600, function () {
+            return HITCCCategory::all();
+        });
 
         if ($request->ajax()) {
             return view('partials.hitcc-cards', compact('opportunities'))->render();
@@ -43,17 +43,17 @@ class HITCCProgrammeController extends Controller
         return view('pages.programme.HI-opportunities.index', compact('opportunities', 'categories'));
     }
 
-    /**
-     * Display details of a specific programme opportunity.
-     */
     public function show(string $category, string $slug): View
     {
-        $programme = HITCCProgramme::whereHas('category', function ($q) use ($category) {
-            $q->where('slug', $category);
-        })
-            ->with(['category', 'internship', 'volunteer', 'scholarship', 'exchange', 'competition'])
-            ->where('slug', $slug)
-            ->firstOrFail();
+        $cacheKey = "programme_{$category}_{$slug}";
+        $programme = Cache::remember($cacheKey, 300, function () use ($category, $slug) {
+            return HITCCProgramme::whereHas('category', function ($q) use ($category) {
+                $q->where('slug', $category);
+            })
+                ->with(['category', 'internship', 'volunteer', 'scholarship', 'exchange', 'competition'])
+                ->where('slug', $slug)
+                ->firstOrFail();
+        });
 
         return view('pages.programme.HI-opportunities.detail-opportunities', compact('programme'));
     }
