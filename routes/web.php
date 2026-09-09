@@ -5,7 +5,6 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\HITCCProgrammeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LeadersDetailsController;
-use App\Http\Controllers\HITCCProgrammeController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
