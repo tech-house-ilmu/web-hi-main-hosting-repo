@@ -80,117 +80,184 @@
     <!-- Start about profile images section -->
     <section class="profiles container-xl my-5">
         <div class="profiles-container container-xl d-flex flex-column justify-content-center align-items-center">
-            <h1 class="py-4" style="color: #1746A2;">Board of Director</h1>
+            <h1 class="py-4 fw-bold" style="color: #1746A2;">Our Team</h1>
 
-            <!-- Chief Officer Section -->
-            <div class="chief d-flex flex-column justify-content-center align-items-center my-5 w-100">
+            <!-- Filter Navigation Tabs -->
+            <div class="team-filter d-flex flex-wrap justify-content-center gap-2 mb-4">
+                <button type="button" class="team-filter-btn active" data-filter="all">Semua</button>
+                <button type="button" class="team-filter-btn" data-filter="leadership">Leadership</button>
+                <button type="button" class="team-filter-btn" data-filter="ceo-office">CEO Office</button>
+                <button type="button" class="team-filter-btn" data-filter="human-capital">Human Capital</button>
+                <button type="button" class="team-filter-btn" data-filter="business-development">Business Development</button>
+                <button type="button" class="team-filter-btn" data-filter="marketing">Marketing</button>
+                <button type="button" class="team-filter-btn" data-filter="technology">Technology</button>
+            </div>
+
+            @php
+                $leadersList = $leaders ?? $LeadersDetailsAbout ?? collect();
+
+                $chiefList = $leadersList->filter(fn($m) => in_array($m->leaders_details_position, ['CEO', 'CEO HI', 'CTO', 'COO', 'CMO', 'CFO']));
+                $vpList = $leadersList->filter(fn($m) => in_array($m->leaders_details_position, ['VP', 'Vice President']));
+
+                $ceoOfficeList = $leadersList->filter(fn($m) => $m->leaders_details_position_division === 'CEO Office');
+                $hcList = $leadersList->filter(fn($m) => $m->leaders_details_position_division === 'Human Capital');
+                $bdList = $leadersList->filter(fn($m) => $m->leaders_details_position_division === 'Business Development');
+                $marketingList = $leadersList->filter(fn($m) => $m->leaders_details_position_division === 'Marketing');
+                $techList = $leadersList->filter(fn($m) => $m->leaders_details_position_division === 'Technology');
+            @endphp
+
+            <!-- Leadership / Board of Directors -->
+            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="leadership">
                 <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Chief Officer</h1>
-
-                <div class="chief-member d-flex flex-wrap justify-content-center align-items-stretch gap-4">
-                    @php
-                        $leadersList = $leaders ?? $LeadersDetailsAbout ?? collect();
-                        $chiefPositions = ['CEO', 'CTO', 'CMO', 'COO', 'CFO']; // daftar posisi chief yang bisa ditulis
-                    @endphp
-
-                    @forelse($leadersList->whereIn('leaders_details_position', $chiefPositions) as $chief)
-                        <div class="member-card" data-aos="fade-up">
-                            <div class="member-image-container">
-                                <img src="{{ asset('storage/' . $chief->leaders_details_img) }}" 
-                                    alt="{{ $chief->leaders_details_name }}"
-                                    loading="lazy"
-                                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzlhOWE5YSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPj88L3RleHQ+PC9zdmc+'">
-                                
-                                <div class="member-overlay">
-                                    <div class="member-social-links">
-                                        @if($chief->leaders_details_linkedin)
-                                            <a href="{{ $chief->leaders_details_linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link">
-                                                <i class="fab fa-linkedin"></i>
-                                            </a>
-                                        @endif
-                                        @if($chief->leaders_details_email)
-                                            <a href="mailto:{{ $chief->leaders_details_email }}" class="social-link">
-                                                <i class="fas fa-envelope"></i>
-                                            </a>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="member-info">
-                                <h3 class="member-position">{{ $chief->leaders_details_position }}</h3>
-                                <h5 class="member-name">{{ $chief->leaders_details_name }}</h5>
-                            </div>
-                        </div>
-                        @empty
-                        <div class="no-data-message">
-                            <i class="fas fa-users"></i>
-                            <p>Data Chief belum ada.</p>
-                        </div>
+                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+                    @forelse($chiefList as $member)
+                        @include('partials.member-card', ['member' => $member])
+                    @empty
+                        <div class="no-data-message"><i class="fas fa-users"></i><p>Data Chief belum ada.</p></div>
                     @endforelse
                 </div>
 
-            </div>
-
-            <!-- Vice President Section -->
-            <div class="vice d-flex flex-column justify-content-center align-items-center my-5 w-100">
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Vice President</h1>
-
-                <div class="vice-member d-flex flex-wrap justify-content-center align-items-stretch gap-4">
-
-                    @forelse($leadersList->where('leaders_details_position', 'VP') as $leaders)
-                        <div class="member-card" data-aos="fade-up">
-                            <div class="member-image-container">
-                                <img src="{{ asset('storage/' . $leaders->leaders_details_img) }}" 
-                                    alt="{{ $leaders->leaders_details_name }}"
-                                    loading="lazy"
-                                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzlhOWE5YSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPj88L3RleHQ+PC9zdmc+'">
-
-                                <div class="member-overlay">
-                                    <div class="member-social-links">
-                                        @if($leaders->leaders_details_linkedin)
-                                            <a href="{{ $leaders->leaders_details_linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link">
-                                                <i class="fab fa-linkedin"></i>
-                                            </a>
-                                        @endif
-                                        @if($leaders->leaders_details_email)
-                                            <a href="mailto:{{ $leaders->leaders_details_email }}" class="social-link">
-                                                <i class="fas fa-envelope"></i>
-                                            </a>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="member-info">
-                                @php
-                                    $position = $leaders->leaders_details_position;
-
-                                    if ($leaders->leaders_details_position_division) {
-                                        $position .= ' ' . $leaders->leaders_details_position_division;
-                                    }
-                                @endphp
-                                <h3 class="member-position">{{ $position }}</h3>
-                                <h5 class="member-name">{{ $leaders->leaders_details_name }}</h5>
-                            </div>
-                        </div>
-                        @empty
-                        <div class="no-data-message">
-                            <i class="fas fa-users"></i>
-                            <p>Data Vice President belum ada.</p>
-                        </div>
+                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white mt-5" style="background-color: #04284E; color: #FF731D !important;">Vice President</h1>
+                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+                    @forelse($vpList as $member)
+                        @include('partials.member-card', ['member' => $member])
+                    @empty
+                        <div class="no-data-message"><i class="fas fa-users"></i><p>Data Vice President belum ada.</p></div>
                     @endforelse
                 </div>
-
             </div>
+
+            <!-- CEO Office Staff -->
+            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="ceo-office">
+                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">CEO Office</h1>
+                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+                    @forelse($ceoOfficeList as $member)
+                        @include('partials.member-card', ['member' => $member])
+                    @empty
+                        <div class="no-data-message"><i class="fas fa-users"></i><p>Data CEO Office belum ada.</p></div>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- Divisi Human Capital -->
+            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="human-capital">
+                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Divisi Human Capital</h1>
+                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+                    @forelse($hcList as $member)
+                        @include('partials.member-card', ['member' => $member])
+                    @empty
+                        <div class="no-data-message"><i class="fas fa-users"></i><p>Data Human Capital belum ada.</p></div>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- Divisi Business Development -->
+            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="business-development">
+                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Divisi Business Development</h1>
+                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+                    @forelse($bdList as $member)
+                        @include('partials.member-card', ['member' => $member])
+                    @empty
+                        <div class="no-data-message"><i class="fas fa-users"></i><p>Data Business Development belum ada.</p></div>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- Divisi Marketing -->
+            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="marketing">
+                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Divisi Marketing</h1>
+                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+                    @forelse($marketingList as $member)
+                        @include('partials.member-card', ['member' => $member])
+                    @empty
+                        <div class="no-data-message"><i class="fas fa-users"></i><p>Data Marketing belum ada.</p></div>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- Divisi Technology -->
+            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="technology">
+                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Divisi Technology</h1>
+                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+                    @forelse($techList as $member)
+                        @include('partials.member-card', ['member' => $member])
+                    @empty
+                        <div class="no-data-message"><i class="fas fa-users"></i><p>Data Technology belum ada.</p></div>
+                    @endforelse
+                </div>
+            </div>
+
         </div>
     </section>
     <!-- End about profile images section -->
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.team-filter-btn');
+            const sections = document.querySelectorAll('.team-division-section');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+                    sections.forEach(sec => {
+                        const division = sec.getAttribute('data-division');
+                        if (filter === 'all' || division === filter) {
+                            sec.style.display = 'flex';
+                        } else {
+                            sec.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Fetch latest employees from /api/employees
+            fetch('{{ route('api.employees') }}')
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to fetch employees API');
+                    return response.json();
+                })
+                .then(employees => {
+                    window.houseIlmuEmployees = employees;
+                })
+                .catch(err => {
+                    console.info('Employee API status:', err);
+                });
+        });
+    </script>
+
     <style>
         /* Custom gap for better spacing */
-        .chief-member, .vice-member {
-            gap: 3rem !important; /* 40px */
-            padding: 0 2rem; /* 24px padding kiri-kanan */
+        .chief-member, .vice-member, .team-grid {
+            gap: 2.5rem !important;
+            padding: 0 1rem;
+        }
+
+        /* Filter buttons */
+        .team-filter-btn {
+            background: #F3F4F6;
+            color: #1746A2;
+            border: 1px solid #E5E7EB;
+            border-radius: 9999px;
+            padding: 8px 22px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .team-filter-btn:hover {
+            background: #E0E7FF;
+            color: #1746A2;
+        }
+
+        .team-filter-btn.active {
+            background: #1746A2;
+            color: #FFFFFF;
+            border-color: #1746A2;
+            box-shadow: 0 4px 6px -1px rgba(23, 70, 162, 0.25);
         }
 
         /* Member Card Styles */
@@ -214,7 +281,11 @@
             position: relative;
             width: 100%;
             height: 300px;
+            background-color: #F3F4F6;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .member-image-container img {
@@ -278,26 +349,37 @@
         }
 
         .member-info {
-            padding: 24px;
+            padding: 22px 18px;
             text-align: center;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
         }
 
         .member-position {
             font-weight: bold;
             color: #1746A2;
-            margin: 0 0 12px 0;
-            font-size: 1.25rem;
+            margin: 0 0 6px 0;
+            font-size: 1.15rem;
+            line-height: 1.3;
+        }
+
+        .member-subdivision {
+            display: block;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: #FF731D;
+            margin: 0 0 8px 0;
         }
 
         .member-name {
             color: #374151;
             margin: 0;
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.35;
         }
 
         .no-data-message {
@@ -336,15 +418,15 @@
             }
             
             .member-info {
-                padding: 20px;
+                padding: 18px;
             }
             
             .member-position {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
             
             .member-name {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
         }
     </style>

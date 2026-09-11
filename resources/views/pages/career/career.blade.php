@@ -140,98 +140,32 @@
     <section id="career-info" class="career-info container-xl mt-5">
         <div class="career-info-container container-xl d-flex flex-column justify-content-center align-items-center">
             <h1 class="py-4" style="color: #1746A2;">Career Oportunity</h1>
-            <div
-                class="career-box container-xl d-flex flex-column justify-content-around align-items-center text-light">
-                <!-- Start order box // membuat agar urutan tampilan box berbeda ketika display mobile dan desktop -->
+            <div class="career-box container-xl d-flex flex-column justify-content-around align-items-center text-light">
+                @php $half = ceil($divisions->count() / 2); @endphp
                 <div class="order-box-1 container-xl d-flex flex-wrap justify-content-center align-items-stretch">
-                    <!-- Start career info apply box -->
-                    <div class="career-link odd col-12 col-md-5 col-lg-4 order-0 order-md-0 d-flex flex-column rounded-4 p-5 m-2"
-                        data-aos="fade-right">
-                        <h2 class="fw-bold py-2 py-xl-3">CEO</h2>
-                        <h2 class="fw-bold py-1 opacity-0 d-xl-none">CEO</h2>
-                        <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="{{ route('career.division', 'ceo') }}"><span class="fw-bold p-3 rounded-4">See
-                                    More...</span></a>
+                    @foreach($divisions->take($half) as $division)
+                        <div class="career-link col-12 col-md-5 col-lg-4 d-flex flex-column rounded-4 p-5 m-2" data-aos="fade-right">
+                            <h2 class="fw-bold py-3">{{ $division->name }}</h2>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <a class="py-4 rounded-4" href="{{ route('career.division', $division->slug) }}">
+                                    <span class="fw-bold p-3 rounded-4">See More...</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Start career info apply box -->
-                    <!-- Start career info apply box -->
-                    <div class="career-link odd col-12 col-md-5 col-lg-4 order-1 order-md-1 d-flex flex-column rounded-4 p-5 m-2"
-                        data-aos="fade-left">
-                        <h2 class="fw-bold py-3">Human Capital</h2>
-                        <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="{{ route('career.division', 'human-capital') }}"><span class="fw-bold p-3 rounded-4">See
-                                    More...</span></a>
-                        </div>
-                    </div>
-                    <!-- Start career info apply box -->
-                    <!-- Start career info apply box -->
-                    <div class="career-link even col-12 col-md-5 col-lg-4 order-2 order-md-2 d-flex flex-column rounded-4 p-5 m-2"
-                        data-aos="fade-right">
-                        <h2 class="fw-bold py-3">Product Development</h2>
-                        <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="{{ route('career.division', 'product-development') }}"><span
-                                    class="fw-bold p-3 rounded-4">See More...</span></a>
-                        </div>
-                    </div>
-                    <!-- Start career info apply box -->
-                    <!-- Start career info apply box -->
-                    <div class="career-link even col-12 col-md-5 col-lg-4 order-3 order-md-3 d-flex flex-column rounded-4 p-5 m-2"
-                        data-aos="fade-left">
-                        <h2 class="fw-bold py-3">Business Development</h2>
-                        <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="{{ route('career.division', 'business-development') }}"><span
-                                    class="fw-bold p-3 rounded-4">See More...</span></a>
-                        </div>
-                    </div>
-                    <!-- Start career info apply box -->
+                    @endforeach
                 </div>
-                <!-- End order box // membuat agar urutan tampilan box berbeda ketika display mobile dan desktop -->
-
-                <!-- Start order box // membuat agar urutan tampilan box berbeda ketika display mobile dan desktop -->
                 <div class="order-box-2 container-xl d-flex flex-wrap justify-content-center align-items-start">
-                    <!-- Start career info apply box -->
-                    <div class="career-link odd col-12 col-md-5 col-lg-4 order-0 order-md-0 d-flex flex-column rounded-4 p-5 m-2"
-                        data-aos="fade-right">
-                        <h2 class="fw-bold py-3">Technology</h2>
-                        <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="{{ route('career.division', 'technology') }}"><span class="fw-bold p-3 rounded-4">See
-                                    More...</span></a>
+                    @foreach($divisions->skip($half) as $division)
+                        <div class="career-link col-12 col-md-5 col-lg-4 d-flex flex-column rounded-4 p-5 m-2" data-aos="fade-left">
+                            <h2 class="fw-bold py-3">{{ $division->name }}</h2>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <a class="py-4 rounded-4" href="{{ route('career.division', $division->slug) }}">
+                                    <span class="fw-bold p-3 rounded-4">See More...</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Start career info apply box -->
-                    <!-- Start career info apply box -->
-                    <div class="career-link odd col-12 col-md-5 col-lg-4 order-1 order-md-1 d-flex flex-column rounded-4 p-5 m-2"
-                        data-aos="fade-left">
-                        <h2 class="fw-bold py-3">Marketing</h2>
-                        <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="{{ route('career.division', 'marketing') }}"><span class="fw-bold p-3 rounded-4">See
-                                    More...</span></a>
-                        </div>
-                    </div>
-                    <!-- Start career info apply box -->
-                    <!-- Start career info apply box -->
-                    <!-- <div class="career-link even col-12 col-md-5 col-lg-4 order-1 order-md-2 d-flex flex-column rounded-4 p-5 m-2"
-                        data-aos="fade-right">
-                        <h2 class="fw-bold py-3">COO</h2>
-                        <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="coo/"><span class="fw-bold p-3 rounded-4">See
-                                    More...</span></a>
-                        </div>
-                    </div> -->
-                    <!-- Start career info apply box -->
-                    <!-- Start career info apply box -->
-                    <!-- <div class="career-link even col-12 col-md-5 col-lg-4 order-3 order-md-3 d-flex flex-column rounded-4 p-5 m-2"
-                        data-aos="fade-left">
-                        <h2 class="fw-bold py-3">Human Capital</h2>
-                        <div class="d-flex justify-content-start align-items-center">
-                            <a class="py-4 rounded-4" href="human-capital/"><span class="fw-bold p-3 rounded-4">See
-                                    More...</span></a>
-                        </div>
-                    </div> -->
-                    <!-- Start career info apply box -->
+                    @endforeach
                 </div>
-                <!-- End order box // membuat agar urutan tampilan box berbeda ketika display mobile dan desktop -->
             </div>
         </div>
     </section>

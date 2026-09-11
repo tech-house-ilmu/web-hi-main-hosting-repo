@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             DivisionSeeder::class,
+            PositionSeeder::class,
             HITCCCategorySeeder::class,
             ExpertSeeder::class,
             TestimoniSeeder::class,
