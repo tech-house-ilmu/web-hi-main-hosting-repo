@@ -9,8 +9,9 @@
             data-aos="fade">
             <h1 class="py-4"><span style="color: #1746A2;">Better</span> <span style="color: #FF731D;">Career</span>
                 <span style="color: #1746A2;">for Better</span> <span style="color: #FF731D;">Future</span></h1>
-            <p>House Ilmu adalah sebuah platform yang bergerak di bidang career development dengan mengedepankan unsur
-                sosial untuk memberikan impact bagi generasi muda.</p>
+            <p>House Ilmu Indonesia itu rumah bagi generasi muda yang haus akan ilmu, tempat mereka bertumbuh, menemukan arah, dan mempersiapkan masa depannya. Melalui edukasi yang relevan dan perjalanan karier yang bermakna.
+House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkembang, karena kami percaya bahwa setiap anak muda berhak memiliki kesempatan untuk membangun masa depan yang lebih baik dan memberikan dampak bagi sekitarnya.
+</p>
         </div>
     </section>
     <!-- End about title section -->
@@ -22,19 +23,20 @@
             <!-- Start mission box -->
             <div class="col-12 col-md-5 col-lg-4 d-flex flex-column justify-content-start align-items-center text-center p-4 my-2 my-md-0 rounded-4"
                 style="background-color: #1746A2;" data-aos="fade-right">
-                <h1 class="fw-bold py-3">Our Mission</h1>
-                <ol class="text-light text-start">
-                    <li>Memfasilitasi generasi muda untuk mengenali passion diri guna menentukan karir masa depan</li>
-                    <li>Meningkatkan soft skill dan life skill generasi muda.</li>
-                </ol>
+                <h1 class="fw-bold py-3">Our Vision</h1>
+                <p class="fw-light">Menjadi kawan bagi generasi muda untuk dalam pengembangan karir yang berfokus pada
+                    soft skill dan life skill</p>
             </div>
             <!-- End mission box -->
             <!-- Start vision box -->
             <div class="col-12 col-md-5 col-lg-4 d-flex flex-column justify-content-start align-items-center text-center p-4 my-2 my-md-0 rounded-4"
                 style="background-color: #FF731D;" data-aos="fade-left">
-                <h1 class="fw-bold py-3">Our Vision</h1>
-                <p class="fw-light">Menjadi kawan bagi generasi muda untuk dalam pengembangan karir yang berfokus pada
-                    soft skill dan life skill</p>
+                <h1 class="fw-bold py-3">Our Mission</h1>
+
+                <ol class="text-light text-start">
+                    <li>Memfasilitasi generasi muda untuk mengenali passion diri guna menentukan karir masa depan</li>
+                    <li>Meningkatkan soft skill dan life skill generasi muda.</li>
+                </ol>
             </div>
             <!-- End vision box -->
         </div>
@@ -77,22 +79,74 @@
     </section>
     <!-- End about timeline section -->
 
+    <!-- Start about culture & value section -->
+    <section class="culture-value container-xl my-5">
+        <div class="culture-value-container container-xl d-flex flex-column align-items-center">
+            <h1 class="py-4 text-center" style="color: #1746A2;">Culture &amp; Value</h1>
+
+            <!-- Values: Core Value & Our Value -->
+            <div class="row g-4 w-100 justify-content-center mb-4" data-aos="fade-up">
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="culture-card h-100 p-4 p-md-5 rounded-4 text-center d-flex flex-column justify-content-center align-items-center">
+                        <h2 class="mb-3" style="color: #1746A2;">Core Value</h2>
+                        <p class="culture-text mb-0" style="color: #FF731D;">Edusociopreneur</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="culture-card h-100 p-4 p-md-5 rounded-4 text-center d-flex flex-column justify-content-center align-items-center">
+                        <h2 class="mb-3" style="color: #1746A2;">Our Value</h2>
+                        <p class="culture-text mb-0" style="color: #FF731D;">Learn, Grow, and Get Achievement Together</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Culture: DEALS -->
+            <div class="w-100 mt-3" data-aos="fade-up">
+                <div class="text-center mb-4">
+                    <h2 style="color: #1746A2;">Culture: <span style="color: #FF731D;">DEALS</span></h2>
+                </div>
+
+                <div class="row g-3 g-md-4 justify-content-center w-100 mx-auto">
+                    <div class="col-6 col-md-4 col-lg">
+                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                            <h3 class="deal-letter mb-1" style="color: #FF731D;">D</h3>
+                            <p class="deal-text mb-0" style="color: #1746A2;">Discipline</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg">
+                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                            <h3 class="deal-letter mb-1" style="color: #FF731D;">E</h3>
+                            <p class="deal-text mb-0" style="color: #1746A2;">Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg">
+                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                            <h3 class="deal-letter mb-1" style="color: #FF731D;">A</h3>
+                            <p class="deal-text mb-0" style="color: #1746A2;">Agile</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg">
+                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                            <h3 class="deal-letter mb-1" style="color: #FF731D;">L</h3>
+                            <p class="deal-text mb-0" style="color: #1746A2;">Learning</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg">
+                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                            <h3 class="deal-letter mb-1" style="color: #FF731D;">S</h3>
+                            <p class="deal-text mb-0" style="color: #1746A2;">Social</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End about culture & value section -->
+
     <!-- Start about profile images section -->
     <section class="profiles container-xl my-5">
         <div class="profiles-container container-xl d-flex flex-column justify-content-center align-items-center">
             <h1 class="py-4 fw-bold" style="color: #1746A2;">Our Team</h1>
-
-            <!-- Filter Navigation Tabs -->
-            <div class="team-filter d-flex flex-wrap justify-content-center gap-2 mb-4">
-                <button type="button" class="team-filter-btn active" data-filter="all">Semua</button>
-                <button type="button" class="team-filter-btn" data-filter="leadership">Leadership</button>
-                <button type="button" class="team-filter-btn" data-filter="ceo-office">CEO Office</button>
-                <button type="button" class="team-filter-btn" data-filter="human-capital">Human Capital</button>
-                <button type="button" class="team-filter-btn" data-filter="business-development">Business Development</button>
-                <button type="button" class="team-filter-btn" data-filter="marketing">Marketing</button>
-                <button type="button" class="team-filter-btn" data-filter="technology">Technology</button>
-            </div>
-
             @php
                 $leadersList = $leaders ?? $LeadersDetailsAbout ?? collect();
 
@@ -229,6 +283,63 @@
     </script>
 
     <style>
+        /* Culture & Value Section */
+        .culture-value,
+        .culture-value * {
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        .culture-value h1 {
+            font-weight: 900 !important;
+        }
+
+        .culture-value h2 {
+            font-weight: 900 !important;
+        }
+
+        .culture-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .culture-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .deal-item-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .deal-item-card:hover {
+            transform: translateY(-4px);
+            border-color: #1746A2;
+            box-shadow: 0 10px 15px -3px rgba(23, 70, 162, 0.1);
+        }
+
+        .deal-letter {
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .deal-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
         /* Custom gap for better spacing */
         .chief-member, .vice-member, .team-grid {
             gap: 2.5rem !important;
