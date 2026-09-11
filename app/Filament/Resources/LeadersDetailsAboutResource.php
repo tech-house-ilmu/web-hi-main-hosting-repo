@@ -14,11 +14,11 @@ class LeadersDetailsAboutResource extends Resource
 {
     protected static ?string $model = LeadersDetailsAbout::class;
 
-    protected static ?string $navigationLabel = 'Chief dan VP';
+    protected static ?string $navigationLabel = 'Employees / Tim';
 
-    protected static ?string $pluralLabel = 'Chief dan VP';
+    protected static ?string $pluralLabel = 'Employees / Tim';
 
-    protected static ?string $modelLabel = 'Data';
+    protected static ?string $modelLabel = 'Employee';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
@@ -27,56 +27,76 @@ class LeadersDetailsAboutResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('leaders_details_img')
-                    ->label('Gambar Leader')
+                    ->label('Foto / Avatar')
+                    ->image()
+                    ->disk('public')
+                    ->directory('leaders')
                     ->columnSpanFull()
-                    ->required(),
+                    ->nullable(),
                 Forms\Components\TextInput::make('leaders_details_name')
-                    ->label('Nama Leader')
+                    ->label('Nama Lengkap')
                     ->required(),
                 Forms\Components\Select::make('leaders_details_position')
-                    ->label('Posisi')
+                    ->label('Posisi / Jabatan')
                     ->options([
-                        'CEO' => 'CEO',
-                        'COO' => 'COO',
-                        'CTO' => 'CTO',
-                        'CFO' => 'CFO',
-                        'CMO' => 'CMO',
-                        'VP' => 'VP',
-                        // 'Head Of' => 'Head Of',
+                        'CEO HI' => 'CEO HI',
+                        'Vice President' => 'Vice President',
+                        'Head of' => 'Head of',
+                        'Staff' => 'Staff',
                     ])
-                    ->reactive()
                     ->required(),
-                Forms\Components\TextInput::make('leaders_details_position_division')
+                Forms\Components\Select::make('leaders_details_position_division')
                     ->label('Divisi')
-                    ->placeholder('Contoh: Technology, Marketing')
-                    ->visible(fn ($get) => in_array($get('leaders_details_position'), ['VP']))
-                    ->required(fn ($get) => in_array($get('leaders_details_position'), ['VP'])),
-                Forms\Components\TextInput::make('leaders_details_linkedin')
-                    ->label('Link LinkedIn Leader')
-                    ->required(),
+                    ->options([
+                        'CEO Office' => 'CEO Office',
+                        'Human Capital' => 'Human Capital',
+                        'Business Development' => 'Business Development',
+                        'Marketing' => 'Marketing',
+                        'Technology' => 'Technology',
+                    ])
+                    ->nullable(),
+                Forms\Components\TextInput::make('leaders_details_sub_division')
+                    ->label('Sub Divisi')
+                    ->placeholder('Contoh: Web Development, Talent Acquisition, Finance')
+                    ->nullable(),
                 Forms\Components\TextInput::make('leaders_details_email')
-                    ->label('Link Email Leader')
-                    ->email()->required(),
+                    ->label('Email')
+                    ->email()
+                    ->nullable(),
+                Forms\Components\TextInput::make('leaders_details_linkedin')
+                    ->label('Link LinkedIn')
+                    ->url()
+                    ->nullable(),
+                Forms\Components\TextInput::make('order')
+                    ->label('Urutan Tampilan')
+                    ->numeric()
+                    ->default(0),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('order', 'asc')
             ->columns([
-                Tables\Columns\ImageColumn::make('leaders_details_img')->label('Gambar')->size(150),
-                Tables\Columns\TextColumn::make('leaders_details_name')->label('Nama')->wrap()->searchable(),
-                Tables\Columns\TextColumn::make('leaders_details_position')->label('Posisi')->searchable(),
-                Tables\Columns\TextColumn::make('leaders_details_linkedin')->label('LinkedIn'),
-                Tables\Columns\TextColumn::make('leaders_details_email')->label('Email'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label('Dibuat')
-                    ->dateTime('d/m/Y H:i')
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('order')->label('#')->sortable(),
+                Tables\Columns\ImageColumn::make('leaders_details_img')->label('Foto')->circular()->size(45),
+                Tables\Columns\TextColumn::make('leaders_details_name')->label('Nama')->wrap()->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('leaders_details_position')->label('Posisi')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('leaders_details_position_division')->label('Divisi')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('leaders_details_sub_division')->label('Sub Divisi')->searchable(),
+                Tables\Columns\TextColumn::make('leaders_details_email')->label('Email')->searchable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('leaders_details_position_division')
+                    ->label('Divisi')
+                    ->options([
+                        'CEO Office' => 'CEO Office',
+                        'Human Capital' => 'Human Capital',
+                        'Business Development' => 'Business Development',
+                        'Marketing' => 'Marketing',
+                        'Technology' => 'Technology',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

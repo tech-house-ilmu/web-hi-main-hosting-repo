@@ -19,6 +19,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // About Us
 Route::get('/about-us', [LeadersDetailsController::class, 'index'])->name('about');
+Route::get('/api/employees', [LeadersDetailsController::class, 'api'])->name('api.employees');
 
 // Career
 Route::prefix('career')->name('career.')->group(function () {
