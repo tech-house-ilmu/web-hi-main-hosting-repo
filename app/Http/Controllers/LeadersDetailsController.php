@@ -22,12 +22,14 @@ class LeadersDetailsController extends Controller
         ]);
     }
 
-    /**
-     * Return employees as JSON.
-     */
+    //  return data employee dalam bentuk json yang dah diencrypt
     public function api(Request $request): JsonResponse
     {
         $query = LeadersDetailsAbout::orderBy('order', 'asc');
+
+        if ($request->filled('id')) {
+            $query->where('id', $request->id);
+        }
 
         if ($request->filled('division')) {
             $query->where('leaders_details_position_division', $request->division);
@@ -57,7 +59,45 @@ class LeadersDetailsController extends Controller
             ];
         });
 
-        return response()->json($employees);
+        return response()->json($this->encryptPayload($employees));
+    }
+
+    // return data 1 karyawan ajh dalam bentuk json yang diencrypt
+    public function showApi($id): JsonResponse
+    {
+        $item = LeadersDetailsAbout::find($id);
+
+        if (!$item) {
+            return response()->json([
+                'message' => 'Employee not found',
+            ], 404);
+        }
+
+        return response()->json($this->encryptPayload([
+            'id' => $item->id,
+            'name' => $item->leaders_details_name,
+            'position' => $item->leaders_details_position,
+            'division' => $item->leaders_details_position_division,
+            'sub_division' => $item->leaders_details_sub_division,
+            'email' => $item->leaders_details_email,
+            'linkedin' => $item->leaders_details_linkedin,
+            'img' => $item->leaders_details_img ? asset('storage/' . $item->leaders_details_img) : null,
+            'order' => $item->order,
+        ]));
+    }
+
+    // encrpt payload  response pakek aes256cbc
+    protected function encryptPayload(mixed $data): array
+    {
+        $key = hash('sha256', config('app.key'), true);
+        $iv = openssl_random_pseudo_bytes(16);
+        $encrypted = openssl_encrypt(json_encode($data), 'AES-256-CBC', $key, 0, $iv);
+
+        return [
+            'encrypted' => true,
+            'data' => $encrypted,
+            'iv' => base64_encode($iv),
+        ];
     }
 
     /**
