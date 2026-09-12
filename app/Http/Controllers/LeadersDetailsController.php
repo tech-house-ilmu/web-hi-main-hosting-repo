@@ -22,9 +22,7 @@ class LeadersDetailsController extends Controller
         ]);
     }
 
-    /**
-     * Mengembalikan data seluruh karyawan dalam bentuk JSON terenkripsi.
-     */
+    //  return data employee dalam bentuk json yang dah diencrypt
     public function api(Request $request): JsonResponse
     {
         $query = LeadersDetailsAbout::orderBy('order', 'asc');
@@ -64,9 +62,7 @@ class LeadersDetailsController extends Controller
         return response()->json($this->encryptPayload($employees));
     }
 
-    /**
-     * Mengembalikan data satu karyawan berdasarkan ID dalam bentuk JSON terenkripsi.
-     */
+    // return data 1 karyawan ajh dalam bentuk json yang diencrypt
     public function showApi($id): JsonResponse
     {
         $item = LeadersDetailsAbout::find($id);
@@ -90,9 +86,7 @@ class LeadersDetailsController extends Controller
         ]));
     }
 
-    /**
-     * Enkripsi payload response menggunakan AES-256-CBC.
-     */
+    // encrpt payload  response pakek aes256cbc
     protected function encryptPayload(mixed $data): array
     {
         $key = hash('sha256', config('app.key'), true);
