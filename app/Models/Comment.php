@@ -17,4 +17,17 @@ class Comment extends Model
     {
         return $this->hasMany(Comment::class, 'parent_id');
     }
+
+    protected static function booted()
+    {
+        static::saved(function ($comment) {
+            \Illuminate\Support\Facades\Cache::forget("comments_{$comment->page_slug}");
+            \Illuminate\Support\Facades\Cache::forget("comments_index_{$comment->page_slug}");
+        });
+
+        static::deleted(function ($comment) {
+            \Illuminate\Support\Facades\Cache::forget("comments_{$comment->page_slug}");
+            \Illuminate\Support\Facades\Cache::forget("comments_index_{$comment->page_slug}");
+        });
+    }
 }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Services\SimpleCaptcha;
+use App\Services\WordFilterService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
@@ -43,12 +45,23 @@ class CommentController extends Controller
             return back()->withErrors(['captcha' => 'Kode captcha tidak sesuai'])->withInput();
         }
 
+        if (WordFilterService::containsBannedWord($request->name)) {
+            return back()->withErrors(['name' => 'Nama mengandung kata yang tidak diperbolehkan.'])->withInput();
+        }
+
+        if (WordFilterService::containsBannedWord($request->content)) {
+            return back()->withErrors(['content' => 'Komentar mengandung kata yang tidak diperbolehkan.'])->withInput();
+        }
+
         Comment::create([
             'page_slug' => $request->page_slug,
             'name' => $request->name,
             'content' => $request->content,
             'parent_id' => $request->parent_id,
         ]);
+
+        Cache::forget("comments_{$request->page_slug}");
+        Cache::forget("comments_index_{$request->page_slug}");
 
         return back()->with('success', 'Komentar berhasil dikirim!');
     }

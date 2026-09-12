@@ -143,6 +143,31 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
     </section>
     <!-- End about culture & value section -->
 
+    <!-- Start about our programs section -->
+    <section class="programs container-xl my-5">
+        <div class="programs-container container-xl d-flex flex-column align-items-center">
+            <h1 class="py-4 text-center" style="color: #1746A2;">Our Programs</h1>
+            <div
+                class="programs-box-container container-xl d-flex flex-column flex-md-row justify-content-around align-items-stretch text-light">
+                <!-- Start Review CV box -->
+                <div class="col-12 col-md-5 col-lg-4 d-flex flex-column justify-content-start align-items-center text-center p-4 my-2 my-md-0 rounded-4"
+                    style="background-color: #1746A2;" data-aos="fade-right">
+                    <h2 class="fw-bold py-3 text-white">Review CV</h2>
+                    <p class="fw-light text-white mb-0">Hybrid event yang membahas tentang career preparation secara menyeluruh dari tiap tahapan recruitment.</p>
+                </div>
+                <!-- End Review CV box -->
+                <!-- Start Sudut Karir box -->
+                <div class="col-12 col-md-5 col-lg-4 d-flex flex-column justify-content-start align-items-center text-center p-4 my-2 my-md-0 rounded-4"
+                    style="background-color: #FF731D;" data-aos="fade-left">
+                    <h2 class="fw-bold py-3 text-white">Sudut Karir</h2>
+                    <p class="fw-light text-white mb-0">Program diskusi santai untuk mengembangkan soft skill dan life skill bersama expert.</p>
+                </div>
+                <!-- End Sudut Karir box -->
+            </div>
+        </div>
+    </section>
+    <!-- End about our programs section -->
+
     <!-- Start about profile images section -->
     <section class="profiles container-xl my-5">
         <div class="profiles-container container-xl d-flex flex-column justify-content-center align-items-center">
@@ -162,7 +187,7 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
 
             <!-- Leadership / Board of Directors -->
             <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="leadership">
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Chief Officer</h1>
+                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Founder</h1>
                 <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
                     @forelse($chiefList as $member)
                         @include('partials.member-card', ['member' => $member])
@@ -245,6 +270,8 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
     </section>
     <!-- End about profile images section -->
 
+<!--Import Crypto JS bzieerr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuUw9nVzsTLscGdn29n07/e6wQeN2D353mS+7dI3F4Z4r1jQe4iG/a1w6qQ1iV+X/7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const filterBtns = document.querySelectorAll('.team-filter-btn');
@@ -267,17 +294,34 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
                 });
             });
 
-            // Fetch latest employees from /api/employees
+            // Ambil dan dekripsi data terbaru dari endpoint /api/employees
             fetch('{{ route('api.employees') }}')
                 .then(response => {
-                    if (!response.ok) throw new Error('Failed to fetch employees API');
+                    if (!response.ok) throw new Error('Gagal mengambil data dari API karyawan');
                     return response.json();
                 })
-                .then(employees => {
-                    window.houseIlmuEmployees = employees;
+                .then(res => {
+                    if (res && res.encrypted && res.data && res.iv && typeof CryptoJS !== 'undefined') {
+                        try {
+                            const key = CryptoJS.enc.Hex.parse('{{ hash('sha256', config('app.key')) }}');
+                            const iv = CryptoJS.enc.Base64.parse(res.iv);
+                            const decrypted = CryptoJS.AES.decrypt(res.data, key, {
+                                iv: iv,
+                                mode: CryptoJS.mode.CBC,
+                                padding: CryptoJS.pad.Pkcs7
+                            });
+                            const jsonStr = decrypted.toString(CryptoJS.enc.Utf8);
+                            window.houseIlmuEmployees = JSON.parse(jsonStr);
+                        } catch (decryptErr) {
+                            console.error('Gagal mendekripsi data karyawan:', decryptErr);
+                            window.houseIlmuEmployees = [];
+                        }
+                    } else {
+                        window.houseIlmuEmployees = res;
+                    }
                 })
                 .catch(err => {
-                    console.info('Employee API status:', err);
+                    console.info('Status API karyawan:', err);
                 });
         });
     </script>
