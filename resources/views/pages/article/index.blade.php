@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Start articles section -->
-    <section class="filter container-xxl mt-5">
+    <section class="filter max-w-7xl mx-auto px-4 mt-12">
         <!-- Filter Buttons - Desktop -->
         <div class="hidden md:flex justify-center w-[90%] mx-auto py-2 mb-4 gap-10 text-center bg-primary_light_HI rounded-lg">
             <button type="button" class="filter-btn active-filter text-white px-3 py-1 border-none bg-transparent !hover:text-secondary_HI" data-filter="all">Semua</button>
@@ -48,7 +48,7 @@
                         </div>
                     </a>
                 @empty
-                    <p class="col-span-full text-center text-muted">Belum ada artikel yang tersedia.</p>
+                    <p class="col-span-full text-center text-gray-500">Belum ada artikel yang tersedia.</p>
                 @endforelse
             </div>
 

@@ -1,5 +1,5 @@
-<div class="HIproducts d-flex flex-column flex-md-wrap flex-lg-wrap justify-content-start align-items-center align-content-lg-start mt-3">
-    <div class="d-flex flex-wrap justify-content-around gap-3 w-100">
+<div class="HIproducts flex flex-col md:flex-wrap lg:flex-wrap justify-start items-center lg:content-start mt-3">
+    <div class="flex flex-wrap justify-around gap-3 w-full">
         @php
             $products = [
                 ['name' => 'Sudut Karir', 'desc' => 'Career preparation menyeluruh.', 'img' => 'img/homepage/img-opp/product/product-img-1.webp', 'link' => route('programme.programmes') . '#sudutkarir'],
@@ -10,12 +10,12 @@
         @endphp
 
         @foreach($products as $product)
-            <div class="col-8 col-md-4 col-lg-5 productsHI-container mb-3">
-                <div class="productsHI-details p-3 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
-                    <img src="{{ asset($product['img']) }}" alt="{{ $product['name'] }}" class="rounded-top-3 mb-2" style="width: 100%; height: 120px; object-fit: cover;" loading="lazy" decoding="async">
-                    <h6 class="fw-bold text-white mb-1">{{ $product['name'] }}</h6>
-                    <p class="text-white mb-3 small">{{ $product['desc'] }}</p>
-                    <a href="{{ $product['link'] }}" class="btn btn-sm btn-primary rounded-pill text-white mt-auto">Detail</a>
+            <div class="w-2/3 md:w-1/3 lg:w-5/12 productsHI-container mb-3">
+                <div class="productsHI-details p-3 rounded-2xl shadow-sm h-full flex flex-col justify-between">
+                    <img src="{{ asset($product['img']) }}" alt="{{ $product['name'] }}" class="rounded-t-lg mb-2" style="width: 100%; height: 120px; object-fit: cover;" loading="lazy" decoding="async">
+                    <h6 class="font-bold text-white mb-1">{{ $product['name'] }}</h6>
+                    <p class="text-white mb-3 text-xs">{{ $product['desc'] }}</p>
+                    <a href="{{ $product['link'] }}" class="px-3 py-1 bg-primary_light_HI hover:bg-primary_HI text-xs font-semibold rounded-full text-white mt-auto text-center transition">Detail</a>
                 </div>
             </div>
         @endforeach

@@ -3,13 +3,13 @@
 @section('title', 'HI Opportunities | House Ilmu Indonesia')
 
 @section('content')
-<section class="container-xxl my-4">
+<section class="max-w-7xl mx-auto px-4 my-8">
     <!-- Search Bar -->
-    <div class="search-container container text-white">
-        <form id="search-form" method="GET" action="{{ route('programme.hi.index') }}" class="input-group">
+    <div class="search-container w-full max-w-4xl mx-auto text-white mb-8">
+        <form id="search-form" method="GET" action="{{ route('programme.hi.index') }}" class="flex flex-col sm:flex-row items-center gap-2">
             <input type="text" name="search" value="{{ request('search') }}" 
-                  class="form-control" placeholder="Search by Internship, Competition, Volunteer, & Exchange"/>
-            <button class="btn search-btn-custom btn-lg" type="submit">
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary_HI" placeholder="Search by Internship, Competition, Volunteer, & Exchange"/>
+            <button class="search-btn-custom w-full sm:w-auto px-6 py-3 rounded-xl font-bold bg-[#1746A2] text-white hover:bg-[#083D77] transition flex items-center justify-center gap-2 shrink-0 cursor-pointer" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i> Search
             </button>
         </form>
@@ -26,12 +26,12 @@
         ];
     @endphp
 
-    <div class="category-card container justify-content-between mt-4 gap-1">
+    <div class="category-card flex flex-wrap justify-center sm:justify-between items-center mt-6 gap-3">
         <!-- Semua -->
         <a href="#" data-category="all" 
           class="category-item text-center border-custom p-0 {{ request('category') == 'all' || !request('category') ? 'active' : '' }}">
             <img src="{{ asset('img/homepage/img-opp/semua.webp') }}" alt="Semua"/>
-            <div class="d-flex justify-content-center card-img">
+            <div class="flex justify-center card-img">
                 <span class="category-label">Semua</span>
             </div>
         </a>
@@ -43,7 +43,7 @@
             <a href="#" data-category="{{ $category->slug }}" 
               class="category-item text-center border-custom p-0 {{ request('category') == $category->slug ? 'active' : '' }}">
                 <img src="{{ asset($imagePath) }}" alt="{{ $category->name }}"/>
-                <div class="card-img d-flex justify-content-center">
+                <div class="card-img flex justify-center">
                     <span class="category-label">{{ $category->name }}</span>
                 </div>
             </a>

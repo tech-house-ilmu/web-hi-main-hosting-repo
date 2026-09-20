@@ -4,10 +4,10 @@
 
 @section('content')
     <!-- Start about title section -->
-    <section class="about-title container-xl mt-5">
-        <div class="about-title-container container-sm d-flex flex-column justify-content-center align-items-center text-center"
+    <section class="about-title max-w-7xl mx-auto px-4 mt-5">
+        <div class="about-title-container max-w-2xl mx-auto flex flex-col justify-center items-center text-center"
             data-aos="fade">
-            <h1 class="py-4"><span style="color: #1746A2;">Better</span> <span style="color: #FF731D;">Career</span>
+            <h1 class="py-4 text-3xl font-bold"><span style="color: #1746A2;">Better</span> <span style="color: #FF731D;">Career</span>
                 <span style="color: #1746A2;">for Better</span> <span style="color: #FF731D;">Future</span></h1>
             <p>House Ilmu Indonesia itu rumah bagi generasi muda yang haus akan ilmu, tempat mereka bertumbuh, menemukan arah, dan mempersiapkan masa depannya. Melalui edukasi yang relevan dan perjalanan karier yang bermakna.
 House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkembang, karena kami percaya bahwa setiap anak muda berhak memiliki kesempatan untuk membangun masa depan yang lebih baik dan memberikan dampak bagi sekitarnya.
@@ -17,23 +17,23 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
     <!-- End about title section -->
 
     <!-- Start about mission section -->
-    <section class="mission container-xl mt-5">
+    <section class="mission max-w-7xl mx-auto px-4 mt-5">
         <div
-            class="mission-container container-xl d-flex flex-column flex-md-row justify-content-around align-items-stretch text-light">
+            class="mission-container max-w-7xl mx-auto flex flex-col md:flex-row justify-around items-stretch text-white gap-4">
             <!-- Start mission box -->
-            <div class="col-12 col-md-5 col-lg-4 d-flex flex-column justify-content-start align-items-center text-center p-4 my-2 my-md-0 rounded-4"
+            <div class="w-full md:w-5/12 lg:w-1/3 flex flex-col justify-start items-center text-center p-4 my-2 md:my-0 rounded-2xl"
                 style="background-color: #1746A2;" data-aos="fade-right">
-                <h1 class="fw-bold py-3">Our Vision</h1>
-                <p class="fw-light">Menjadi kawan bagi generasi muda untuk dalam pengembangan karir yang berfokus pada
+                <h1 class="font-bold text-2xl py-3">Our Vision</h1>
+                <p class="font-light">Menjadi kawan bagi generasi muda untuk dalam pengembangan karir yang berfokus pada
                     soft skill dan life skill</p>
             </div>
             <!-- End mission box -->
             <!-- Start vision box -->
-            <div class="col-12 col-md-5 col-lg-4 d-flex flex-column justify-content-start align-items-center text-center p-4 my-2 my-md-0 rounded-4"
+            <div class="w-full md:w-5/12 lg:w-1/3 flex flex-col justify-start items-center text-center p-4 my-2 md:my-0 rounded-2xl"
                 style="background-color: #FF731D;" data-aos="fade-left">
-                <h1 class="fw-bold py-3">Our Mission</h1>
+                <h1 class="font-bold text-2xl py-3">Our Mission</h1>
 
-                <ol class="text-light text-start">
+                <ol class="text-white text-left list-decimal list-inside space-y-1">
                     <li>Memfasilitasi generasi muda untuk mengenali passion diri guna menentukan karir masa depan</li>
                     <li>Meningkatkan soft skill dan life skill generasi muda.</li>
                 </ol>
@@ -44,32 +44,32 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
     <!-- End about mission section -->
 
     <!-- Start about timeline section -->
-    <section class="timeline container-xl mt-5">
-        <div class="timeline-container container-xl d-flex flex-column justify-content-center align-items-center">
-            <h1 class="py-4" style="color: #1746A2;">Timeline</h1>
-            <div class="timeline-desc-container container-xl d-flex flex-row flex-md-column justify-content-start" data-aos="fade-up">
+    <section class="timeline max-w-7xl mx-auto px-4 mt-5">
+        <div class="timeline-container max-w-7xl mx-auto flex flex-col justify-center items-center">
+            <h1 class="py-4 text-3xl font-bold" style="color: #1746A2;">Timeline</h1>
+            <div class="timeline-desc-container max-w-7xl mx-auto flex flex-row md:flex-col justify-start" data-aos="fade-up">
                 <!-- Start timeline bullet image -->
-                <div class="timeline-img d-flex justify-content-center my-0 my-md-2 mx-3 mx-md-0">
-                    <img class="horizontal-img d-none d-md-block" src="{{ asset('img/homepage/about/timeline-horizontal.webp') }}" alt="timeline image">
-                    <img class="vertical-img d-block d-md-none" src="{{ asset('img/homepage/about/timeline-vertical.webp') }}"
+                <div class="timeline-img flex justify-center my-0 md:my-2 mx-3 md:mx-0">
+                    <img class="horizontal-img hidden md:block" src="{{ asset('img/homepage/about/timeline-horizontal.webp') }}" alt="timeline image">
+                    <img class="vertical-img block md:hidden" src="{{ asset('img/homepage/about/timeline-vertical.webp') }}"
                         alt="timeline image">
                 </div>
                 <!-- End timeline bullet image -->
                 <!-- Start timeline desc -->
-                <div class="timeline-desc-box d-flex flex-column flex-md-row justify-content-around">
+                <div class="timeline-desc-box flex flex-col md:flex-row justify-around w-full">
                     <div
-                        class="timeline-desc col-12 col-md-3 col-lg-3 d-flex flex-column justify-content-start align-items-md-start mx-md-2">
-                        <h2 class="my-0" style="color: #1746A2;">2021</h2>
+                        class="timeline-desc w-full md:w-1/3 flex flex-col justify-start md:items-start mx-md-2">
+                        <h2 class="my-0 text-xl font-bold" style="color: #1746A2;">2021</h2>
                         <p>Educatian, <br> Environment dan Life <br> Style</p>
                     </div>
                     <div
-                        class="timeline-desc col-12 col-md-3 col-lg-3 d-flex flex-column justify-content-start align-items-md-center mx-md-2">
-                        <h2 class="mt-4 mt-md-0" style="color: #1746A2;">2023</h2>
-                        <p class="mb-5 mb-md-0">Education dan Skill</p>
+                        class="timeline-desc w-full md:w-1/3 flex flex-col justify-start md:items-center mx-md-2">
+                        <h2 class="mt-4 md:mt-0 text-xl font-bold" style="color: #1746A2;">2023</h2>
+                        <p class="mb-5 md:mb-0">Education dan Skill</p>
                     </div>
                     <div
-                        class="timeline-desc col-12 col-md-3 col-lg-3 d-flex flex-column justify-content-start align-items-md-end mx-md-2">
-                        <h2 class="mt-5 mt-md-0" style="color: #1746A2;">2025</h2>
+                        class="timeline-desc w-full md:w-1/3 flex flex-col justify-start md:items-end mx-md-2">
+                        <h2 class="mt-5 md:mt-0 text-xl font-bold" style="color: #1746A2;">2025</h2>
                         <p>Career</p>
                     </div>
                 </div>
@@ -80,59 +80,59 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
     <!-- End about timeline section -->
 
     <!-- Start about culture & value section -->
-    <section class="culture-value container-xl my-5">
-        <div class="culture-value-container container-xl d-flex flex-column align-items-center">
-            <h1 class="py-4 text-center" style="color: #1746A2;">Culture &amp; Value</h1>
+    <section class="culture-value max-w-7xl mx-auto px-4 my-5">
+        <div class="culture-value-container max-w-7xl mx-auto flex flex-col items-center">
+            <h1 class="py-4 text-center text-3xl font-bold" style="color: #1746A2;">Culture &amp; Value</h1>
 
             <!-- Values: Core Value & Our Value -->
-            <div class="row g-4 w-100 justify-content-center mb-4" data-aos="fade-up">
-                <div class="col-12 col-md-6 col-lg-5">
-                    <div class="culture-card h-100 p-4 p-md-5 rounded-4 text-center d-flex flex-column justify-content-center align-items-center">
-                        <h2 class="mb-3" style="color: #1746A2;">Core Value</h2>
+            <div class="row g-4 w-full justify-center mb-4" data-aos="fade-up">
+                <div class="w-full md:w-1/2 lg:w-5/12 px-2">
+                    <div class="culture-card h-full p-4 md:p-5 rounded-2xl text-center flex flex-col justify-center items-center">
+                        <h2 class="mb-3 text-xl font-bold" style="color: #1746A2;">Core Value</h2>
                         <p class="culture-text mb-0" style="color: #FF731D;">Edusociopreneur</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-5">
-                    <div class="culture-card h-100 p-4 p-md-5 rounded-4 text-center d-flex flex-column justify-content-center align-items-center">
-                        <h2 class="mb-3" style="color: #1746A2;">Our Value</h2>
+                <div class="w-full md:w-1/2 lg:w-5/12 px-2">
+                    <div class="culture-card h-full p-4 md:p-5 rounded-2xl text-center flex flex-col justify-center items-center">
+                        <h2 class="mb-3 text-xl font-bold" style="color: #1746A2;">Our Value</h2>
                         <p class="culture-text mb-0" style="color: #FF731D;">Learn, Grow, and Get Achievement Together</p>
                     </div>
                 </div>
             </div>
 
             <!-- Culture: DEALS -->
-            <div class="w-100 mt-3" data-aos="fade-up">
+            <div class="w-full mt-3" data-aos="fade-up">
                 <div class="text-center mb-4">
-                    <h2 style="color: #1746A2;">Culture: <span style="color: #FF731D;">DEALS</span></h2>
+                    <h2 class="font-black text-2xl md:text-3xl" style="color: #1746A2;">Culture: <span style="color: #FF731D;">DEALS</span></h2>
                 </div>
 
-                <div class="row g-3 g-md-4 justify-content-center w-100 mx-auto">
-                    <div class="col-6 col-md-4 col-lg">
-                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 justify-center w-full mx-auto">
+                    <div>
+                        <div class="deal-item-card h-full p-4 rounded-2xl text-center flex flex-col items-center justify-center">
                             <h3 class="deal-letter mb-1" style="color: #FF731D;">D</h3>
                             <p class="deal-text mb-0" style="color: #1746A2;">Discipline</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg">
-                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                    <div>
+                        <div class="deal-item-card h-full p-4 rounded-2xl text-center flex flex-col items-center justify-center">
                             <h3 class="deal-letter mb-1" style="color: #FF731D;">E</h3>
                             <p class="deal-text mb-0" style="color: #1746A2;">Entrepreneur</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg">
-                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                    <div>
+                        <div class="deal-item-card h-full p-4 rounded-2xl text-center flex flex-col items-center justify-center">
                             <h3 class="deal-letter mb-1" style="color: #FF731D;">A</h3>
                             <p class="deal-text mb-0" style="color: #1746A2;">Agile</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg">
-                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                    <div>
+                        <div class="deal-item-card h-full p-4 rounded-2xl text-center flex flex-col items-center justify-center">
                             <h3 class="deal-letter mb-1" style="color: #FF731D;">L</h3>
                             <p class="deal-text mb-0" style="color: #1746A2;">Learning</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg">
-                        <div class="deal-item-card h-100 p-4 rounded-4 text-center d-flex flex-column align-items-center justify-content-center">
+                    <div>
+                        <div class="deal-item-card h-full p-4 rounded-2xl text-center flex flex-col items-center justify-center">
                             <h3 class="deal-letter mb-1" style="color: #FF731D;">S</h3>
                             <p class="deal-text mb-0" style="color: #1746A2;">Social</p>
                         </div>
@@ -144,23 +144,23 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
     <!-- End about culture & value section -->
 
     <!-- Start about our programs section -->
-    <section class="programs container-xl my-5">
-        <div class="programs-container container-xl d-flex flex-column align-items-center">
-            <h1 class="py-4 text-center" style="color: #1746A2;">Our Programs</h1>
+    <section class="programs max-w-7xl mx-auto px-4 my-12">
+        <div class="programs-container max-w-7xl mx-auto flex flex-col items-center">
+            <h1 class="py-4 text-center text-3xl md:text-4xl font-black" style="color: #1746A2;">Our Programs</h1>
             <div
-                class="programs-box-container container-xl d-flex flex-column flex-md-row justify-content-around align-items-stretch text-light">
+                class="programs-box-container max-w-7xl w-full flex flex-col md:flex-row justify-around items-stretch text-white gap-6">
                 <!-- Start Review CV box -->
-                <div class="col-12 col-md-5 col-lg-4 d-flex flex-column justify-content-start align-items-center text-center p-4 my-2 my-md-0 rounded-4"
+                <div class="w-full md:w-5/12 lg:w-4/12 flex flex-col justify-start items-center text-center p-6 rounded-2xl"
                     style="background-color: #1746A2;" data-aos="fade-right">
-                    <h2 class="fw-bold py-3 text-white">Review CV</h2>
-                    <p class="fw-light text-white mb-0">Hybrid event yang membahas tentang career preparation secara menyeluruh dari tiap tahapan recruitment.</p>
+                    <h2 class="font-bold py-3 text-white text-2xl">Review CV</h2>
+                    <p class="font-light text-white mb-0">Hybrid event yang membahas tentang career preparation secara menyeluruh dari tiap tahapan recruitment.</p>
                 </div>
                 <!-- End Review CV box -->
                 <!-- Start Sudut Karir box -->
-                <div class="col-12 col-md-5 col-lg-4 d-flex flex-column justify-content-start align-items-center text-center p-4 my-2 my-md-0 rounded-4"
+                <div class="w-full md:w-5/12 lg:w-4/12 flex flex-col justify-start items-center text-center p-6 rounded-2xl"
                     style="background-color: #FF731D;" data-aos="fade-left">
-                    <h2 class="fw-bold py-3 text-white">Sudut Karir</h2>
-                    <p class="fw-light text-white mb-0">Program diskusi santai untuk mengembangkan soft skill dan life skill bersama expert.</p>
+                    <h2 class="font-bold py-3 text-white text-2xl">Sudut Karir</h2>
+                    <p class="font-light text-white mb-0">Program diskusi santai untuk mengembangkan soft skill dan life skill bersama expert.</p>
                 </div>
                 <!-- End Sudut Karir box -->
             </div>
@@ -169,9 +169,9 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
     <!-- End about our programs section -->
 
     <!-- Start about profile images section -->
-    <section class="profiles container-xl my-5">
-        <div class="profiles-container container-xl d-flex flex-column justify-content-center align-items-center">
-            <h1 class="py-4 fw-bold" style="color: #1746A2;">Our Team</h1>
+    <section class="profiles max-w-7xl mx-auto px-4 my-12">
+        <div class="profiles-container max-w-7xl mx-auto flex flex-col justify-center items-center">
+            <h1 class="py-4 font-bold text-3xl md:text-4xl" style="color: #1746A2;">Our Team</h1>
             @php
                 $leadersList = $leaders ?? $LeadersDetailsAbout ?? collect();
 
@@ -186,9 +186,9 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
             @endphp
 
             <!-- Leadership / Board of Directors -->
-            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="leadership">
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Founder</h1>
-                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+            <div class="team-division-section flex flex-col justify-center items-center my-4 w-full" data-division="leadership">
+                <h1 class="py-4 my-4 w-full text-center rounded-2xl text-white text-2xl font-bold" style="background-color: #04284E; color: #FF731D !important;">Founder</h1>
+                <div class="team-grid flex flex-wrap justify-center items-stretch gap-6">
                     @forelse($chiefList as $member)
                         @include('partials.member-card', ['member' => $member])
                     @empty
@@ -196,8 +196,8 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
                     @endforelse
                 </div>
 
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white mt-5" style="background-color: #04284E; color: #FF731D !important;">Vice President</h1>
-                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+                <h1 class="py-4 my-4 w-full text-center rounded-2xl text-white mt-8 text-2xl font-bold" style="background-color: #04284E; color: #FF731D !important;">Vice President</h1>
+                <div class="team-grid flex flex-wrap justify-center items-stretch gap-6">
                     @forelse($vpList as $member)
                         @include('partials.member-card', ['member' => $member])
                     @empty
@@ -207,9 +207,9 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
             </div>
 
             <!-- CEO Office Staff -->
-            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="ceo-office">
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">CEO Office</h1>
-                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+            <div class="team-division-section flex flex-col justify-center items-center my-4 w-full" data-division="ceo-office">
+                <h1 class="py-4 my-4 w-full text-center rounded-2xl text-white text-2xl font-bold" style="background-color: #04284E; color: #FF731D !important;">CEO Office</h1>
+                <div class="team-grid flex flex-wrap justify-center items-stretch gap-6">
                     @forelse($ceoOfficeList as $member)
                         @include('partials.member-card', ['member' => $member])
                     @empty
@@ -219,9 +219,9 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
             </div>
 
             <!-- Divisi Human Capital -->
-            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="human-capital">
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Divisi Human Capital</h1>
-                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+            <div class="team-division-section flex flex-col justify-center items-center my-4 w-full" data-division="human-capital">
+                <h1 class="py-4 my-4 w-full text-center rounded-2xl text-white text-2xl font-bold" style="background-color: #04284E; color: #FF731D !important;">Divisi Human Capital</h1>
+                <div class="team-grid flex flex-wrap justify-center items-stretch gap-6">
                     @forelse($hcList as $member)
                         @include('partials.member-card', ['member' => $member])
                     @empty
@@ -231,9 +231,9 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
             </div>
 
             <!-- Divisi Business Development -->
-            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="business-development">
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Divisi Business Development</h1>
-                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+            <div class="team-division-section flex flex-col justify-center items-center my-4 w-full" data-division="business-development">
+                <h1 class="py-4 my-4 w-full text-center rounded-2xl text-white text-2xl font-bold" style="background-color: #04284E; color: #FF731D !important;">Divisi Business Development</h1>
+                <div class="team-grid flex flex-wrap justify-center items-stretch gap-6">
                     @forelse($bdList as $member)
                         @include('partials.member-card', ['member' => $member])
                     @empty
@@ -243,9 +243,9 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
             </div>
 
             <!-- Divisi Marketing -->
-            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="marketing">
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Divisi Marketing</h1>
-                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+            <div class="team-division-section flex flex-col justify-center items-center my-4 w-full" data-division="marketing">
+                <h1 class="py-4 my-4 w-full text-center rounded-2xl text-white text-2xl font-bold" style="background-color: #04284E; color: #FF731D !important;">Divisi Marketing</h1>
+                <div class="team-grid flex flex-wrap justify-center items-stretch gap-6">
                     @forelse($marketingList as $member)
                         @include('partials.member-card', ['member' => $member])
                     @empty
@@ -255,9 +255,9 @@ House Ilmu hadir sebagai teman yang menemani setiap proses belajar dan berkemban
             </div>
 
             <!-- Divisi Technology -->
-            <div class="team-division-section d-flex flex-column justify-content-center align-items-center my-4 w-100" data-division="technology">
-                <h1 class="py-4 my-4 w-100 text-center rounded-4 text-white" style="background-color: #04284E; color: #FF731D !important;">Divisi Technology</h1>
-                <div class="team-grid d-flex flex-wrap justify-content-center align-items-stretch gap-4">
+            <div class="team-division-section flex flex-col justify-center items-center my-4 w-full" data-division="technology">
+                <h1 class="py-4 my-4 w-full text-center rounded-2xl text-white text-2xl font-bold" style="background-color: #04284E; color: #FF731D !important;">Divisi Technology</h1>
+                <div class="team-grid flex flex-wrap justify-center items-stretch gap-6">
                     @forelse($techList as $member)
                         @include('partials.member-card', ['member' => $member])
                     @empty
