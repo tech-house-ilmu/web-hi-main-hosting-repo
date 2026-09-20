@@ -29,13 +29,13 @@
         $attributes
             ->class([
                 'hidden' => $hidden || $default === 'hidden',
-                'col-[--col-span-default]' => $default && (! $hidden),
+                'col-(--col-span-default)' => $default && (! $hidden),
                 'sm:col-[--col-span-sm]' => $sm && (! $hidden),
                 'md:col-[--col-span-md]' => $md && (! $hidden),
                 'lg:col-[--col-span-lg]' => $lg && (! $hidden),
                 'xl:col-[--col-span-xl]' => $xl && (! $hidden),
                 '2xl:col-[--col-span-2xl]' => $twoXl && (! $hidden),
-                'col-start-[--col-start-default]' => $defaultStart && (! $hidden),
+                'col-start-(--col-start-default)' => $defaultStart && (! $hidden),
                 'sm:col-start-[--col-start-sm]' => $smStart && (! $hidden),
                 'md:col-start-[--col-start-md]' => $mdStart && (! $hidden),
                 'lg:col-start-[--col-start-lg]' => $lgStart && (! $hidden),

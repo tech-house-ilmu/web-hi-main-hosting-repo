@@ -14,8 +14,8 @@
         $attributes
             ->class([
                 'grid' => $isGrid && $direction === 'row',
-                'grid-cols-[--cols-default]' => $default && ($direction === 'row'),
-                'columns-[--cols-default]' => $default && ($direction === 'column'),
+                'grid-cols-(--cols-default)' => $default && ($direction === 'row'),
+                'columns-(--cols-default)' => $default && ($direction === 'column'),
                 'sm:grid-cols-[--cols-sm]' => $sm && ($direction === 'row'),
                 'sm:columns-[--cols-sm]' => $sm && ($direction === 'column'),
                 'md:grid-cols-[--cols-md]' => $md && ($direction === 'row'),
