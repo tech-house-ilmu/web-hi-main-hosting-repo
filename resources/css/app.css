@@ -1,18 +1,35 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
-@import "./navbar-footer.css";
-@import "./about-us.css";
-@import "./article.css";
-@import "./career.css";
-@import "./opp-cards.css";
-@import "./opp-products.css";
-@import "./partnership.css";
-@import "./style.css";
-@import "./global.css";
-@import "./splide.css";
+@layer theme, base, components, utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/theme" layer(theme);
+@import "./bootstrap-compat.css" layer(base);
+@import "./navbar-footer.css" layer(base);
+@import "./about-us.css" layer(base);
+@import "./article.css" layer(base);
+@import "./career.css" layer(base);
+@import "./opp-cards.css" layer(base);
+@import "./opp-products.css" layer(base);
+@import "./partnership.css" layer(base);
+@import "./style.css" layer(base);
+@import "./global.css" layer(base);
+@import "./splide.css" layer(base);
+@import "tailwindcss/utilities" layer(utilities);
+
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source inline("group-hover:opacity-100", "group-hover:pointer-events-auto");
+
+@theme {
+    --font-sans: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    --color-primary_HI: #01153e;
+    --color-primary_light_HI: #1746a2;
+    --color-secondary_HI: #ff731d;
+    --color-background_HI: #FFF7E9;
+    --color-surface_HI: #00C897;
+    --color-hover_HI: #ffdd95;
+}
 
 /********************************* Navbar ********************************/
 .group:hover ul {
