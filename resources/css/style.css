@@ -1,6 +1,6 @@
 /* styling banner */
 .banner .banner-container .banner-img img {
-    min-width: 100%;
+    max-width: 100%;
 }
 
 /* start styling upcoming home section */
