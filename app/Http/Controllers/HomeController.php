@@ -39,6 +39,22 @@ class HomeController extends Controller
             return Testimoni::latest()->get();
         });
 
-        return view('pages.index', compact('events', 'experts', 'programmes', 'testimonis'));
+        $impacts = config('homepage.impacts', []);
+        $onlinePrograms = config('homepage.online_programs', []);
+        $offlinePrograms = config('homepage.offline_programs', []);
+        $partners = config('homepage.partners', []);
+        $faqs = config('homepage.faqs', []);
+
+        return view('pages.index', compact(
+            'events',
+            'experts',
+            'programmes',
+            'testimonis',
+            'impacts',
+            'onlinePrograms',
+            'offlinePrograms',
+            'partners',
+            'faqs'
+        ));
     }
 }
