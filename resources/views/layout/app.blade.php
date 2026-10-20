@@ -19,7 +19,9 @@
         @yield('content')
     </main>
 
-    @include('partials.comments')
+    @unless(request()->routeIs('home'))
+        @include('partials.comments')
+    @endunless
 
     @include('partials.footer-homepage')
 
