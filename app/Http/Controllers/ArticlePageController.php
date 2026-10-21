@@ -12,9 +12,10 @@ class ArticlePageController extends Controller
      */
     public function index(): View
     {
-        $articles = Article::latest()->paginate(9);
+        $featuredArticle = Article::orderBy('date', 'desc')->first();
+        $articles = Article::orderBy('date', 'desc')->paginate(9);
 
-        return view('pages.article.index', compact('articles'));
+        return view('pages.article.index', compact('articles', 'featuredArticle'));
     }
 
     /**
