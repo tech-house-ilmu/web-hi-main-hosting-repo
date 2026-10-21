@@ -44,6 +44,7 @@ Route::prefix('programme')->name('programme.')->group(function () {
     Route::get('/HI-opportunities', [HITCCProgrammeController::class, 'index'])->name('hi.index');
     Route::get('/HI-opportunities/{category}/{slug}', [HITCCProgrammeController::class, 'show'])->name('hi.show');
 });
+Route::redirect('/programmes', '/programme/HI-programmes');
 
 // Articles
 Route::prefix('article')->name('article.')->group(function () {

@@ -34,7 +34,7 @@ return [
             'schedule_badge' => 'Segera diumumkan',
             'schedule_text' => 'Jadwal terbaru akan segera diumumkan.',
             'image' => 'img/homepage/BoMTalks-GerAce.webp',
-            'link' => '/programmes',
+            'link' => '/programme/HI-programmes',
         ],
         [
             'category' => 'Workskill',
@@ -43,7 +43,7 @@ return [
             'schedule_badge' => 'Segera diumumkan',
             'schedule_text' => 'Jadwal terbaru akan segera diumumkan.',
             'image' => 'img/homepage/poster-HITCC.webp',
-            'link' => '/programmes',
+            'link' => '/programme/HI-programmes',
         ],
         [
             'category' => 'Opportunity Corners',
@@ -52,7 +52,7 @@ return [
             'schedule_badge' => 'Segera diumumkan',
             'schedule_text' => 'Jadwal terbaru akan segera diumumkan.',
             'image' => 'img/homepage/programme/review-cv.webp',
-            'link' => '/programmes',
+            'link' => '/programme/HI-programmes',
         ],
     ],
 
