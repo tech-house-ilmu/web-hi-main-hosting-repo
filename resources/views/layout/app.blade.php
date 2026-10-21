@@ -19,7 +19,7 @@
         @yield('content')
     </main>
 
-    @unless(request()->routeIs('home'))
+    @unless(request()->routeIs('home', 'article.*') || request()->is('article', 'article/*'))
         @include('partials.comments')
     @endunless
 
