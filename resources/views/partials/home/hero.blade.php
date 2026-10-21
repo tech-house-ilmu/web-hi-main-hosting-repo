@@ -8,6 +8,7 @@
         align-items: center;
         padding: 56px 0;
         box-sizing: border-box;
+        overflow: hidden;
     }
     @media (min-width: 1024px) {
         .hi-hero-section {
@@ -43,10 +44,13 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    .hi-hero-h1,
+    .hi-hero-h1 * {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
     .hi-hero-h1 {
         width: 100%;
         max-width: 540px;
-        font-family: 'Libre Baskerville', Georgia, serif;
         font-weight: 700;
         font-size: 32px;
         line-height: 1.2;
@@ -209,6 +213,58 @@
     .hi-hero-dot.inactive:hover {
         background-color: #94A3B8;
     }
+
+    /* Mobile (< 640px) */
+    @media (max-width: 639px) {
+        .hi-hero-section {
+            min-height: auto;
+            padding: 28px 0 36px;
+        }
+        .hi-hero-container {
+            padding: 0 18px;
+            gap: 28px;
+        }
+        .hi-hero-content {
+            width: 100%;
+            max-width: 100%;
+        }
+        .hi-hero-h1 {
+            width: 100%;
+            max-width: 100%;
+            font-size: 26px;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+        .hi-hero-p {
+            width: 100%;
+            max-width: 100%;
+            font-size: 13.5px;
+            line-height: 22px;
+            margin-bottom: 20px;
+        }
+        .hi-hero-btn {
+            width: 100%;
+        }
+        .hi-hero-figure-wrapper {
+            width: 100%;
+            max-width: 100%;
+        }
+        .hi-hero-figure {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 10;
+        }
+        .hi-hero-arrow {
+            width: 34px;
+            height: 34px;
+        }
+        .hi-hero-arrow.prev {
+            left: 10px;
+        }
+        .hi-hero-arrow.next {
+            right: 10px;
+        }
+    }
 </style>
 
 <section class="hi-hero-section">
@@ -234,6 +290,7 @@
         <div class="hi-hero-figure-wrapper" data-aos="fade-left">
             <div x-data="{
                 activeSlide: 0,
+                timer: null,
                 slides: [
                     {
                         img: '{{ asset('img/homepage/banner-cindy2.webp') }}',
@@ -248,13 +305,28 @@
                         alt: 'Sudut Karir Mentoring Session'
                     }
                 ],
+                init() {
+                    this.startAuto();
+                },
+                startAuto() {
+                    this.stopAuto();
+                    this.timer = setInterval(() => {
+                        this.next();
+                    }, 5000);
+                },
+                stopAuto() {
+                    if (this.timer) clearInterval(this.timer);
+                },
                 next() {
                     this.activeSlide = (this.activeSlide + 1) % this.slides.length;
                 },
                 prev() {
                     this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
                 }
-            }" class="w-full flex flex-col items-center">
+            }"
+            @mouseenter="stopAuto()"
+            @mouseleave="startAuto()"
+            class="w-full flex flex-col items-center">
                 <!-- Slide Box (Responsive 16:9.5, Radius-12, #0A2A59) -->
                 <div class="hi-hero-figure">
                     <template x-for="(slide, index) in slides" :key="index">
