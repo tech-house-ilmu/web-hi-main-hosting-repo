@@ -123,6 +123,7 @@
     padding-bottom: 18px;
     color: #FFFFFF;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .footer-container {
@@ -171,8 +172,12 @@
 }
 
 /* Slogan: Libre Baskerville 700, 26px / 36px, -0.5px */
+.footer-slogan,
+.footer-slogan * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .footer-slogan {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 26px;
     line-height: 36px;
@@ -322,9 +327,23 @@
         padding-bottom: 24px;
     }
 
+    .footer-logo-img {
+        width: 76px;
+        height: 76px;
+    }
+
+    .footer-logo-link {
+        margin-bottom: 14px;
+    }
+
     .footer-slogan {
         font-size: 21px;
         line-height: 30px;
+    }
+
+    .footer-grid {
+        gap: 30px;
+        padding-bottom: 28px;
     }
 }
 </style>
