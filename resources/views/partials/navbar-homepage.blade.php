@@ -11,30 +11,49 @@
         width: 100%;
         max-width: 1240px;
         margin: 0 auto;
-        height: 82px;
+        height: 70px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 1.5rem;
+        padding: 0 1.25rem;
         box-sizing: border-box;
+    }
+    @media (min-width: 1024px) {
+        .hi-navbar-container {
+            height: 82px;
+            padding: 0 1.5rem;
+        }
     }
     .hi-navbar-logo {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.6rem;
         flex-shrink: 0;
         text-decoration: none;
     }
     .hi-navbar-logo img {
-        width: 48px !important;
-        height: 48px !important;
-        min-width: 48px !important;
-        min-height: 48px !important;
-        max-width: 48px !important;
-        max-height: 48px !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+        max-width: 40px !important;
+        max-height: 40px !important;
         object-fit: contain;
         flex-shrink: 0;
         display: block;
+    }
+    @media (min-width: 640px) {
+        .hi-navbar-logo {
+            gap: 0.75rem;
+        }
+        .hi-navbar-logo img {
+            width: 48px !important;
+            height: 48px !important;
+            min-width: 48px !important;
+            min-height: 48px !important;
+            max-width: 48px !important;
+            max-height: 48px !important;
+        }
     }
     .hi-navbar-logo-text {
         display: flex;
@@ -45,24 +64,37 @@
     }
     .hi-navbar-logo-text .title {
         font-weight: 700;
-        font-size: 18px;
+        font-size: 16px;
         color: #0B2247;
         line-height: 1.15;
         letter-spacing: -0.01em;
     }
     .hi-navbar-logo-text .subtitle {
         font-weight: 700;
-        font-size: 14px;
+        font-size: 13px;
         color: #FF8A18;
         line-height: 1.15;
     }
+    @media (min-width: 640px) {
+        .hi-navbar-logo-text .title {
+            font-size: 18px;
+        }
+        .hi-navbar-logo-text .subtitle {
+            font-size: 14px;
+        }
+    }
     .hi-navbar-menu {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        height: 82px;
-        flex-shrink: 0;
-        margin-left: auto;
+        display: none !important;
+    }
+    @media (min-width: 1024px) {
+        .hi-navbar-menu {
+            display: flex !important;
+            align-items: center;
+            gap: 20px;
+            height: 82px;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
     }
     .hi-nav-item {
         position: relative;
@@ -130,15 +162,14 @@
 </style>
 
 <header class="hi-navbar relative z-20 w-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
-    <nav class="hi-navbar-container w-full max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-[82px] flex items-center justify-between">
+    <nav class="hi-navbar-container w-full max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <!-- Brand / Logo (Anchored to Left) -->
-        <a href="{{ route('home') }}" class="hi-navbar-logo flex items-center gap-3 select-none flex-shrink-0 group">
+        <a href="{{ route('home') }}" class="hi-navbar-logo select-none flex-shrink-0 group">
             <img src="{{ asset('img/logo.webp') }}"
                  alt="House Ilmu Indonesia"
                  width="48"
                  height="48"
-                 style="width: 48px; height: 48px; min-width: 48px; min-height: 48px; max-width: 48px; max-height: 48px;"
-                 class="w-12 h-12 object-contain transition-transform duration-200 group-hover:scale-105" />
+                 class="object-contain transition-transform duration-200 group-hover:scale-105" />
             <div class="hi-navbar-logo-text flex flex-col justify-center">
                 <span class="title">House Ilmu</span>
                 <span class="subtitle">Indonesia</span>
