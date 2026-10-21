@@ -76,6 +76,7 @@
     padding-bottom: 56px;
     color: #ffffff;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .our-impact-container {
@@ -97,8 +98,12 @@
     margin-bottom: 24px;
 }
 
+.our-impact-title,
+.our-impact-title * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .our-impact-title {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
@@ -233,8 +238,12 @@
     margin-bottom: 4px;
 }
 
+.our-impact-reach-num,
+.our-impact-reach-num * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .our-impact-reach-num {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 56px;
     line-height: 1;
@@ -243,8 +252,12 @@
     margin-bottom: 6px;
 }
 
+.our-impact-reach-title,
+.our-impact-reach-title * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .our-impact-reach-title {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 22px;
     line-height: 29px;
@@ -314,5 +327,57 @@
     font-weight: 600;
     font-family: monospace;
     font-size: 10.5px;
+    overflow-wrap: anywhere;
+}
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+    .our-impact-section {
+        padding-top: 40px;
+        padding-bottom: 44px;
+    }
+    .our-impact-title {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .our-impact-subtitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .our-impact-stats-grid {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    .our-impact-stat-card {
+        padding: 16px;
+    }
+    .our-impact-stat-number {
+        font-size: 28px;
+    }
+    .our-impact-stat-label {
+        font-size: 12px;
+    }
+    .our-impact-reach-container {
+        padding: 24px 20px;
+        gap: 22px;
+    }
+    .our-impact-reach-info {
+        max-width: none;
+    }
+    .our-impact-reach-num {
+        font-size: 44px;
+    }
+    .our-impact-reach-title {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .our-impact-reach-desc {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .our-impact-reach-map {
+        min-height: 180px;
+        padding: 24px 16px;
+    }
 }
 </style>

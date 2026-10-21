@@ -93,6 +93,7 @@
     padding-bottom: 54px;
     color: #ffffff;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .upcoming-events-container {
@@ -114,8 +115,12 @@
     margin-bottom: 38px;
 }
 
+.upcoming-events-title,
+.upcoming-events-title * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .upcoming-events-title {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
@@ -164,7 +169,7 @@
 
 @media (min-width: 1024px) {
     .upcoming-events-grid {
-        grid-template-columns: repeat(3, 363px);
+        grid-template-columns: repeat(3, minmax(0, 363px));
         justify-content: center;
     }
 }
@@ -186,7 +191,6 @@
 
 @media (min-width: 1024px) {
     .upcoming-event-card {
-        width: 363px;
         height: 570px;
     }
 }
@@ -267,8 +271,12 @@
 }
 
 /* Card Title (Libre Baskerville 20px / 27px, tracking: -0.5px, #0A2A59) */
+.upcoming-event-name,
+.upcoming-event-name * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .upcoming-event-name {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 20px;
     line-height: 27px;
@@ -393,5 +401,53 @@
 
 .upcoming-events-action-btn:hover .upcoming-events-action-arrow {
     transform: translateX(3px);
+}
+
+/* Tablet & Mobile (< 1024px): poster mengikuti rasio, bukan tinggi fix */
+@media (max-width: 1023px) {
+    .upcoming-event-img-wrap {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+    .upcoming-events-section {
+        padding-top: 40px;
+        padding-bottom: 44px;
+    }
+    .upcoming-events-header {
+        margin-bottom: 28px;
+    }
+    .upcoming-events-title {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .upcoming-events-subtitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .upcoming-events-grid {
+        gap: 20px;
+    }
+    .upcoming-event-card {
+        max-width: 420px;
+    }
+    .upcoming-event-body {
+        padding: 18px;
+    }
+    .upcoming-event-name {
+        font-size: 18px;
+        line-height: 25px;
+        min-height: 0;
+    }
+    .upcoming-events-action-wrap {
+        margin-top: 28px;
+    }
+    .upcoming-events-action-btn {
+        width: 100%;
+        max-width: 320px;
+    }
 }
 </style>

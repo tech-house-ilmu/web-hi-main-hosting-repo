@@ -38,6 +38,7 @@
     padding-top: 42px;
     padding-bottom: 48px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .cta-container {
@@ -55,8 +56,12 @@
 }
 
 /* H2 Title */
+.cta-title,
+.cta-title * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .cta-title {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 28px;
     line-height: 38px;
@@ -164,6 +169,12 @@
     .cta-title {
         font-size: 20px;
         line-height: 30px;
+    }
+
+    .cta-subtitle {
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 18px;
     }
 
     .cta-actions {

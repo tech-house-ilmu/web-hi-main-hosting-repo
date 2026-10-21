@@ -62,6 +62,7 @@
     padding-top: 52px;
     padding-bottom: 56px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .our-partner-container {
@@ -83,8 +84,12 @@
     margin-bottom: 36px;
 }
 
+.our-partner-title,
+.our-partner-title * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .our-partner-title {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
@@ -221,5 +226,34 @@
     max-width: 85%;
     width: auto;
     object-fit: contain;
+}
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+    .our-partner-section {
+        padding-top: 40px;
+        padding-bottom: 44px;
+    }
+    .our-partner-header {
+        margin-bottom: 28px;
+    }
+    .our-partner-title {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .our-partner-subtitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .our-partner-frame {
+        padding: 16px;
+    }
+    .our-partner-grid {
+        gap: 12px;
+    }
+    .our-partner-card {
+        min-height: 90px;
+        padding: 12px;
+    }
 }
 </style>

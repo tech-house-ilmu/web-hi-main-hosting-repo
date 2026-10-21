@@ -59,6 +59,7 @@
     padding-top: 50px;
     padding-bottom: 56px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .faq-container {
@@ -81,8 +82,12 @@
 }
 
 /* H2 Title: Libre Baskerville 700, 28px / 35px, -0.68px, #FB7D0B */
+.faq-title,
+.faq-title * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .faq-title {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
@@ -214,16 +219,38 @@
 }
 
 @media (max-width: 640px) {
+    .faq-section {
+        padding-top: 40px;
+        padding-bottom: 44px;
+    }
+
+    .faq-header {
+        margin-bottom: 24px;
+    }
+
     .faq-title {
         font-size: 22px;
         line-height: 28px;
     }
 
+    .faq-subtitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
     .faq-trigger {
+        min-height: 52px;
         padding: 14px 16px;
     }
 
+    .faq-question {
+        font-size: 13.5px;
+        line-height: 19px;
+    }
+
     .faq-answer {
+        font-size: 12.5px;
+        line-height: 20px;
         padding: 12px 16px;
     }
 }

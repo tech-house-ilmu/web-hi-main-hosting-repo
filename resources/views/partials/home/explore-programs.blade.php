@@ -61,6 +61,7 @@
     padding-top: 52px;
     padding-bottom: 54px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .our-programme-container {
@@ -82,8 +83,12 @@
     margin-bottom: 38px;
 }
 
+.our-programme-title,
+.our-programme-title * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .our-programme-title {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
@@ -132,7 +137,7 @@
 
 @media (min-width: 1024px) {
     .our-programme-grid {
-        grid-template-columns: repeat(3, 363px);
+        grid-template-columns: repeat(3, minmax(0, 363px));
         justify-content: center;
     }
 }
@@ -167,8 +172,12 @@
 }
 
 /* Card Title: Libre Baskerville 19px / 26px, bold 700, #0A2A59 */
+.our-programme-card-title,
+.our-programme-card-title * {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
 .our-programme-card-title {
-    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 19px;
     line-height: 26px;
@@ -273,5 +282,49 @@
 
 .our-programme-action-btn:hover .our-programme-action-arrow {
     transform: translateX(3px);
+}
+
+/* Tablet & Mobile (< 1024px): kartu mengisi kolom grid */
+@media (max-width: 1023px) {
+    .our-programme-card {
+        max-width: none;
+    }
+}
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+    .our-programme-section {
+        padding-top: 40px;
+        padding-bottom: 44px;
+    }
+    .our-programme-header {
+        margin-bottom: 28px;
+    }
+    .our-programme-title {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .our-programme-subtitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .our-programme-grid {
+        gap: 16px;
+    }
+    .our-programme-card {
+        min-height: 0;
+        padding: 20px;
+    }
+    .our-programme-card-title {
+        font-size: 17px;
+        line-height: 24px;
+    }
+    .our-programme-action-wrap {
+        margin-top: 28px;
+    }
+    .our-programme-action-btn {
+        width: 100%;
+        max-width: 320px;
+    }
 }
 </style>
