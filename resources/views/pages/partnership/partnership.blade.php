@@ -248,32 +248,7 @@
     <!-- ==========================================
          SECTION: WHO WORK WITH US?
          ========================================== -->
-    <section class="partner container my-5 py-4" data-aos="fade-up">
-        <h1 class="col-12 text-center fw-bold pt-5 mt-2" style="color: #083d77">
-            Who work with us?
-        </h1>
-        <div id="partnerSplide" class="splide mt-4">
-            <div class="splide__track">
-                <ul class="splide__list flex items-center">
-                    <li class="splide__slide">
-                        <img src="{{ asset('img/homepage/logo-cakap.png') }}" class="w-56 mx-auto d-block" alt="logo partner cakap">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="{{ asset('img/homepage/logo-indorelawan.png') }}" class="w-56 mx-auto d-block" alt="logo partner indorelawan">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="{{ asset('img/homepage/logo-pemimpinid.jpg') }}" class="w-56 mx-auto d-block" alt="logo partner pemimpinid">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="{{ asset('img/homepage/logo-institut-id.png') }}" class="w-56 mx-auto d-block" alt="logo partner institut id">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="{{ asset('img/homepage/logo-phillip-sekuritas.png') }}" class="w-56 mx-auto d-block" alt="logo partner phillip sekuritas">
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    @include('partials.who-work-with-us')
 
     <!-- ==========================================
          SECTION: GET TO KNOW MORE ABOUT HI (FAQ)
