@@ -31,6 +31,14 @@
     --color-hover_HI: #ffdd95;
 }
 
+.font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans-clean {
+    font-family: 'Plus Jakarta Sans', var(--font-sans), sans-serif;
+}
+
 /********************************* Navbar ********************************/
 .group:hover ul {
     opacity: 1 !important;

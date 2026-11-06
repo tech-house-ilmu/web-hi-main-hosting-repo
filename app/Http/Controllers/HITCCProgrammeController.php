@@ -54,7 +54,7 @@ class HITCCProgrammeController extends Controller
     public function show(string $category, string $slug): View
     {
         $cacheKey = "programme_{$category}_{$slug}";
-        $programme = Cache::remember($cacheKey, 300, function () use ($category, $slug) {
+        $programme = Cache::remember($cacheKey, 60, function () use ($category, $slug) {
             return HITCCProgramme::whereHas('category', function ($q) use ($category) {
                 $q->where('slug', $category);
             })
@@ -63,6 +63,12 @@ class HITCCProgrammeController extends Controller
                 ->firstOrFail();
         });
 
-        return view('pages.programme.HI-opportunities.detail-opportunities', compact('programme'));
+        $relatedOpportunities = HITCCProgramme::with('category')
+            ->where('id', '!=', $programme->id)
+            ->orderBy('sort_order', 'asc')
+            ->take(3)
+            ->get();
+
+        return view('pages.programme.HI-opportunities.detail-opportunities', compact('programme', 'relatedOpportunities'));
     }
 }
