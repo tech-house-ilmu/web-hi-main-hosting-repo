@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticlePageController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\HIProgrammeEventController;
 use App\Http\Controllers\HITCCProgrammeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LeadersDetailsController;
@@ -41,6 +42,9 @@ Route::prefix('partnership')->name('partnership.')->group(function () {
 // Programmes & Opportunities
 Route::prefix('programme')->name('programme.')->group(function () {
     Route::view('/HI-programmes', 'pages.programme.HI-programmes.index')->name('programmes');
+    Route::get('/HI-programmes/detail/{slug?}', [HIProgrammeEventController::class, 'show'])->name('programmes.detail');
+    Route::get('/HI-programmes/{slug}', [HIProgrammeEventController::class, 'show'])->name('programmes.event');
+    Route::post('/HI-programmes/{slug}/register', [HIProgrammeEventController::class, 'register'])->name('programmes.register');
     Route::get('/HI-opportunities', [HITCCProgrammeController::class, 'index'])->name('hi.index');
     Route::get('/HI-opportunities/{category}/{slug}', [HITCCProgrammeController::class, 'show'])->name('hi.show');
 });

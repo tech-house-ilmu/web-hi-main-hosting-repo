@@ -1,43 +1,138 @@
-<footer>
-    <section class="footer-container w-full p-0" style="background-color: #FFDD95;">
-        <div class="footer-info max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-around items-start pt-4">
-            <div class="w-full md:w-1/3 flex flex-col items-start gap-2">
-                <img class="mt-1 w-32" src="{{ asset('img/homepage/logo.webp') }}" alt="logo house ilmu">
-                <p class="font-semibold pe-5 text-[#04284e] text-2xl md:text-xl lg:text-3xl">"Grow, <span class="text-[#ff731d]">Learn</span> and <span class="text-[#ff731d]">Get Achievement</span> Together"</p>
+<footer class="bg-[#1856C9] text-white pt-14 pb-8 px-4 sm:px-6 lg:px-8 border-t border-blue-600/30">
+    <div class="max-w-7xl mx-auto">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-start">
+            
+            <!-- Left Column: Logo & Slogan -->
+            <div class="md:col-span-5 lg:col-span-6 flex flex-col items-start">
+                <a href="{{ route('home') }}" class="inline-block group mb-4">
+                    <img 
+                        src="{{ asset('img/logo.webp') }}" 
+                        alt="House Ilmu Indonesia" 
+                        class="w-20 h-20 rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
+                    >
+                </a>
+
+                <h3 class="font-editorial text-2xl sm:text-3xl lg:text-[32px] font-bold text-white leading-snug tracking-tight">
+                    Learn, Grow, and Get<br>
+                    <span class="text-[#FF731D]">Achievement</span><br>
+                    Together
+                </h3>
             </div>
-            <!-- Start footer navigation -->
-            <div class="footer-nav w-full md:w-1/3 ps-2 md:ps-2 mt-4 flex flex-col items-start" style="border-left: 2px solid #083D77 ">
-                <h5 class="text-xl font-semibold mb-2 text-[#ff731d]">MENU</h5>
-                <a class="my-1 font-medium" href="{{ route('programme.programmes') }}">HI Programme</a>
-                <a class="my-1 font-medium" href="{{ route('programme.hi.index') }}">HI Opportunities</a>
-                <a class="my-1 font-medium" href="{{ route('partnership.index') }}">Partnership</a>
-                <a class="my-1 font-medium" href="{{ route('article.index') }}">Article</a>
-                <a class="my-1 font-medium" href="{{ route('career.index') }}">Career</a>
-                <a class="my-1 font-medium" href="{{ route('about') }}">About us</a>
+
+            <!-- Middle Column: Menu -->
+            <div class="md:col-span-4 lg:col-span-3 flex flex-col font-sans-clean">
+                <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-4">
+                    MENU
+                </h4>
+                <ul class="space-y-2.5 text-xs sm:text-sm text-white/95 font-normal list-none p-0 m-0">
+                    <li>
+                        <a href="{{ route('programme.programmes') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                            HI Program
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('programme.hi.index') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                            Kesempatan HI
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('partnership.index') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                            Kolaborasi Komunitas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('article.index') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                            Artikel
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('career.index') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                            Join HI
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('about') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                            Tentang Kami
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/houseilmu.id" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                            Riwayat Kegiatan
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <!-- End footer navigation -->
-            <!-- Start footer sosmed links -->
-            <div class="footer-sosmed w-full md:w-1/3 ps-2 md:ps-2 mt-4 flex flex-col items-start px-1" style="border-left: 2px solid #083D77 ">
-                <h5 class="text-xl font-semibold mb-2 text-[#ff731d]">SOCIAL MEDIA</h5>
-                <div class="flex gap-2">
-                    <i class="fa-brands fa-linkedin text-2xl text-[#1746A2]"></i>
-                    <a class="my-1 font-medium" href="https://www.linkedin.com/company/house-ilmu-indonesia"
-                        target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
-                <div class="flex gap-2">
-                    <i class="fa-brands fa-instagram text-2xl text-[#1746A2]"></i>
-                    <a class="my-1 font-medium" href="https://www.instagram.com/houseilmu.id" target="_blank" rel="noopener noreferrer">Instagram</a>
-                </div>
-                <div class="flex gap-2">
-                    <i class="fa-brands fa-tiktok text-2xl text-[#1746A2]"></i>
-                    <a class="my-1 font-medium" href="https://www.tiktok.com/@houseilmu.id" target="_blank" rel="noopener noreferrer">Tiktok</a>
-                </div>
+
+            <!-- Right Column: Media Sosial -->
+            <div class="md:col-span-3 lg:col-span-3 flex flex-col font-sans-clean">
+                <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-4">
+                    MEDIA SOSIAL
+                </h4>
+                <ul class="space-y-3.5 text-xs sm:text-sm text-white font-normal list-none p-0 m-0">
+                    <li>
+                        <a 
+                            href="https://www.linkedin.com/company/house-ilmu-indonesia" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            class="inline-flex items-center gap-3 text-white hover:text-white/80 transition-colors group"
+                        >
+                            <span class="w-7 h-7 rounded-full border border-white/60 flex items-center justify-center text-xs font-semibold text-white group-hover:border-white">
+                                in
+                            </span>
+                            <span class="font-medium">LinkedIn</span>
+                            <span class="text-xs transform transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="https://www.instagram.com/houseilmu.id" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            class="inline-flex items-center gap-3 text-white hover:text-white/80 transition-colors group"
+                        >
+                            <span class="w-7 h-7 rounded-full border border-white/60 flex items-center justify-center text-xs font-semibold text-white group-hover:border-white">
+                                ig
+                            </span>
+                            <span class="font-medium">Instagram</span>
+                            <span class="text-xs transform transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="https://www.tiktok.com/@houseilmu.id" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            class="inline-flex items-center gap-3 text-white hover:text-white/80 transition-colors group"
+                        >
+                            <span class="w-7 h-7 rounded-full border border-white/60 flex items-center justify-center text-xs font-semibold text-white group-hover:border-white">
+                                tt
+                            </span>
+                            <span class="font-medium">TikTok</span>
+                            <span class="text-xs transform transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <!-- End footer sosmed links -->
+
         </div>
-        <div class="footer-copyright flex flex-col justify-center items-center w-full bg-[#ff731d] mt-4 md:flex-row">
-            <p class="w-full my-2 text-center font-medium text-white">houseilmu.id@gmail.com | &copy; 2025 House Ilmu Indonesia | All rights reserved.
+
+        <!-- Divider Line -->
+        <div class="border-t border-white/20 mt-12 mb-6"></div>
+
+        <!-- Bottom Bar: Email, Copyright, Legal -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/80 font-sans-clean">
+            <p>
+                <a href="mailto:houseilmu.id@gmail.com" class="text-white/80 hover:text-white transition-colors">
+                    houseilmu.id@gmail.com
+                </a>
+            </p>
+            <p class="text-center">
+                &copy; {{ date('Y') }} House Ilmu Indonesia
+            </p>
+            <p class="text-right">
+                Hak cipta dilindungi.
             </p>
         </div>
-    </section>
+    </div>
 </footer>

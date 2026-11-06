@@ -19,7 +19,9 @@
         @yield('content')
     </main>
 
-    @include('partials.comments')
+    @unless(View::hasSection('hide_comments'))
+        @include('partials.comments')
+    @endunless
 
     @include('partials.footer-homepage')
 

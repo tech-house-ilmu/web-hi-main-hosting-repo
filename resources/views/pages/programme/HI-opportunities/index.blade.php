@@ -1,123 +1,216 @@
 @extends('layout.app')
 
 @section('title', 'HI Opportunities | House Ilmu Indonesia')
+@section('meta_description', 'Temukan peluang magang, relawan, beasiswa, pertukaran, dan kompetisi terbaik untuk belajar, terhubung, dan mengembangkan potensimu.')
+@section('hide_comments', true)
+
+@section('head')
+<style>
+    /* Hilangkan semua kotak, border, outline, dan focus ring bawaan browser pada search bar */
+    #search-form {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    #search-form:focus-within {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    #search-input {
+        border: 0 !important;
+        border-style: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        background: transparent !important;
+    }
+    #search-input:focus,
+    #search-input:focus-visible,
+    #search-input:active {
+        border: 0 !important;
+        border-style: none !important;
+        outline: none !important;
+        outline-style: none !important;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+    }
+</style>
+@endsection
 
 @section('content')
-<section class="max-w-7xl mx-auto px-4 my-8">
-    <!-- Search Bar -->
-    <div class="search-container w-full max-w-4xl mx-auto text-white mb-8">
-        <form id="search-form" method="GET" action="{{ route('programme.hi.index') }}" class="flex flex-col sm:flex-row items-center gap-2">
-            <input type="text" name="search" value="{{ request('search') }}" 
-                  class="w-full px-4 py-3 rounded-xl border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary_HI" placeholder="Search by Internship, Competition, Volunteer, & Exchange"/>
-            <button class="search-btn-custom w-full sm:w-auto px-6 py-3 rounded-xl font-bold bg-[#1746A2] text-white hover:bg-[#083D77] transition flex items-center justify-center gap-2 shrink-0 cursor-pointer" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i> Search
-            </button>
-        </form>
-    </div>
+<!-- Hero / Header Section -->
+<section class="bg-[#1856C9] pt-14 pb-12 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+        <!-- Title -->
+        <h1 class="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-3 tracking-wide uppercase">
+            HI OPPORTUNITIES
+        </h1>
 
-    <!-- Category Cards -->
-    @php
-        $categoryImages = [
-            'internship' => 'img/homepage/img-opp/internship.webp',
-            'volunteer' => 'img/homepage/img-opp/volunteer.webp',
-            'exchange' => 'img/homepage/img-opp/exchange.webp',
-            'scholarship' => 'img/homepage/img-opp/beasiswa.webp',
-            'competition' => 'img/homepage/img-opp/competition.webp',
-        ];
-    @endphp
+        <!-- Subtitle -->
+        <p class="text-white/85 text-xs sm:text-sm md:text-base text-center max-w-xl mx-auto mb-7 font-normal leading-relaxed font-sans-clean">
+            Temukan peluang untuk belajar, terhubung, dan mengembangkan potensi.
+        </p>
 
-    <div class="category-card flex flex-wrap justify-center sm:justify-between items-center mt-6 gap-3">
-        <!-- Semua -->
-        <a href="#" data-category="all" 
-          class="category-item text-center border-custom p-0 {{ request('category') == 'all' || !request('category') ? 'active' : '' }}">
-            <img src="{{ asset('img/homepage/img-opp/semua.webp') }}" alt="Semua"/>
-            <div class="flex justify-center card-img">
-                <span class="category-label">Semua</span>
-            </div>
-        </a>
+        <!-- Search Bar -->
+        <div class="max-w-xl mx-auto mb-6">
+            <form id="search-form" class="relative flex items-center bg-white rounded-full py-2.5 px-4 border-0 shadow-none">
+                <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm mr-3 shrink-0"></i>
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    value="{{ request('search') }}" 
+                    placeholder="Cari peluang..." 
+                    class="w-full text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-transparent font-sans-clean pr-2 border-0 outline-none focus:outline-none focus:ring-0" 
+                    style="border: none !important; outline: none !important; box-shadow: none !important;"
+                    autocomplete="off"
+                >
+            </form>
+        </div>
 
-        @foreach($categories as $category)
-            @php
-                $imagePath = $categoryImages[$category->slug] ?? 'img/homepage/img-opp/default.jpg';
-            @endphp
-            <a href="#" data-category="{{ $category->slug }}" 
-              class="category-item text-center border-custom p-0 {{ request('category') == $category->slug ? 'active' : '' }}">
-                <img src="{{ asset($imagePath) }}" alt="{{ $category->name }}"/>
-                <div class="card-img flex justify-center">
-                    <span class="category-label">{{ $category->name }}</span>
-                </div>
-            </a>
-        @endforeach
-    </div>
+        <!-- Filter Categories (Pills) -->
+        @php
+            $catFilters = [
+                'all' => 'Semua',
+                'internship' => 'Magang',
+                'volunteer' => 'Relawan',
+                'scholarship' => 'Beasiswa',
+                'exchange' => 'Pertukaran',
+                'competition' => 'Kompetisi',
+            ];
+            $activeCategory = request('category', 'all');
+        @endphp
 
-    <!-- Opportunity Cards -->
-    <div id="hitcc-cards">
-        @include('partials.hitcc-cards', ['opportunities' => $opportunities])
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 font-sans-clean" id="category-pills">
+            @foreach($catFilters as $slug => $label)
+                <button 
+                    type="button" 
+                    data-category="{{ $slug }}" 
+                    class="category-btn px-5 py-1.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 cursor-pointer {{ $activeCategory === $slug ? 'bg-[#FF731D] text-white shadow-sm' : 'bg-white text-[#152A5E] hover:text-[#FF731D] shadow-xs' }}"
+                >
+                    {{ $label }}
+                </button>
+            @endforeach
+        </div>
     </div>
 </section>
 
+<!-- Content Body Section -->
+<section class="bg-[#FFF9EF] py-10 sm:py-14 px-4 sm:px-6 lg:px-8 min-h-[600px]">
+    <div class="max-w-6xl mx-auto" id="opportunities-section">
+        <div id="hitcc-cards-container" class="transition-opacity duration-200">
+            @include('partials.hitcc-cards', ['opportunities' => $opportunities])
+        </div>
+    </div>
+</section>
 @endsection
 
 @section('scripts')
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-      const cardsContainer = document.getElementById('hitcc-cards');
-      const categoryLinks = document.querySelectorAll('.category-item');
-      const searchForm = document.getElementById('search-form');
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const cardsContainer = document.getElementById('hitcc-cards-container');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+    const sectionTop = document.getElementById('opportunities-section');
 
-      let currentCategory = '{{ request("category") ?? "all" }}';
-      let currentSearch = '{{ request("search") ?? "" }}';
-      
-      function fetchOpportunities(page = 1) {
-          const params = new URLSearchParams({
-              category: currentCategory,
-              search: currentSearch,
-              page: page
-          });
+    let currentCategory = '{{ request("category", "all") }}';
+    let currentSearch = '{{ request("search", "") }}';
+    let searchDebounce = null;
 
-          fetch(`{{ route('programme.hi.index') }}?${params.toString()}`, {
-              headers: {
-                  'X-Requested-With': 'XMLHttpRequest'
-              }
-          })
-          .then(res => res.text())
-          .then(html => {
-              cardsContainer.innerHTML = html;
-              attachPaginationLinks();
-          })
-          .catch(err => console.error(err));
-      }
+    function fetchOpportunities(page = 1, scrollToCards = false) {
+        const params = new URLSearchParams();
+        if (currentCategory && currentCategory !== 'all') {
+            params.set('category', currentCategory);
+        }
+        if (currentSearch) {
+            params.set('search', currentSearch);
+        }
+        if (page > 1) {
+            params.set('page', page);
+        }
 
-      function attachPaginationLinks() {
-          const links = cardsContainer.querySelectorAll('.pagination a');
-          links.forEach(link => {
-              link.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  const url = new URL(this.href);
-                  const page = url.searchParams.get('page') || 1;
-                  fetchOpportunities(page);
-              });
-          });
-      }
+        const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        window.history.pushState({}, '', newUrl);
 
-      // Category filter
-      categoryLinks.forEach(link => {
-          link.addEventListener('click', function(e) {
-              e.preventDefault();
-              currentCategory = this.dataset.category;
-              // update active class
-              categoryLinks.forEach(l => l.classList.remove('active'));
-              this.classList.add('active');
-              fetchOpportunities();
-          });
-      });
+        // Add loading opacity
+        if (cardsContainer) cardsContainer.style.opacity = '0.5';
 
-      // Search
-      searchForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          currentSearch = this.querySelector('input[name="search"]').value;
-          fetchOpportunities();
-      });
-  });
-  </script>
+        fetch(newUrl, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(res => res.text())
+        .then(html => {
+            if (cardsContainer) {
+                cardsContainer.innerHTML = html;
+                cardsContainer.style.opacity = '1';
+            }
+            attachPaginationListeners();
+
+            if (scrollToCards && sectionTop) {
+                sectionTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        })
+        .catch(err => {
+            console.error('Error loading opportunities:', err);
+            if (cardsContainer) cardsContainer.style.opacity = '1';
+        });
+    }
+
+    function attachPaginationListeners() {
+        if (!cardsContainer) return;
+        const paginationLinks = cardsContainer.querySelectorAll('.pagination-link');
+        paginationLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const url = new URL(this.href, window.location.origin);
+                const page = url.searchParams.get('page') || 1;
+                fetchOpportunities(page, true);
+            });
+        });
+    }
+
+    // Category Button Clicks
+    categoryButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            currentCategory = this.dataset.category;
+
+            // Update active state classes
+            categoryButtons.forEach(b => {
+                b.className = 'category-btn px-5 py-1.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 cursor-pointer bg-white text-[#152A5E] hover:text-[#FF731D] shadow-xs';
+            });
+            this.className = 'category-btn px-5 py-1.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 cursor-pointer bg-[#FF731D] text-white shadow-sm';
+
+            fetchOpportunities(1);
+        });
+    });
+
+    // Instant search with debounce
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            clearTimeout(searchDebounce);
+            searchDebounce = setTimeout(() => {
+                currentSearch = searchInput.value.trim();
+                fetchOpportunities(1);
+            }, 300);
+        });
+    }
+
+    // Search Form Submit
+    if (searchForm) {
+        searchForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            clearTimeout(searchDebounce);
+            currentSearch = searchInput ? searchInput.value.trim() : '';
+            fetchOpportunities(1);
+        });
+    }
+
+    attachPaginationListeners();
+});
+</script>
 @endsection
