@@ -67,6 +67,9 @@
                     {{ Request::is('career*') ? 'bg-primary_HI md:bg-transparent text-secondary_HI' : '' }}"
                 href="/career/">Career</a>
 
+                <a class="block w-full nav-link py-1 font-semibold rounded-lg text-primary_light_HI transition-colors duration-200 hover:text-secondary_HI hover:bg-primary_HI md:w-fit md:hover:bg-transparent {{ Request::is('event-history*') ? 'bg-primary_HI md:bg-transparent text-secondary_HI' : '' }}"
+                href="{{ route('event-history.index') }}">Event History</a>
+
                 <a class="block w-full nav-link py-1 font-semibold rounded-lg text-primary_light_HI transition-colors duration-200 hover:text-secondary_HI hover:bg-primary_HI md:w-fit md:hover:bg-transparent 
                     {{ Request::is('about-us*') ? 'bg-primary_HI md:bg-transparent text-secondary_HI' : '' }}"
                 href="/about-us/">About Us</a>

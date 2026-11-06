@@ -8,6 +8,7 @@ use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\LeadersDetailsController;
 use App\Http\Controllers\HITCCProgrammeController;
 use App\Http\Controllers\DeployController;
+use App\Http\Controllers\EventController;
 
 /******************************** DEPLOY / UPDATE ************************************/ 
 Route::match(['get', 'post'], '/deploy-update', [DeployController::class, 'deploy'])->name('server.deploy');
@@ -18,7 +19,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about-us', [LeadersDetailsController::class, 'LeadersDetails'])->name('about');
 
-/******************************** CAREER *********************************************/ 
+/******************************** EVENT HISTORY *************************************/
+
+Route::get('/event-history', [EventController::class, 'index'])->name('event-history.index');
+Route::get('/event-history/{slug}', [EventController::class, 'show'])->name('event-history.show');
+
+/******************************** CAREER *********************************************/
 
 Route::get('/career', [CareerController::class, 'index'])->name('career.index');
 Route::get('/career/announcement', [CareerController::class, 'announcement'])->name('career.announcement');
