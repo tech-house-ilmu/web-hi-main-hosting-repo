@@ -15,7 +15,7 @@
 
                 <h3 class="font-editorial text-2xl sm:text-3xl lg:text-[32px] font-bold text-white leading-snug tracking-tight">
                     Learn, Grow, and Get<br>
-                    <span class="text-[#FF731D]">Achievement</span><br>
+                    <span class="text-white">Achievement</span><br>
                     Together
                 </h3>
             </div>
@@ -25,39 +25,39 @@
                 <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-4">
                     MENU
                 </h4>
-                <ul class="space-y-2.5 text-xs sm:text-sm text-white/95 font-normal list-none p-0 m-0">
+                <ul class="space-y-2.5 text-xs sm:text-sm text-white font-normal list-none p-0 m-0">
                     <li>
-                        <a href="{{ route('programme.programmes') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                        <a href="{{ route('programme.programmes') }}" class="text-white hover:text-white/80 transition-colors duration-150 inline-block">
                             HI Program
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('programme.hi.index') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                        <a href="{{ route('programme.hi.index') }}" class="text-white hover:text-white/80 transition-colors duration-150 inline-block">
                             Kesempatan HI
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('partnership.index') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                        <a href="{{ route('partnership.index') }}" class="text-white hover:text-white/80 transition-colors duration-150 inline-block">
                             Kolaborasi Komunitas
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('article.index') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                        <a href="{{ route('article.index') }}" class="text-white hover:text-white/80 transition-colors duration-150 inline-block">
                             Artikel
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('career.index') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                        <a href="{{ route('career.index') }}" class="text-white hover:text-white/80 transition-colors duration-150 inline-block">
                             Join HI
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('about') }}" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                        <a href="{{ route('about') }}" class="text-white hover:text-white/80 transition-colors duration-150 inline-block">
                             Tentang Kami
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/houseilmu.id" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF731D] transition-colors duration-150 inline-block">
+                        <a href="https://www.instagram.com/houseilmu.id" target="_blank" rel="noopener noreferrer" class="text-white hover:text-white/80 transition-colors duration-150 inline-block">
                             Riwayat Kegiatan
                         </a>
                     </li>
@@ -121,16 +121,16 @@
         <div class="border-t border-white/20 mt-12 mb-6"></div>
 
         <!-- Bottom Bar: Email, Copyright, Legal -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/80 font-sans-clean">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white font-sans-clean">
             <p>
-                <a href="mailto:houseilmu.id@gmail.com" class="text-white/80 hover:text-white transition-colors">
+                <a href="mailto:houseilmu.id@gmail.com" class="text-white hover:text-white/80 transition-colors">
                     houseilmu.id@gmail.com
                 </a>
             </p>
-            <p class="text-center">
+            <p class="text-center text-white">
                 &copy; {{ date('Y') }} House Ilmu Indonesia
             </p>
-            <p class="text-right">
+            <p class="text-right text-white">
                 Hak cipta dilindungi.
             </p>
         </div>
