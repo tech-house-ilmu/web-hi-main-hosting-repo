@@ -22,11 +22,18 @@
                 <article class="upcoming-event-card">
                     <!-- Event Poster Image (363 x 272) -->
                     <div class="upcoming-event-img-wrap">
-                        <img src="{{ asset($item['image']) }}"
-                             alt="{{ $item['title'] }}"
-                             class="upcoming-event-img"
-                             loading="lazy"
-                             decoding="async" />
+                        @if(!empty($item['image']) && file_exists(public_path($item['image'])))
+                            <img src="{{ asset($item['image']) }}"
+                                 alt="{{ $item['title'] }}"
+                                 class="upcoming-event-img"
+                                 loading="lazy"
+                                 decoding="async" />
+                        @else
+                            <div class="upcoming-event-placeholder">
+                                <i class="fa-regular fa-image" aria-hidden="true"></i>
+                                <span>POSTER EVENT</span>
+                            </div>
+                        @endif
                     </div>
 
                     <!-- Card Body (363 x 298, p: 23px) -->
@@ -215,6 +222,31 @@
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
+}
+
+.upcoming-event-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #DDE4ED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #8C9BAE;
+}
+
+.upcoming-event-placeholder i {
+    font-size: 36px;
+    color: #8C9BAE;
+}
+
+.upcoming-event-placeholder span {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    color: #8C9BAE !important;
 }
 
 .upcoming-event-card:hover .upcoming-event-img {

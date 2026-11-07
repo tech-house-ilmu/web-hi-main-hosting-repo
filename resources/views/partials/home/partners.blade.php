@@ -15,38 +15,59 @@
         <!-- Partner Logos Frame (Max-W: 1140px, Bg: #DDE6F1, Radius: 12px) -->
         <div class="our-partner-frame">
             <div class="our-partner-grid">
-                <!-- Tile 1: Girls Beyond -->
-                <div class="our-partner-card our-partner-card-white">
-                    <span class="our-partner-gb-top">GIRLS</span>
-                    <span class="our-partner-gb-bottom">BEYOND</span>
-                </div>
+                @php
+                    $partnerList = $partners ?? config('homepage.partners', []);
+                @endphp
 
-                <!-- Tile 2: IDEAL -->
-                <div class="our-partner-card our-partner-card-white">
-                    <span class="our-partner-ideal">ideal</span>
-                </div>
+                @foreach($partnerList as $partner)
+                    @php
+                        $name = $partner['name'] ?? '';
+                        $logo = $partner['logo'] ?? null;
+                        $type = $partner['type'] ?? 'logo_card';
+                        $badgeTitle = $partner['badge_title'] ?? null;
+                        $badgeSub = $partner['badge_sub'] ?? null;
 
-                <!-- Tile 3: Pemimpin.id -->
-                <div class="our-partner-card our-partner-card-navy">
-                    <span class="our-partner-pemimpin-line">pe</span>
-                    <span class="our-partner-pemimpin-line">mimpin</span>
-                    <span class="our-partner-pemimpin-id">.id</span>
-                </div>
+                        $hasLogo = $logo && file_exists(public_path($logo));
+                        // special casing for Pemimpin.id visual (keeps original styling if present)
+                        $isPemimpin = str_contains(strtolower($name), 'pemimpin');
+                    @endphp
 
-                <!-- Tile 4: Phillip Sekuritas Indonesia -->
-                <div class="our-partner-card our-partner-card-white">
-                    @if(file_exists(public_path('img/homepage/logo-phillip-sekuritas.webp')))
-                        <img src="{{ asset('img/homepage/logo-phillip-sekuritas.webp') }}"
-                             alt="Phillip Sekuritas Indonesia"
-                             class="our-partner-logo-img"
-                             loading="lazy" />
-                    @else
-                        <div class="text-center">
-                            <span class="font-bold text-[#0A2A59] text-sm block">Phillip</span>
-                            <span class="text-[10px] text-[#68778C] block uppercase tracking-wider">Sekuritas Indonesia</span>
-                        </div>
-                    @endif
-                </div>
+                    <div class="our-partner-card {{ $isPemimpin ? 'our-partner-card-navy' : 'our-partner-card-white' }}">
+                        @if($hasLogo)
+                            <div class="our-partner-logo-wrap">
+                                <img src="{{ asset($logo) }}"
+                                     alt="{{ $name }}"
+                                     class="our-partner-logo-img"
+                                     loading="lazy" />
+                            </div>
+                        @else
+                            {{-- text badge / fallback rendering --}}
+                            @if($type === 'text_badge' && ($badgeTitle || $badgeSub))
+                                @if($badgeSub)
+                                    <span class="our-partner-gb-top">{{ strtoupper($badgeTitle) }}</span>
+                                    <span class="our-partner-gb-bottom">{{ strtoupper($badgeSub) }}</span>
+                                @else
+                                    <span class="our-partner-ideal">{{ $badgeTitle }}</span>
+                                @endif
+
+                            @elseif($isPemimpin)
+                                <span class="our-partner-pemimpin-line">{{ substr($name,0,2) }}</span>
+                                <span class="our-partner-pemimpin-line">{{ trim(str_replace(['.id','Pemimpin','pemimpin'], '', $name)) }}</span>
+                                <span class="our-partner-pemimpin-id">.id</span>
+
+                            @else
+                                {{-- generic text fallback --}}
+                                <div class="text-center">
+                                    <span class="font-bold text-[#0A2A59] text-sm block">{{ explode(' ', $name)[0] ?? $name }}</span>
+                                    @if(strpos($name, ' ') !== false)
+                                        <span class="text-[10px] text-[#68778C] block uppercase tracking-wider">{{ trim(str_replace(explode(' ', $name)[0], '', $name)) }}</span>
+                                    @endif
+                                </div>
+                            @endif
+                        @endif
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -154,21 +175,22 @@
 
 /* Partner Card */
 .our-partner-card {
-    border-radius: 10px;
-    min-height: 110px;
+    border-radius: 12px;
+    min-height: 104px;
+    height: 104px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 12px 20px;
     box-sizing: border-box;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .our-partner-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
 }
 
 .our-partner-card-white {
@@ -179,6 +201,27 @@
     background-color: #154279;
 }
 
+.our-partner-logo-wrap {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.our-partner-logo-img {
+    max-height: 54px;
+    max-width: 145px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: transform 0.25s ease;
+}
+
+.our-partner-card:hover .our-partner-logo-img {
+    transform: scale(1.04);
+}
 /* Brand Typography Specifics */
 .our-partner-gb-top,
 .our-partner-gb-bottom {

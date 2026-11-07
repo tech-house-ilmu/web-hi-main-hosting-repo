@@ -294,19 +294,13 @@
                 slides: [
                     {
                         img: '{{ asset('img/homepage/banner-cindy2.webp') }}',
-                        alt: 'House Ilmu Zoom Session Graduation'
-                    },
-                    {
-                        img: '{{ asset('img/homepage/programme/review-cv.webp') }}',
-                        alt: 'Review CV & Career Coaching'
-                    },
-                    {
-                        img: '{{ asset('img/homepage/programme/sudut-karir2.webp') }}',
-                        alt: 'Sudut Karir Mentoring Session'
+                        alt: 'House Ilmu Indonesia'
                     }
                 ],
                 init() {
-                    this.startAuto();
+                    if (this.slides.length > 1) {
+                        this.startAuto();
+                    }
                 },
                 startAuto() {
                     this.stopAuto();
@@ -325,7 +319,7 @@
                 }
             }"
             @mouseenter="stopAuto()"
-            @mouseleave="startAuto()"
+            @mouseleave="if (slides.length > 1) startAuto()"
             class="w-full flex flex-col items-center">
                 <!-- Slide Box (Responsive 16:9.5, Radius-12, #0A2A59) -->
                 <div class="hi-hero-figure">
@@ -342,34 +336,38 @@
                         </div>
                     </template>
 
-                    <!-- Left Navigation Arrow -->
-                    <button type="button"
-                            @click="prev()"
-                            class="hi-hero-arrow prev"
-                            aria-label="Previous Slide">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
-                    </button>
-
-                    <!-- Right Navigation Arrow -->
-                    <button type="button"
-                            @click="next()"
-                            class="hi-hero-arrow next"
-                            aria-label="Next Slide">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
-                    </button>
-                </div>
-
-                <!-- Slide Dots Indicator -->
-                <div class="hi-hero-dots">
-                    <template x-for="(slide, index) in slides" :key="index">
-                        <button type="button"
-                                @click="activeSlide = index"
-                                class="hi-hero-dot"
-                                :class="activeSlide === index ? 'active' : 'inactive'"
-                                :aria-label="'Go to slide ' + (index + 1)">
-                        </button>
+                    <!-- Navigation Arrows (only if multi-slide) -->
+                    <template x-if="slides.length > 1">
+                        <div>
+                            <button type="button"
+                                    @click="prev()"
+                                    class="hi-hero-arrow prev"
+                                    aria-label="Previous Slide">
+                                <i class="fa-solid fa-chevron-left text-xs"></i>
+                            </button>
+                            <button type="button"
+                                    @click="next()"
+                                    class="hi-hero-arrow next"
+                                    aria-label="Next Slide">
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
                     </template>
                 </div>
+
+                <!-- Slide Dots Indicator (only if multi-slide) -->
+                <template x-if="slides.length > 1">
+                    <div class="hi-hero-dots">
+                        <template x-for="(slide, index) in slides" :key="index">
+                            <button type="button"
+                                    @click="activeSlide = index"
+                                    class="hi-hero-dot"
+                                    :class="activeSlide === index ? 'active' : 'inactive'"
+                                    :aria-label="'Go to slide ' + (index + 1)">
+                            </button>
+                        </template>
+                    </div>
+                </template>
             </div>
         </div>
     </div>
