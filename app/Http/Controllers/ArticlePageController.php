@@ -24,7 +24,11 @@ class ArticlePageController extends Controller
     public function show(string $slug): View
     {
         $article = Article::where('slug', $slug)->firstOrFail();
+        $relatedArticles = Article::where('id', '!=', $article->id)
+            ->orderBy('date', 'desc')
+            ->take(3)
+            ->get();
 
-        return view('pages.article.detail-article', compact('article'));
+        return view('pages.article.detail-article', compact('article', 'relatedArticles'));
     }
 }

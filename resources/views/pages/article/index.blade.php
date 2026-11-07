@@ -92,7 +92,7 @@
             // Resolusi URL gambar artikel
             $resolveImg = function($img) {
                 if (empty($img)) {
-                    return asset('img/homepage/article/research1.webp');
+                    return null;
                 }
                 if (str_starts_with($img, 'http://') || str_starts_with($img, 'https://')) {
                     return $img;
@@ -103,7 +103,7 @@
                 if (file_exists(public_path($img))) {
                     return asset($img);
                 }
-                return asset('img/homepage/article/research1.webp');
+                return null;
             };
 
             // Featured Article (Artikel Unggulan)
@@ -132,11 +132,18 @@
             <article class="featured-card">
                 <!-- Thumbnail Kiri (W: 621, H: 275) -->
                 <a href="{{ route('article.show', $fSlug) }}" class="featured-card-thumb-wrap">
-                    <img src="{{ $fImg }}"
-                         alt="{{ $fTitle }}"
-                         class="featured-card-thumb"
-                         loading="lazy"
-                         decoding="async" />
+                    @if(!empty($fImg))
+                        <img src="{{ $fImg }}"
+                             alt="{{ $fTitle }}"
+                             class="featured-card-thumb"
+                             loading="lazy"
+                             decoding="async" />
+                    @else
+                        <div class="featured-placeholder-inner">
+                            <i class="fa-regular fa-image" aria-hidden="true"></i>
+                            <span>GAMBAR ARTIKEL</span>
+                        </div>
+                    @endif
                 </a>
 
                 <!-- Konten Kanan -->
@@ -217,11 +224,18 @@
                          data-desc="{{ strtolower($excerpt) }}">
                     <!-- Card Thumbnail (W: 362, H: 165) -->
                     <a href="{{ route('article.show', $item->slug) }}" class="article-card-thumb-link">
-                        <img src="{{ $imgSrc }}"
-                             alt="{{ $item->title }}"
-                             class="article-card-thumb"
-                             loading="lazy"
-                             decoding="async" />
+                        @if(!empty($imgSrc))
+                            <img src="{{ $imgSrc }}"
+                                 alt="{{ $item->title }}"
+                                 class="article-card-thumb"
+                                 loading="lazy"
+                                 decoding="async" />
+                        @else
+                            <div class="article-card-placeholder-inner">
+                                <i class="fa-regular fa-image" aria-hidden="true"></i>
+                                <span>GAMBAR ARTIKEL</span>
+                            </div>
+                        @endif
                     </a>
 
                     <!-- Card Body (W: 362, H: Hug 194, Padding: 22) -->
@@ -250,7 +264,10 @@
                 <!-- Fallback 6 Mock Cards Sesuai Figma Prototype -->
                 <article class="article-card" data-category="pengembangan-karier" data-title="panduan lengkap menembus magang idaman di perusahaan top tier untuk fresh graduate 2025">
                     <div class="article-card-thumb-link">
-                        <img src="{{ asset('img/homepage/article/skill-development1.webp') }}" alt="Panduan Magang" class="article-card-thumb" />
+                        <div class="article-card-placeholder-inner">
+                            <i class="fa-regular fa-image" aria-hidden="true"></i>
+                            <span>GAMBAR ARTIKEL</span>
+                        </div>
                     </div>
                     <div class="article-card-body">
                         <span class="article-category-badge">Pengembangan Karier</span>
@@ -262,7 +279,10 @@
 
                 <article class="article-card" data-category="kewirausahaan" data-title="membangun ide bisnis yang relevan untuk generasi muda">
                     <div class="article-card-thumb-link">
-                        <img src="{{ asset('img/homepage/article/education1.webp') }}" alt="Ide Bisnis" class="article-card-thumb" />
+                        <div class="article-card-placeholder-inner">
+                            <i class="fa-regular fa-image" aria-hidden="true"></i>
+                            <span>GAMBAR ARTIKEL</span>
+                        </div>
                     </div>
                     <div class="article-card-body">
                         <span class="article-category-badge">Kewirausahaan</span>
@@ -274,7 +294,10 @@
 
                 <article class="article-card" data-category="pengembangan-keterampilan" data-title="skill praktis untuk menunjang karier masa kini">
                     <div class="article-card-thumb-link">
-                        <img src="{{ asset('img/homepage/article/research1.webp') }}" alt="Skill Praktis" class="article-card-thumb" />
+                        <div class="article-card-placeholder-inner">
+                            <i class="fa-regular fa-image" aria-hidden="true"></i>
+                            <span>GAMBAR ARTIKEL</span>
+                        </div>
                     </div>
                     <div class="article-card-body">
                         <span class="article-category-badge">Pengembangan Keterampilan</span>
@@ -286,7 +309,10 @@
 
                 <article class="article-card" data-category="pengembangan-karier" data-title="mempersiapkan langkah awal menuju dunia kerja">
                     <div class="article-card-thumb-link">
-                        <img src="{{ asset('img/homepage/article/skill-development1.webp') }}" alt="Dunia Kerja" class="article-card-thumb" />
+                        <div class="article-card-placeholder-inner">
+                            <i class="fa-regular fa-image" aria-hidden="true"></i>
+                            <span>GAMBAR ARTIKEL</span>
+                        </div>
                     </div>
                     <div class="article-card-body">
                         <span class="article-category-badge">Pengembangan Karier</span>
@@ -298,7 +324,10 @@
 
                 <article class="article-card" data-category="kewirausahaan" data-title="dari ide menjadi aksi: memulai project pertamamu">
                     <div class="article-card-thumb-link">
-                        <img src="{{ asset('img/homepage/article/education1.webp') }}" alt="Project Pertama" class="article-card-thumb" />
+                        <div class="article-card-placeholder-inner">
+                            <i class="fa-regular fa-image" aria-hidden="true"></i>
+                            <span>GAMBAR ARTIKEL</span>
+                        </div>
                     </div>
                     <div class="article-card-body">
                         <span class="article-category-badge">Kewirausahaan</span>
@@ -310,7 +339,10 @@
 
                 <article class="article-card" data-category="pengembangan-keterampilan" data-title="cara belajar skill baru dengan lebih terarah">
                     <div class="article-card-thumb-link">
-                        <img src="{{ asset('img/homepage/article/research1.webp') }}" alt="Belajar Skill Baru" class="article-card-thumb" />
+                        <div class="article-card-placeholder-inner">
+                            <i class="fa-regular fa-image" aria-hidden="true"></i>
+                            <span>GAMBAR ARTIKEL</span>
+                        </div>
                     </div>
                     <div class="article-card-body">
                         <span class="article-category-badge">Pengembangan Keterampilan</span>
@@ -751,6 +783,57 @@
     overflow: hidden;
     background-color: #E8EBEF;
     text-decoration: none;
+}
+
+.featured-placeholder-inner {
+    width: 100%;
+    height: 100%;
+    min-height: 275px;
+    background-color: #DDE4ED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #8C9BAE;
+}
+
+.featured-placeholder-inner i {
+    font-size: 40px;
+    color: #8C9BAE;
+}
+
+.featured-placeholder-inner span {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    color: #8C9BAE !important;
+}
+
+.article-card-placeholder-inner {
+    width: 100%;
+    height: 100%;
+    background-color: #DDE4ED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #8C9BAE;
+}
+
+.article-card-placeholder-inner i {
+    font-size: 26px;
+    color: #8C9BAE;
+}
+
+.article-card-placeholder-inner span {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    color: #8C9BAE !important;
 }
 
 .article-card-thumb {
