@@ -28,7 +28,7 @@ export function initNavbarToggle() {
     });
 
     window.addEventListener("resize", () => {
-        if (window.innerWidth >= 768) {
+        if (window.innerWidth >= 1024) {
             nav.style.maxHeight = "none";
             nav.style.overflow = "visible";
         } else {
@@ -37,7 +37,7 @@ export function initNavbarToggle() {
     });
 
     // Set awal
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1024) {
         nav.style.maxHeight = "none";
         nav.style.overflow = "visible";
     } else {

@@ -1,21 +1,171 @@
-/* === Navbar global style === */
-nav {
+/* === HI Homepage Navbar === */
+.hi-navbar {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.hi-navbar-container {
+    width: 100%;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+    .hi-navbar-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hi-navbar-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.hi-navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.hi-navbar-logo img {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+}
+
+.hi-navbar-logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+    line-height: 1.15;
+}
+
+.hi-navbar-logo-text .title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #0B2247;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.hi-navbar-logo-text .subtitle {
+    font-weight: 700;
+    font-size: 14px;
+    color: #FF8A18;
+    line-height: 1.15;
+}
+
+.hi-navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 82px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.hi-nav-item {
+    position: relative;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hi-nav-link-inner {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 82px;
+}
+
+.hi-nav-text {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.01em !important;
+    color: #092C5B !important;
+    transition: color 0.2s ease;
+}
+
+.hi-nav-item:hover .hi-nav-text,
+.hi-nav-item.active .hi-nav-text,
+.hi-nav-dropdown-btn:hover .hi-nav-text,
+.hi-nav-dropdown-btn.active .hi-nav-text {
+    color: #FF8A18 !important;
+}
+
+.hi-nav-link-inner .active-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #FF8A18;
+    border-radius: 9999px;
+}
+
+.hi-nav-dropdown-btn {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    height: 82px;
+    white-space: nowrap;
+}
+
+.hi-nav-dropdown-btn i {
+    font-size: 9px;
+    color: #092C5B;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hi-nav-dropdown-btn:hover i,
+.hi-nav-dropdown-btn.active i {
+    color: #FF8A18;
+}
+
+/* === Legacy Navbar style (scoped) === */
+nav.legacy-nav {
     border-bottom: 3px solid #1746a2;
 }
 
-nav button {
+nav.legacy-nav button {
     min-height: 60px;
     min-width: 70px;
-}
-
-nav .nav-img img {
-    width: 120px;
-}
-
-@media only screen and (max-width: 767px) {
-    nav .nav-img {
-        width: 100%;
-    }
 }
 
 /* === Active link style (nav-link & dropdown-item) === */
@@ -25,7 +175,7 @@ nav .nav-img img {
     font-weight: bold !important;
 }
 
-/* === Footer style (jika kamu masih pakai di bawah) === */
+/* === Footer style === */
 footer .footer-info .footer-nav a,
 footer .footer-info .footer-sosmed a {
     color: #1746a2;

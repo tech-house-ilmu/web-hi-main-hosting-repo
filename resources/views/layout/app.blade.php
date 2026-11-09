@@ -39,6 +39,7 @@
         @yield('content')
     </main>
 
+    @unless(request()->routeIs('home', 'article.*') || request()->is('article', 'article/*'))
     @unless(View::hasSection('hide_comments'))
         @include('partials.comments')
     @endunless

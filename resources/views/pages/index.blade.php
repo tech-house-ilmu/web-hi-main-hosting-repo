@@ -13,6 +13,15 @@
 @section('twitter_description', 'Platform mentoring buat persiapin karir kamu! Yuk bergabung bersama House Ilmu Indonesia!')
 @section('twitter_image', asset('img/house-ilmu-indonesia.webp'))
 
+@section('content')
+  @include('partials.home.hero')
+  @include('partials.home.upcoming-events')
+  @include('partials.home.explore-programs')
+  @include('partials.home.our-impact')
+  @include('partials.home.partners')
+  @include('partials.home.testimonials')
+  @include('partials.home.faq')
+  @include('partials.home.cta')
 @section('head')
   <style>
     /* CSS untuk foto testimoni */

@@ -44,6 +44,9 @@ class HomeController extends Controller
         $offlinePrograms = config('homepage.offline_programs', []);
         $partners = config('homepage.partners', []);
         $faqs = config('homepage.faqs', []);
+        $upcomingEvents = config('homepage.upcoming_events', []);
+        $programs = config('homepage.programs', []);
+        $testimonials = config('homepage.testimonials', []);
 
         return view('pages.index', compact(
             'events',
@@ -54,6 +57,10 @@ class HomeController extends Controller
             'onlinePrograms',
             'offlinePrograms',
             'partners',
+            'faqs',
+            'upcomingEvents',
+            'programs',
+            'testimonials'
             'faqs'
         ));
     }
