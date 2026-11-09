@@ -1,350 +1,359 @@
 @extends('layout.app')
 
 @section('title', $programme->title_program . ' | House Ilmu Indonesia')
+@section('meta_description', $programme->company_desc ?: 'Detail program dan kesempatan ' . $programme->title_program . ' di House Ilmu Indonesia.')
+@section('hide_comments', true)
+
+@php
+    $categoryLabels = [
+        'internship' => 'Magang',
+        'volunteer' => 'Relawan',
+        'scholarship' => 'Beasiswa',
+        'exchange' => 'Pertukaran',
+        'competition' => 'Kompetisi',
+    ];
+    $catSlug = strtolower($programme->category->slug ?? '');
+    $categoryLabel = $categoryLabels[$catSlug] ?? ($programme->category->name ?? 'Peluang');
+
+    // Gambaran Umum
+    $overviewText = $programme->company_desc ?: 'Kesempatan belajar mengelola kampanye edukasi dan komunikasi digital bersama tim House Ilmu Indonesia.';
+
+    // Deskripsi
+    $descriptionText = match($catSlug) {
+        'internship' => $programme->internship?->hitcc_internship_jobdesc_detail,
+        'volunteer' => $programme->volunteer?->hitcc_volunteer_program_goals,
+        'scholarship' => $programme->scholarship?->hitcc_scholarship_program_desc,
+        'exchange' => $programme->exchange?->hitcc_exchange_program_desc,
+        'competition' => $programme->competition?->hitcc_competition_program_goals,
+        default => null,
+    } ?: 'Peserta akan mengikuti proses pembelajaran terarah, berkolaborasi dengan tim, dan menyelesaikan aktivitas sesuai ruang lingkup kesempatan.';
+
+    // Persyaratan & Kelayakan
+    $rawRequirements = match($catSlug) {
+        'internship' => $programme->internship?->hitcc_internship_technical_non_technical_skills,
+        'volunteer' => $programme->volunteer?->hitcc_volunteer_qualification_list,
+        'scholarship' => $programme->scholarship?->hitcc_scholarship_requirements_scholar,
+        'exchange' => $programme->exchange?->hitcc_exchange_selection_criteria,
+        'competition' => $programme->competition?->hitcc_competition_other_requirements,
+        default => null,
+    };
+    $requirementsList = $rawRequirements 
+        ? array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', strip_tags($rawRequirements))))
+        : [
+            'Pelajar, mahasiswa, atau lulusan baru yang relevan',
+            'Berkomitmen mengikuti seluruh rangkaian',
+            'Memiliki minat belajar dan bekerja sama',
+        ];
+
+    // Manfaat
+    $rawBenefits = match($catSlug) {
+        'internship' => $programme->internship?->hitcc_internship_benefit,
+        'volunteer' => $programme->volunteer?->hitcc_volunteer_benefit,
+        'scholarship' => $programme->scholarship?->hitcc_scholarship_benefit_scholar,
+        'exchange' => $programme->exchange?->hitcc_exchange_benefit,
+        'competition' => $programme->competition?->hitcc_competition_prize,
+        default => null,
+    };
+    $benefitsList = $rawBenefits 
+        ? array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', strip_tags($rawBenefits))))
+        : [
+            'Pengalaman proyek nyata',
+            'Pendampingan bersama tim',
+            'Sertifikat kontribusi',
+        ];
+
+    // Linimasa & Batas Pendaftaran
+    $deadlineText = $programme->registration_deadline 
+        ? \Carbon\Carbon::parse($programme->registration_deadline)->translatedFormat('d F Y')
+        : 'Pendaftaran berikutnya segera diumumkan';
+
+    // Cara Mendaftar
+    $rawRegistration = $programme->registration_info;
+    $registrationSteps = $rawRegistration 
+        ? array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', strip_tags($rawRegistration))))
+        : [
+            'Pelajari deskripsi dan persyaratan.',
+            'Siapkan CV serta dokumen pendukung.',
+            'Isi formulir resmi saat pendaftaran dibuka.',
+        ];
+
+    // Lokasi / Mode
+    $locationModeText = match($catSlug) {
+        'internship' => $programme->internship?->hitcc_internship_location,
+        'volunteer' => $programme->volunteer?->hitcc_volunteer_location,
+        'scholarship' => 'Daring · Indonesia',
+        'exchange' => $programme->exchange?->hitcc_exchange_location,
+        'competition' => $programme->competition?->hitcc_competition_venue,
+        default => null,
+    } ?: 'Hibrida · Indonesia';
+@endphp
 
 @section('content')
-<section class="breadcrumb w-full bg-gray-100 py-3">
-    <div class="max-w-7xl mx-auto px-4 flex flex-row items-center gap-2 text-sm text-gray-600">
-        <a href="{{ route('programme.hi.index') }}" class="hover:text-primary_HI">Semua</a>
-        <i class="fa-solid fa-chevron-right text-xs"></i>
-        <p class="font-medium text-gray-800">{{ $programme->category->name }}</p>
-    </div>
-</section>
+<div class="bg-[#FFF9F0] w-full text-[#152A5E]">
+    <div class="max-w-[940px] mx-auto px-4 sm:px-6 pt-7 pb-16">
+        
+        <!-- Back Link -->
+        <div class="mb-3">
+            <a href="{{ route('programme.hi.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#152A5E] hover:text-[#FF731D] transition-colors group">
+                <span class="group-hover:-translate-x-0.5 transition-transform">&larr;</span>
+                <span>Kembali ke Kesempatan HI</span>
+            </a>
+        </div>
 
-<div class="opp-container max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-start items-start gap-6 py-8 text-white">
-    <div class="opp-details w-full lg:w-7/12 flex flex-col">
-        <div class="opp-titles flex flex-row py-4 px-4 relative rounded-t-2xl overflow-hidden"
-            style="background: url('{{ $programme->bg_poster_img ? Storage::url($programme->bg_poster_img) : asset('assets/img-opp/default-poster.png') }}') center/cover no-repeat;">
-            <div class="overlay absolute inset-0 bg-black/60"></div>
-            <img class="w-24 md:w-32 logo p-2 z-10 shrink-0 object-contain rounded-xl"
-                src="{{ $programme->logo_company_img ? Storage::url($programme->logo_company_img) : asset('assets/img/logo.webp') }}"
-                alt="{{ $programme->title_program }}">
-            <div class="opp-organizer flex-1 flex flex-col gap-2 z-10 pl-4">
-                <h1 style="font-size: clamp(1.2rem, 2vw, 2.5rem);" class="font-bold">{{ $programme->title_program }}</h1>
-                <h3 style="font-size: clamp(1rem, 1.5vw, 2rem);" class="font-medium text-gray-200">{{ $programme->company_name }}</h3>
-                <div class="flex items-center gap-3">
-                    <!-- ICON -->
-                    <div class="opp-icon flex flex-col gap-1 text-center">
-                        @switch($programme->category->slug)
-                            @case('internship')
-                                <i class="fa-solid fa-user py-1"></i>
-                                <i class="fa-solid fa-briefcase py-1"></i>
-                                <i class="fa-solid fa-clock py-1"></i>
-                                @break
-                            @case('scholarship')
-                                <i class="fa-solid fa-money-bill-wave py-1"></i>
-                                <i class="fa-solid fa-graduation-cap py-1"></i>
-                                <i class="fa-solid fa-clock py-1"></i>
-                                @break
-                            @case('competition')
-                                <i class="fa-solid fa-user py-1"></i>
-                                <i class="fa-solid fa-award py-1"></i>
-                                <i class="fa-solid fa-clock py-1"></i>
-                                @break
-                            @case('volunteer')
-                                <i class="fa-solid fa-money-bill-wave py-1"></i>
-                                <i class="fa-solid fa-handshake-angle py-1"></i>
-                                <i class="fa-solid fa-clock py-1"></i>
-                                @break
-                            @case('exchange')
-                                <i class="fa-solid fa-money-bill-wave py-1"></i>
-                                <i class="fa-solid fa-user-graduate py-1"></i>
-                                <i class="fa-solid fa-clock py-1"></i>
-                                @break
-                            @default
-                                <i class="fa-solid fa-money-bill-wave py-1"></i>
-                                <i class="fa-solid fa-user py-1"></i>
-                                <i class="fa-solid fa-clock py-1"></i>
-                        @endswitch
-                    </div>
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center flex-wrap gap-1.5 text-[11px] sm:text-xs text-gray-500 font-sans-clean mb-10">
+            <a href="{{ route('programme.hi.index') }}" class="hover:text-[#152A5E] transition-colors">Kesempatan HI</a>
+            <span class="text-gray-400">/</span>
+            <a href="{{ route('programme.hi.index', ['category' => $programme->category->slug]) }}" class="hover:text-[#152A5E] transition-colors">{{ $categoryLabel }}</a>
+            <span class="text-gray-400">/</span>
+            <span class="text-gray-700 font-medium">{{ $programme->title_program }}</span>
+        </nav>
 
-                    <!-- INFO -->
-                    <div class="opp-info flex flex-col gap-1 text-sm">
-                        @switch($programme->category->slug)
-                            @case('internship')
-                                <p>Internship</p>
-                                <p>{{ $programme->internship->hitcc_internship_position ?? '-' }}</p>
-                                <p>{{ $programme->registration_deadline?->format('d M Y') ?? '-' }}</p>
-                                @break
-                            @case('scholarship')
-                                <p>{{ $programme->scholarship->hitcc_scholarship_scholar_type ?? '-' }}</p>
-                                <p>Beasiswa</p>
-                                <p>{{ $programme->registration_deadline?->format('d M Y') ?? '-' }}</p>
-                                @break
-                            @case('competition')
-                                <p>{{ $programme->competition->hitcc_competition_category ?? '-' }}</p>
-                                <p>{{ $programme->competition->hitcc_competition_competition_type ?? '-' }}</p>
-                                <p>{{ $programme->registration_deadline?->format('d M Y') ?? '-' }}</p>
-                                @break
-                            @case('volunteer')
-                                <p>{{ $programme->volunteer->hitcc_volunteer_type ?? '-' }}</p>
-                                <p>{{ $programme->volunteer->hitcc_volunteer_volunteer_type ?? '-' }}</p>
-                                <p>{{ $programme->registration_deadline?->format('d M Y') ?? '-' }}</p>
-                                @break
-                            @case('exchange')
-                                <p>{{ $programme->exchange->hitcc_exchange_type ?? '-' }}</p>
-                                <p>{{ $programme->exchange->hitcc_exchange_exchange_type ?? '-' }}</p>
-                                <p>{{ $programme->registration_deadline?->format('d M Y') ?? '-' }}</p>
-                                @break
-                            @default
-                                <p>-</p>
-                                <p>-</p>
-                                <p>-</p>
-                        @endswitch
-                    </div>
+        <!-- Hero: Poster + Title + CTA -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center mb-16">
+            <!-- Left: Poster Image / Placeholder -->
+            <div class="md:col-span-5 flex justify-center md:justify-start">
+                <div class="w-full max-w-[305px] h-[390px] bg-[#EEF2F7] rounded-[22px] overflow-hidden flex flex-col items-center justify-center relative shadow-sm select-none border border-gray-100/80">
+                    @if($programme->bg_poster_img && Storage::disk('public')->exists($programme->bg_poster_img))
+                        <img 
+                            src="{{ Storage::url($programme->bg_poster_img) }}" 
+                            alt="{{ $programme->title_program }}" 
+                            class="w-full h-full object-cover"
+                        >
+                    @else
+                        <div class="flex flex-col items-center justify-center gap-2 text-gray-400/80 p-4 text-center">
+                            <i class="fa-regular fa-image text-3xl"></i>
+                            <span class="text-[10px] tracking-[0.25em] font-bold text-gray-400 uppercase font-sans-clean">
+                                POSTER {{ strtoupper($categoryLabel) }}
+                            </span>
+                        </div>
+                    @endif
                 </div>
-                <a id="button-apply" class="w-full md:w-auto inline-block text-center mt-2 px-6 py-2.5 rounded-xl font-bold bg-[#ff9900] text-white hover:bg-[#e68a00] transition cursor-pointer" href="{{ $programme->link_apply }}" target="_blank">Apply now</a>
+            </div>
+
+            <!-- Right: Title, Subtitle, Apply Button -->
+            <div class="md:col-span-7 flex flex-col justify-center">
+                <!-- Category Badge -->
+                <span class="bg-[#EBF3FF] text-[#1856C9] px-3.5 py-1 rounded-full text-xs font-semibold inline-block mb-3.5 w-fit tracking-wide font-sans-clean">
+                    {{ $categoryLabel }}
+                </span>
+
+                <!-- Title -->
+                <h1 class="font-editorial text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#152A5E] leading-[1.18] mb-3.5">
+                    {{ $programme->title_program }}
+                </h1>
+
+                <!-- Subtitle / Short description -->
+                <p class="text-xs sm:text-[13.5px] text-gray-600 leading-relaxed font-sans-clean mb-6 max-w-lg">
+                    {{ $overviewText }}
+                </p>
+
+                <!-- CTA Button -->
+                <div>
+                    <a 
+                        href="{{ $programme->link_apply ?: '#' }}" 
+                        target="_blank" 
+                        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#FF731D] hover:bg-[#E8620D] text-white font-bold text-xs sm:text-sm tracking-wide transition duration-200 shadow-sm cursor-pointer font-sans-clean"
+                    >
+                        <span>Daftar Sekarang</span>
+                        <span class="text-sm">↗</span>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="opp-details-container flex flex-col gap-3 p-4 bg-[#083D77] rounded-b-2xl">
 
-            {{-- Internship --}}
-            @if($programme->category->slug === 'internship' && $programme->internship)
-                <div class="opp-information p-3">
-                    <h4>Informasi :</h4>
-                    <ul>
-                        <li>Nama Program: {{ $programme->title_program }}</li>
-                        <li>Nama Perusahaan: {{ $programme->company_name }}</li>
-                        <li>Lokasi: {{ $programme->internship->hitcc_internship_location }}</li>
-                        <li>Durasi: {{ $programme->internship->hitcc_internship_duration }}</li>
-                        <li>Keterangan Gaji: {{ $programme->internship->hitcc_internship_allowance }}</li>
-                    </ul>
-                </div>
-                <div class="opp-jobdesc p-3">
-                    <h4>Jobdesc :</h4>
-                    <ul>
-                        <li>Jobdesc: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->internship->hitcc_internship_jobdesc_detail) !!}</li>
-                        <li>Posisi: {{ $programme->internship->hitcc_internship_position }}</li>
-                        <li>Gaji: {{ $programme->internship->hitcc_internship_salary }}</li>
-                        <li>Benefit: {{ $programme->internship->hitcc_internship_benefit }}</li>
-                    </ul>
-                </div>
-                <div class="opp-condition p-3">
-                    <h4>Kualifikasi :</h4>
-                    <ul>
-                        <li>Pendidikan: {{ $programme->internship->hitcc_internship_education }}</li>
-                        <li>Jurusan: {{ $programme->internship->hitcc_internship_major }}</li>
-                        <li>IPK: {{ $programme->internship->hitcc_internship_gpa }}</li>
-                        <li>Bahasa: {{ $programme->internship->hitcc_internship_language }}</li>
-                        <li>Skill Teknis Non Teknis: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->internship->hitcc_internship_technical_non_technical_skills) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-register p-3">
-                    <h4>Pendaftaran :</h4>
-                    <ul>
-                        <li>{!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->registration_info) !!}</li>
-                        <li>Batas Pendaftaran: {{ \Carbon\Carbon::parse($programme->registration_deadline)->format('d M Y') }}</li>
-                        <li>Dokumen: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->internship->hitcc_internship_documents) !!}</li>
-                        <li>Kontak: {{ $programme->internship->hitcc_internship_contact }}</li>
-                    </ul>
-                </div>
-                <div class="opp-additional p-3">
-                    <h4>Informasi Tambahan :</h4>
-                    <ul>
-                        <li>Fasilitas: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->internship->hitcc_internship_facilities) !!}</li>
-                        <li>Jam kerja: {{ $programme->internship->hitcc_internship_work_hours }}</li>
-                        <li>Aturan dan Ketentuan: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->internship->hitcc_internship_rules) !!}</li>
-                        <li>Detail atau Guidebook: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->internship->hitcc_internship_detail_information) !!}</li>
-                    </ul>
-                </div>
-            @endif
+        <!-- Body Content: Left Details, Right Sidebar -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 mb-20">
+            <!-- Left Column: Details Sections -->
+            <div class="lg:col-span-8 space-y-7">
+                <!-- 1. Gambaran Umum -->
+                <section>
+                    <h2 class="font-editorial text-xl sm:text-2xl font-bold text-[#152A5E] mb-2">
+                        Gambaran Umum
+                    </h2>
+                    <p class="text-xs sm:text-[13.5px] text-gray-600 leading-relaxed font-sans-clean">
+                        {{ $overviewText }}
+                    </p>
+                </section>
 
-            {{-- Volunteer --}}
-            @if($programme->category->slug === 'volunteer' && $programme->volunteer)
-                <div class="opp-information p-3">
-                    <h4>Informasi :</h4>
-                    <ul>
-                        <li>Nama Program: {{ $programme->title_program }}</li>
-                        <li>Tujuan Program: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_program_goals) !!}</li>
-                        <li>Lokasi: {{ $programme->volunteer->hitcc_volunteer_location }}</li>
-                        <li>Durasi: {{ $programme->volunteer->hitcc_volunteer_duration }}</li>
-                        <li>Benefit: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_benefit) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-jobdesc p-3">
-                    <h4>Jobdesc :</h4>
-                    <ul>
-                        <li>Kegiatan: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_activities) !!}</li>
-                        <li>Jadwal: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_schedule_times) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-condition p-3">
-                    <h4>Kualifikasi :</h4>
-                    <ul>
-                        <li>Kualifikasi: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_qualification_list) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-register p-3">
-                    <h4>Pendaftaran :</h4>
-                    <ul>
-                        <li>{!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->registration_info) !!}</li>
-                        <li>Batas Pendaftaran: {{ \Carbon\Carbon::parse($programme->registration_deadline)->format('d M Y') }}</li>
-                        <li>Link Tambahan: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_additional_link) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-additional p-3">
-                    <h4>Informasi Tambahan :</h4>
-                    <ul>
-                        <li>Fasilitas: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_facilities) !!}</li>
-                        <li>Aturan: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_rules) !!}</li>
-                        <li>Detail Informasi: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->volunteer->hitcc_volunteer_detail_information) !!}</li>
-                    </ul>
-                </div>
-            @endif
+                <!-- 2. Deskripsi -->
+                <section>
+                    <h2 class="font-editorial text-xl sm:text-2xl font-bold text-[#152A5E] mb-2">
+                        Deskripsi
+                    </h2>
+                    <p class="text-xs sm:text-[13.5px] text-gray-600 leading-relaxed font-sans-clean">
+                        {{ $descriptionText }}
+                    </p>
+                </section>
 
-            {{-- Scholarship --}}
-            @if($programme->category->slug === 'scholarship' && $programme->scholarship)
-                <div class="opp-information p-3">
-                    <h4>Informasi :</h4>
-                    <ul>
-                        <li>Nama Program: {{ $programme->title_program }}</li>
-                        <li>Deskripsi Program: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->scholarship->hitcc_scholarship_program_desc) !!}</li>
-                        <li>Jenis: {{ $programme->scholarship->hitcc_scholarship_scholar_type }}</li>
-                    </ul>
-                </div>
-                <div class="opp-condition p-3">
-                    <h4>Persyaratan :</h4>
-                    <ul>
-                        <li>{!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->scholarship->hitcc_scholarship_requirements_scholar) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-jobdesc p-3">
-                    <h4>Benefit :</h4>
-                    <ul>
-                        <li>{!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->scholarship->hitcc_scholarship_benefit_scholar) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-register p-3">
-                    <h4>Pendaftaran :</h4>
-                    <ul>
-                        <li>{!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->registration_info) !!}</li>
-                        <li>Batas Pendaftaran: {{ \Carbon\Carbon::parse($programme->registration_deadline)->format('d M Y') }}</li>
-                        <li>Dokumen: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->scholarship->hitcc_scholarship_documents) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-additional p-3">
-                    <h4>Informasi Tambahan :</h4>
-                    <ul>
-                        <li>Detail Penyelenggara: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->scholarship->hitcc_scholarship_company_details) !!}</li>
-                        <li>Commitment Fee: {{ $programme->scholarship->hitcc_scholarship_commitment_fee }}</li>
-                        <li>Biaya yang ditanggung: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->scholarship->hitcc_scholarship_costs_covered) !!}</li>
-                        <li>Tahapan Seleksi: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->scholarship->hitcc_scholarship_selection_phase) !!}</li>
-                        <li>Guidebook: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->scholarship->hitcc_scholarship_guidebook) !!}</li>
-                    </ul>
-                </div>
-            @endif
+                <!-- 3. Persyaratan & Kelayakan -->
+                <section>
+                    <h2 class="font-editorial text-xl sm:text-2xl font-bold text-[#152A5E] mb-2">
+                        Persyaratan & Kelayakan
+                    </h2>
+                    <div class="space-y-1 text-xs sm:text-[13.5px] text-gray-600 font-sans-clean leading-relaxed">
+                        @foreach($requirementsList as $req)
+                            <p>{{ $req }}</p>
+                        @endforeach
+                    </div>
+                </section>
 
-            {{-- Exchange --}}
-            @if($programme->category->slug === 'exchange' && $programme->exchange)
-                <div class="opp-information p-3">
-                    <h4>Informasi :</h4>
-                    <ul>
-                        <li>Deskripsi: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->exchange->hitcc_exchange_program_desc) !!}</li>
-                        <li>Lokasi: {{ $programme->exchange->hitcc_exchange_location }}</li>
-                        <li>Durasi: {{ $programme->exchange->hitcc_exchange_duration }}</li>
-                        <li>Jenis: {{ $programme->exchange->hitcc_exchange_type }}</li>
-                        <li>Tipe Exchange: {{ $programme->exchange->hitcc_exchange_exchange_type }}</li>
-                        <li>Benefit: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->exchange->hitcc_exchange_benefit) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-condition p-3">
-                    <h4>Persyaratan :</h4>
-                    <ul>
-                        <li>Pendidikan Minimal: {{ $programme->exchange->hitcc_exchange_minimal_education }}</li>
-                        <li>Usia Maksimal: {{ $programme->exchange->hitcc_exchange_max_age }}</li>
-                        <li>IPK: {{ $programme->exchange->hitcc_exchange_gpa }}</li>
-                        <li>Pengalaman: {{ $programme->exchange->hitcc_exchange_relevant_experience }}</li>
-                    </ul>
-                </div>
-                <div class="opp-jobdesc p-3">
-                    <h4>Kriteria Seleksi :</h4>
-                    <ul>
-                        <li>{!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->exchange->hitcc_exchange_selection_criteria) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-register p-3">
-                    <h4>Pendaftaran :</h4>
-                    <ul>
-                        <li>{!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->registration_info) !!}</li>
-                        <li>Batas Pendaftaran: {{ \Carbon\Carbon::parse($programme->registration_deadline)->format('d M Y') }}</li>
-                        <li>Dokumen: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->exchange->hitcc_exchange_documents) !!}</li>
-                        <li>Biaya Registrasi: {{ $programme->exchange->hitcc_exchange_registration_fee }}</li>
-                    </ul>
-                </div>
-                <div class="opp-additional p-3">
-                    <h4>Informasi Tambahan :</h4>
-                    <ul>
-                        <li>Fasilitas: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->exchange->hitcc_exchange_facilities) !!}</li>
-                        <li>Akomodasi: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->exchange->hitcc_exchange_accomodation) !!}</li>
-                        <li>Aturan: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->exchange->hitcc_exchange_rules) !!}</li>
-                        <li>Detail Informasi: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->exchange->hitcc_exchange_detail_information) !!}</li>
-                    </ul>
-                </div>
-            @endif
+                <!-- 4. Manfaat -->
+                <section>
+                    <h2 class="font-editorial text-xl sm:text-2xl font-bold text-[#152A5E] mb-2">
+                        Manfaat
+                    </h2>
+                    <div class="space-y-1 text-xs sm:text-[13.5px] text-gray-600 font-sans-clean leading-relaxed">
+                        @foreach($benefitsList as $ben)
+                            <p>{{ $ben }}</p>
+                        @endforeach
+                    </div>
+                </section>
 
-            {{-- Competition --}}
-            @if($programme->category->slug === 'competition' && $programme->competition)
-                <div class="opp-information p-3">
-                    <h4>Informasi :</h4>
-                    <ul>
-                        <li>Nama Program: {{ $programme->title_program }}</li>
-                        <li>Tujuan Program: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->competition->hitcc_competition_program_goals) !!}</li>
-                        <li>Tipe Program: {{ $programme->competition->hitcc_competition_type }}</li>
-                        <li>Kategori: {{ $programme->competition->hitcc_competition_category }}</li>
-                        <li>Hadiah: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->competition->hitcc_competition_prize) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-condition p-3">
-                    <h4>Persyaratan :</h4>
-                    <ul>
-                        <li>Usia Maksimal: {{ $programme->competition->hitcc_competition_max_age }}</li>
-                        <li>Pendidikan Minimal: {{ $programme->competition->hitcc_competition_minimal_education }}</li>
-                        <li>Persyaratan Lain: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->competition->hitcc_competition_other_requirements) !!}</li>
-                    </ul>
-                </div>
-                <div class="opp-register p-3">
-                    <h4>Pendaftaran & Timeline :</h4>
-                    <ul>
-                        <li>{!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->registration_info) !!}</li>
-                        <li>Timeline: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->competition->hitcc_competition_timeline) !!}</li>
-                        <li>Batas Pendaftaran: {{ \Carbon\Carbon::parse($programme->registration_deadline)->format('d M Y') }}</li>
-                        <li>Tipe Biaya: {{ $programme->competition->hitcc_competition_fee_type }}</li>
-                        <li>Tempat: {{ $programme->competition->hitcc_competition_venue }}</li>
-                        <li>Pengumuman: {{ $programme->competition->hitcc_competition_announcement }}</li>
-                    </ul>
-                </div>
-                <div class="opp-additional p-3">
-                    <h4>Informasi Tambahan :</h4>
-                    <ul>
-                        <li>Aturan: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->competition->hitcc_competition_rules) !!}</li>
-                        <li>Juri: {{ $programme->competition->hitcc_competition_jury }}</li>
-                        <li>Syarat & Ketentuan: {!! str_replace('<img', '<img class="max-w-full h-auto rounded-lg"', $programme->competition->hitcc_competition_terms_condition) !!}</li>
-                    </ul>
-                </div>
-            @endif
+                <!-- 5. Linimasa & Batas Pendaftaran -->
+                <section>
+                    <h2 class="font-editorial text-xl sm:text-2xl font-bold text-[#152A5E] mb-2">
+                        Linimasa & Batas Pendaftaran
+                    </h2>
+                    <p class="text-xs sm:text-[13.5px] text-gray-600 leading-relaxed font-sans-clean">
+                        {{ $deadlineText }}
+                    </p>
+                </section>
 
-        </div>
-    </div>
+                <!-- 6. Cara Mendaftar -->
+                <section>
+                    <h2 class="font-editorial text-xl sm:text-2xl font-bold text-[#152A5E] mb-2">
+                        Cara Mendaftar
+                    </h2>
+                    <div class="space-y-1 text-xs sm:text-[13.5px] text-gray-600 font-sans-clean leading-relaxed">
+                        @foreach($registrationSteps as $step)
+                            <p>{{ $step }}</p>
+                        @endforeach
+                    </div>
+                </section>
+            </div>
 
-    <div class="opp-contact-container w-full lg:w-5/12">
-        <div class="opp-contact flex flex-col justify-start p-4 bg-[#083D77] rounded-2xl mb-6">
-            <div class="opp-details-organizer p-3 break-words space-y-2">
-                <h4 class="text-xl font-bold text-[#ff9900] mb-3">Informasi Kontak</h4>
-                @if(!empty($programme->company_number))
-                    <p><span class="font-medium text-gray-300">No. Telepon :</span> {{ $programme->company_number }}</p>
-                @endif
-                @if(!empty($programme->company_email))
-                    <p><span class="font-medium text-gray-300">Email :</span> <a href="mailto:{{ $programme->company_email }}" class="text-[#ff9900] hover:underline">{{ $programme->company_email }}</a></p>
-                @endif
-                @if(!empty($programme->company_website))
-                    <p><span class="font-medium text-gray-300">Website :</span> <a href="{{ $programme->company_website }}" target="_blank" class="text-[#ff9900] hover:underline">{{ $programme->company_website }}</a></p>
-                @endif
-                @if(!empty($programme->company_social_media))
-                    <p><span class="font-medium text-gray-300">Media Sosial :</span> <a href="{{ $programme->company_social_media }}" target="_blank" class="text-[#ff9900] hover:underline">{{ $programme->company_social_media }}</a></p>
-                @endif
+            <!-- Right Column: Sidebar Card -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-6 sm:top-8 bg-white rounded-[22px] p-6 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-gray-100">
+                    <h3 class="font-bold text-xs tracking-wider text-[#152A5E] uppercase mb-4 font-sans-clean">
+                        INFORMASI KESEMPATAN
+                    </h3>
+
+                    <div class="space-y-4 mb-6 text-xs font-sans-clean">
+                        <div>
+                            <p class="font-bold text-[#152A5E] mb-0.5">Penyelenggara</p>
+                            <p class="text-gray-600">{{ $programme->company_name ?: 'House Ilmu Indonesia' }}</p>
+                        </div>
+
+                        <div>
+                            <p class="font-bold text-[#152A5E] mb-0.5">Batas Pendaftaran</p>
+                            <p class="text-gray-600">{{ $deadlineText }}</p>
+                        </div>
+
+                        <div>
+                            <p class="font-bold text-[#152A5E] mb-0.5">Lokasi / Mode</p>
+                            <p class="text-gray-600">{{ $locationModeText }}</p>
+                        </div>
+                    </div>
+
+                    <a 
+                        href="{{ $programme->link_apply ?: '#' }}" 
+                        target="_blank" 
+                        class="w-full py-2.5 px-4 rounded-xl bg-[#FF731D] hover:bg-[#E8620D] text-white font-bold text-xs tracking-wide text-center transition duration-200 block shadow-sm flex items-center justify-center gap-1.5 font-sans-clean cursor-pointer mb-2.5"
+                    >
+                        <span>Daftar Sekarang</span>
+                        <span class="text-xs">↗</span>
+                    </a>
+
+                    @if($programme->company_website || $programme->link_apply)
+                        <a 
+                            href="{{ $programme->company_website ?: $programme->link_apply }}" 
+                            target="_blank" 
+                            class="block text-center text-[11px] font-medium text-[#FF731D] hover:underline transition font-sans-clean"
+                        >
+                            Buka tautan referensi &rarr;
+                        </a>
+                    @endif
+                </div>
             </div>
         </div>
-        @include('partials.hi-products')
+
+        <!-- Related Opportunities -->
+        @if(isset($relatedOpportunities) && $relatedOpportunities->count() > 0)
+            <div class="pt-8 pb-4">
+                <!-- Heading -->
+                <div class="text-center mb-9">
+                    <h2 class="font-editorial text-2xl sm:text-[26px] font-bold text-[#FF731D] tracking-wide uppercase mb-2">
+                        RELATED OPPORTUNITIES
+                    </h2>
+                    <div class="w-14 h-[2px] bg-[#FF731D] mx-auto"></div>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    @foreach($relatedOpportunities as $opp)
+                        @php
+                            $catOppSlug = strtolower($opp->category->slug ?? '');
+                            $badgeOppName = $categoryLabels[$catOppSlug] ?? ($opp->category->name ?? 'Peluang');
+                            $descOppText = $opp->company_desc ?: ($opp->registration_info ?: 'Temukan program dan kesempatan terbaik bersama House Ilmu Indonesia.');
+                        @endphp
+
+                        <div class="bg-white rounded-[22px] border-[1.5px] border-[#2563EB]/40 overflow-hidden flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg hover:-translate-y-1 transition duration-300">
+                            <!-- Top: Image / Placeholder Area -->
+                            <div class="w-full aspect-[16/10] bg-[#EEF2F7] border-b border-gray-100 flex flex-col items-center justify-center p-4 relative overflow-hidden select-none">
+                                @if($opp->bg_poster_img && Storage::disk('public')->exists($opp->bg_poster_img))
+                                    <img 
+                                        src="{{ Storage::url($opp->bg_poster_img) }}" 
+                                        alt="{{ $opp->title_program }}" 
+                                        class="w-full h-full object-cover object-top hover:scale-105 transition duration-500" 
+                                        loading="lazy" 
+                                        decoding="async"
+                                    >
+                                @else
+                                    <div class="flex flex-col items-center justify-center gap-1.5 text-gray-400/80">
+                                        <i class="fa-regular fa-image text-2xl"></i>
+                                        <span class="text-[9px] tracking-[0.2em] font-bold text-gray-400 uppercase">GAMBAR KESEMPATAN</span>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <!-- Bottom: Content Body -->
+                            <div class="p-5 sm:p-6 flex flex-col justify-between flex-1">
+                                <div>
+                                    <!-- Category Badge -->
+                                    <span class="bg-[#EBF3FF] text-[#1856C9] px-3 py-0.5 rounded-full text-xs font-semibold inline-block mb-3 w-fit tracking-wide font-sans-clean">
+                                        {{ $badgeOppName }}
+                                    </span>
+
+                                    <!-- Title -->
+                                    <h3 class="font-editorial text-base sm:text-lg font-bold text-[#152A5E] leading-snug mb-2 line-clamp-2">
+                                        {{ $opp->title_program }}
+                                    </h3>
+
+                                    <!-- Description -->
+                                    <p class="text-xs text-gray-600 leading-relaxed font-sans-clean mb-6 line-clamp-3">
+                                        {{ $descOppText }}
+                                    </p>
+                                </div>
+
+                                <!-- Action Button -->
+                                <div class="pt-2">
+                                    <a 
+                                        href="{{ route('programme.hi.show', ['category' => $opp->category->slug, 'slug' => $opp->slug]) }}" 
+                                        class="w-full py-2.5 px-4 rounded-xl bg-[#FF731D] hover:bg-[#E8620D] text-white font-bold text-xs sm:text-sm tracking-wide text-center transition duration-200 block shadow-sm flex items-center justify-center gap-1.5 cursor-pointer font-sans-clean"
+                                    >
+                                        <span>Lihat Selengkapnya</span>
+                                        <span class="text-sm">↗</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
     </div>
 </div>
 @endsection

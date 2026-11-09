@@ -14,8 +14,9 @@ class HITCCProgrammeController extends Controller
     {
         $category = $request->get('category');
         $search = $request->get('search');
+        $sort = $request->get('sort', 'deadline_asc');
 
-        $query = HITCCProgramme::with('category');
+        $query = HITCCProgramme::with(['category', 'internship', 'volunteer', 'scholarship', 'exchange', 'competition']);
 
         if ($category && $category !== 'all') {
             $query->whereHas('category', function ($q) use ($category) {
@@ -31,7 +32,14 @@ class HITCCProgrammeController extends Controller
             });
         }
 
-        $opportunities = $query->orderBy('sort_order')->paginate(20)->withQueryString();
+        match ($sort) {
+            'deadline_asc' => $query->orderBy('registration_deadline', 'asc'),
+            'deadline_desc' => $query->orderBy('registration_deadline', 'desc'),
+            'latest' => $query->orderBy('created_at', 'desc'),
+            default => $query->orderBy('sort_order', 'asc'),
+        };
+
+        $opportunities = $query->paginate(6)->withQueryString();
         $categories = Cache::remember('programme_categories', 600, function () {
             return HITCCCategory::all();
         });
@@ -46,7 +54,7 @@ class HITCCProgrammeController extends Controller
     public function show(string $category, string $slug): View
     {
         $cacheKey = "programme_{$category}_{$slug}";
-        $programme = Cache::remember($cacheKey, 300, function () use ($category, $slug) {
+        $programme = Cache::remember($cacheKey, 60, function () use ($category, $slug) {
             return HITCCProgramme::whereHas('category', function ($q) use ($category) {
                 $q->where('slug', $category);
             })
@@ -55,6 +63,12 @@ class HITCCProgrammeController extends Controller
                 ->firstOrFail();
         });
 
-        return view('pages.programme.HI-opportunities.detail-opportunities', compact('programme'));
+        $relatedOpportunities = HITCCProgramme::with('category')
+            ->where('id', '!=', $programme->id)
+            ->orderBy('sort_order', 'asc')
+            ->take(3)
+            ->get();
+
+        return view('pages.programme.HI-opportunities.detail-opportunities', compact('programme', 'relatedOpportunities'));
     }
 }
