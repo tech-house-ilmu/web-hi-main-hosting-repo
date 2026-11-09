@@ -29,7 +29,7 @@
     <!-- Banner Visual Card -->
     <div class="banner-img w-full lg:w-[617px] lg:flex-shrink-0 flex justify-center lg:justify-end items-center" data-aos="fade-left">
       <div class="relative w-full aspect-[617/500] max-w-[617px] lg:w-[617px] lg:h-[500px] bg-[#0A1F44] rounded-[16px] overflow-hidden flex items-end justify-center">
-        <img src="{{ asset('img/homepage/banner-cindy2.webp') }}" alt="House Ilmu Indonesia" class="h-full w-auto max-w-full object-contain object-bottom transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        <img src="{{ asset('img/homepage/banner-cindy2.webp') }}" alt="House Ilmu Indonesia" class="h-full w-auto max-w-full object-contain object-bottom transition duration-500 hover:scale-105" fetchpriority="high" decoding="sync" width="617" height="500" />
       </div>
     </div>
     <!-- End Banner Visual Card -->

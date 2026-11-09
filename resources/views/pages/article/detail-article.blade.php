@@ -9,6 +9,38 @@
 @section('twitter_description', Str::limit(strip_tags($article->text), 150))
 @section('twitter_image', asset('storage/' . $article->img))
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ url()->current() }}"
+    },
+    "headline": {{ json_encode($article->title) }},
+    "description": {{ json_encode(Str::limit(strip_tags($article->text), 160)) }},
+    "image": [
+        "{{ asset('storage/' . $article->img) }}"
+    ],
+    "datePublished": "{{ \Carbon\Carbon::parse($article->date)->toIso8601String() }}",
+    "dateModified": "{{ $article->updated_at ? $article->updated_at->toIso8601String() : \Carbon\Carbon::parse($article->date)->toIso8601String() }}",
+    "author": {
+        "@type": "Person",
+        "name": {{ json_encode($article->author ?: 'House Ilmu Indonesia') }}
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "House Ilmu Indonesia",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('img/logo.webp') }}"
+        }
+    }
+}
+</script>
+@endsection
+
 @section('content')
     <section class="article max-w-4xl mx-auto px-4 mt-12 mb-16">
         <!-- Start back button -->

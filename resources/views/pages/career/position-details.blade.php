@@ -1,8 +1,35 @@
 @extends('layout.app')
 
-@section('title', 'Career | House Ilmu Indonesia')
+@section('title', $position->title . ' - ' . $division->name . ' | House Ilmu Indonesia')
+@section('meta_description', Str::limit(strip_tags($position->job_description), 150))
+@section('og_title', $position->title . ' - ' . $division->name . ' | House Ilmu Indonesia')
+@section('og_description', Str::limit(strip_tags($position->job_description), 150))
 
-@section('head')
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": {{ json_encode($position->title) }},
+    "description": {{ json_encode($position->job_description . "\n" . $position->requirements) }},
+    "hiringOrganization": {
+        "@type": "Organization",
+        "name": "House Ilmu Indonesia",
+        "sameAs": "https://houseilmuindonesia.biz.id",
+        "logo": "{{ asset('img/logo.webp') }}"
+    },
+    "jobLocation": {
+        "@type": "Place",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ID"
+        }
+    },
+    "employmentType": "OTHER",
+    "datePosted": "{{ $position->created_at ? $position->created_at->toIso8601String() : now()->toIso8601String() }}"
+}
+</script>
+@endsection
 
 @section('content')
     <!-- Start career apply section -->
