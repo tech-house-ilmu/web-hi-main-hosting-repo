@@ -41,14 +41,18 @@ Route::prefix('partnership')->name('partnership.')->group(function () {
 
 // Programmes & Opportunities
 Route::prefix('programme')->name('programme.')->group(function () {
-    Route::view('/HI-programmes', 'pages.programme.HI-programmes.index')->name('programmes');
+    Route::get('/HI-programmes', [HIProgrammeEventController::class, 'index'])->name('programmes');
     Route::get('/HI-programmes/detail/{slug?}', [HIProgrammeEventController::class, 'show'])->name('programmes.detail');
     Route::get('/HI-programmes/{slug}', [HIProgrammeEventController::class, 'show'])->name('programmes.event');
     Route::post('/HI-programmes/{slug}/register', [HIProgrammeEventController::class, 'register'])->name('programmes.register');
+    Route::get('/upcoming-event', [HIProgrammeEventController::class, 'show'])->name('upcoming.event');
     Route::get('/HI-opportunities', [HITCCProgrammeController::class, 'index'])->name('hi.index');
     Route::get('/HI-opportunities/{category}/{slug}', [HITCCProgrammeController::class, 'show'])->name('hi.show');
 });
 Route::redirect('/programmes', '/programme/HI-programmes');
+Route::get('/programmes/upcoming-event', [HIProgrammeEventController::class, 'show']);
+Route::get('/opportunities', [HITCCProgrammeController::class, 'index']);
+Route::get('/opportunities/{category}/{slug}', [HITCCProgrammeController::class, 'show']);
 
 // Articles
 Route::prefix('article')->name('article.')->group(function () {

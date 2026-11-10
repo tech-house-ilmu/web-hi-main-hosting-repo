@@ -1,0 +1,53 @@
+/**
+ * House Ilmu Indonesia - Design Tokens & Variables
+ * Standardized based on Figma High-Fidelity Specs
+ */
+:root {
+    /* Brand Primary & Secondary Blues */
+    --hi-blue-primary: #205DB6;
+    --hi-blue-secondary: #205EB6;
+    --hi-blue-dark: #0A2A59;
+    --hi-blue-navy: #152A5E;
+    --hi-blue-link: #1856C9;
+    --hi-blue-active: #15549F;
+
+    /* Brand Accent Oranges */
+    --hi-orange-primary: #FF8A16;
+    --hi-orange-alt: #FF8A18;
+    --hi-orange-active: #FF8716;
+    --hi-orange-border: #E8730C;
+    --hi-orange-tag: #FFB257;
+    --hi-orange-light: #FFF2E5;
+    --hi-orange-tint: #FFEDD5;
+
+    /* Backgrounds & Neutrals */
+    --hi-bg-cream: #FFF9EF;
+    --hi-bg-cream-alt: #FFF9F0;
+    --hi-bg-cream-warm: #FFF7E9;
+    --hi-bg-white: #FFFFFF;
+    --hi-bg-placeholder: #E8EBEF;
+
+    /* Card Borders & Dividers */
+    --hi-border-card: rgba(39, 102, 189, 0.35);
+    --hi-border-subtle: #E0E6ED;
+    --hi-border-pill: #CFDBEA;
+
+    /* Text Colors */
+    --hi-text-dark: #0A2A59;
+    --hi-text-heading: #152A5E;
+    --hi-text-body: #1E293B;
+    --hi-text-muted: #53657E;
+    --hi-text-subtle: #64748B;
+    --hi-text-slate: #94A3B8;
+    --hi-text-white: #FFFFFF;
+
+    /* Pill Badges */
+    --hi-badge-free-bg: #E4F7EC;
+    --hi-badge-free-text: #14713C;
+    --hi-badge-website-bg: #EAF2FF;
+    --hi-badge-website-text: #1656A5;
+
+    /* Typography */
+    --hi-font-serif: 'Libre Baskerville', Georgia, serif;
+    --hi-font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

@@ -1,6 +1,7 @@
 @layer theme, base, components, utilities;
 
 @import "tailwindcss/theme" layer(theme);
+@import "./tokens.css" layer(base);
 @import "./bootstrap-compat.css" layer(base);
 @import "./navbar-footer.css" layer(base);
 @import "./about-us.css" layer(base);
@@ -12,6 +13,13 @@
 @import "./style.css" layer(base);
 @import "./global.css" layer(base);
 @import "./splide.css" layer(base);
+
+/* Modular Component & Page Styles (Eliminates 1,500+ lines of inline Blade CSS) */
+@import "./components/footer.css" layer(base);
+@import "./pages/programmes.css" layer(base);
+@import "./pages/programme-detail.css" layer(base);
+@import "./pages/opportunities.css" layer(base);
+
 @import "tailwindcss/utilities" layer(utilities);
 
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
@@ -21,14 +29,15 @@
 @source inline("group-hover:opacity-100", "group-hover:pointer-events-auto");
 
 @theme {
-    --font-sans: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans: "Poppins", "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: "Libre Baskerville", Georgia, serif;
 
-    --color-primary_HI: #01153e;
-    --color-primary_light_HI: #1746a2;
-    --color-secondary_HI: #ff731d;
-    --color-background_HI: #FFF7E9;
+    --color-primary_HI: #205DB6;
+    --color-primary_light_HI: #1856C9;
+    --color-secondary_HI: #FF8A16;
+    --color-background_HI: #FFF9EF;
     --color-surface_HI: #00C897;
-    --color-hover_HI: #ffdd95;
+    --color-hover_HI: #FFB257;
 }
 
 .font-editorial {

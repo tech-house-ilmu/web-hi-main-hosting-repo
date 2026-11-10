@@ -7,14 +7,20 @@ import { initNavbarToggle } from "./global/navbarHomepage";
 import { initSplides } from "./modules/splideConfig";
 import { initSwiper } from "./modules/swiperConfig";
 import { initAllCardsFilter } from "./filter-card";
+import { initProgrammeCarousel } from "./modules/programmeCarousel";
+import { initOpportunitiesFilter } from "./modules/opportunitiesFilter";
+import { initScrollToTop } from "./modules/scrollToTop";
 
-// pake mixitup dari global (diload via CD di head.blade.php)
+// DOM Initializer with element presence checks
 document.addEventListener("DOMContentLoaded", () => {
     initAOS();
     initNavbarToggle();
     initSwiper();
     initSplides();
     initAllCardsFilter();
+    initProgrammeCarousel();
+    initOpportunitiesFilter();
+    initScrollToTop();
 });
 
 Alpine.plugin(collapse);
