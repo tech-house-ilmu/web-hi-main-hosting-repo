@@ -60,8 +60,7 @@ class HomeController extends Controller
             'faqs',
             'upcomingEvents',
             'programs',
-            'testimonials'
-            'faqs'
+            'testimonials',
         ));
     }
 }

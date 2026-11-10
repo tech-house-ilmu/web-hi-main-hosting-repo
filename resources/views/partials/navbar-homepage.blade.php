@@ -6,6 +6,8 @@
         width: 100%;
         background-color: #ffffff;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        border: none !important;
+        border-bottom: none !important;
     }
     .hi-navbar-container {
         width: 100%;
@@ -17,6 +19,8 @@
         justify-content: space-between;
         padding: 0 1.25rem;
         box-sizing: border-box;
+        border: none !important;
+        border-bottom: none !important;
     }
     @media (min-width: 1024px) {
         .hi-navbar-container {

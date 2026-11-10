@@ -160,7 +160,7 @@
 
 /* === Legacy Navbar style (scoped) === */
 nav.legacy-nav {
-    border-bottom: 3px solid #1746a2;
+    border-bottom: none;
 }
 
 nav.legacy-nav button {

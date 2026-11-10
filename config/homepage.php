@@ -82,6 +82,12 @@ return [
         [
             'title' => '#MainkeKantor',
             'description' => 'Program company visit untuk melihat langsung budaya kerja, lingkungan kerja, dan sistem kerja di dunia profesional.',
+            'route' => 'programme.programmes',
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Our Impact Section Data
     |--------------------------------------------------------------------------
     */
@@ -359,24 +365,6 @@ return [
             'name' => 'Aiko',
             'role' => 'Peserta/Relawan HI',
             'initial' => 'A',
-            'name' => 'Cakap',
-            'logo' => 'img/homepage/logo-cakap.webp',
-        ],
-        [
-            'name' => 'Indorelawan',
-            'logo' => 'img/homepage/logo-indorelawan.webp',
-        ],
-        [
-            'name' => 'Pemimpin.id',
-            'logo' => 'img/homepage/logo-pemimpinid.webp',
-        ],
-        [
-            'name' => 'Institut.id',
-            'logo' => 'img/homepage/logo-institut-id.webp',
-        ],
-        [
-            'name' => 'Phillip Sekuritas',
-            'logo' => 'img/homepage/logo-phillip-sekuritas.webp',
         ],
     ],
 
@@ -420,23 +408,6 @@ return [
             'id' => 7,
             'question' => 'Bagaimana cara berkolaborasi dengan HI?',
             'answer' => 'Pilih bentuk kolaborasi pada halaman Community Collaboration dan hubungi tim HI melalui kanal yang tersedia.',
-            'question' => 'Apa itu house ilmu?',
-            'answer' => 'House Ilmu adalah platform career development dengan impact sosial bagi generasi muda.',
-        ],
-        [
-            'id' => 2,
-            'question' => 'Apa saja layanan House Ilmu?',
-            'answer' => 'Layanan bimbingan karir, review CV, dan sudut karir.',
-        ],
-        [
-            'id' => 3,
-            'question' => 'Bagaimana mendaftar program House Ilmu?',
-            'answer' => 'Daftar lewat form website, nanti tim kami akan menghubungi ya!',
-        ],
-        [
-            'id' => 4,
-            'question' => 'Bagaimana menghubungi tim House Ilmu?',
-            'answer' => 'Hubungi kami via email, telepon, atau form kontak di website ya!',
         ],
     ],
 ];
