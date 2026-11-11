@@ -287,7 +287,7 @@
                            class="block px-4 py-2 text-[12px] font-bold text-[#092C5B] hover:bg-[#FFF9F0] hover:text-[#FF8A18] transition-colors">
                             Organization
                         </a>
-                        <a href="{{ route('about') }}"
+                        <a href="{{ route('about.our-team') }}"
                            class="block px-4 py-2 text-[12px] font-bold text-[#092C5B] hover:bg-[#FFF9F0] hover:text-[#FF8A18] transition-colors">
                             Our Team
                         </a>
@@ -333,7 +333,7 @@
                 <a href="{{ route('about') }}" class="block px-3 py-2 rounded-lg text-xs font-bold text-[#092C5B] hover:bg-[#FFF9F0] hover:text-[#FF8A18]">
                     Organization
                 </a>
-                <a href="{{ route('about') }}" class="block px-3 py-2 rounded-lg text-xs font-bold text-[#092C5B] hover:bg-[#FFF9F0] hover:text-[#FF8A18]">
+                <a href="{{ route('about.our-team') }}" class="block px-3 py-2 rounded-lg text-xs font-bold text-[#092C5B] hover:bg-[#FFF9F0] hover:text-[#FF8A18]">
                     Our Team
                 </a>
             </div>

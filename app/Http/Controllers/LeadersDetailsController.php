@@ -22,6 +22,19 @@ class LeadersDetailsController extends Controller
         ]);
     }
 
+    /**
+     * Display the Our Team organization structure page.
+     */
+    public function ourTeam(): View
+    {
+        $leaders = LeadersDetailsAbout::orderBy('order', 'asc')->get();
+
+        return view('pages.about-us.our-team', [
+            'leaders' => $leaders,
+            'LeadersDetailsAbout' => $leaders,
+        ]);
+    }
+
     //  return data employee dalam bentuk json yang dah diencrypt
     public function api(Request $request): JsonResponse
     {

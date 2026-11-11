@@ -10,6 +10,9 @@ import { initAllCardsFilter } from "./filter-card";
 import { initProgrammeCarousel } from "./modules/programmeCarousel";
 import { initOpportunitiesFilter } from "./modules/opportunitiesFilter";
 import { initScrollToTop } from "./modules/scrollToTop";
+import { initAlumniModal } from "./modules/alumniModal";
+import { initCareerPage } from "./modules/careerPage";
+import { initTeamPage } from "./modules/teamPage";
 
 // DOM Initializer with element presence checks
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,6 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     initProgrammeCarousel();
     initOpportunitiesFilter();
     initScrollToTop();
+    initAlumniModal();
+    initCareerPage();
+    initTeamPage();
 });
 
 Alpine.plugin(collapse);

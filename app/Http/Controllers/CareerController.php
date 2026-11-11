@@ -23,6 +23,20 @@ class CareerController extends Controller
         return view('pages.career.career', compact('testimoniAlumni', 'divisions'));
     }
 
+    public function announcement(): View
+    {
+        return view('pages.career.announcement');
+    }
+
+    public function alumniStories(): View
+    {
+        $testimoniAlumni = Cache::remember('career_testimoni', 300, function () {
+            return TestimoniAlumniCareer::latest()->get();
+        });
+
+        return view('pages.career.alumni-stories', compact('testimoniAlumni'));
+    }
+
     public function listByDivision(string $division): View
     {
         $divisionModel = Cache::remember("division_{$division}", 300, function () use ($division) {

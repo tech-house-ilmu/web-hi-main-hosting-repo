@@ -21,6 +21,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // About Us
 Route::get('/about-us', [LeadersDetailsController::class, 'index'])->name('about');
+Route::get('/about-us/our-team', [LeadersDetailsController::class, 'ourTeam'])->name('about.our-team');
 Route::get('/api/employees', [LeadersDetailsController::class, 'api'])->name('api.employees');
 Route::get('/api/employees/{id}', [LeadersDetailsController::class, 'showApi'])->name('api.employees.show');
 
@@ -31,6 +32,8 @@ Route::get('/event-history/{slug}', [EventController::class, 'show'])->name('eve
 // Career
 Route::prefix('career')->name('career.')->group(function () {
     Route::get('/', [CareerController::class, 'index'])->name('index');
+    Route::get('/announcement', [CareerController::class, 'announcement'])->name('announcement');
+    Route::get('/alumni-stories', [CareerController::class, 'alumniStories'])->name('alumni-stories');
     Route::get('/{division}', [CareerController::class, 'listByDivision'])->name('division');
     Route::get('/{division}/{slug}', [CareerController::class, 'show'])->name('show');
 });

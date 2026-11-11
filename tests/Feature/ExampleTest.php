@@ -19,12 +19,21 @@ class ExampleTest extends TestCase
     {
         $response = $this->get(route('about'));
         $response->assertStatus(200);
+
+        $responseTeam = $this->get(route('about.our-team'));
+        $responseTeam->assertStatus(200);
     }
 
     public function test_career_page_returns_successful_response(): void
     {
         $response = $this->get(route('career.index'));
         $response->assertStatus(200);
+
+        $responseAnnounce = $this->get(route('career.announcement'));
+        $responseAnnounce->assertStatus(200);
+
+        $responseAlumni = $this->get(route('career.alumni-stories'));
+        $responseAlumni->assertStatus(200);
     }
 
     public function test_partnership_page_returns_successful_response(): void
