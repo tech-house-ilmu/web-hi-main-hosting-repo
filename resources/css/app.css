@@ -12,6 +12,7 @@
 @import "./style.css" layer(base);
 @import "./global.css" layer(base);
 @import "./splide.css" layer(base);
+@import "./event-history.css" layer(base);
 @import "tailwindcss/utilities" layer(utilities);
 
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";

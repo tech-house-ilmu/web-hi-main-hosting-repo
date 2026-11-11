@@ -253,10 +253,13 @@
             </a>
 
             <!-- Event History Link -->
-            <a href="{{ route('programme.programmes') }}"
-               class="hi-nav-item">
+            <a href="{{ route('event-history.index') }}"
+               class="hi-nav-item {{ request()->routeIs('event-history.*') ? 'active' : '' }}">
                 <span class="hi-nav-link-inner">
                     <span class="hi-nav-text">Event History</span>
+                    @if(request()->routeIs('event-history.*'))
+                        <span class="active-bar"></span>
+                    @endif
                 </span>
             </a>
 
@@ -317,8 +320,8 @@
                class="px-3 py-2 rounded-lg text-xs font-bold {{ request()->routeIs('career.*') ? 'bg-[#FFF9F0] text-[#FF8A18]' : 'text-[#092C5B] hover:bg-gray-50' }}">
                 Career
             </a>
-            <a href="{{ route('programme.programmes') }}"
-               class="px-3 py-2 rounded-lg text-xs font-bold text-[#092C5B] hover:bg-gray-50">
+            <a href="{{ route('event-history.index') }}"
+               class="px-3 py-2 rounded-lg text-xs font-bold {{ request()->routeIs('event-history.*') ? 'bg-[#FFF9F0] text-[#FF8A18]' : 'text-[#092C5B] hover:bg-gray-50' }}">
                 Event History
             </a>
             <div class="pt-1 border-t border-gray-100">

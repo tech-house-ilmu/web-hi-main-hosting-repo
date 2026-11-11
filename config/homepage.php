@@ -82,6 +82,12 @@ return [
         [
             'title' => '#MainkeKantor',
             'description' => 'Program company visit untuk melihat langsung budaya kerja, lingkungan kerja, dan sistem kerja di dunia profesional.',
+            'route' => 'programme.programmes',
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Our Impact Section Data
     |--------------------------------------------------------------------------
     */
@@ -359,24 +365,6 @@ return [
             'name' => 'Aiko',
             'role' => 'Peserta/Relawan HI',
             'initial' => 'A',
-            'name' => 'Cakap',
-            'logo' => 'img/homepage/logo-cakap.webp',
-        ],
-        [
-            'name' => 'Indorelawan',
-            'logo' => 'img/homepage/logo-indorelawan.webp',
-        ],
-        [
-            'name' => 'Pemimpin.id',
-            'logo' => 'img/homepage/logo-pemimpinid.webp',
-        ],
-        [
-            'name' => 'Institut.id',
-            'logo' => 'img/homepage/logo-institut-id.webp',
-        ],
-        [
-            'name' => 'Phillip Sekuritas',
-            'logo' => 'img/homepage/logo-phillip-sekuritas.webp',
         ],
     ],
 

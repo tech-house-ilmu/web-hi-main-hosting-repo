@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticlePageController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HIProgrammeEventController;
 use App\Http\Controllers\HITCCProgrammeController;
 use App\Http\Controllers\HomeController;
@@ -22,6 +23,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [LeadersDetailsController::class, 'index'])->name('about');
 Route::get('/api/employees', [LeadersDetailsController::class, 'api'])->name('api.employees');
 Route::get('/api/employees/{id}', [LeadersDetailsController::class, 'showApi'])->name('api.employees.show');
+
+// Event History
+Route::get('/event-history', [EventController::class, 'index'])->name('event-history.index');
+Route::get('/event-history/{slug}', [EventController::class, 'show'])->name('event-history.show');
 
 // Career
 Route::prefix('career')->name('career.')->group(function () {
