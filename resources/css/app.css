@@ -19,6 +19,7 @@
 @import "./pages/programmes.css" layer(base);
 @import "./pages/programme-detail.css" layer(base);
 @import "./pages/opportunities.css" layer(base);
+@import "./event-history.css" layer(base);
 
 @import "tailwindcss/utilities" layer(utilities);
 
