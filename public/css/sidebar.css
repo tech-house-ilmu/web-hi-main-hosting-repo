@@ -1,0 +1,62 @@
+#sidebar .sidebar-container ul li a span {
+    font-weight: 300;
+}
+
+#sidebar .sidebar-container ul li {
+    padding: 5px 0px;
+}
+
+#sidebar .sidebar-menu img {
+    width: 3.5rem;
+    transition: width 0.3s ease-in-out;
+}
+
+#sidebar.collapsed .sidebar-menu img {
+    width: 2.2rem;
+}
+
+#sidebar .sidebar-menu h6 {
+    font-size: 1rem;
+    opacity: 1;
+    visibility: 1;
+    transition: font-size 0.6s ease-in-out;
+}
+
+#sidebar .sidebar-menu span {
+    font-size: 0.9rem;
+    opacity: 1;
+    visibility: 1;
+    transition: font-size 0.6s ease-in-out;
+}
+
+#sidebar.collapsed .sidebar-menu h6,
+#sidebar.collapsed .sidebar-menu span {
+    font-size: 0rem;
+    opacity: 0;
+    visibility: 0;
+}
+
+#sidebar .profile-btn .profile-text p {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0;
+    opacity: 1;
+    visibility: 1;
+    transition: font-size 0.6s ease-in-out;
+}
+
+#sidebar .profile-btn .profile-text small {
+    font-size: 0.75rem;
+    color: #fff;
+    opacity: 1;
+    visibility: 1;
+    transition: font-size 0.6s ease-in-out;
+}
+
+#sidebar.collapsed .profile-btn .profile-text p,
+#sidebar.collapsed .profile-btn .profile-text small {
+    font-size: 0rem;
+    opacity: 0;
+    visibility: 0;
+    display: none;
+}

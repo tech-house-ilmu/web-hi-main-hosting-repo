@@ -1,0 +1,439 @@
+/* HI Opportunities Page Styles - Bundled via Vite */
+    /* =========================================================================
+       HI OPPORTUNITIES - 1:1 FIGMA SPECIFICATIONS
+       ========================================================================= */
+
+    /* Hero Section - Harmonized with Articles Hero (1:1 Layout & Dimensions) */
+    .opportunities-hero-section {
+        background-color: #205EB6 !important;
+        width: 100%;
+        padding-top: 52px;
+        padding-bottom: 50px;
+        color: #FFFFFF;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .opportunities-hero-container {
+        width: 100%;
+        max-width: 1240px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Title: Libre Baskerville 700, 40px / 60px, -1px, #FFFFFF */
+    .opportunities-hero-title {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+        font-weight: 700 !important;
+        font-size: 40px !important;
+        line-height: 60px !important;
+        letter-spacing: -1px !important;
+        color: #FFFFFF !important;
+        text-transform: uppercase;
+        margin: 0 0 14px 0;
+        text-align: center;
+    }
+
+    /* Subtitle: Poppins 400, 13px / 19.5px, #FFFFFF */
+    .opportunities-hero-subtitle {
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 400 !important;
+        font-size: 13px !important;
+        line-height: 19.5px !important;
+        letter-spacing: 0 !important;
+        color: #FFFFFF !important;
+        margin: 0 0 24px 0;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    /* Search Bar: W: 520px, H: 41px, rounded-full, #FFFFFF */
+    .opportunities-search-form {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+        height: 41px;
+        margin: 0 auto 18px auto;
+        display: flex;
+        align-items: center;
+        background-color: #FFFFFF;
+        border-radius: 9999px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
+        transition: box-shadow 0.2s ease;
+        border: none !important;
+        outline: none !important;
+    }
+
+    .opportunities-search-form:focus-within {
+        box-shadow: 0 0 0 2px #FF8716, 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    .opportunities-search-icon {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94A3B8;
+        font-size: 14px;
+        pointer-events: none;
+    }
+
+    .opportunities-search-input {
+        width: 100%;
+        height: 100%;
+        border: none !important;
+        outline: none !important;
+        background: transparent !important;
+        padding-left: 44px;
+        padding-right: 18px;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 13px !important;
+        line-height: 19.5px !important;
+        color: #0A2A59;
+        box-shadow: none !important;
+        box-sizing: border-box;
+    }
+
+    .opportunities-search-input::placeholder {
+        color: #94A3B8;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 13px !important;
+    }
+
+    /* Filter Pills: H: 35px, Poppins 700 11px / 16.5px */
+    .opportunities-filter-pills {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 0 auto;
+    }
+
+    .opportunities-pill-btn {
+        height: 35px;
+        padding: 0 18px;
+        border-radius: 9999px;
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 11px !important;
+        line-height: 16.5px !important;
+        letter-spacing: 0 !important;
+        cursor: pointer;
+        background-color: #FFFFFF;
+        color: #15549F;
+        border: 1px solid #CFDBEA;
+        box-sizing: border-box;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .opportunities-pill-btn:hover {
+        border-color: #FF8716;
+        color: #FF8716;
+    }
+
+    .opportunities-pill-btn.active {
+        background-color: #FF8716;
+        border-color: #FF8716;
+        color: #FFFFFF;
+    }
+
+    /* Body Section */
+    .opportunities-body-section {
+        background-color: #FFF9F0 !important;
+        width: 100%;
+        min-height: 600px;
+        padding: 40px 20px 80px 20px;
+        box-sizing: border-box;
+    }
+
+    .opportunities-body-container {
+        max-width: 1140px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    /* Grid Header */
+    .opportunities-grid-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+
+    .opportunities-section-title {
+        font-family: 'Libre Baskerville', Georgia, serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #0A2A59;
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    .opportunities-results-count {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        color: #64748B;
+    }
+
+    /* Cards Grid */
+    .opportunities-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Single Card Item */
+    .opportunity-card-item {
+        background-color: #FFFFFF;
+        border: 1.5px solid rgba(39, 102, 189, 0.35);
+        border-radius: 22px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 4px 16px rgba(10, 42, 89, 0.04);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        box-sizing: border-box;
+    }
+
+    .opportunity-card-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(10, 42, 89, 0.08);
+    }
+
+    /* Poster Box */
+    .opportunity-poster-box {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        background-color: #E8EBEF;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .opportunity-poster-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    .opportunity-card-item:hover .opportunity-poster-img {
+        transform: scale(1.04);
+    }
+
+    .opportunity-placeholder-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: #94A3B8;
+        user-select: none;
+    }
+
+    .opportunity-placeholder-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        color: #94A3B8;
+        text-transform: uppercase;
+    }
+
+    /* Card Body */
+    .opportunity-card-body {
+        padding: 22px 22px 20px 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        box-sizing: border-box;
+    }
+
+    .opportunity-card-top-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Category Badge */
+    .opportunity-category-badge {
+        background-color: #EAF2FF;
+        color: #1656A5;
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 15px;
+        padding: 4px 10px;
+        border-radius: 15px;
+        display: inline-block;
+        width: fit-content;
+        margin-bottom: 12px;
+    }
+
+    /* Title */
+    .opportunity-card-title {
+        font-family: 'Libre Baskerville', Georgia, serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.35;
+        color: #0A2A59;
+        margin: 0 0 8px 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Description */
+    .opportunity-card-desc {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px;
+        font-weight: 400;
+        line-height: 1.65;
+        color: #53657E;
+        margin: 0 0 18px 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 42px;
+    }
+
+    /* Action Button */
+    .opportunity-card-action {
+        width: 100%;
+        margin-top: auto;
+    }
+
+    .opportunity-action-btn {
+        width: 100%;
+        height: 38px;
+        padding: 10px 16px;
+        background-color: #FF8A16;
+        border: 1px solid #E8730C;
+        border-radius: 8px;
+        color: #FFFFFF !important;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 14.4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        box-sizing: border-box;
+    }
+
+    .opportunity-action-btn:hover {
+        background-color: #E8730C;
+        transform: translateY(-1px);
+    }
+
+    .opportunity-btn-arrow {
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    /* Empty State */
+    .opportunity-empty-state {
+        grid-column: 1 / -1;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .opportunity-empty-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 16px auto;
+        border-radius: 50%;
+        background-color: #FFEDD5;
+        color: #FF8A16;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .opportunity-empty-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: #1E293B;
+        margin: 0 0 6px 0;
+    }
+
+    .opportunity-empty-desc {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        color: #64748B;
+        margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+        .opportunities-cards-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .opportunities-hero-title {
+            font-size: 32px;
+            line-height: 48px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .opportunities-cards-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .opportunities-hero-title {
+            font-size: 26px;
+            line-height: 38px;
+        }
+
+        .opportunities-hero-section {
+            padding: 40px 16px 36px 16px;
+        }
+
+        .opportunities-body-section {
+            padding: 30px 16px 60px 16px;
+        }
+
+        .opportunities-filter-pills {
+            gap: 8px;
+        }
+
+        .opportunities-pill-btn {
+            padding: 6px 14px;
+            font-size: 10.5px;
+            height: 32px;
+        }
+    }
