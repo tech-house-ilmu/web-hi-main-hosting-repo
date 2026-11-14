@@ -1,30 +1,34 @@
-/* start styling partnership section */
-.partnership-title h1,
-.partnership-list h1,
-.partnership-list-choice h1 {
-    font-weight: 900;
-    color: #1746a2;
+/* ==========================================================================
+   Community Collaboration (Partnership) Page Styles
+   ========================================================================== */
+
+.partnership-hero-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    letter-spacing: -0.02em;
 }
 
-.partnership-list .partnership-list-choice {
-    background-color: #ff9900;
-    transition: background-color 0.8s ease-in-out;
+.partnership-section-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    letter-spacing: -0.01em;
 }
 
-.partnership-list .partnership-list-choice h1 {
-    color: #174a62;
+/* Subtle glassmorphism and card elevation */
+.partnership-card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
-/* .partnership-list .partnership-list-choice:hover{
-    background-color: #1746A2;
+.partnership-card-shadow:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.partnership-list .partnership-list-choice:hover p, .partnership-list .partnership-list-choice:hover li{
-    color: #fff;
-} */
+/* FAQ Accordion pure white styling */
+.partnership-faq-card,
+.partnership-faq-btn,
+.partnership-faq-content {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
 
-/* .partnership-list .partnership-list-choice:hover h1,
-.partnership-list .partnership-list-choice:hover a {
-    color: #ff9900;
-} */
-/* end styling partnership section */
+.partnership-faq-btn:hover {
+    background-color: #ffffff !important;
+}
