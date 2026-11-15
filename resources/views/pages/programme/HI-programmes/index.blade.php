@@ -1,162 +1,370 @@
 @extends('layout.app')
 
 @section('title', 'HI Programmes | House Ilmu Indonesia')
-
-@section('head')
+@section('meta_description', 'Temukan program yang bisa membantumu belajar, berkembang, dan mempersiapkan langkah karirmu bersama House Ilmu Indonesia.')
+@section('hide_comments', true)
 
 @section('content')
-        <!-- Start programme title section -->
-    <section class="program-title container-xl mt-5">
-        <div
-            class="program-title-container container-xl d-flex flex-column flex-md-row justify-content-between align-items-start">
-            <h1 class="col-12 col-md-5 col-xl-4 fw-bold" style="color: #083D77;" data-aos="fade-right">Let’s Join Our
-                Programs</h1>
-            <p class="col-12 col-md-7 col-xl-8 fw-medium mt-3 mt-md-0" data-aos="fade-left">Pilih program yang sesuai
-                dengan kebutuhan dan tujuan karirmu. Program program kami dirancang khusus untuk membantu mempersiapkan
-                karirmu. Tentunya dengan bimbingan para ahli yang berpengalaman.</p>
+@php
+    $heroItems = $heroItems ?? \App\Repositories\HIProgrammeRepository::getHeroItems();
+    $onlinePrograms = $onlinePrograms ?? \App\Repositories\HIProgrammeRepository::getOnlineProgrammes();
+    $offlinePrograms = $offlinePrograms ?? \App\Repositories\HIProgrammeRepository::getOfflineProgrammes();
+    $upcomingEvents = $upcomingEvents ?? \App\Repositories\HIProgrammeRepository::getUpcomingEvents();
+@endphp
+
+<!-- =========================================================================
+     HERO SECTION - 1:1 FIGMA IMPLEMENTATION
+     ========================================================================= -->
+<section class="programme-hero-section">
+    <div class="programme-hero-container">
+        
+        <!-- Left Column: Headline & CTA -->
+        <div class="programme-hero-left">
+            <span class="programme-hero-tag">
+                HI PROGRAM
+            </span>
+            
+            <h1 class="programme-hero-title">
+                Learn, Grow,<br>
+                and Get<br>
+                Achievement<br>
+                Together
+            </h1>
+
+            <p class="programme-hero-desc">
+                Temukan program yang bisa membantumu belajar, berkembang, dan mempersiapkan langkah berikutnya.
+            </p>
+
+            <a href="#explore-programmes" class="programme-hero-btn">
+                <span>Jelajahi Semua Program</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
-    </section>
-    <!-- End programme title section -->
 
-    <!-- Start programme section -->
-    <section class="programs container-xl mt-5">
-        <div id="counter" class="programs-container container-xl d-flex flex-column flex-md-row justify-content-around align-items-center align-items-md-stretch">
+        <!-- Right Column: Interactive 3D Card Carousel -->
+        <div class="programme-hero-right">
+            
+            <!-- Cards Stage Container -->
+            <div class="hero-carousel-stage select-none">
+                
+                @foreach($heroItems as $index => $item)
+                    @php
+                        $slideStateClass = $index === 0 ? 'active' : ($index === 5 ? 'prev' : ($index === 1 ? 'next' : 'hidden-slide'));
+                    @endphp
+                    <div 
+                        class="carousel-slide-item {{ $slideStateClass }}"
+                        data-index="{{ $index }}"
+                        data-title="{{ $item['title'] }}"
+                        data-type="{{ $item['type'] }}"
+                    >
+                        <img 
+                            src="{{ asset($item['image']) }}" 
+                            alt="{{ $item['title'] }}" 
+                            loading="{{ $index === 0 ? 'eager' : 'lazy' }}" 
+                            decoding="async"
+                        >
+                    </div>
+                @endforeach
 
-            <div class="card my-2 my-md-0 mx-0 mx-md-2" data-aos="fade-up">
-                <img src="{{ asset('img/homepage/programme/review-cv.jpg') }}" class="card-img-top" alt="gambar review cv">
-                <div class="card-body px-4 d-flex flex-column" style="background-color: #FFDD95;">
-                    <a href="#review">
-                        <h3 id="card-1" class="card-title py-3 my-4 rounded-pill fw-bold text-center text-white bg-[#04284E] 
-                        outline outline-[#ff9900] transition duration-300 hover:bg-[#ff9900] hover:outline-primary_light_HI">Review CV</h3>
-                    </a>
-                    <p class="card-text fw-semibold mb-3" style="color: #083D77;">Hybrid event yang membahas tentang career
-                        preparation secara menyeluruh dari tiap tahapan recruitment.</p>
-                    <div class="d-flex flex-row justify-content-center mt-auto">
-                        <div class="card-icon d-flex flex-row col-5 col-lg-4 text-[#ff9900] bg-[#04284E] rounded-s-lg w-fit p-2">
-                            <i class="fa-solid fa-user px-2 fs-5"></i>
-                            <p class="text-white" id="counter1"></p>
+                <!-- Prev & Next Overlay Buttons -->
+                <button 
+                    type="button" 
+                    id="carousel-prev-btn" 
+                    class="carousel-nav-btn carousel-prev-btn"
+                    aria-label="Previous Slide"
+                >
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button 
+                    type="button" 
+                    id="carousel-next-btn" 
+                    class="carousel-nav-btn carousel-next-btn"
+                    aria-label="Next Slide"
+                >
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Slide Status: Title, Type & Numeric Counter -->
+            <div class="carousel-status-bar">
+                <div class="carousel-status-top">
+                    <div>
+                        <h2 id="carousel-active-title" class="carousel-status-title">
+                            {{ $heroItems[0]['title'] }}
+                        </h2>
+                        <p id="carousel-active-type" class="carousel-status-type">
+                            {{ $heroItems[0]['type'] }}
+                        </p>
+                    </div>
+                    <div id="carousel-active-counter" class="carousel-status-counter">
+                        01 / 06
+                    </div>
+                </div>
+
+                <!-- Navigation Indicator Dots (Bars) -->
+                <div class="carousel-dots-container">
+                    @foreach($heroItems as $index => $item)
+                        <button 
+                            type="button" 
+                            class="carousel-dot {{ $index === 0 ? 'active-dot' : 'inactive-dot' }}" 
+                            data-dot-index="{{ $index }}"
+                            aria-label="Slide {{ $index + 1 }}"
+                        ></button>
+                    @endforeach
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================================================
+     EXPLORE OUR PROGRAMMES SECTION - 1:1 FIGMA IMPLEMENTATION
+     ========================================================================= -->
+<section id="explore-programmes" class="programme-explore-section">
+    <div class="programme-explore-container">
+        
+        <!-- Section Header -->
+        <div class="programme-section-header">
+            <h2 class="programme-section-title">
+                EXPLORE OUR PROGRAMMES
+            </h2>
+            <div class="programme-title-accent"></div>
+            <p class="programme-section-subtitle">
+                Temukan program untuk belajar, terhubung, dan bertumbuh bersama.
+            </p>
+        </div>
+
+        <!-- Category 1: Online Programmes -->
+        <div class="explore-category-block">
+            <h3 class="explore-category-title">
+                ONLINE PROGRAMMES
+            </h3>
+            <div class="explore-cards-grid">
+                @foreach($onlinePrograms as $prog)
+                    <div class="programme-feature-card">
+                        <div>
+                            <h4 class="programme-card-title">
+                                {{ $prog['title'] }}
+                            </h4>
+                            <p class="programme-card-desc">
+                                {{ $prog['desc'] }}
+                            </p>
                         </div>
-                        <div class="card-icon d-flex flex-row col-5 col-lg-8 text-[#ff9900] bg-[#04284E] rounded-e-lg w-fit p-2">
-                            <i class="fa-solid fa-star px-2 fs-5"></i>
-                            <p class="text-white">5,0</p>
+                        <div>
+                            <a 
+                                href="#{{ $prog['target'] }}" 
+                                class="programme-card-link explore-program-link"
+                                data-target="{{ $prog['target'] }}"
+                            >
+                                <span>Selengkapnya</span>
+                                <span>&#8599;</span>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- Category 2: Offline Programmes -->
+        <div class="explore-category-block">
+            <h3 class="explore-category-title">
+                OFFLINE PROGRAMMES
+            </h3>
+            <div class="explore-cards-grid">
+                @foreach($offlinePrograms as $prog)
+                    <div class="programme-feature-card">
+                        <div>
+                            <h4 class="programme-card-title">
+                                {{ $prog['title'] }}
+                            </h4>
+                            <p class="programme-card-desc">
+                                {{ $prog['desc'] }}
+                            </p>
+                        </div>
+                        <div>
+                            <a 
+                                href="#{{ $prog['target'] }}" 
+                                class="programme-card-link explore-program-link"
+                                data-target="{{ $prog['target'] }}"
+                            >
+                                <span>Selengkapnya</span>
+                                <span>&#8599;</span>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================================================
+     UPCOMING EVENT SECTION - 1:1 FIGMA IMPLEMENTATION
+     ========================================================================= -->
+<section id="upcoming-events" class="programme-upcoming-section">
+    <div class="programme-upcoming-container">
+        
+        <!-- Section Header -->
+        <div class="programme-section-header">
+            <h2 class="programme-section-title">
+                UPCOMING EVENT
+            </h2>
+            <div class="programme-title-accent"></div>
+            <p class="programme-section-subtitle">
+                Pantau agenda belajar dan ruang kolaborasi terbaru dari House Ilmu Indonesia.
+            </p>
+        </div>
+
+        <!-- Events List -->
+        <div class="upcoming-cards-stack">
+            @foreach($upcomingEvents as $event)
+                <div id="{{ $event['id'] }}" class="upcoming-event-card event-card">
+                    <!-- Left: Poster Image -->
+                    <div class="upcoming-card-poster">
+                        <img 
+                            src="{{ asset($event['image']) }}" 
+                            alt="{{ $event['title'] }}" 
+                            loading="lazy" 
+                            decoding="async"
+                        >
+                    </div>
+
+                    <!-- Right: Info Details -->
+                    <div class="upcoming-card-content">
+                        <div>
+                            <!-- Header Row: Category Pill & Status Tag -->
+                            <div class="upcoming-card-top">
+                                <span class="upcoming-badge-pill">
+                                    {{ $event['badge'] }}
+                                </span>
+                                <span class="upcoming-status-tag">
+                                    Akan datang
+                                </span>
+                            </div>
+
+                            <!-- Title -->
+                            <h3 class="upcoming-card-title">
+                                {{ $event['title'] }}
+                            </h3>
+
+                            <!-- Schedule & Announcement Note -->
+                            <div>
+                                <p class="upcoming-meta-status">
+                                    {{ $event['status'] }}
+                                </p>
+                                <p class="upcoming-meta-note">
+                                    {{ $event['status_note'] }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Action Link -->
+                        <div>
+                            <a 
+                                href="{{ route('programme.programmes.detail', ['slug' => $event['slug']]) }}" 
+                                class="upcoming-detail-link"
+                            >
+                                <span>Lihat Detail</span>
+                                <span>&rarr;</span>
+                            </a>
                         </div>
                     </div>
                 </div>
+            @endforeach
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="upcoming-pagination-bar">
+            <button 
+                type="button" 
+                class="upcoming-page-btn disabled"
+                disabled
+                aria-label="Previous Page"
+            >
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button 
+                type="button" 
+                class="upcoming-page-btn active"
+                aria-label="Page 1"
+            >
+                1
+            </button>
+            <button 
+                type="button" 
+                class="upcoming-page-btn"
+                aria-label="Page 2"
+            >
+                2
+            </button>
+            <button 
+                type="button" 
+                class="upcoming-page-btn"
+                aria-label="Next Page"
+            >
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================================================
+     INTERACTIVE DETAIL MODAL
+     ========================================================================= -->
+<div 
+    id="event-detail-modal" 
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs opacity-0 pointer-events-none transition-all duration-300"
+    role="dialog"
+    aria-modal="true"
+>
+    <div 
+        id="modal-card" 
+        class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl transform scale-95 transition-all duration-300 relative border border-gray-100"
+    >
+        <button 
+            id="close-modal-btn" 
+            type="button" 
+            class="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition cursor-pointer"
+            aria-label="Tutup Modal"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
+            <div class="w-36 h-48 rounded-2xl overflow-hidden shrink-0 border border-gray-100 shadow-sm bg-gray-50">
+                <img id="modal-img" src="" alt="Poster Event" class="w-full h-full object-cover">
             </div>
 
-            <div class="card my-2 my-md-0" data-aos="fade-up">
-                <img src="{{ asset('img/homepage/programme/sudut-karir2.png') }}" class="card-img-top" alt="gambar sudut karir">
-                <div class="card-body px-4 d-flex flex-column" style="background-color: #F69259;">
-                    <a href="#sudutkarir">
-                        <h3 id="card-2" class="card-title py-3 my-4 rounded-pill fw-bold text-center text-white bg-[#04284E] 
-                        outline outline-[#ff9900] transition duration-300 hover:bg-[#ff9900] hover:outline-primary_light_HI">Sudut Karir</h3>
-                    </a>
-                    <p class="card-text fw-semibold mb-3" style="color: #083D77;">Program diskusi santai untuk mengembangkan
-                        soft skill dan life skill bersama expert</p>
-                    <div class="d-flex flex-row justify-content-center mt-auto">
-                        <div class="card-icon d-flex flex-row col-5 col-lg-4 text-[#ff9900] bg-[#04284E] rounded-s-lg w-fit p-2">
-                            <i class="fa-solid fa-user px-2 fs-5"></i>
-                            <p class="text-white" id="counter2"></p>
-                        </div>
-                        <div class="card-icon d-flex flex-row col-5 col-lg-8 text-[#ff9900] bg-[#04284E] rounded-e-lg w-fit p-2">
-                            <i class="fa-solid fa-star px-2 fs-5"></i>
-                            <p class="text-white">5,0</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex-1 text-center sm:text-left">
+                <span id="modal-badge" class="px-3 py-1 rounded-full text-xs font-semibold bg-[#EBF3FF] text-[#1856C9] inline-block mb-2 font-sans-clean"></span>
+                <h3 id="modal-title" class="font-editorial text-lg sm:text-xl font-bold text-[#152A5E] leading-snug mb-1"></h3>
+                <p id="modal-status" class="text-xs font-bold text-[#FF8A18] mb-2 font-sans-clean"></p>
+                <p id="modal-desc" class="text-xs text-gray-600 font-sans-clean leading-relaxed"></p>
             </div>
         </div>
-    </section>
-    <!-- End programme section -->
 
-    <!-- Start programme review section -->
-    <section id="review" class="programs1-desc container-fluid mt-5" style=" background-color: #FFDD95;" data-aos="fade-left">
-        <div class="programs-desc max-w-7xl flex flex-col justify-center mx-auto p-4 gap-4 md:gap-20 lg:flex-row">
-            <div class="flex flex-col justify-center items-center px-2">
-                <h1 class="rounded-pill text-center text-white font-bold w-full py-2 my-2 bg-secondary_HI lg:py-3">Review CV</h1>
-                <div class="relative flex flex-col justify-center items-center">
-                    <img class="img-fluid py-2 rounded-4" src="{{ asset('img/homepage/programme/review-cv.jpg') }}" alt="gambar review cv">
-                    <div class="programs-rate inline py-2 px-3 rounded-lg" style="background-color: #fff;">
-                        <i class="fa-solid fa-star" style="color: #ffd233;"></i>
-                        <span class="font-bold">5.0</span>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col justify-center items-center px-2 lg:flex-row">
-                <div class="flex flex-col justify-start items-start">
-                    <h1 class="py-2 font-bold" style="color: #083D77;">Goals</h1>
-                    <ul class="p-4 text-white bg-[#04284E] rounded-lg">
-                        <li class="font-medium">Costumer CV Review dapat membuat CV yang sesuai dengan latar belakang
-                            pendidikan dan didukung oleh pengalamannya.</li>
-                        <li class="font-medium">Costumer CV Review mendapatkan feedback tentang CV-nya</li>
-                    </ul>
-                    <h1 class="py-3 mt-4 font-bold md:mt-0 md:py-2" style="color: #083D77;">Why</h1>
-                    <p class="font-medium p-4 text-white bg-[#04284E] rounded-lg">Kebutuhan generasi muda akan platform review CV yang mudah dijangkau terutama
-                        dari segi harga. Product CV Review House Ilmu Indonesia dapat membantu kawaners HI yang ingin
-                        mempersiapkan karirnya. Kawaners HI akan mendapatkan saran dan review dari pembuatan CV-nya</p>
-                </div>
-            </div>
+        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-end gap-3 font-sans-clean">
+            <button 
+                id="modal-cancel-btn"
+                type="button"
+                class="px-5 py-2.5 rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-semibold transition cursor-pointer"
+            >
+                Tutup
+            </button>
+            <a 
+                href="https://www.instagram.com/houseilmu.id" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="px-5 py-2.5 rounded-xl bg-[#FF8A16] hover:bg-[#E8730C] text-white text-xs font-bold transition shadow-sm inline-flex items-center gap-1.5 cursor-pointer"
+            >
+                <i class="fa-brands fa-instagram"></i>
+                <span>Follow IG House Ilmu</span>
+            </a>
         </div>
-    </section>
-    <!-- End programme review section -->
-
-    <!-- Start programme sudutkarir section -->
-    <section id="sudutkarir" class="programs1-desc container-fluid my-5" style=" background-color: #F4D35E;" data-aos="fade-right">
-        <div class="programs-desc max-w-7xl flex flex-col justify-center mx-auto p-4 gap-4 md:gap-20 lg:flex-row">
-            <div class="flex flex-col justify-center items-center px-2">
-                <h1 class="rounded-pill text-center text-white font-bold w-full py-2 my-2 bg-secondary_HI lg:py-3">Sudut Karir</h1>
-                <div class="relative flex flex-col justify-center items-center">
-                    <img class="img-fluid py-2 rounded-4" src="{{ asset('img/homepage/programme/sudut-karir2.png') }}" alt="gambar sudut karir">
-                    <div class="programs-rate inline py-2 px-3 rounded-lg" style="background-color: #fff;">
-                        <i class="fa-solid fa-star" style="color: #ffd233;"></i>
-                        <span class="font-bold">5.0</span>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col justify-center items-center px-2 lg:flex-row">
-                <div class="flex flex-col justify-start items-start">
-                    <h1 class="py-2 font-bold" style="color: #083D77;">Goals</h1>
-                    <p class="fw-medium p-4 text-white bg-[#04284E] rounded-lg">House Ilmu Indonesia sebagai wadah pelatihan persiapan karir bagi generasi
-                        muda. House Ilmu Indonesia mempersiapkan beberapa kegiatan pelatihan tentang persiapan karir
-                        yang dapat di akses di kota-kota di Indonesia</p>
-                    <h1 class="py-3 mt-4 font-bold md:mt-0 md:py-2" style="color: #083D77;">Why</h1>
-                    <p class="font-medium p-4 text-white bg-[#04284E] rounded-lg">Sudut Karir House Ilmu Indonesia perlu diadakan untuk memfasilitasi
-                        pengembangan dan perencanaan karir kamu secara terstruktur melalui beberapa kegiatan pelatihan
-                        dan eksplorasi peluang karir. Dengan ini, House Ilmu sebagai wadah yang memberikan panduan bagi
-                        kamu dalam merencanakan karir selaras dengan pengalaman dan latar belakang pendidikan.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End programme review section -->
-@endsection
-
-@section('scripts')
-    <script>
-        function animateCounter(id, target, duration = 1000) {
-            const el = document.getElementById(id);
-            let start = 0;
-            const step = Math.max(Math.floor(duration / target), 1);
-
-            const timer = setInterval(() => {
-            el.textContent = ++start;
-            if (start >= target) clearInterval(timer);
-            }, step);
-        }
-
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(({ isIntersecting, target }) => {
-            if (!isIntersecting) return;
-
-            setTimeout(() => {
-                animateCounter('counter1', 74, 4000);
-                animateCounter('counter2', 48, 4000);
-            }, 2000);
-
-            obs.unobserve(target);
-            });
-        }, { threshold: 0.5 });
-
-        observer.observe(document.getElementById('counter'));
-    </script>
+    </div>
+</div>
 @endsection

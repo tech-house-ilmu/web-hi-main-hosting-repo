@@ -1,0 +1,89 @@
+{
+    "profanity": [
+        "anjing", "bangsat", "bajingan", "brengsek", "kampret", "keparat", "sialan", "bedebah",
+        "setan", "iblis", "laknat", "tai", "taik", "tahi", "kontol", "memek", "peler", "pepek",
+        "pentil", "jembut", "ngentot", "entot", "ngewe", "sange", "coli", "colmek", "bokep",
+        "bugil", "telanjang", "sundal", "lonte", "pelacur", "jalang", "cocot", "bacot",
+        "asu", "celeng", "gembel", "sinting", "edan", "gila", "sial", "brengsek"
+    ],
+    "insult": [
+        "bodoh", "bego", "tolol", "goblok", "dongo", "dongok", "idiot", "dungu", "bloon",
+        "bego banget", "tolol banget", "goblok banget", "otak udang", "otak kosong",
+        "tidak becus", "ga becus", "gak becus", "ngaco", "sinting", "gila", "edan",
+        "kampungan", "norak", "cupu", "payah", "lemah", "pecundang", "sampah", "manusia sampah",
+        "tidak berguna", "ga berguna", "gak berguna", "benalu", "parasit", "munafik",
+        "pembohong", "penipu", "brengsek", "bajingan", "keparat", "bangsat", "kampret"
+    ],
+    "sexual": [
+        "seks", "sex", "porno", "pornografi", "bokep", "video bokep", "foto bokep",
+        "konten porno", "konten seksual", "alat kelamin", "kemaluan", "penis", "vagina",
+        "vulva", "testis", "sperma", "mani", "air mani", "masturbasi", "coli", "colmek",
+        "onani", "ngocok", "sange", "birahi", "cabul", "mesum", "bugil", "telanjang",
+        "telanjang bulat", "telanjang dada", "payudara", "tetek", "susu", "pentil",
+        "pantat", "bokong", "dubur", "anus", "selangkangan", "kemaluan pria",
+        "kemaluan wanita", "pelacur", "lonte", "sundal", "jalang", "perempuan nakal",
+        "laki laki hidung belang", "hidung belang", "open bo", "open booking",
+        "booking online", "esek esek", "prostitusi", "mucikari"
+    ],
+    "harassment": [
+        "dasar bodoh", "dasar tolol", "dasar goblok", "dasar bego", "dasar dungu",
+        "dasar idiot", "dasar bangsat", "dasar bajingan", "dasar brengsek",
+        "pergi sana", "mati saja", "mampus", "rasain", "lo tolol", "lu tolol",
+        "lo goblok", "lu goblok", "lo bodoh", "lu bodoh", "sana mati",
+        "semoga mati", "semoga celaka", "awas kamu", "gue bunuh", "gua bunuh",
+        "aku bunuh", "akan kubunuh", "bakal kubunuh", "hancurkan kamu",
+        "habisi kamu", "bikin kamu menderita"
+    ],
+    "hate": [
+        "rasis", "rasis banget", "dasar rasis", "supremasi ras", "benci kelompok",
+        "benci golongan", "kelompok sampah", "golongan sampah", "bangsa sampah",
+        "kaum sampah", "manusia rendahan", "orang rendahan", "dasar pendatang",
+        "usir mereka", "usir semua", "jangan biarkan mereka", "lebih rendah dari",
+        "tidak pantas hidup", "tidak layak hidup"
+    ],
+    "violence": [
+        "bunuh", "membunuh", "dibunuh", "pembunuhan", "bunuh diri", "mau bunuh diri",
+        "ingin bunuh diri", "habisi", "menghabisi", "hancurkan", "serang", "menyerang",
+        "penyerangan", "pukul", "memukul", "ditinju", "tinju", "tendang", "menendang",
+        "bacok", "membacok", "tebas", "menebas", "tusuk", "menusuk", "tembak", "menembak",
+        "ledakkan", "meledakkan", "bakar", "membakar", "cekik", "mencekik", "aniaya",
+        "menganiaya", "siksa", "menyiksa", "ancam", "mengancam", "ancaman"
+    ],
+    "spam": [
+        "spam", "spammer", "klik link", "klik tautan", "klik disini", "klik di sini",
+        "subscribe sekarang", "follow sekarang", "follow back", "followback",
+        "like dan subscribe", "like share subscribe", "promo besar", "promo murah",
+        "diskon besar", "diskon 90", "gratis", "gratis ongkir", "hadiah gratis",
+        "menang hadiah", "selamat anda menang", "anda pemenang", "nomor pemenang",
+        "hubungi admin", "hubungi wa", "hubungi whatsapp", "dm saya", "dm admin",
+        "cek bio", "link di bio", "link alternatif", "sebar ke teman", "sebarkan",
+        "undang teman", "komentar amin", "komen amin", "ketik amin"
+    ],
+    "scam": [
+        "penipuan", "penipu", "scam", "scammer", "phishing", "akun palsu", "rekening palsu",
+        "transfer sekarang", "kirim uang", "kirim dana", "bayar sekarang", "deposit",
+        "withdraw", "wd", "jackpot", "slot", "slot gacor", "judi online", "judol",
+        "casino online", "kasino online", "togel", "toto gelap", "taruhan", "betting",
+        "parlay", "bonus deposit", "bonus new member", "cuan besar", "profit besar",
+        "untung besar", "modal kecil", "kaya mendadak", "uang gratis", "saldo gratis",
+        "investasi pasti untung", "pasti profit", "jaminan profit", "profit harian",
+        "uang cepat", "kerja online mudah", "penghasilan instan", "klik untuk hadiah"
+    ],
+    "slang": [
+        "asu", "anjir", "anjrit", "anjrot", "anjay", "anjayy", "anjirrr", "bangke",
+        "bgsd", "bgst", "bngst", "bajingan", "kampret", "kamvret", "kntl",
+        "kontl", "kontol", "memek", "meki", "puki", "pukimak", "jancuk", "jancok",
+        "cok", "cuk", "cukimay", "kimak", "pantek", "pepek", "peler",
+        "jembut", "tai", "taik", "tahi", "cocot", "bacot", "ngentot", "entot",
+        "ngewe", "sange", "coli", "colmek", "goblok", "tolol", "bego", "dongo"
+    ],
+    "threat": [
+        "awas kau", "awas kamu", "gue cari lo", "gua cari lo", "aku cari kamu",
+        "gue datengin", "gua datengin", "aku datangi", "tunggu saja", "tunggu lo",
+        "tunggu kamu", "akan kucari", "bakal kucari", "akan kudatangi",
+        "bakal kudatangi", "gue hajar", "gua hajar", "aku hajar", "gue pukul",
+        "gua pukul", "aku pukul", "gue habisi", "gua habisi", "aku habisi",
+        "gue bunuh lo", "gua bunuh lo", "aku bunuh kamu", "mati lo", "mampus lo",
+        "mampus kamu", "semoga mampus", "semoga mati"
+    ]
+}

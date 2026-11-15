@@ -1,55 +1,109 @@
 @extends('layout.app')
 
-@section('title', 'Career | House Ilmu Indonesia')
+@section('title', $position->title . ' - ' . $division->name . ' | House Ilmu Indonesia')
+@section('meta_description', Str::limit(strip_tags($position->job_description), 150))
+@section('og_title', $position->title . ' - ' . $division->name . ' | House Ilmu Indonesia')
+@section('og_description', Str::limit(strip_tags($position->job_description), 150))
 
-@section('head')
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": {{ json_encode($position->title) }},
+    "description": {{ json_encode($position->job_description . "\n" . $position->requirements) }},
+    "hiringOrganization": {
+        "@type": "Organization",
+        "name": "House Ilmu Indonesia",
+        "sameAs": "https://houseilmuindonesia.biz.id",
+        "logo": "{{ asset('img/logo.webp') }}"
+    },
+    "jobLocation": {
+        "@type": "Place",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ID"
+        }
+    },
+    "employmentType": "OTHER",
+    "datePosted": "{{ $position->created_at ? $position->created_at->toIso8601String() : now()->toIso8601String() }}"
+}
+</script>
+@endsection
 
 @section('content')
-        <!-- Start career apply section -->
-    <section class="details-career container-xl mt-5 mb-5">
-        <div class="back d-inline mb-4">
-            <a href="{{ url('/career/' . $division->slug) }}" class="fw-semibold text-decoration-none" style="color: #1746A2;">
-                <i class="fa-solid fa-chevron-left"></i> Kembali ke Daftar Posisi
-            </a>
+<main class="career-page detail-page">
+    <div class="detail-container">
+        <!-- Breadcrumb -->
+        <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+            <a href="{{ route('home') }}">Beranda</a>
+            <span style="color: #8191a8;">/</span>
+            <a href="{{ route('career.index') }}">Career</a>
+            <span style="color: #8191a8;">/</span>
+            <a href="{{ route('career.division', $division->slug) }}">{{ $division->name }}</a>
+            <span style="color: #8191a8;">/</span>
+            <span class="detail-badge">{{ $position->title }}</span>
+        </nav>
+
+        <!-- Heading -->
+        <div class="detail-heading">
+            <h1>{{ $position->title }}</h1>
+            <p>
+                Divisi {{ $division->name }} • Daring &amp; Hibrida • House Ilmu Indonesia
+            </p>
         </div>
-        <div class="details-career-container container bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4 d-flex flex-column align-items-start">
-            <div class="w-100 text-center pb-3 border-bottom">
-                <span class="badge px-3 py-2 rounded-pill text-uppercase mb-2" style="background-color: #e8f0fe; color: #1746A2; font-size: 0.8rem; letter-spacing: 0.05em;">
-                    Divisi: {{ $division->name }}
-                </span>
-                <h1 class="fw-bold" style="color: #FF731D;">{{ $position->title }}</h1>
-            </div>
 
-            <div class="w-100 py-3">
-                <h3 class="fw-bold my-3" style="color: #1746A2; font-size: 1.4rem;">
-                    <i class="fa-solid fa-briefcase me-2"></i> Job Description
-                </h3>
-                <ol class="ps-4 lh-lg" style="color: #334155; font-size: 0.95rem;">
-                    @foreach (array_filter(array_map('trim', explode("\n", $position->job_description))) as $desc)
-                        <li class="mb-2">{!! $desc !!}</li>
-                    @endforeach
-                </ol>
-
-                <h3 class="fw-bold mt-5 mb-3" style="color: #1746A2; font-size: 1.4rem;">
-                    <i class="fa-solid fa-list-check me-2"></i> Requirements
-                </h3>
-                <ul class="ps-4 lh-lg" style="color: #334155; font-size: 0.95rem;">
-                    @foreach (array_filter(array_map('trim', explode("\n", $position->requirements))) as $req)
-                        <li class="mb-2">{!! $req !!}</li>
+        <!-- Two Column Grid: Responsibilities & Requirements -->
+        <div class="detail-grid">
+            <!-- Responsibilities -->
+            <div class="detail-card">
+                <h2>Tanggung Jawab</h2>
+                <ul>
+                    @foreach (explode("\n", $position->job_description) as $desc)
+                        @if(trim($desc) !== '')
+                            <li>{!! $desc !!}</li>
+                        @endif
                     @endforeach
                 </ul>
+            </div>
 
-                @if(!empty($position->apply_link))
-                <div class="mt-5 pt-3 text-center border-top">
-                    <a href="{{ $position->apply_link }}" target="_blank" rel="noopener noreferrer" 
-                       class="btn text-white fw-bold px-5 py-3 rounded-pill shadow-sm"
-                       style="background-color: #FF731D; font-size: 1rem; transition: transform 0.2s ease;">
-                        Daftar Posisi Ini <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i>
-                    </a>
-                </div>
-                @endif
+            <!-- Requirements -->
+            <div class="detail-card">
+                <h2>Kualifikasi</h2>
+                <ul>
+                    @foreach (explode("\n", $position->requirements) as $req)
+                        @if(trim($req) !== '')
+                            <li>{!! $req !!}</li>
+                        @endif
+                    @endforeach
+                </ul>
             </div>
         </div>
-    </section>
-    <!-- End career apply section -->
+
+        <!-- CTA Card -->
+        <div class="detail-cta">
+            <h2>Tertarik Bergabung?</h2>
+            <p>
+                Kirimkan aplikasi dan portfolio terbaikmu sekarang juga. Jadilah bagian dari tim inovatif House Ilmu Indonesia!
+            </p>
+
+            @if($position->apply_link)
+                <a href="{{ $position->apply_link }}" target="_blank" rel="noopener noreferrer">
+                    Daftar Sekarang ↗
+                </a>
+            @else
+                <button type="button" style="display: inline-block; padding: 11px 23px; background: #94a3b8; color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 900; cursor: not-allowed;" disabled>
+                    Pendaftaran Segera Dibuka
+                </button>
+            @endif
+        </div>
+
+        <div style="text-align: center; margin-top: 35px;">
+            <a href="{{ route('career.division', $division->slug) }}"
+               style="color: #245fb5; font-weight: 800; font-size: 14px; text-decoration: none;">
+                ← Kembali ke Posisi {{ $division->name }}
+            </a>
+        </div>
+    </div>
+</main>
 @endsection

@@ -30,7 +30,7 @@ class HITCCInternship extends Model
         'hitcc_internship_language',
         'hitcc_internship_technical_non_technical_skills',
 
-        // SECTION: registration 
+        // SECTION: registration
         'hitcc_internship_documents',
         'hitcc_internship_contact',
 

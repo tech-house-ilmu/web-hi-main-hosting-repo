@@ -5,68 +5,24 @@ export function initAllCardsFilter() {
 }
 
 export function initFilterCard() {
-    document.addEventListener("DOMContentLoaded", function () {
-        const categoryItems = document.querySelectorAll(".category-item");
-        const allCards = document.querySelectorAll(".card-box");
-        const cardsContainer = document.querySelector(".cards-container");
+    const categoryItems = document.querySelectorAll(".category-item");
+    const allCards = document.querySelectorAll(".card-box");
+    const cardsContainer = document.querySelector(".cards-container");
 
-        categoryItems.forEach((item) => {
-            item.addEventListener("click", function () {
-                const category = this.querySelector(".category-label")
-                    .innerText.trim()
-                    .toLowerCase();
+    if (!categoryItems.length || !allCards.length || !cardsContainer) {
+        return;
+    }
 
-                let hasResults = false;
+    categoryItems.forEach((item) => {
+        item.addEventListener("click", function () {
+            const labelEl = this.querySelector(".category-label");
+            if (!labelEl) return;
 
-                allCards.forEach((card) => {
-                    // Jika kategori "semua", tampilkan semua card
-                    if (category === "semua") {
-                        card.style.display = "block";
-                        hasResults = true;
-                    } else {
-                        // Cek apakah card memiliki class sesuai kategori yang dipilih
-                        if (card.classList.contains(category)) {
-                            card.style.display = "block";
-                            hasResults = true;
-                        } else {
-                            card.style.display = "none";
-                        }
-                    }
-                });
-
-                // Atur tata letak berdasarkan hasil filter
-                if (category !== "semua" && hasResults) {
-                    cardsContainer.classList.add("justify-content-start");
-                    cardsContainer.classList.remove("justify-content-around");
-                } else {
-                    cardsContainer.classList.add("justify-content-around");
-                    cardsContainer.classList.remove("justify-content-start");
-                }
-            });
-        });
-    });
-}
-
-export function initSearchCard() {
-    // search
-    document.addEventListener("DOMContentLoaded", function () {
-        const searchInput = document.querySelector(".form-control");
-        const cards = document.querySelectorAll(".card-box");
-        const cardsContainer = document.querySelector(".cards-container");
-
-        searchInput.addEventListener("input", function () {
-            const query = searchInput.value.trim().toLowerCase();
+            const category = labelEl.innerText.trim().toLowerCase();
             let hasResults = false;
 
-            cards.forEach((card) => {
-                const titleElements = card.querySelectorAll("h1, h5");
-                let combinedTitle = "";
-
-                titleElements.forEach((element) => {
-                    combinedTitle += element.textContent.toLowerCase() + " ";
-                });
-
-                if (combinedTitle.includes(query)) {
+            allCards.forEach((card) => {
+                if (category === "semua" || card.classList.contains(category)) {
                     card.style.display = "block";
                     hasResults = true;
                 } else {
@@ -74,7 +30,7 @@ export function initSearchCard() {
                 }
             });
 
-            if (hasResults) {
+            if (category !== "semua" && hasResults) {
                 cardsContainer.classList.add("justify-content-start");
                 cardsContainer.classList.remove("justify-content-around");
             } else {
@@ -85,17 +41,55 @@ export function initSearchCard() {
     });
 }
 
-export function initClickCard() {
-    document.addEventListener("DOMContentLoaded", function () {
-        const cards = document.querySelectorAll(".clickable-card");
+export function initSearchCard() {
+    const searchInput = document.querySelector(".search-container input, .form-control");
+    const cards = document.querySelectorAll(".card-box");
+    const cardsContainer = document.querySelector(".cards-container");
+
+    if (!searchInput || !cards.length || !cardsContainer) {
+        return;
+    }
+
+    searchInput.addEventListener("input", function () {
+        const query = searchInput.value.trim().toLowerCase();
+        let hasResults = false;
 
         cards.forEach((card) => {
-            card.addEventListener("click", function () {
-                const url = card.getAttribute("data-url");
-                if (url) {
-                    window.location.href = url;
-                }
+            const titleElements = card.querySelectorAll("h1, h5");
+            let combinedTitle = "";
+
+            titleElements.forEach((element) => {
+                combinedTitle += element.textContent.toLowerCase() + " ";
             });
+
+            if (combinedTitle.includes(query)) {
+                card.style.display = "block";
+                hasResults = true;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        if (hasResults) {
+            cardsContainer.classList.add("justify-content-start");
+            cardsContainer.classList.remove("justify-content-around");
+        } else {
+            cardsContainer.classList.add("justify-content-around");
+            cardsContainer.classList.remove("justify-content-start");
+        }
+    });
+}
+
+export function initClickCard() {
+    const cards = document.querySelectorAll(".clickable-card");
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+        card.addEventListener("click", function () {
+            const url = card.getAttribute("data-url");
+            if (url) {
+                window.location.href = url;
+            }
         });
     });
 }

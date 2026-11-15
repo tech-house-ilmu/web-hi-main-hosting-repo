@@ -2,21 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Article;
-use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class ArticlePageController extends Controller
 {
-    public function index()
+    /**
+     * Display the articles landing page.
+     */
+    public function index(): View
     {
-        $articles = Article::latest()->get();
-        return view('pages.article.index', compact('articles'));
+        $featuredArticle = Article::orderBy('date', 'desc')->first();
+        $articles = Article::orderBy('date', 'desc')->paginate(9);
+
+        return view('pages.article.index', compact('articles', 'featuredArticle'));
     }
 
-    public function show($slug)
+    /**
+     * Display a specific article by its slug.
+     */
+    public function show(string $slug): View
     {
         $article = Article::where('slug', $slug)->firstOrFail();
-        return view('pages.article.detail-article', compact('article'));
+        $relatedArticles = Article::where('id', '!=', $article->id)
+            ->orderBy('date', 'desc')
+            ->take(3)
+            ->get();
+
+        return view('pages.article.detail-article', compact('article', 'relatedArticles'));
     }
 }

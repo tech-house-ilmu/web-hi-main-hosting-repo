@@ -66,7 +66,23 @@ http://127.0.0.1:8000/admin
 ```
 Login dengan akun admin yang sudah dibuat sebelumnya.
 
+# 
+
+Jika login admin gagal atau kredensial tidak valid coba jalankan
+```
+php artisan db:seed
+```
+
+Jika admin panel mengalami Internal server error pastikan extension `intl` aktif.
+Pada linux untuk mengaktikan extension intl yaitu dengan mengedit file pada
+```
+/etc/php/php.ini
+```
+
+cari `;extension=intl` lalu hilangkan `;`
 ---
+
+
 
 ## 📚 **Referensi**
 - Dokumentasi Filament: [https://filamentphp.com/docs](https://filamentphp.com/docs)  

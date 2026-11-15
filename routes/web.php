@@ -1,57 +1,76 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CareerController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArticlePageController;
-use App\Http\Controllers\TestimoniController;
-use App\Http\Controllers\LeadersDetailsController;
-use App\Http\Controllers\HITCCProgrammeController;
-use App\Http\Controllers\DeployController;
+use App\Http\Controllers\CareerController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HIProgrammeEventController;
+use App\Http\Controllers\HITCCProgrammeController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LeadersDetailsController;
+use Illuminate\Support\Facades\Route;
 
-/******************************** DEPLOY / UPDATE ************************************/ 
-Route::match(['get', 'post'], '/deploy-update', [DeployController::class, 'deploy'])->name('server.deploy');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
 
+// Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-/******************************** ABOUT *********************************************/ 
+// About Us
+Route::get('/about-us', [LeadersDetailsController::class, 'index'])->name('about');
+Route::get('/about-us/our-team', [LeadersDetailsController::class, 'ourTeam'])->name('about.our-team');
+Route::get('/api/employees', [LeadersDetailsController::class, 'api'])->name('api.employees');
+Route::get('/api/employees/{id}', [LeadersDetailsController::class, 'showApi'])->name('api.employees.show');
 
-Route::get('/about-us', [LeadersDetailsController::class, 'LeadersDetails'])->name('about');
-
-/******************************** EVENT HISTORY *************************************/
-
+// Event History
 Route::get('/event-history', [EventController::class, 'index'])->name('event-history.index');
 Route::get('/event-history/{slug}', [EventController::class, 'show'])->name('event-history.show');
 
-/******************************** CAREER *********************************************/
-
-Route::get('/career', [CareerController::class, 'index'])->name('career.index');
-Route::get('/career/announcement', [CareerController::class, 'announcement'])->name('career.announcement');
-Route::get('/career/{division}', [CareerController::class, 'listByDivision']);
-Route::get('/career/{division}/{slug}', [CareerController::class, 'show']);
-
-/********************************** PARTNERSHIP ******************************************/ 
-
-Route::prefix('partnership')->group(function () {
-    Route::view('/', 'pages.partnership.partnership');
-
-    Route::view('/partnership-affiliate-details', 'pages.partnership.partnership-affiliate-details.index');
-    Route::view('/partnership-event-details', 'pages.partnership.partnership-event-details.index');
-    Route::view('/partnership-details', 'pages.partnership.partnership-details.index');
-    Route::view('/partnership-konten-details', 'pages.partnership.partnership-konten-details.index');
+// Career
+Route::prefix('career')->name('career.')->group(function () {
+    Route::get('/', [CareerController::class, 'index'])->name('index');
+    Route::get('/announcement', [CareerController::class, 'announcement'])->name('announcement');
+    Route::get('/alumni-stories', [CareerController::class, 'alumniStories'])->name('alumni-stories');
+    Route::get('/{division}', [CareerController::class, 'listByDivision'])->name('division');
+    Route::get('/{division}/{slug}', [CareerController::class, 'show'])->name('show');
 });
 
-/************************************** PROGRAMMES ****************************************/ 
-
-Route::get('/programme/HI-programmes/', function () {
-    return view('pages.programme.HI-programmes.index');
+// Partnership
+Route::prefix('partnership')->name('partnership.')->group(function () {
+    Route::view('/', 'pages.partnership.partnership')->name('index');
+    Route::view('/partnership-affiliate-details', 'pages.partnership.partnership-affiliate-details.index')->name('affiliate');
+    Route::view('/partnership-event-details', 'pages.partnership.partnership-event-details.index')->name('event');
+    Route::view('/partnership-details', 'pages.partnership.partnership-details.index')->name('details');
+    Route::view('/partnership-konten-details', 'pages.partnership.partnership-konten-details.index')->name('konten');
 });
 
-Route::get('/programme/HI-opportunities', [HITCCProgrammeController::class, 'index'])->name('programme.hi.index');
-Route::get('/programme/HI-opportunities/{category}/{slug}', [HITCCProgrammeController::class, 'show'])->name('programme.hi.show');
+// Programmes & Opportunities
+Route::prefix('programme')->name('programme.')->group(function () {
+    Route::get('/HI-programmes', [HIProgrammeEventController::class, 'index'])->name('programmes');
+    Route::get('/HI-programmes/detail/{slug?}', [HIProgrammeEventController::class, 'show'])->name('programmes.detail');
+    Route::get('/HI-programmes/{slug}', [HIProgrammeEventController::class, 'show'])->name('programmes.event');
+    Route::post('/HI-programmes/{slug}/register', [HIProgrammeEventController::class, 'register'])->name('programmes.register');
+    Route::get('/upcoming-event', [HIProgrammeEventController::class, 'show'])->name('upcoming.event');
+    Route::get('/HI-opportunities', [HITCCProgrammeController::class, 'index'])->name('hi.index');
+    Route::get('/HI-opportunities/{category}/{slug}', [HITCCProgrammeController::class, 'show'])->name('hi.show');
+});
+Route::redirect('/programmes', '/programme/HI-programmes');
+Route::get('/programmes/upcoming-event', [HIProgrammeEventController::class, 'show']);
+Route::get('/opportunities', [HITCCProgrammeController::class, 'index']);
+Route::get('/opportunities/{category}/{slug}', [HITCCProgrammeController::class, 'show']);
 
-/****************************************** ARTICLE *********************************/ 
+// Articles
+Route::prefix('article')->name('article.')->group(function () {
+    Route::get('/', [ArticlePageController::class, 'index'])->name('index');
+    Route::get('/{slug}', [ArticlePageController::class, 'show'])->name('show');
+});
+// Backward-compatibility redirect/route for /articles/{slug}
+Route::get('/articles/{slug}', [ArticlePageController::class, 'show']);
 
-Route::get('/article', [ArticlePageController::class, 'index'])->name('article.index');
-Route::get('/articles/{slug}', [ArticlePageController::class, 'show'])->name('article.show');
+// Comments
+Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::get('/captcha/image', [CommentController::class, 'captchaImage'])->name('captcha.image');

@@ -1,45 +1,76 @@
 @extends('layout.app')
 
-@section('title', 'Career | House Ilmu Indonesia')
-
-@section('head')
+@section('title', 'Available Positions - ' . $division->name . ' | House Ilmu Indonesia')
+@section('meta_description', 'Lihat posisi yang tersedia di divisi ' . $division->name . ' House Ilmu Indonesia.')
 
 @section('content')
-        <!-- Start career apply section -->
-    <section class="available container-xl mt-5">
-        <!-- back button -->
-        <div class="back d-inline">
-            <a href="/career#career-info"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
+<main class="career-page detail-page">
+    <div class="detail-container">
+        <!-- Breadcrumb -->
+        <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+            <a href="{{ route('home') }}">Beranda</a>
+            <span style="color: #8191a8;">/</span>
+            <a href="{{ route('career.index') }}">Career</a>
+            <span style="color: #8191a8;">/</span>
+            <span class="detail-badge">{{ $division->name }}</span>
+        </nav>
+
+        <!-- Heading -->
+        <div class="detail-heading">
+            <h1>{{ $division->name }}</h1>
+            <p>
+                Temukan posisi yang sesuai dengan keahlian dan minatmu. Bersama House Ilmu Indonesia, kembangkan soft skill, leadership, dan portofolio profesionalmu.
+            </p>
         </div>
-        <div class="available-container container-xl d-flex flex-column justify-content-center align-items-center mb-16">
-            <h1 class="py-4 text-center fw-bold" style="color: #1746A2;">Available Position &mdash; {{ $division->name }}</h1>
-            <div class="apply-info container-xl d-flex flex-column justify-content-center align-items-center gap-3">
-                <!-- // odd untuk container biru // even untuk container abu // -->
-                <!-- Start position available box -->
-                @forelse ($positions as $i => $position)
-                <div
-                    class="container-xl flex flex-wrap justify-center items-center text-center p-3 gap-4 rounded-3 md:!flex-nowrap md:justify-start md:!text-start md:gap-0"
-                    style="background-color: {{ $i % 2 == 0 ? '#1746A2' : '#D9D9D9' }};">
-                    <h4 class="col-12 col-md-7 text-base md:ps-4 md:text-lg lg:text-xl font-semibold"
-                        style="color: {{ $i % 2 == 0 ? 'white' : 'black' }};">
-                        {{ $position->title }}
-                    </h4>
-                    <a class="details bg-[#ff9900] text-white col-5 col-md-2 p-2 mx-1 rounded-3 text-center font-medium transition-bg duration-300 cursor-pointer hover:bg-[#1746a2] hover:outline hover:outline-2 hover:outline-white"
-                    href="{{ url('/career/' . $division->slug . '/' . $position->slug) }}">
-                        Details
-                    </a>
-                    <a class="apply bg-[#ff9900] text-white col-5 col-md-2 p-2 mx-1 rounded-3 text-center font-medium transition-bg duration-300 cursor-pointer hover:bg-[#1746a2] hover:outline hover:outline-2 hover:outline-white"
-                    href="{{ $position->apply_link }}" target="_blank">
-                        Daftar
-                    </a>
+
+        <!-- Available Positions List -->
+        <div style="max-width: 928px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 16px;">
+            @forelse ($positions as $position)
+                <div style="background: #ffffff; border: 1.5px solid #245fb5; border-radius: 12px; padding: 22px 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; box-shadow: 0 4px 14px rgba(16,45,92,0.06); transition: transform .2s ease;">
+                    <div style="flex: 1 1 300px;">
+                        <span style="display: inline-block; background: #fff9f0; color: #ff8517; border: 1px solid #ffd4a8; border-radius: 20px; padding: 4px 12px; font-size: 11px; font-weight: 800; margin-bottom: 8px;">
+                            {{ $division->name }}
+                        </span>
+                        <h2 style="font-size: 20px; font-weight: 800; color: #102d5c; margin: 0 0 4px;">
+                            {{ $position->title }}
+                        </h2>
+                        <span style="color: #71839b; font-size: 13px; font-weight: 600;">
+                            Daring &amp; Hibrida · Indonesia
+                        </span>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <a href="{{ route('career.show', ['division' => $division->slug, 'slug' => $position->slug]) }}"
+                           style="display: inline-block; background: #fff; color: #245fb5; border: 1.5px solid #245fb5; border-radius: 8px; padding: 9px 18px; font-weight: 800; font-size: 13px; text-decoration: none; transition: .2s;">
+                            Detail Posisi →
+                        </a>
+
+                        @if($position->apply_link)
+                            <a href="{{ $position->apply_link }}" target="_blank" rel="noopener noreferrer"
+                               style="display: inline-block; background: #ff8517; color: white; border-radius: 8px; padding: 9px 20px; font-weight: 800; font-size: 13px; text-decoration: none; box-shadow: 0 2px 0 #d66a0a; transition: .2s;">
+                                Daftar Sekarang ↗
+                            </a>
+                        @endif
+                    </div>
                 </div>
-                @empty
-                <div class="p-5 text-center bg-white rounded-4 shadow-sm w-100">
-                    <p class="text-muted m-0">Saat ini belum ada posisi yang dibuka untuk divisi {{ $division->name }}.</p>
+            @empty
+                <div style="background: #ffffff; border: 1.5px dashed #bccde3; border-radius: 12px; padding: 48px 24px; text-align: center;">
+                    <i class="fa-solid fa-briefcase" style="font-size: 40px; color: #bccde3; margin-bottom: 16px;"></i>
+                    <h3 style="font-size: 18px; font-weight: 800; color: #102d5c; margin-bottom: 8px;">Belum Ada Posisi Dibuka</h3>
+                    <p style="color: #71839b; font-size: 14px; margin: 0;">
+                        Saat ini belum ada posisi aktif di divisi {{ $division->name }}. Pantau terus kanal resmi kami untuk rekrutmen berikutnya!
+                    </p>
                 </div>
-                @endforelse
-            </div>
+            @endforelse
         </div>
-    </section>
-    <!-- End career apply section -->
+
+        <!-- Back Button -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="{{ route('career.index') }}#career-opportunities"
+               style="color: #245fb5; font-weight: 800; font-size: 14px; text-decoration: none;">
+                ← Kembali ke Daftar Divisi
+            </a>
+        </div>
+    </div>
+</main>
 @endsection

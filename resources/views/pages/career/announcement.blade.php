@@ -1,266 +1,103 @@
 @extends('layout.app')
 
 @section('title', 'Recruitment Announcement | House Ilmu Indonesia')
-
-@section('head')
-<style>
-    .announcement-hero {
-        background-color: #1554ad;
-        padding: 3.75rem 0 3.5rem;
-        color: #ffffff;
-    }
-    .announcement-eyebrow {
-        color: #ff9900;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        margin-bottom: 0.65rem;
-    }
-    .announcement-hero-title {
-        font-family: Georgia, 'Times New Roman', serif;
-        font-weight: 700;
-        font-size: clamp(1.85rem, 3.8vw, 2.85rem);
-        color: #ffffff;
-        letter-spacing: 0.01em;
-        margin-bottom: 0.85rem;
-    }
-    .announcement-hero-meta {
-        font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.88);
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.55rem;
-    }
-    .announcement-hero-meta strong {
-        color: #ffffff;
-        font-weight: 600;
-    }
-
-    .announcement-body-section {
-        padding: 3.5rem 0 4.5rem;
-    }
-    .announcement-body-wrap {
-        max-width: 960px;
-        margin: 0 auto;
-    }
-    .announcement-congrats-title {
-        font-family: Georgia, 'Times New Roman', serif;
-        font-weight: 700;
-        font-size: clamp(1.45rem, 2.5vw, 1.85rem);
-        color: #072146;
-        margin-bottom: 0.75rem;
-    }
-    .announcement-congrats-subtitle {
-        color: #64748b;
-        font-size: 0.95rem;
-        line-height: 1.65;
-        max-width: 540px;
-        margin: 0 auto 2.5rem;
-    }
-
-    .announcement-division-card {
-        background-color: #ffffff;
-        border: 1px solid #dbe5f0;
-        border-radius: 14px;
-        padding: 1.5rem 1.75rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        box-shadow: 0 4px 14px rgba(8, 61, 119, 0.03);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .announcement-division-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(8, 61, 119, 0.07);
-    }
-    .announcement-division-name {
-        font-family: Georgia, 'Times New Roman', serif;
-        font-weight: 700;
-        font-size: 1.15rem;
-        color: #072146;
-        margin-bottom: 0.35rem;
-    }
-    .announcement-division-role {
-        color: #f57c00;
-        font-size: 0.78rem;
-        font-weight: 600;
-        margin-bottom: 0.55rem;
-    }
-    .announcement-division-placeholder {
-        color: #64748b;
-        font-size: 0.85rem;
-        line-height: 1.55;
-        margin: 0;
-    }
-    .announcement-member-list {
-        margin: 0.5rem 0 0;
-        padding-left: 1.15rem;
-        color: #334155;
-        font-size: 0.88rem;
-        line-height: 1.7;
-    }
-
-    .announcement-closing-box {
-        background-color: #f9ebda;
-        border-radius: 14px;
-        padding: 2.25rem 1.75rem;
-        text-align: center;
-        margin-top: 2rem;
-    }
-    .announcement-closing-title {
-        font-family: Georgia, 'Times New Roman', serif;
-        font-weight: 700;
-        font-size: clamp(1.2rem, 2vw, 1.4rem);
-        color: #1554ad;
-        margin-bottom: 0.6rem;
-    }
-    .announcement-closing-desc {
-        color: #64748b;
-        font-size: 0.86rem;
-        line-height: 1.65;
-        max-width: 640px;
-        margin: 0 auto;
-    }
-
-    .btn-back-join-hi {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.45rem;
-        background-color: #f57c00;
-        color: #ffffff !important;
-        font-weight: 600;
-        font-size: 0.88rem;
-        padding: 0.75rem 1.6rem;
-        border-radius: 10px;
-        border: 1.5px solid #f57c00;
-        box-shadow: 0 4px 0 #c55a00;
-        text-decoration: none;
-        transition: all 0.2s ease;
-    }
-    .btn-back-join-hi:hover {
-        background-color: #e66e00;
-        transform: translateY(1px);
-        box-shadow: 0 3px 0 #c55a00;
-    }
-</style>
-@endsection
+@section('meta_description', 'Informasi dan tahapan rekrutmen House Ilmu Indonesia.')
 
 @section('content')
-    <!-- Start Banner Header -->
-    <section class="announcement-hero container-fluid">
-        <div class="container-xl">
-            <div class="announcement-body-wrap" data-aos="fade-down">
-                <p class="announcement-eyebrow">HOUSE ILMU INDONESIA</p>
-                <h1 class="announcement-hero-title">RECRUITMENT ANNOUNCEMENT</h1>
-                <div class="announcement-hero-meta">
-                    <strong>Batch &mdash; {{ $announcement->batch_label ?? 'Batch 6 Urgent Hiring – Official Announcement' }}</strong>
-                    <span>&middot;</span>
-                    <span>{{ (!empty($announcement->announcement_date) && $announcement->announcement_date !== 'Tanggal pengumuman belum tersedia') ? $announcement->announcement_date : '14 Oktober 2026' }}</span>
+<main class="career-page">
+    <div style="background: #fff9f0; min-height: 80vh;">
+        <!-- Hero -->
+        <section style="background: #2560b5; color: white; padding: 42px 0 68px;">
+            <div style="width: min(1120px, 90%); margin: auto;">
+                <a href="{{ route('career.index') }}"
+                   style="display: inline-block; color: white; text-decoration: none; font-size: 14px; font-weight: 800; margin-bottom: 30px;">
+                    ← Kembali ke Career
+                </a>
+
+                <div style="color: #ff941f; font-size: 12px; font-weight: 900; letter-spacing: 2px;">
+                    RECRUITMENT ANNOUNCEMENT
+                </div>
+
+                <h1 style="font-family: 'Nunito', sans-serif; font-size: clamp(32px, 5vw, 48px); font-weight: 900; margin: 16px 0; line-height: 1.2;">
+                    Informasi &amp; Tahapan Rekrutmen
+                </h1>
+
+                <div style="font-size: 15px; color: rgba(255,255,255,.9);">
+                    House Ilmu Indonesia <span style="color: #ff9b32; margin: 0 10px;">•</span> Periode Terbaru
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- End Banner Header -->
+        </section>
 
-    <!-- Start Announcement Content -->
-    <section class="announcement-body-section container-xl">
-        <div class="announcement-body-wrap">
-            <!-- Heading -->
-            <div class="text-center" data-aos="fade-up">
-                <h2 class="announcement-congrats-title">
-                    {{ $announcement->page_heading ?? 'Selamat kepada Kawaners yang telah lolos!' }}
+        <!-- Content -->
+        <section style="padding: 60px 20px 75px;">
+            <div style="text-align: center; max-width: 760px; margin: 0 auto 40px;">
+                <h2 style="font-size: clamp(24px, 3vw, 32px); font-weight: 800; margin-bottom: 16px; color: #123363;">
+                    Proses Rekrutmen yang Terbuka &amp; Terstruktur
                 </h2>
-                <p class="announcement-congrats-subtitle">
-                    {{ $announcement->page_subheading ?? 'Terima kasih telah membawa semangat dan keberanian untuk berproses bersama House Ilmu Indonesia.' }}
+                <p style="color: #71809a; line-height: 1.8; font-size: 16px;">
+                    Kami mengundang generasi muda berenergi positif untuk belajar, berkontribusi, dan berkembang bersama melalui program kerja nyata di House Ilmu Indonesia.
                 </p>
             </div>
 
-            @php
-                $divisionsList = $announcement->divisions ?? [];
-                // Jika data di database server masih kosong / belum ada nama kandidat, fallback ke defaultDivisions dari code
-                $hasAnyNamesInDb = collect($divisionsList)->pluck('names')->flatten()->filter()->isNotEmpty();
-                if (!$hasAnyNamesInDb) {
-                    $divisionsList = \App\Models\RecruitmentAnnouncement::defaultDivisions();
-                }
-
-                $activeDivisions = collect($divisionsList)->filter(function ($d) {
-                    $isActive = !isset($d['is_active']) || $d['is_active'] === true || $d['is_active'] === '1' || $d['is_active'] === 1;
-                    $hasNames = !empty($d['names']);
-                    $isNotTech = strtolower($d['name'] ?? '') !== 'technology';
-                    return $isActive && $hasNames && $isNotTech;
-                });
-            @endphp
-
-            <!-- Division Cards Grid -->
-            @if ($activeDivisions->isNotEmpty())
-                <div class="row g-3 g-md-4 justify-content-center" data-aos="fade-up">
-                    @foreach ($activeDivisions as $division)
-                        <div class="col-12 col-md-6">
-                            <div class="announcement-division-card">
-                                <h3 class="announcement-division-name">{{ $division['name'] ?? '' }}</h3>
-                                <p class="announcement-division-role">{{ $division['position'] ?? 'Posisi: Staf / Relawan' }}</p>
-
-                                @php
-                                    $names = $division['names'] ?? [];
-                                    if (is_string($names)) {
-                                        $names = array_filter(array_map('trim', explode("\n", $names)));
-                                    }
-                                @endphp
-
-                                @if (!empty($names))
-                                    <ol class="announcement-member-list">
-                                        @foreach ($names as $name)
-                                            @php
-                                                $parts = preg_split('/\s*[–\-]\s*/u', $name, 2);
-                                            @endphp
-                                            <li class="py-1">
-                                                @if (count($parts) === 2)
-                                                    <span class="fw-semibold text-[#072146]">{{ $parts[0] }}</span>
-                                                    <span class="text-[#f57c00] text-xs font-semibold ms-1">({{ $parts[1] }})</span>
-                                                @else
-                                                    <span class="fw-semibold text-[#072146]">{{ $name }}</span>
-                                                @endif
-                                            </li>
-                                        @endforeach
-                                    </ol>
-                                @else
-                                    <p class="announcement-division-placeholder">
-                                        Nama Kawaners akan ditampilkan setelah pengumuman resmi.
-                                    </p>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 1020px; margin: 0 auto;">
+                <div style="background: #fff; border: 1px solid #e0e6ef; border-radius: 14px; padding: 28px 30px; box-shadow: 0 4px 12px rgba(16,43,82,0.04);">
+                    <div style="color: #ff8517; font-size: 18px; font-weight: 800; margin-bottom: 12px;">
+                        01. Tahapan Seleksi
+                    </div>
+                    <ul style="color: #435b7d; font-size: 14px; line-height: 1.9; padding-left: 20px; margin: 0;">
+                        <li>Pengisian Formulir Pendaftaran online</li>
+                        <li>Pemeriksaan berkas &amp; portfolio (jika disyaratkan)</li>
+                        <li>Sesi Wawancara / Focus Group Discussion</li>
+                        <li>Pengumuman akhir &amp; Welcoming Onboarding</li>
+                    </ul>
                 </div>
-            @else
-                <div class="p-4 text-center rounded-3 bg-white border" data-aos="fade-up">
-                    <p class="text-muted m-0">Belum ada divisi yang diumumkan pada batch ini.</p>
-                </div>
-            @endif
 
-            <!-- Closing Message Box -->
-            <div class="announcement-closing-box" data-aos="fade-up">
-                <h3 class="announcement-closing-title">
-                    {{ $announcement->closing_title ?? 'Terima kasih sudah berproses bersama kami' }}
-                </h3>
-                <p class="announcement-closing-desc">
-                    {{ $announcement->closing_description ?? 'Terima kasih sudah menjadi bagian dari proses seleksi House Ilmu Indonesia. Tetap semangat dan jangan berhenti berkembang. Kesempatan lain masih terbuka!' }}
-                </p>
+                <div style="background: #fff; border: 1px solid #e0e6ef; border-radius: 14px; padding: 28px 30px; box-shadow: 0 4px 12px rgba(16,43,82,0.04);">
+                    <div style="color: #ff8517; font-size: 18px; font-weight: 800; margin-bottom: 12px;">
+                        02. Benefit Bergabung
+                    </div>
+                    <ul style="color: #435b7d; font-size: 14px; line-height: 1.9; padding-left: 20px; margin: 0;">
+                        <li>Sertifikat resmi pengalaman kerja &amp; kontribusi</li>
+                        <li>Mentoring langsung dari leader &amp; profesional</li>
+                        <li>Relasi komunitas pemuda se-Indonesia</li>
+                        <li>Portofolio nyata program berskala nasional</li>
+                    </ul>
+                </div>
+
+                <div style="background: #fff; border: 1px solid #e0e6ef; border-radius: 14px; padding: 28px 30px; box-shadow: 0 4px 12px rgba(16,43,82,0.04);">
+                    <div style="color: #ff8517; font-size: 18px; font-weight: 800; margin-bottom: 12px;">
+                        03. Ketentuan Umum
+                    </div>
+                    <ul style="color: #435b7d; font-size: 14px; line-height: 1.9; padding-left: 20px; margin: 0;">
+                        <li>Mahasiswa aktif, fresh graduate, atau pemuda antusias</li>
+                        <li>Memiliki komitmen waktu selama masa bakti</li>
+                        <li>Mampu berkomunikasi dengan baik secara daring</li>
+                        <li>Memiliki inisiatif dan semangat belajar tinggi</li>
+                    </ul>
+                </div>
+
+                <div style="background: #fff; border: 1px solid #e0e6ef; border-radius: 14px; padding: 28px 30px; box-shadow: 0 4px 12px rgba(16,43,82,0.04);">
+                    <div style="color: #ff8517; font-size: 18px; font-weight: 800; margin-bottom: 12px;">
+                        04. Bantuan &amp; Pertanyaan
+                    </div>
+                    <p style="color: #435b7d; font-size: 14px; line-height: 1.8; margin-bottom: 14px;">
+                        Ada pertanyaan seputar posisi dan proses seleksi? Hubungi tim Human Capital kami melalui email resmi atau media sosial House Ilmu.
+                    </p>
+                    <a href="mailto:houseilmu.id@gmail.com"
+                       style="display: inline-block; color: #245fb5; font-weight: 800; font-size: 14px; text-decoration: underline;">
+                        houseilmu.id@gmail.com ↗
+                    </a>
+                </div>
             </div>
 
-            <!-- Back Button -->
-            <div class="text-center mt-4 pt-2" data-aos="fade-up">
-                <a href="{{ url('/career') }}" class="btn-back-join-hi">
-                    <span>Kembali ke Join HI</span>
-                    <span style="font-size: 0.85rem; line-height: 1;">&#8599;</span>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="{{ route('career.index') }}#career-opportunities"
+                   class="career-btn"
+                   style="display: inline-block; padding: 12px 28px;">
+                    Lihat Posisi Tersedia ↗
                 </a>
             </div>
-        </div>
-    </section>
-    <!-- End Announcement Content -->
+        </section>
+    </div>
+</main>
 @endsection
-

@@ -1,12 +1,17 @@
-/* import font Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* font Poppins is loaded in partials/head.blade.php */
 
 /* reset html */
-* {
+html {
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -21,6 +26,9 @@
 body {
     background-color: #fff7e9;
     height: 100%;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body a {

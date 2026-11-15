@@ -2,56 +2,70 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TestimoniAlumniCareer;
 use App\Models\Division;
 use App\Models\Position;
-use App\Models\RecruitmentAnnouncement;
+use App\Models\TestimoniAlumniCareer;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\View\View;
 
 class CareerController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        // Ambil semua data testimoni alumni, urutkan berdasarkan yang terbaru
-        $testimoniAlumni = TestimoniAlumniCareer::orderBy('created_at', 'desc')->get();
-        $announcement = RecruitmentAnnouncement::current();
-        
-        // Sesuaikan path dengan struktur folder: resources/views/pages/career/career.blade.php
-        return view('pages.career.career', compact('testimoniAlumni', 'announcement'));
+        $testimoniAlumni = Cache::remember('career_testimoni', 300, function () {
+            return TestimoniAlumniCareer::latest()->get();
+        });
+
+        $divisions = Cache::remember('career_divisions', 300, function () {
+            return Division::with(['positions' => fn($q) => $q->where('is_visible', true)])->get();
+        });
+
+        return view('pages.career.career', compact('testimoniAlumni', 'divisions'));
     }
 
-    public function announcement()
+    public function announcement(): View
     {
-        $announcement = RecruitmentAnnouncement::current();
-        return view('pages.career.announcement', compact('announcement'));
+        return view('pages.career.announcement');
     }
 
-    public function listByDivision($division)
+    public function alumniStories(): View
     {
-        // Ambil divisi berdasarkan slug
-        $divisionModel = Division::where('slug', $division)->firstOrFail();
+        $testimoniAlumni = Cache::remember('career_testimoni', 300, function () {
+            return TestimoniAlumniCareer::latest()->get();
+        });
 
-        // Ambil posisi yang is_visible = true di divisi tersebut
-        $positions = $divisionModel->positions()->where('is_visible', true)->get();
+        return view('pages.career.alumni-stories', compact('testimoniAlumni'));
+    }
 
-        // Tampilkan ke blade universal positions
+    public function listByDivision(string $division): View
+    {
+        $divisionModel = Cache::remember("division_{$division}", 300, function () use ($division) {
+            return Division::where('slug', $division)->firstOrFail();
+        });
+
+        $positions = Cache::remember("positions_{$division}", 300, function () use ($divisionModel) {
+            return $divisionModel->positions()->where('is_visible', true)->get();
+        });
+
         return view('pages.career.positions', [
             'division' => $divisionModel,
             'positions' => $positions,
         ]);
     }
 
-    public function show($division, $slug)
+    public function show(string $division, string $slug): View
     {
-        // Temukan division by slug
-        $divisionModel = Division::where('slug', $division)->firstOrFail();
+        $divisionModel = Cache::remember("division_{$division}", 300, function () use ($division) {
+            return Division::where('slug', $division)->firstOrFail();
+        });
 
-        // Cari posisi by slug dan divisi_id
-        $position = Position::where('division_id', $divisionModel->id)
-                            ->where('slug', $slug)
-                            ->where('is_visible', true)
-                            ->firstOrFail();
+        $position = Cache::remember("position_{$division}_{$slug}", 300, function () use ($divisionModel, $slug) {
+            return Position::where('division_id', $divisionModel->id)
+                ->where('slug', $slug)
+                ->where('is_visible', true)
+                ->firstOrFail();
+        });
 
-        // Tampilkan ke blade universal position-details
         return view('pages.career.position-details', [
             'position' => $position,
             'division' => $divisionModel,

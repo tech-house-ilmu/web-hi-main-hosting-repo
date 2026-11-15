@@ -179,7 +179,7 @@
                             'fi-modal-slide-over-window ms-auto overflow-y-auto' => $slideOver,
                             // Using an arbitrary value instead of the h-dvh class that was added in Tailwind CSS v3.4.0
                             // to ensure compatibility with custom themes that may use an older version of Tailwind CSS.
-                            'h-[100dvh]' => $slideOver || ($width === MaxWidth::Screen),
+                            'h-dvh' => $slideOver || ($width === MaxWidth::Screen),
                             'mx-auto rounded-xl' => ! ($slideOver || ($width === MaxWidth::Screen)),
                             'hidden' => ! $visible,
                             match ($width) {
@@ -199,11 +199,11 @@
                                 MaxWidth::MaxContent => 'max-w-max',
                                 MaxWidth::FitContent => 'max-w-fit',
                                 MaxWidth::Prose => 'max-w-prose',
-                                MaxWidth::ScreenSmall => 'max-w-screen-sm',
-                                MaxWidth::ScreenMedium => 'max-w-screen-md',
-                                MaxWidth::ScreenLarge => 'max-w-screen-lg',
-                                MaxWidth::ScreenExtraLarge => 'max-w-screen-xl',
-                                MaxWidth::ScreenTwoExtraLarge => 'max-w-screen-2xl',
+                                MaxWidth::ScreenSmall => 'max-w-[theme(screens.sm)]',
+                                MaxWidth::ScreenMedium => 'max-w-[theme(screens.md)]',
+                                MaxWidth::ScreenLarge => 'max-w-[theme(screens.lg)]',
+                                MaxWidth::ScreenExtraLarge => 'max-w-[theme(screens.xl)]',
+                                MaxWidth::ScreenTwoExtraLarge => 'max-w-[theme(screens.2xl)]',
                                 MaxWidth::Screen => 'fixed inset-0',
                                 default => $width,
                             },

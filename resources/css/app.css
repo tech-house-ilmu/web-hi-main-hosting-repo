@@ -1,19 +1,57 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
-@import "./navbar-footer.css";
-@import "./about-us.css";
-@import "./article.css";
-@import "./career.css";
-@import "./opp-cards.css";
-@import "./opp-products.css";
-@import "./partnership.css";
-@import "./event-history.css";
-@import "./style.css";
-@import "./global.css";
-@import "./splide.css";
+@layer theme, base, components, utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/theme" layer(theme);
+@import "./tokens.css" layer(base);
+@import "./bootstrap-compat.css" layer(base);
+@import "./navbar-footer.css" layer(base);
+@import "./about-us.css" layer(base);
+@import "./article.css" layer(base);
+@import "./career.css" layer(base);
+@import "./opp-cards.css" layer(base);
+@import "./opp-products.css" layer(base);
+@import "./partnership.css" layer(base);
+@import "./style.css" layer(base);
+@import "./global.css" layer(base);
+@import "./splide.css" layer(base);
+
+/* Modular Component & Page Styles (Eliminates 1,500+ lines of inline Blade CSS) */
+@import "./components/footer.css" layer(base);
+@import "./pages/programmes.css" layer(base);
+@import "./pages/programme-detail.css" layer(base);
+@import "./pages/opportunities.css" layer(base);
+@import "./pages/about-redesign.css" layer(base);
+@import "./pages/career-redesign.css" layer(base);
+@import "./pages/career-detail.css" layer(base);
+@import "./pages/alumni-modal.css" layer(base);
+@import "./event-history.css" layer(base);
+
+@import "tailwindcss/utilities" layer(utilities);
+
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source inline("group-hover:opacity-100", "group-hover:pointer-events-auto");
+
+@theme {
+    --font-sans: "Poppins", "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: "Libre Baskerville", Georgia, serif;
+
+    --color-primary_HI: #205DB6;
+    --color-primary_light_HI: #1856C9;
+    --color-secondary_HI: #FF8A16;
+    --color-background_HI: #FFF9EF;
+    --color-surface_HI: #00C897;
+    --color-hover_HI: #FFB257;
+}
+
+.font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans-clean {
+    font-family: 'Plus Jakarta Sans', var(--font-sans), sans-serif;
+}
 
 /********************************* Navbar ********************************/
 .group:hover ul {

@@ -6,35 +6,61 @@ use App\Models\Event;
 use App\Models\Expert;
 use App\Models\HITCCProgramme;
 use App\Models\Testimoni;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $events = Event::where('is_active', true)->latest()->get();
-        $experts = Expert::where('is_active', true)->get();
+        $events = Cache::remember('home_events', 300, function () {
+            return Event::where('is_active', true)->latest()->get();
+        });
 
-        // Tambahkan 'category' agar partial hitcc-cards bisa akses category
-        $programmes = HITCCProgramme::with([
-            'internship', 
-            'volunteer', 
-            'scholarship', 
-            'exchange', 
-            'competition',
-            'category'
-        ])
-        ->orderBy('sort_order')
-        ->take(7)
-        ->get();
+        $experts = Cache::remember('home_experts', 300, function () {
+            return Expert::where('is_active', true)->get();
+        });
 
+        $programmes = Cache::remember('home_programmes', 300, function () {
+            return HITCCProgramme::with([
+                'internship',
+                'volunteer',
+                'scholarship',
+                'exchange',
+                'competition',
+                'category',
+            ])
+                ->orderBy('sort_order')
+                ->take(7)
+                ->get();
+        });
 
-        $testimonis = Testimoni::latest()->get(); // Atau sesuaikan dengan kondisi yang Anda inginkan
-        // Contoh dengan kondisi: Testimoni::where('is_active', true)->latest()->get();
+        $testimonis = Cache::remember('home_testimonis', 300, function () {
+            return Testimoni::latest()->get();
+        });
 
-  
-        return view('pages.index', compact('events', 'experts', 'programmes', 'testimonis'));
+        $impacts = config('homepage.impacts', []);
+        $onlinePrograms = config('homepage.online_programs', []);
+        $offlinePrograms = config('homepage.offline_programs', []);
+        $partners = config('homepage.partners', []);
+        $faqs = config('homepage.faqs', []);
+        $upcomingEvents = config('homepage.upcoming_events', []);
+        $programs = config('homepage.programs', []);
+        $testimonials = config('homepage.testimonials', []);
 
-         
-
+        return view('pages.index', compact(
+            'events',
+            'experts',
+            'programmes',
+            'testimonis',
+            'impacts',
+            'onlinePrograms',
+            'offlinePrograms',
+            'partners',
+            'faqs',
+            'upcomingEvents',
+            'programs',
+            'testimonials',
+        ));
     }
 }

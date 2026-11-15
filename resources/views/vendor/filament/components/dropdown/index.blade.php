@@ -72,7 +72,7 @@
                     MaxWidth::FiveExtraLarge, '5xl' => '!max-w-5xl',
                     MaxWidth::SixExtraLarge, '6xl' => '!max-w-6xl',
                     MaxWidth::SevenExtraLarge, '7xl' => '!max-w-7xl',
-                    null => '!max-w-[14rem]',
+                    null => 'max-w-[14rem]!',
                     default => $width,
                 },
                 'overflow-y-auto' => $maxHeight || $size,

@@ -1,3 +1,7 @@
+import Splide from "@splidejs/splide";
+
+window.Splide = Splide;
+
 export function initSplides() {
     const partnerSplideEl = document.querySelector("#partnerSplide");
     if (partnerSplideEl) {

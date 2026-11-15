@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('hitcc_scholarships', function (Blueprint $table) {
-            $table->id();  $table->foreignId('hitcc_programme_id')
+            $table->id();
+            $table->foreignId('hitcc_programme_id')
                 ->constrained('hitcc_programmes')
                 ->cascadeOnDelete();
 

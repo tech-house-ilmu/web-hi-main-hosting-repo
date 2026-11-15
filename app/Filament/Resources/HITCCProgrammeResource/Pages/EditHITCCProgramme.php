@@ -3,12 +3,12 @@
 namespace App\Filament\Resources\HITCCProgrammeResource\Pages;
 
 use App\Filament\Resources\HITCCProgrammeResource;
-use App\Models\HITCCProgramme;
-use App\Models\HITCCInternship;
-use App\Models\HITCCVolunteer;
-use App\Models\HITCCScholarship;
-use App\Models\HITCCExchange;
 use App\Models\HITCCCompetition;
+use App\Models\HITCCExchange;
+use App\Models\HITCCInternship;
+use App\Models\HITCCProgramme;
+use App\Models\HITCCScholarship;
+use App\Models\HITCCVolunteer;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Str;
 
@@ -66,13 +66,13 @@ class EditHITCCProgramme extends EditRecord
 
         // SLUG CUSTOM
         if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['title_program']) . '-' . uniqid();
+            $data['slug'] = Str::slug($data['title_program']).'-'.uniqid();
         } else {
             $existing = HITCCProgramme::where('slug', $data['slug'])
-                        ->where('id', '!=', $programme->id)
-                        ->first();
+                ->where('id', '!=', $programme->id)
+                ->first();
             if ($existing) {
-                $data['slug'] .= '-' . uniqid();
+                $data['slug'] .= '-'.uniqid();
             }
         }
 
