@@ -48,6 +48,10 @@ EOF
 echo "Running Laravel Artisan commands..."
 cd /var/www/html
 
+# Run package discovery and filament asset publish
+php artisan package:discover --ansi
+php artisan filament:upgrade || true
+
 # Storage symlink
 php artisan storage:link || true
 

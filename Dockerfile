@@ -53,9 +53,8 @@ COPY . /var/www/html
 # Copy built frontend assets from node_builder
 COPY --from=node_builder /app/public/build /var/www/html/public/build
 
-# Copy .env.example to .env temporarily for composer post-autoload scripts if .env does not exist
-RUN if [ ! -f .env ]; then cp .env.example .env; fi \
-    && composer install --no-dev --optimize-autoloader --no-interaction
+# Install PHP dependencies without scripts during build (scripts run in entrypoint)
+RUN composer install --no-dev --no-scripts --optimize-autoloader --no-interaction
 
 # Set up permissions
 RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache /var/run/mysqld /var/log/supervisor /var/log/nginx \
