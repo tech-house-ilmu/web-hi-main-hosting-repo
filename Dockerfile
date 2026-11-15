@@ -53,7 +53,7 @@ COPY . /var/www/html
 # Copy built frontend assets from node_builder
 COPY --from=node_builder /app/public/build /var/www/html/public/build
 
-# Install PHP dependencies without scripts during build (scripts run in entrypoint)
+# Install PHP dependencies without scripts during build
 RUN composer install --no-dev --no-scripts --optimize-autoloader --no-interaction
 
 # Set up permissions
@@ -69,9 +69,10 @@ COPY docker/nginx.conf /etc/nginx/sites-available/default
 # Copy Supervisor configuration
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Copy Entrypoint script
+# Copy Entrypoint and Init scripts
+COPY docker/init-laravel.sh /usr/local/bin/init-laravel.sh
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/init-laravel.sh /usr/local/bin/entrypoint.sh
 
 EXPOSE 80 3000
 
