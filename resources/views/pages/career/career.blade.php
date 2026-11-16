@@ -38,7 +38,7 @@
             </div>
 
             <div class="hero-visual">
-                <img src="{{ asset('img/career/banner.png') }}"
+                <img src="{{ asset('img/career/career-hero.webp') }}"
                      alt="House Ilmu Indonesia"
                      onerror="this.src='{{ asset('img/logo.webp') }}'">
             </div>
@@ -74,26 +74,31 @@
                 <article class="deals-card">
                     <span>D</span>
                     <h3>Discipline</h3>
+                    <p>Meninggalkan budaya “jam karet”, baik dalam ketepatan waktu maupun penyelesaian tugas.</p>
                 </article>
 
                 <article class="deals-card">
                     <span>E</span>
                     <h3>Entrepreneur</h3>
+                    <p>Memiliki jiwa entrepreneur untuk mendukung project/program HI.</p>
                 </article>
 
                 <article class="deals-card">
                     <span>A</span>
                     <h3>Agile</h3>
+                    <p>Merespons perubahan dengan inovasi dan mampu beradaptasi dengan cepat.</p>
                 </article>
 
                 <article class="deals-card">
                     <span>L</span>
                     <h3>Learning</h3>
+                    <p>Memiliki mindset bahwa “setiap orang tidak pernah berhenti belajar”.</p>
                 </article>
 
                 <article class="deals-card">
                     <span>S</span>
                     <h3>Social</h3>
+                    <p>Menjunjung tinggi nilai sosial, baik untuk internal maupun eksternal House Ilmu Indonesia.</p>
                 </article>
             </div>
         </div>
@@ -224,14 +229,17 @@
 
             <div class="career-position-grid" id="careerPositionGrid">
                 @foreach($divisions as $div)
+                    @php
+                        $displayDivisionName = strtolower($div->name) === 'ceo' ? 'CEO OFFICE' : $div->name;
+                    @endphp
                     <article class="position-card" data-division="{{ $div->slug }}">
-                        <span class="position-tag">{{ $div->name }}</span>
-                        <h3>{{ $div->name }}</h3>
+                        <span class="position-tag">{{ $displayDivisionName }}</span>
+                        <h3>{{ $displayDivisionName }}</h3>
                         <p>
                             @if($div->positions && $div->positions->count() > 0)
-                                {{ $div->positions->count() }} posisi tersedia untuk bergabung bersama divisi {{ $div->name }}.
+                                {{ $div->positions->count() }} posisi tersedia untuk bergabung bersama divisi {{ $displayDivisionName }}.
                             @else
-                                Tumbuh bersama tim lintas daerah dan kembangkan potensimu di divisi {{ $div->name }}.
+                                Tumbuh bersama tim lintas daerah dan kembangkan potensimu di divisi {{ $displayDivisionName }}.
                             @endif
                         </p>
                         <div class="position-location">Daring &amp; Hibrida · Indonesia</div>

@@ -1,6 +1,5 @@
 @php
     $partners = [
-        ['name' => 'House Ilmu Indonesia', 'file' => 'logo-house-ilmu.png', 'alt' => 'Logo House Ilmu Indonesia'],
         ['name' => 'Black Swan Community', 'file' => 'black-swan-community.jpg', 'alt' => 'Logo Black Swan Community'],
         ['name' => 'Doteens', 'file' => 'doteens.png', 'alt' => 'Logo Doteens'],
         ['name' => 'FYI Psikologi', 'file' => 'fyi-psikologi.jpg', 'alt' => 'Logo FYI Psikologi'],
@@ -32,7 +31,7 @@
     ];
 @endphp
 
-<!-- Start Who Work With Us Section (5x5 Grid) -->
+<!-- Start Who Work With Us Section (Symmetrical Stretchable Grid) -->
 <section class="partner container my-5 py-4" data-aos="fade-up">
     <div class="text-center mb-8">
         <h2 class="col-12 text-center fw-bold pt-4 mb-2" style="color: #083d77; font-size: clamp(1.75rem, 3.2vw, 2.5rem);">
@@ -41,8 +40,8 @@
         <div style="width: 54px; height: 3.5px; background-color: #f57c00; margin: 10px auto 0; border-radius: 9999px;"></div>
     </div>
 
-    <!-- 5 Rows x 5 Columns Grid (25 items) -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5 max-w-6xl mx-auto mt-6">
+    <!-- Responsive Symmetrical Grid (24 items: 6 cols x 4 rows on desktop, 4 cols on tablet, 3 on sm, 2 on mobile) -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-5 max-w-6xl mx-auto mt-6">
         @foreach ($partners as $partner)
             <div class="partner-grid-card">
                 <img src="{{ asset('img/partners/' . $partner['file']) }}"

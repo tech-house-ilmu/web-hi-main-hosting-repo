@@ -1,22 +1,36 @@
 @extends('layout.app')
 
 @php
-    // Normalisasi Kategori
-    $normalizeCat = function($cat) {
+    // Normalisasi Kategori ke 5 kategori resmi: promotional, education, entertainment, engagement, inspiration
+    $normalizeCat = function($cat, $title = '') {
         $c = strtolower(trim((string)$cat));
-        if (str_contains($c, 'entrepreneur') || str_contains($c, 'wirausaha')) return 'kewirausahaan';
-        if (str_contains($c, 'skill') || str_contains($c, 'keterampilan')) return 'pengembangan-keterampilan';
-        if (str_contains($c, 'career') || str_contains($c, 'karier')) return 'pengembangan-karier';
-        return \Illuminate\Support\Str::slug($cat);
+        $t = strtolower(trim((string)$title));
+
+        if (str_contains($c, 'promo') || str_contains($t, 'bootcamp') || str_contains($t, 'internship di beberapa')) return 'promotional';
+        if (str_contains($c, 'entertain') || str_contains($t, 'main character') || str_contains($t, 'julukan gen z')) return 'entertainment';
+        if (str_contains($c, 'engage') || str_contains($t, 'ceritakan pencapaian') || str_contains($t, 'syukuri')) return 'engagement';
+        if (str_contains($c, 'inspira') || str_contains($t, 'personal branding') || str_contains($t, 'freshgraduate masih bingung')) return 'inspiration';
+        if (str_contains($c, 'edu') || str_contains($c, 'skill') || str_contains($c, 'keterampilan') || str_contains($c, 'career') || str_contains($c, 'karier') || str_contains($c, 'entrepreneur') || str_contains($c, 'wirausaha')) return 'education';
+
+        return match($c) {
+            'promotional' => 'promotional',
+            'education' => 'education',
+            'entertainment' => 'entertainment',
+            'engagement' => 'engagement',
+            'inspiration' => 'inspiration',
+            default => 'education',
+        };
     };
 
-    $labelCat = function($cat) use ($normalizeCat) {
-        $slug = $normalizeCat($cat);
+    $labelCat = function($cat, $title = '') use ($normalizeCat) {
+        $slug = $normalizeCat($cat, $title);
         return match($slug) {
-            'kewirausahaan' => 'Kewirausahaan',
-            'pengembangan-keterampilan' => 'Pengembangan Keterampilan',
-            'pengembangan-karier' => 'Pengembangan Karier',
-            default => ucwords(str_replace('-', ' ', $slug))
+            'promotional' => 'Promotional',
+            'education' => 'Education',
+            'entertainment' => 'Entertainment',
+            'engagement' => 'Engagement',
+            'inspiration' => 'Inspiration',
+            default => 'Education'
         };
     };
 
@@ -37,8 +51,8 @@
         return null;
     };
 
-    $catSlug = $normalizeCat($article->category ?? 'pengembangan-karier');
-    $catLabel = $labelCat($article->category ?? 'Pengembangan Karier');
+    $catSlug = $normalizeCat($article->category ?? 'education', $article->title);
+    $catLabel = $labelCat($article->category ?? 'Education', $article->title);
     $imgSrc = $resolveImg($article->img ?? '');
     $articleUrl = route('article.show', $article->slug);
 
@@ -162,14 +176,27 @@
                 {{ $article->title }}
             </h1>
 
-            <!-- Meta Row: Author / Date (Left) & Share Action (Right) -->
+            <!-- Meta Row: Author / Editor / Date (Left) & Share Action (Right) -->
             <div class="article-meta-row">
                 <div class="article-meta-left">
-                    <span class="article-brand-author">
-                        {{ $article->author ?? 'House Ilmu Indonesia' }}
+                    <span class="article-meta-author-item" title="Penulis Artikel">
+                        <i class="fa-solid fa-pen-nib article-meta-icon" aria-hidden="true"></i>
+                        <span class="article-meta-role-label">Penulis:</span>
+                        <strong class="article-meta-name">{{ $article->author ?: 'House Ilmu Indonesia' }}</strong>
                     </span>
+
+                    @if(!empty($article->editor))
+                        <span class="article-meta-dot">•</span>
+                        <span class="article-meta-editor-item" title="Editor Artikel">
+                            <i class="fa-solid fa-user-check article-meta-icon editor-icon" aria-hidden="true"></i>
+                            <span class="article-meta-role-label">Editor:</span>
+                            <strong class="article-meta-name">{{ $article->editor }}</strong>
+                        </span>
+                    @endif
+
                     <span class="article-meta-dot">•</span>
-                    <time datetime="{{ \Carbon\Carbon::parse($article->date)->toDateString() }}" class="article-meta-date">
+                    <time datetime="{{ \Carbon\Carbon::parse($article->date)->toDateString() }}" class="article-meta-date" title="Tanggal Publikasi">
+                        <i class="fa-regular fa-calendar article-meta-icon" aria-hidden="true"></i>
                         {{ \Carbon\Carbon::parse($article->date)->translatedFormat('d F Y') }}
                     </time>
                 </div>
@@ -216,6 +243,44 @@
             <main class="article-content-column">
                 <div class="article-typography-content">
                     {!! $processedText !!}
+                </div>
+
+                <!-- ==============================================================
+                     INFORMASI PENULIS & EDITOR ARTIKEL
+                     ============================================================== -->
+                <div class="article-contributors-card" aria-label="Informasi Penulis dan Editor Artikel">
+                    <div class="article-contributors-header">
+                        <i class="fa-solid fa-circle-info article-contributors-header-icon" aria-hidden="true"></i>
+                        <span>Informasi Penulis &amp; Editor</span>
+                    </div>
+
+                    <div class="article-contributors-grid">
+                        <!-- Author / Penulis -->
+                        <div class="article-contributor-box author-box">
+                            <div class="article-contributor-icon-wrap author-icon-wrap">
+                                <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
+                            </div>
+                            <div class="article-contributor-details">
+                                <span class="article-contributor-role">PENULIS</span>
+                                <h4 class="article-contributor-name">{{ $article->author ?: 'House Ilmu Indonesia' }}</h4>
+                                <p class="article-contributor-desc">Penulis &amp; Kontributor House Ilmu</p>
+                            </div>
+                        </div>
+
+                        <!-- Editor -->
+                        @if(!empty($article->editor))
+                            <div class="article-contributor-box editor-box">
+                                <div class="article-contributor-icon-wrap editor-icon-wrap">
+                                    <i class="fa-solid fa-spell-check" aria-hidden="true"></i>
+                                </div>
+                                <div class="article-contributor-details">
+                                    <span class="article-contributor-role">EDITOR</span>
+                                    <h4 class="article-contributor-name">{{ $article->editor }}</h4>
+                                    <p class="article-contributor-desc">Tim Editorial &amp; Kurasi Konten HI</p>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
                 </div>
 
                 <!-- Social Media Sharing & Engagement Footnote -->
@@ -330,8 +395,8 @@
                 <div class="related-articles-grid">
                     @foreach($relatedArticles as $rel)
                         @php
-                            $relCatSlug = $normalizeCat($rel->category ?? 'pengembangan-karier');
-                            $relCatLabel = $labelCat($rel->category ?? 'Pengembangan Karier');
+                            $relCatSlug = $normalizeCat($rel->category ?? 'education', $rel->title);
+                            $relCatLabel = $labelCat($rel->category ?? 'Education', $rel->title);
                             $relImg = $resolveImg($rel->img ?? '');
                             $relExcerpt = Str::limit(strip_tags($rel->text ?? ''), 115);
                             $relUrl = route('article.show', $rel->slug);
@@ -577,6 +642,35 @@
     font-weight: 400 !important;
     line-height: 18px !important;
     color: #5E708A !important;
+    flex-wrap: wrap;
+}
+
+.article-meta-author-item,
+.article-meta-editor-item,
+.article-meta-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #5E708A !important;
+}
+
+.article-meta-icon {
+    font-size: 11px;
+    color: #FF8A18;
+}
+
+.article-meta-icon.editor-icon {
+    color: #1656A5;
+}
+
+.article-meta-role-label {
+    color: #7A8CA3;
+    font-size: 11.5px;
+}
+
+.article-meta-name {
+    color: #0A2B56 !important;
+    font-weight: 600;
 }
 
 .article-brand-author {
@@ -585,11 +679,126 @@
 }
 
 .article-meta-dot {
-    color: #A0AEC0;
+    color: #CBD5E1;
 }
 
 .article-meta-date {
     color: #5E708A !important;
+}
+
+/* ----------------------------------------------------------------------------
+   Contributors Card: Penulis & Editor Info Block (Inside Article)
+   ---------------------------------------------------------------------------- */
+.article-contributors-card {
+    margin-top: 36px;
+    margin-bottom: 28px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 14px rgba(10, 42, 89, 0.04);
+}
+
+.article-contributors-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0B2853;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EDF2F7;
+}
+
+.article-contributors-header-icon {
+    color: #FF8A18;
+    font-size: 13px;
+}
+
+.article-contributors-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 640px) {
+    .article-contributors-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+.article-contributor-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background-color: #F8FAFC;
+    border: 1px solid #EAEFF6;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-contributor-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 42, 89, 0.06);
+}
+
+.article-contributor-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.author-icon-wrap {
+    background-color: #FFF3E6;
+    color: #FF8A18;
+}
+
+.editor-icon-wrap {
+    background-color: #EAF2FF;
+    color: #1656A5;
+}
+
+.article-contributor-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.article-contributor-role {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #8C9BAE;
+}
+
+.article-contributor-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0A2B56;
+    margin: 0;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.article-contributor-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: #64748B;
+    margin: 0;
 }
 
 /* Share Button: Poppins 700, 12px / 18px, #FF8315 */
@@ -619,13 +828,13 @@
 }
 
 /* ----------------------------------------------------------------------------
-   Hero Banner Image (W: 1140px, H: 365px, Radius: 6px, Bg: #DDE4ED)
+   Hero Banner Image (W: 1140px, H: 440px max, Radius: 6px, Bg: #F8FAFC)
    ---------------------------------------------------------------------------- */
 .article-hero-banner {
     width: 100%;
     max-width: 1140px;
-    height: 220px;
-    background-color: #DDE4ED;
+    height: 240px;
+    background-color: #F8FAFC;
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 36px;
@@ -637,20 +846,20 @@
 
 @media (min-width: 640px) {
     .article-hero-banner {
-        height: 290px;
+        height: 340px;
     }
 }
 
 @media (min-width: 1024px) {
     .article-hero-banner {
-        height: 365px;
+        height: 440px;
     }
 }
 
 .article-hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     border-radius: 6px;
     display: block;
@@ -683,6 +892,7 @@
 .related-card-placeholder-inner {
     width: 100%;
     height: 100%;
+    aspect-ratio: 1 / 1;
     background-color: #DDE4ED;
     display: flex;
     flex-direction: column;
@@ -1139,10 +1349,11 @@
 
 .related-card-thumb-wrap {
     width: 100%;
-    height: 165px;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     background-color: #E2E8F0;
     display: block;
+    position: relative;
 }
 
 .related-card-thumb {

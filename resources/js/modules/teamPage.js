@@ -1,38 +1,56 @@
 /**
- * Our Team Page Interactivity: Division Filter & Carousel Track Navigation
+ * Our Team Page Interactivity (Gaya 3 Enhanced: Division Blocks Filter)
  */
 export function initTeamPage() {
     const teamPage = document.querySelector('.team-page');
     if (!teamPage) return;
 
-    // Filter Divisi
-    const filter = document.getElementById('divisionFilter');
-    if (filter) {
-        filter.addEventListener('change', function () {
-            const selected = this.value;
-            document.querySelectorAll('.division-section').forEach(section => {
-                if (selected === 'all' || section.dataset.division === selected) {
-                    section.style.display = '';
-                } else {
-                    section.style.display = 'none';
-                }
-            });
+    const filterSelect = document.getElementById('divisionFilter');
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const divisionBlocks = document.querySelectorAll('.division-block');
+    const emptyState = document.getElementById('galleryEmptyState');
+
+    function applyFilter(selected) {
+        let visibleCount = 0;
+
+        divisionBlocks.forEach(block => {
+            const matches = (selected === 'all' || block.dataset.division === selected);
+            if (matches) {
+                block.style.display = 'block';
+                visibleCount++;
+            } else {
+                block.style.display = 'none';
+            }
+        });
+
+        if (emptyState) {
+            emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // Update pills active state
+        filterPills.forEach(pill => {
+            if (pill.dataset.filter === selected) {
+                pill.classList.add('active');
+            } else {
+                pill.classList.remove('active');
+            }
+        });
+
+        // Update select value
+        if (filterSelect && filterSelect.value !== selected) {
+            filterSelect.value = selected;
+        }
+    }
+
+    if (filterSelect) {
+        filterSelect.addEventListener('change', function () {
+            applyFilter(this.value);
         });
     }
 
-    // Carousel buttons
-    document.querySelectorAll('.team-group').forEach(group => {
-        const track = group.querySelector('.team-track');
-        const prev = group.querySelector('.prev-btn');
-        const next = group.querySelector('.next-btn');
-
-        if (track && prev && next) {
-            prev.addEventListener('click', () => {
-                track.scrollBy({ left: -250, behavior: 'smooth' });
-            });
-            next.addEventListener('click', () => {
-                track.scrollBy({ left: 250, behavior: 'smooth' });
-            });
-        }
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', function () {
+            applyFilter(this.dataset.filter);
+        });
     });
 }

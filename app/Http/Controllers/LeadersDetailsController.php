@@ -5,16 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\LeadersDetailsAbout;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
 
 class LeadersDetailsController extends Controller
 {
+    protected function getLeadersQuery()
+    {
+        return Schema::hasColumn('leaders_details_abouts', 'order')
+            ? LeadersDetailsAbout::orderBy('order', 'asc')
+            : LeadersDetailsAbout::orderBy('id', 'asc');
+    }
+
     /**
      * Display the About Us page with leadership details.
      */
     public function index(): View
     {
-        $leaders = LeadersDetailsAbout::orderBy('order', 'asc')->get();
+        $leaders = $this->getLeadersQuery()->get();
 
         return view('pages.about-us.about', [
             'leaders' => $leaders,
@@ -27,7 +35,7 @@ class LeadersDetailsController extends Controller
      */
     public function ourTeam(): View
     {
-        $leaders = LeadersDetailsAbout::orderBy('order', 'asc')->get();
+        $leaders = $this->getLeadersQuery()->get();
 
         return view('pages.about-us.our-team', [
             'leaders' => $leaders,
@@ -38,7 +46,7 @@ class LeadersDetailsController extends Controller
     //  return data employee dalam bentuk json yang dah diencrypt
     public function api(Request $request): JsonResponse
     {
-        $query = LeadersDetailsAbout::orderBy('order', 'asc');
+        $query = $this->getLeadersQuery();
 
         if ($request->filled('id')) {
             $query->where('id', $request->id);

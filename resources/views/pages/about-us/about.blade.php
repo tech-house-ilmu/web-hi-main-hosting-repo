@@ -53,11 +53,31 @@
                 </div>
             </div>
             <div class="hi-deals">
-                <div class="hi-deal"><b>D</b><h3>Discipline</h3></div>
-                <div class="hi-deal"><b>E</b><h3>Entrepreneur</h3></div>
-                <div class="hi-deal"><b>A</b><h3>Agile</h3></div>
-                <div class="hi-deal"><b>L</b><h3>Learning</h3></div>
-                <div class="hi-deal"><b>S</b><h3>Social</h3></div>
+                <div class="hi-deal">
+                    <b>D</b>
+                    <h3>Discipline</h3>
+                    <p>Meninggalkan budaya “jam karet”, baik dalam ketepatan waktu maupun penyelesaian tugas.</p>
+                </div>
+                <div class="hi-deal">
+                    <b>E</b>
+                    <h3>Entrepreneur</h3>
+                    <p>Memiliki jiwa entrepreneur untuk mendukung project/program HI.</p>
+                </div>
+                <div class="hi-deal">
+                    <b>A</b>
+                    <h3>Agile</h3>
+                    <p>Merespons perubahan dengan inovasi dan mampu beradaptasi dengan cepat.</p>
+                </div>
+                <div class="hi-deal">
+                    <b>L</b>
+                    <h3>Learning</h3>
+                    <p>Memiliki mindset bahwa “setiap orang tidak pernah berhenti belajar”.</p>
+                </div>
+                <div class="hi-deal">
+                    <b>S</b>
+                    <h3>Social</h3>
+                    <p>Menjunjung tinggi nilai sosial, baik untuk internal maupun eksternal House Ilmu Indonesia.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -66,16 +86,15 @@
     <section class="hi-block">
         <div class="hi-wrap-wide" style="max-width:1424px">
             <div class="hi-founder">
-                <img src="{{ asset('img/homepage/about/Lutfia Rahmannisa_CEO.webp') }}"
+                <img src="{{ asset('img/homepage/about/lutfia-rahmannisa-founder.png') }}"
                      alt="Lutfia Rahmannisa, Founder &amp; CEO House Ilmu Indonesia"
-                     onerror="this.src='{{ asset('img/logo.webp') }}'">
+                     loading="lazy">
                 <div>
                     <p class="hi-eyebrow">Mengenal Founder Kami</p>
                     <h2>Lutfia Rahmannisa</h2>
                     <p class="hi-role">Founder &amp; Chief Executive Officer House Ilmu Indonesia</p>
                     <p>Lutfia Rahmannisa, atau yang akrab disapa Kak Fia, adalah seorang sociopreneur muda. Di tengah kesibukannya menempuh studi Master Leadership and Policy Innovation di Universitas Gadjah Mada, Kak Fia aktif mendedikasikan dirinya sebagai teman cerita bagi anak muda di media sosial.</p>
                     <p>Melalui konten-kontennya, ia konsisten mengedukasi dan merangkul generasi muda untuk terus bertumbuh dalam kepemimpinan dan pengembangan diri.</p>
-                    <blockquote>“Rumah bertumbuh untuk generasi muda yang bermakna dan berdampak.”</blockquote>
                 </div>
             </div>
         </div>
@@ -103,8 +122,8 @@
                         <h4>Kerja Sama</h4>
                         <ul><li>Cakap</li><li>Phillip Sekuritas</li><li>RISYIK Collaboration</li></ul>
                     </div>
-                    <div class="hi-tl-media hi-empty" role="img" aria-label="Dokumentasi 2020">
-                        <span class="font-bold text-gray-500 tracking-wider">Dokumentasi 2020</span>
+                    <div class="hi-tl-media" role="img" aria-label="Dokumentasi 2020">
+                        <img src="{{ asset('img/about-us/history/2020-phillip-sekuritas.png') }}" alt="Poster kolaborasi Phillip Sekuritas Indonesia x House Ilmu Indonesia 2020" loading="lazy">
                     </div>
                 </article>
 
@@ -123,8 +142,8 @@
                         <h4>Kerja Sama</h4>
                         <ul><li>Pemimpin.id</li><li>Social Connect</li><li>Media Partners</li><li>Event Collaborations</li></ul>
                     </div>
-                    <div class="hi-tl-media hi-empty" role="img" aria-label="Dokumentasi 2021">
-                        <span class="font-bold text-gray-500 tracking-wider">Dokumentasi 2021</span>
+                    <div class="hi-tl-media" role="img" aria-label="Dokumentasi 2021">
+                        <img src="{{ asset('img/about-us/history/2021-pemimpin-risyik.png') }}" alt="Poster program Risyik 5.0 bersama Pemimpin.id 2021" loading="lazy">
                     </div>
                 </article>
 
@@ -143,8 +162,8 @@
                         <h4>Kerja Sama</h4>
                         <ul><li>Community Collaboration</li><li>Social Impact Collaboration</li><li>Program Collaboration untuk penyandang disabilitas</li></ul>
                     </div>
-                    <div class="hi-tl-media hi-empty" role="img" aria-label="Dokumentasi 2022">
-                        <span class="font-bold text-gray-500 tracking-wider">Dokumentasi 2022</span>
+                    <div class="hi-tl-media" role="img" aria-label="Dokumentasi 2022">
+                        <img src="{{ asset('img/about-us/history/2022-open-recruitment-volunteer.png') }}" alt="Poster open recruitment volunteer House Ilmu Indonesia 2022" loading="lazy">
                     </div>
                 </article>
 
@@ -162,8 +181,8 @@
                         <h4>Kerja Sama</h4>
                         <ul><li>Event Collaboration</li><li>Community Collaboration</li><li>Media Partnership</li></ul>
                     </div>
-                    <div class="hi-tl-media hi-empty" role="img" aria-label="Dokumentasi 2023">
-                        <span class="font-bold text-gray-500 tracking-wider">Dokumentasi 2023</span>
+                    <div class="hi-tl-media" role="img" aria-label="Dokumentasi 2023">
+                        <img src="{{ asset('img/about-us/history/2023-hi-fest.png') }}" alt="Poster HI Fest House Ilmu Indonesia 2023" loading="lazy">
                     </div>
                 </article>
 
@@ -181,8 +200,8 @@
                         <h4>Kerja Sama</h4>
                         <ul><li>Career-related collaborations</li><li>Community Collaboration</li><li>Event Collaboration</li></ul>
                     </div>
-                    <div class="hi-tl-media hi-empty" role="img" aria-label="Dokumentasi 2024">
-                        <span class="font-bold text-gray-500 tracking-wider">Dokumentasi 2024</span>
+                    <div class="hi-tl-media" role="img" aria-label="Dokumentasi 2024">
+                        <img src="{{ asset('img/about-us/history/2024-cv-review.png') }}" alt="Poster professional CV review House Ilmu Indonesia 2024" loading="lazy">
                     </div>
                 </article>
 
@@ -200,8 +219,8 @@
                         <h4>Kerja Sama</h4>
                         <ul><li>Community Collaboration</li><li>Event Collaboration</li><li>Media Partnership</li></ul>
                     </div>
-                    <div class="hi-tl-media hi-empty" role="img" aria-label="Dokumentasi 2025">
-                        <span class="font-bold text-gray-500 tracking-wider">Dokumentasi 2025</span>
+                    <div class="hi-tl-media" role="img" aria-label="Dokumentasi 2025">
+                        <img src="{{ asset('img/about-us/history/2025-hi-festival.png') }}" alt="Poster festival House Ilmu Indonesia 2025" loading="lazy">
                     </div>
                 </article>
 
@@ -220,8 +239,8 @@
                         <h4>Kerja Sama</h4>
                         <ul><li>Community Collaboration</li><li>Event Collaboration</li><li>Media Partnership</li><li>Strategic Partnerships</li></ul>
                     </div>
-                    <div class="hi-tl-media hi-empty" role="img" aria-label="Dokumentasi 2026 segera hadir">
-                        <span class="font-bold text-gray-500 tracking-wider">Dokumentasi 2026</span>
+                    <div class="hi-tl-media" role="img" aria-label="Dokumentasi 2026">
+                        <img src="{{ asset('img/about-us/history/2026-webinar-career.png') }}" alt="Poster webinar dan career opportunities House Ilmu Indonesia 2026" loading="lazy">
                     </div>
                 </article>
             </div>

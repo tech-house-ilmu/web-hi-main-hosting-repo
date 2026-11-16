@@ -13,79 +13,105 @@
         </div>
 
         @php
-            $displayEvents = !empty($upcomingEvents) ? $upcomingEvents : config('homepage.upcoming_events', []);
+            // Ambil event aktif dari database (diinput melalui Admin Site / Filament)
+            $activeDbEvents = isset($events) && $events->count() > 0 ? $events : collect();
         @endphp
 
-        <!-- Cards Grid -->
-        <div class="upcoming-events-grid">
-            @foreach($displayEvents as $item)
-                <article class="upcoming-event-card">
-                    <!-- Event Poster Image (363 x 272) -->
-                    <div class="upcoming-event-img-wrap">
-                        @if(!empty($item['image']) && file_exists(public_path($item['image'])))
-                            <img src="{{ asset($item['image']) }}"
-                                 alt="{{ $item['title'] }}"
-                                 class="upcoming-event-img"
-                                 loading="lazy"
-                                 decoding="async" />
-                        @else
-                            <div class="upcoming-event-placeholder">
-                                <i class="fa-regular fa-image" aria-hidden="true"></i>
-                                <span>POSTER EVENT</span>
-                            </div>
-                        @endif
-                    </div>
+        @if($activeDbEvents->count() > 0)
+            <!-- Active Events Grid (Diinput melalui Admin Site) -->
+            <div class="upcoming-events-grid">
+                @foreach($activeDbEvents as $item)
+                    @php
+                        $firstImg = null;
+                        if (!empty($item->images)) {
+                            $firstImg = is_array($item->images) ? ($item->images[0] ?? null) : $item->images;
+                        }
+                        $imgUrl = null;
+                        if ($firstImg) {
+                            if (file_exists(public_path('storage/' . $firstImg))) {
+                                $imgUrl = asset('storage/' . $firstImg);
+                            } elseif (file_exists(public_path($firstImg))) {
+                                $imgUrl = asset($firstImg);
+                            } elseif (str_starts_with($firstImg, 'http')) {
+                                $imgUrl = $firstImg;
+                            }
+                        }
+                        $desc = Str::limit(strip_tags($item->description ?? ''), 120);
+                        $link = $item->registration_link ?: route('programme.programmes');
+                    @endphp
 
-                    <!-- Card Body (363 x 298, p: 23px) -->
-                    <div class="upcoming-event-body">
-                        <div>
-                            <!-- Category Badge & Status -->
-                            <div class="upcoming-event-meta">
-                                <span class="upcoming-event-badge">
-                                    {{ $item['category'] }}
-                                </span>
-                                <span class="upcoming-event-status">
-                                    {{ $item['status'] }}
-                                </span>
-                            </div>
-
-                            <!-- Title (Libre Baskerville 20px / 27px) -->
-                            <h3 class="upcoming-event-name" title="{{ $item['title'] }}">
-                                {{ $item['title'] }}
-                            </h3>
-
-                            <!-- Schedule Info -->
-                            <div class="upcoming-event-schedule">
-                                <time class="upcoming-event-time">
-                                    {{ $item['schedule_badge'] }}
-                                </time>
-                                <p class="upcoming-event-sched-desc">
-                                    {{ $item['schedule_text'] }}
-                                </p>
-                            </div>
+                    <article class="upcoming-event-card">
+                        <!-- Event Poster Image -->
+                        <div class="upcoming-event-img-wrap">
+                            @if(!empty($imgUrl))
+                                <img src="{{ $imgUrl }}"
+                                     alt="{{ $item->title }}"
+                                     class="upcoming-event-img"
+                                     loading="lazy"
+                                     decoding="async" />
+                            @else
+                                <div class="upcoming-event-placeholder">
+                                    <i class="fa-regular fa-image" aria-hidden="true"></i>
+                                    <span>POSTER EVENT</span>
+                                </div>
+                            @endif
                         </div>
 
-                        <!-- Bottom Link (11px / 16.5px #EE7A0B) -->
-                        <div class="upcoming-event-footer">
-                            <a href="{{ $item['link'] ?? route('programme.programmes') }}"
-                               class="upcoming-event-link">
-                                <span>Lihat Lebih Banyak</span>
-                                <span class="upcoming-event-arrow">&rarr;</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            @endforeach
-        </div>
+                        <!-- Card Body -->
+                        <div class="upcoming-event-body">
+                            <div>
+                                <div class="upcoming-event-meta">
+                                    <span class="upcoming-event-badge">
+                                        {{ $item->tagline ?: 'House Ilmu Event' }}
+                                    </span>
+                                    <span class="upcoming-event-status">
+                                        Pendaftaran Dibuka
+                                    </span>
+                                </div>
 
-        <!-- Bottom Action CTA (W: 187px, H: 36px, #FF8B18, border #E8730C, r: 7px) -->
-        <div class="upcoming-events-action-wrap">
-            <a href="{{ route('programme.programmes') }}"
-               class="upcoming-events-action-btn">
-                <span>Lihat Riwayat Kegiatan</span>
-                <span class="upcoming-events-action-arrow">&rarr;</span>
-            </a>
-        </div>
+                                <h3 class="upcoming-event-name" title="{{ $item->title }}">
+                                    {{ $item->title }}
+                                </h3>
+
+                                <div class="upcoming-event-schedule">
+                                    <p class="upcoming-event-sched-desc">
+                                        {{ $desc }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="upcoming-event-footer">
+                                <a href="{{ $link }}"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="upcoming-event-link">
+                                    <span>Daftar / Info Lengkap</span>
+                                    <span class="upcoming-event-arrow">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+
+            <!-- Bottom Action CTA -->
+            <div class="upcoming-events-action-wrap">
+                <a href="{{ route('programme.programmes') }}"
+                   class="upcoming-events-action-btn">
+                    <span>Lihat Riwayat Kegiatan</span>
+                    <span class="upcoming-events-action-arrow">&rarr;</span>
+                </a>
+            </div>
+        @else
+            <div class="upcoming-events-coming-soon-wrap" data-aos="zoom-in">
+                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:10px; padding:28px 20px; color:#fff;">
+                    <div style="font-size:20px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;">Coming Soon</div>
+                    <p style="margin:0; max-width:700px; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.9);">
+                        Tim House Ilmu Indonesia sedang menyiapkan kegiatan dan kesempatan baru. Nantikan informasi selanjutnya.
+                    </p>
+                </div>
+            </div>
+        @endif
     </div>
 </section>
 
@@ -480,6 +506,144 @@
     .upcoming-events-action-btn {
         width: 100%;
         max-width: 320px;
+    }
+}
+
+/* ==========================================================================
+   Coming Soon State Styling
+   ========================================================================== */
+.upcoming-events-coming-soon-wrap {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.upcoming-events-coming-soon-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 44px 32px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upcoming-coming-soon-badge-row {
+    margin-bottom: 20px;
+}
+
+.upcoming-coming-soon-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #FFF3E6;
+    color: #FF8A18;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    border: 1px solid #FFE4C7;
+}
+
+.pulse-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #FF8A18;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(255, 138, 24, 0.7);
+    animation: pulseRing 1.8s infinite;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 138, 24, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(255, 138, 24, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 138, 24, 0);
+    }
+}
+
+.upcoming-coming-soon-icon-circle {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: #205EB6;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 18px rgba(32, 94, 182, 0.25);
+}
+
+.upcoming-coming-soon-title {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+    font-weight: 700 !important;
+    font-size: 22px !important;
+    line-height: 30px !important;
+    color: #0A2B56 !important;
+    margin: 0 0 14px 0;
+    max-width: 540px;
+}
+
+.upcoming-coming-soon-desc {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13.5px !important;
+    line-height: 22px !important;
+    color: #5E708A !important;
+    margin: 0 0 28px 0;
+    max-width: 580px;
+}
+
+.upcoming-coming-soon-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #FF8A18;
+    color: #FFFFFF !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(255, 138, 24, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upcoming-coming-soon-btn:hover {
+    background-color: #E8730C;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 138, 24, 0.4);
+    color: #FFFFFF !important;
+}
+
+@media (max-width: 639px) {
+    .upcoming-events-coming-soon-card {
+        padding: 32px 20px;
+    }
+    .upcoming-coming-soon-title {
+        font-size: 19px !important;
+        line-height: 26px !important;
+    }
+    .upcoming-coming-soon-desc {
+        font-size: 12.5px !important;
+        line-height: 20px !important;
+    }
+    .upcoming-coming-soon-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 </style>
