@@ -51,7 +51,7 @@ class LeadersDetailsAboutSeeder extends Seeder
                 'leaders_details_position' => 'Staff',
                 'leaders_details_position_division' => 'CEO Office',
                 'leaders_details_sub_division' => 'General Affair',
-                'leaders_details_img' => 'team/asma-muthmainah.jpg',
+                'leaders_details_img' => 'team/asma-muthma-inah.jpg',
                 'leaders_details_linkedin' => null,
                 'leaders_details_email' => 'muthmainah322@gmail.com',
                 'order' => 4,

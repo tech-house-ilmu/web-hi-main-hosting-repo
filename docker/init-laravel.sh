@@ -35,7 +35,13 @@ if [ "$USER_COUNT" = "0" ] || [ -z "$USER_COUNT" ]; then
     echo "Seeding initial database data..."
     php artisan db:seed --force || true
 else
-    echo "Database has $USER_COUNT users, skipping seeder."
+    echo "Database has $USER_COUNT users, skipping full seeder."
+fi
+
+LEADERS_COUNT=$(mariadb -u ridanxd -pridanxd test_web_hi -se "SELECT COUNT(*) FROM leaders_details_abouts;" 2>/dev/null || echo "0")
+if [ "$LEADERS_COUNT" = "0" ] || [ -z "$LEADERS_COUNT" ]; then
+    echo "Seeding leaders/employees data..."
+    php artisan db:seed --class=LeadersDetailsAboutSeeder --force || true
 fi
 
 php artisan optimize:clear || true
