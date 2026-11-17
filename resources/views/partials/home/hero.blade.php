@@ -293,8 +293,20 @@
                 timer: null,
                 slides: [
                     {
-                        img: '{{ asset('img/homepage/banner-cindy2.webp') }}',
-                        alt: 'House Ilmu Indonesia'
+                        img: '{{ asset('img/homepage/home-hero-1.webp') }}',
+                        alt: 'House Ilmu Indonesia community gathering'
+                    },
+                    {
+                        img: '{{ asset('img/homepage/home-hero-2.webp') }}',
+                        alt: 'House Ilmu Indonesia learning session'
+                    },
+                    {
+                        img: '{{ asset('img/homepage/home-hero-3.webp') }}',
+                        alt: 'House Ilmu Indonesia members together'
+                    },
+                    {
+                        img: '{{ asset('img/homepage/home-hero-4.webp') }}',
+                        alt: 'House Ilmu Indonesia team in outdoor activity'
                     }
                 ],
                 init() {

@@ -29,7 +29,7 @@
                    aria-label="Cari artikel..." />
         </div>
 
-        <!-- Category Filter Pills: H: 35px, rounded-full -->
+        <!-- Category Filter Pills: H: 35px, rounded-full (5 Kategori Baru) -->
         <div class="articles-filter-wrap" role="tablist" aria-label="Filter Kategori Artikel">
             <button type="button"
                     class="articles-filter-pill active"
@@ -40,24 +40,38 @@
             </button>
             <button type="button"
                     class="articles-filter-pill"
-                    data-category="kewirausahaan"
+                    data-category="promotional"
                     role="tab"
                     aria-selected="false">
-                Kewirausahaan
+                Promotional
             </button>
             <button type="button"
                     class="articles-filter-pill"
-                    data-category="pengembangan-keterampilan"
+                    data-category="education"
                     role="tab"
                     aria-selected="false">
-                Pengembangan Keterampilan
+                Education
             </button>
             <button type="button"
                     class="articles-filter-pill"
-                    data-category="pengembangan-karier"
+                    data-category="entertainment"
                     role="tab"
                     aria-selected="false">
-                Pengembangan Karier
+                Entertainment
+            </button>
+            <button type="button"
+                    class="articles-filter-pill"
+                    data-category="engagement"
+                    role="tab"
+                    aria-selected="false">
+                Engagement
+            </button>
+            <button type="button"
+                    class="articles-filter-pill"
+                    data-category="inspiration"
+                    role="tab"
+                    aria-selected="false">
+                Inspiration
             </button>
         </div>
     </div>
@@ -70,22 +84,36 @@
     <div class="articles-content-container">
 
         @php
-            // Normalisasi kategori ke slug baku
-            $normalizeCat = function($cat) {
+            // Normalisasi kategori ke 5 kategori resmi: promotional, education, entertainment, engagement, inspiration
+            $normalizeCat = function($cat, $title = '') {
                 $c = strtolower(trim((string)$cat));
-                if (str_contains($c, 'entrepreneur') || str_contains($c, 'wirausaha')) return 'kewirausahaan';
-                if (str_contains($c, 'skill') || str_contains($c, 'keterampilan')) return 'pengembangan-keterampilan';
-                if (str_contains($c, 'career') || str_contains($c, 'karier')) return 'pengembangan-karier';
-                return \Illuminate\Support\Str::slug($cat);
+                $t = strtolower(trim((string)$title));
+
+                if (str_contains($c, 'promo') || str_contains($t, 'bootcamp') || str_contains($t, 'internship di beberapa')) return 'promotional';
+                if (str_contains($c, 'entertain') || str_contains($t, 'main character') || str_contains($t, 'julukan gen z')) return 'entertainment';
+                if (str_contains($c, 'engage') || str_contains($t, 'ceritakan pencapaian') || str_contains($t, 'syukuri')) return 'engagement';
+                if (str_contains($c, 'inspira') || str_contains($t, 'personal branding') || str_contains($t, 'freshgraduate masih bingung')) return 'inspiration';
+                if (str_contains($c, 'edu') || str_contains($c, 'skill') || str_contains($c, 'keterampilan') || str_contains($c, 'career') || str_contains($c, 'karier') || str_contains($c, 'entrepreneur') || str_contains($c, 'wirausaha')) return 'education';
+
+                return match($c) {
+                    'promotional' => 'promotional',
+                    'education' => 'education',
+                    'entertainment' => 'entertainment',
+                    'engagement' => 'engagement',
+                    'inspiration' => 'inspiration',
+                    default => 'education',
+                };
             };
 
-            $labelCat = function($cat) use ($normalizeCat) {
-                $slug = $normalizeCat($cat);
+            $labelCat = function($cat, $title = '') use ($normalizeCat) {
+                $slug = $normalizeCat($cat, $title);
                 return match($slug) {
-                    'kewirausahaan' => 'Kewirausahaan',
-                    'pengembangan-keterampilan' => 'Pengembangan Keterampilan',
-                    'pengembangan-karier' => 'Pengembangan Karier',
-                    default => ucwords(str_replace('-', ' ', $slug))
+                    'promotional' => 'Promotional',
+                    'education' => 'Education',
+                    'entertainment' => 'Entertainment',
+                    'engagement' => 'Engagement',
+                    'inspiration' => 'Inspiration',
+                    default => 'Education'
                 };
             };
 
@@ -121,10 +149,10 @@
         <!-- Featured Article Big Card (2 Kolom: Gambar Kiri, Konten Kanan) -->
         @if($featured)
             @php
-                $fCatSlug = $normalizeCat($featured->category ?? 'pengembangan-karier');
-                $fCatLabel = $labelCat($featured->category ?? 'Pengembangan Karier');
-                $fImg = $resolveImg($featured->img ?? '');
                 $fTitle = $featured->title ?? 'Panduan Lengkap Menembus Magang Idaman di Perusahaan Top Tier untuk Fresh Graduate 2025';
+                $fCatSlug = $normalizeCat($featured->category ?? 'education', $fTitle);
+                $fCatLabel = $labelCat($featured->category ?? 'Education', $fTitle);
+                $fImg = $resolveImg($featured->img ?? '');
                 $fExcerpt = Str::limit(strip_tags($featured->text ?? 'Panduan untuk mempersiapkan langkah awal menuju kesempatan magang.'), 160);
                 $fSlug = $featured->slug ?? 'panduan-lengkap-menembus-magang-idaman-di-perusahaan-top-tier-untuk-fresh-graduate-2025';
             @endphp
@@ -170,33 +198,6 @@
                     </div>
                 </div>
             </article>
-        @else
-            <!-- Mock Fallback jika database belum berisi data artikel -->
-            <article class="featured-card">
-                <div class="featured-card-thumb-wrap">
-                    <img src="{{ asset('img/homepage/article/skill-development1.webp') }}"
-                         alt="Panduan Magang Top Tier"
-                         class="featured-card-thumb"
-                         loading="lazy" />
-                </div>
-                <div class="featured-card-body">
-                    <span class="article-category-badge">
-                        Pengembangan Karier
-                    </span>
-                    <h3 class="featured-card-title">
-                        Panduan Lengkap Menembus Magang Idaman di Perusahaan Top Tier untuk Fresh Graduate 2025
-                    </h3>
-                    <p class="featured-card-desc">
-                        Panduan untuk mempersiapkan langkah awal menuju kesempatan magang.
-                    </p>
-                    <div class="featured-card-action-wrap">
-                        <a href="#" class="featured-card-link">
-                            <span>Baca Artikel</span>
-                            <span class="link-arrow">&#8599;</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
         @endif
 
         <!-- ==================================================================
@@ -212,8 +213,8 @@
         <div id="articlesGrid" class="articles-grid">
             @forelse($articles as $item)
                 @php
-                    $catSlug = $normalizeCat($item->category ?? 'kewirausahaan');
-                    $catLabel = $labelCat($item->category ?? 'Kewirausahaan');
+                    $catSlug = $normalizeCat($item->category ?? 'education', $item->title);
+                    $catLabel = $labelCat($item->category ?? 'Education', $item->title);
                     $imgSrc = $resolveImg($item->img ?? '');
                     $excerpt = Str::limit(strip_tags($item->text ?? ''), 110);
                 @endphp
@@ -261,96 +262,12 @@
                     </div>
                 </article>
             @empty
-                <!-- Fallback 6 Mock Cards Sesuai Figma Prototype -->
-                <article class="article-card" data-category="pengembangan-karier" data-title="panduan lengkap menembus magang idaman di perusahaan top tier untuk fresh graduate 2025">
-                    <div class="article-card-thumb-link">
-                        <div class="article-card-placeholder-inner">
-                            <i class="fa-regular fa-image" aria-hidden="true"></i>
-                            <span>GAMBAR ARTIKEL</span>
-                        </div>
+                <div class="col-12 py-12 text-center w-full my-8">
+                    <div class="articles-no-results" style="display: block;">
+                        <i class="fa-regular fa-folder-open articles-no-results-icon"></i>
+                        <p class="mt-2 text-slate-500 font-medium">Belum ada artikel yang dipublikasikan saat ini.</p>
                     </div>
-                    <div class="article-card-body">
-                        <span class="article-category-badge">Pengembangan Karier</span>
-                        <h3 class="article-card-title">Panduan Lengkap Menembus Magang Idaman di Perusahaan Top Tier untuk Fresh Graduate 2025</h3>
-                        <p class="article-card-desc">Jelajahi informasi dan tips dari House Ilmu Indonesia.</p>
-                        <span class="article-card-link"><span>Baca Selengkapnya</span><span class="link-arrow">&#8599;</span></span>
-                    </div>
-                </article>
-
-                <article class="article-card" data-category="kewirausahaan" data-title="membangun ide bisnis yang relevan untuk generasi muda">
-                    <div class="article-card-thumb-link">
-                        <div class="article-card-placeholder-inner">
-                            <i class="fa-regular fa-image" aria-hidden="true"></i>
-                            <span>GAMBAR ARTIKEL</span>
-                        </div>
-                    </div>
-                    <div class="article-card-body">
-                        <span class="article-category-badge">Kewirausahaan</span>
-                        <h3 class="article-card-title">Membangun Ide Bisnis yang Relevan untuk Generasi Muda</h3>
-                        <p class="article-card-desc">Jelajahi informasi dan tips dari House Ilmu Indonesia.</p>
-                        <span class="article-card-link"><span>Baca Selengkapnya</span><span class="link-arrow">&#8599;</span></span>
-                    </div>
-                </article>
-
-                <article class="article-card" data-category="pengembangan-keterampilan" data-title="skill praktis untuk menunjang karier masa kini">
-                    <div class="article-card-thumb-link">
-                        <div class="article-card-placeholder-inner">
-                            <i class="fa-regular fa-image" aria-hidden="true"></i>
-                            <span>GAMBAR ARTIKEL</span>
-                        </div>
-                    </div>
-                    <div class="article-card-body">
-                        <span class="article-category-badge">Pengembangan Keterampilan</span>
-                        <h3 class="article-card-title">Skill Praktis untuk Menunjang Karier Masa Kini</h3>
-                        <p class="article-card-desc">Jelajahi informasi dan tips dari House Ilmu Indonesia.</p>
-                        <span class="article-card-link"><span>Baca Selengkapnya</span><span class="link-arrow">&#8599;</span></span>
-                    </div>
-                </article>
-
-                <article class="article-card" data-category="pengembangan-karier" data-title="mempersiapkan langkah awal menuju dunia kerja">
-                    <div class="article-card-thumb-link">
-                        <div class="article-card-placeholder-inner">
-                            <i class="fa-regular fa-image" aria-hidden="true"></i>
-                            <span>GAMBAR ARTIKEL</span>
-                        </div>
-                    </div>
-                    <div class="article-card-body">
-                        <span class="article-category-badge">Pengembangan Karier</span>
-                        <h3 class="article-card-title">Mempersiapkan Langkah Awal Menuju Dunia Kerja</h3>
-                        <p class="article-card-desc">Jelajahi informasi dan tips dari House Ilmu Indonesia.</p>
-                        <span class="article-card-link"><span>Baca Selengkapnya</span><span class="link-arrow">&#8599;</span></span>
-                    </div>
-                </article>
-
-                <article class="article-card" data-category="kewirausahaan" data-title="dari ide menjadi aksi: memulai project pertamamu">
-                    <div class="article-card-thumb-link">
-                        <div class="article-card-placeholder-inner">
-                            <i class="fa-regular fa-image" aria-hidden="true"></i>
-                            <span>GAMBAR ARTIKEL</span>
-                        </div>
-                    </div>
-                    <div class="article-card-body">
-                        <span class="article-category-badge">Kewirausahaan</span>
-                        <h3 class="article-card-title">Dari Ide Menjadi Aksi: Memulai Project Pertamamu</h3>
-                        <p class="article-card-desc">Jelajahi informasi dan tips dari House Ilmu Indonesia.</p>
-                        <span class="article-card-link"><span>Baca Selengkapnya</span><span class="link-arrow">&#8599;</span></span>
-                    </div>
-                </article>
-
-                <article class="article-card" data-category="pengembangan-keterampilan" data-title="cara belajar skill baru dengan lebih terarah">
-                    <div class="article-card-thumb-link">
-                        <div class="article-card-placeholder-inner">
-                            <i class="fa-regular fa-image" aria-hidden="true"></i>
-                            <span>GAMBAR ARTIKEL</span>
-                        </div>
-                    </div>
-                    <div class="article-card-body">
-                        <span class="article-category-badge">Pengembangan Keterampilan</span>
-                        <h3 class="article-card-title">Cara Belajar Skill Baru dengan Lebih Terarah</h3>
-                        <p class="article-card-desc">Jelajahi informasi dan tips dari House Ilmu Indonesia.</p>
-                        <span class="article-card-link"><span>Baca Selengkapnya</span><span class="link-arrow">&#8599;</span></span>
-                    </div>
-                </article>
+                </div>
             @endforelse
         </div>
 
@@ -581,7 +498,8 @@
 
 @media (min-width: 992px) {
     .featured-card {
-        grid-template-columns: minmax(0, 621px) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+        align-items: stretch;
     }
 }
 
@@ -593,16 +511,18 @@
 .featured-card-thumb-wrap {
     display: block;
     width: 100%;
-    height: 275px;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     background-color: #E8EBEF;
     text-decoration: none;
+    position: relative;
 }
 
 .featured-card-thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.35s ease;
 }
@@ -779,16 +699,17 @@
 .article-card-thumb-link {
     display: block;
     width: 100%;
-    height: 165px;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     background-color: #E8EBEF;
     text-decoration: none;
+    position: relative;
 }
 
 .featured-placeholder-inner {
     width: 100%;
     height: 100%;
-    min-height: 275px;
+    aspect-ratio: 1 / 1;
     background-color: #DDE4ED;
     display: flex;
     flex-direction: column;
@@ -814,6 +735,7 @@
 .article-card-placeholder-inner {
     width: 100%;
     height: 100%;
+    aspect-ratio: 1 / 1;
     background-color: #DDE4ED;
     display: flex;
     flex-direction: column;
@@ -840,6 +762,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.35s ease;
 }
@@ -1013,8 +936,8 @@
 
     .featured-card-thumb-wrap {
         height: auto;
-        aspect-ratio: 16 / 10;
-        min-height: 180px;
+        aspect-ratio: 1 / 1;
+        min-height: unset;
     }
 
     .featured-card-body {
@@ -1040,8 +963,8 @@
 
     .article-card-thumb-link {
         height: auto;
-        aspect-ratio: 16 / 9;
-        min-height: 160px;
+        aspect-ratio: 1 / 1;
+        min-height: unset;
     }
 
     .article-card-body {

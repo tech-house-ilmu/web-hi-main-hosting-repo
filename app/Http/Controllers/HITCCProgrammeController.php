@@ -86,8 +86,11 @@ class HITCCProgrammeController extends Controller
             $hasDbRecords = HITCCProgramme::exists();
 
             if (!$hasDbRecords) {
-                // If DB has 0 records (dev/staging), use dynamic fallback paginator
-                $opportunities = $this->buildFallbackPaginator($request, $category, $search);
+                // Database belum memiliki data kesempatan (ditampilkan status Coming Soon sampai diinput melalui Admin Site)
+                $opportunities = new LengthAwarePaginator([], 0, 6, 1, [
+                    'path' => $request->url(),
+                    'query' => $request->query(),
+                ]);
                 $categories = collect([
                     (object) ['slug' => 'internship', 'name' => 'Magang'],
                     (object) ['slug' => 'volunteer', 'name' => 'Relawan'],
@@ -126,8 +129,10 @@ class HITCCProgrammeController extends Controller
                 });
             }
         } catch (\Throwable $e) {
-            // Graceful offline fallback
-            $opportunities = $this->buildFallbackPaginator($request, $category, $search);
+            $opportunities = new LengthAwarePaginator([], 0, 6, 1, [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]);
             $categories = collect([
                 (object) ['slug' => 'internship', 'name' => 'Magang'],
                 (object) ['slug' => 'volunteer', 'name' => 'Relawan'],

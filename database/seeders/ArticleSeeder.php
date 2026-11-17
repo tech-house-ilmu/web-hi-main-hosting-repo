@@ -5,125 +5,179 @@ namespace Database\Seeders;
 use App\Models\Article;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
 
 class ArticleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * Seeds the real production articles from House Ilmu Indonesia.
      */
     public function run(): void
     {
-        $articles = [
-            [
-                'title' => 'Panduan Lengkap Menembus Magang Idaman di Perusahaan Top Tier untuk Fresh Graduate 2025',
-                'text' => '<p class="article-lead">Persiapan yang matang merupakan langkah penting untuk mencari kesempatan magang. Berikut topik yang dapat membantu Anda menyusun langkah selanjutnya.</p>
-
-<h2 id="kenali-perusahaan-budaya-kerja-top-tier">1. Kenali Perusahaan & Budaya Kerja Top-Tier</h2>
-<p>Bagian ini membahas kenali perusahaan & budaya kerja top-tier sebagai bagian dari persiapan menuju kesempatan magang. Konten lengkap akan ditampilkan sesuai artikel resmi.</p>
-<div class="article-callout">
-    <span class="callout-title">Catatan</span>
-    <p>Periksa kembali informasi dan persyaratan dari perusahaan tujuan sebelum melamar.</p>
-</div>
-
-<h2 id="formula-menulis-cv-ats-berbasis-impact">2. Formula Menulis CV ATS Berbasis Impact</h2>
-<p>Bagian ini membahas formula menulis cv ats berbasis impact sebagai bagian dari persiapan menuju kesempatan magang. Konten lengkap akan ditampilkan sesuai artikel resmi.</p>
-<div class="article-callout">
-    <span class="callout-title">Catatan</span>
-    <p>Periksa kembali informasi dan persyaratan dari perusahaan tujuan sebelum melamar.</p>
-</div>
-
-<h2 id="portofolio-relevan-bukti-nyata-eksekusi">3. Portofolio Relevan & Bukti Nyata Eksekusi</h2>
-<p>Bagian ini membahas portofolio relevan & bukti nyata eksekusi sebagai bagian dari persiapan menuju kesempatan magang. Konten lengkap akan ditampilkan sesuai artikel resmi.</p>
-<div class="article-callout">
-    <span class="callout-title">Catatan</span>
-    <p>Periksa kembali informasi dan persyaratan dari perusahaan tujuan sebelum melamar.</p>
-</div>
-
-<h2 id="tips-wawancara-kompetensi">4. Tips Wawancara Kompetensi</h2>
-<p>Bagian ini membahas tips wawancara kompetensi sebagai bagian dari persiapan menuju kesempatan magang. Konten lengkap akan ditampilkan sesuai artikel resmi.</p>
-<div class="article-callout">
-    <span class="callout-title">Catatan</span>
-    <p>Periksa kembali informasi dan persyaratan dari perusahaan tujuan sebelum melamar.</p>
-</div>
-
-<h2 id="etika-follow-up-pasca-wawancara">5. Etika Follow-Up Pasca Wawancara</h2>
-<p>Bagian ini membahas etika follow-up pasca wawancara sebagai bagian dari persiapan menuju kesempatan magang. Konten lengkap akan ditampilkan sesuai artikel resmi.</p>
-<div class="article-callout">
-    <span class="callout-title">Catatan</span>
-    <p>Periksa kembali informasi dan persyaratan dari perusahaan tujuan sebelum melamar.</p>
-</div>',
-                'img' => null,
-                'author' => 'Tim Editorial HI',
-                'editor' => 'Tim Editorial HI',
-                'date' => Carbon::now()->subDays(1),
-                'slug' => 'panduan-lengkap-menembus-magang-idaman-di-perusahaan-top-tier-untuk-fresh-graduate-2025',
-                'category' => 'Career Development',
-            ],
-            [
-                'title' => 'Membangun Ide Bisnis yang Relevan untuk Generasi Muda',
-                'text' => '<p>Jelajahi informasi dan tips dari House Ilmu Indonesia mengenai validasi ide bisnis, riset pasar praktis, dan eksekusi model bisnis berkelanjutan.</p>',
-                'img' => null,
-                'author' => 'Lutfia Rahmannisa',
-                'editor' => 'Tim Editorial HI',
-                'date' => Carbon::now()->subDays(3),
-                'slug' => 'membangun-ide-bisnis-yang-relevan-untuk-generasi-muda',
-                'category' => 'Entrepreneur',
-            ],
-            [
-                'title' => 'Skill Praktis untuk Menunjang Karier Masa Kini',
-                'text' => '<p>Jelajahi informasi dan tips dari House Ilmu Indonesia seputar kemampuan digital, komunikasi profesional, dan adaptasi di era kerja modern.</p>',
-                'img' => null,
-                'author' => 'Faiza Kurniawati',
-                'editor' => 'Tim Editorial HI',
-                'date' => Carbon::now()->subDays(4),
-                'slug' => 'skill-praktis-untuk-menunjang-karier-masa-kini',
-                'category' => 'Skill Development',
-            ],
-            [
-                'title' => 'Mempersiapkan Langkah Awal Menuju Dunia Kerja',
-                'text' => '<p>Jelajahi informasi dan tips dari House Ilmu Indonesia untuk membangun kesiapan mental, profesionalisme, serta jejaring kerja.</p>',
-                'img' => null,
-                'author' => 'Naila Nariswari',
-                'editor' => 'Tim Editorial HI',
-                'date' => Carbon::now()->subDays(5),
-                'slug' => 'mempersiapkan-langkah-awal-menuju-dunia-kerja',
-                'category' => 'Career Development',
-            ],
-            [
-                'title' => 'Dari Ide Menjadi Aksi: Memulai Project Pertamamu',
-                'text' => '<p>Jelajahi informasi dan tips dari House Ilmu Indonesia tentang cara mengeksekusi proyek pertama dengan sumber daya minimal.</p>',
-                'img' => null,
-                'author' => 'Tim Redaksi HI',
-                'editor' => 'Tim Editorial HI',
-                'date' => Carbon::now()->subDays(6),
-                'slug' => 'dari-ide-menjadi-aksi-memulai-project-pertamamu',
-                'category' => 'Entrepreneur',
-            ],
-            [
-                'title' => 'Cara Belajar Skill Baru dengan Lebih Terarah',
-                'text' => '<p>Jelajahi informasi dan tips dari House Ilmu Indonesia untuk memetakan kurikulum belajar mandiri dan teknik retensi materi efektif.</p>',
-                'img' => null,
-                'author' => 'Tim Editorial HI',
-                'editor' => 'Tim Editorial HI',
-                'date' => Carbon::now()->subDays(7),
-                'slug' => 'cara-belajar-skill-baru-dengan-lebih-terarah',
-                'category' => 'Skill Development',
-            ],
-        ];
-
-        foreach ($articles as $article) {
-            Article::updateOrCreate(
-                ['slug' => $article['slug']],
+        $jsonFile = storage_path('server_articles.json');
+        if (file_exists($jsonFile)) {
+            $articles = json_decode(file_get_contents($jsonFile), true);
+        } else {
+            $articles = [
                 [
-                    'title' => $article['title'],
-                    'text' => $article['text'],
-                    'img' => $article['img'],
-                    'author' => $article['author'],
-                    'editor' => $article['editor'],
-                    'date' => $article['date'],
-                    'slug' => $article['slug'],
-                    'category' => $article['category'],
+                    'title' => 'Kawaners, Yuk Ceritakan Pencapaian Kecil yang Paling Kamu Syukuri Bulan ini!',
+                    'slug' => 'Ceritakan-Pencapaian-Kecil-yang-Paling-Kamu-Syukuri-Bulan-ini',
+                    'date' => '2026-11-03',
+                    'author' => 'Sri Deviana',
+                    'editor' => 'Faruz',
+                    'category' => 'Skill Development',
+                    'img' => 'articles/01M6FFEEHRH3XSFVDSGDF0QAQ8.png',
+                    'text' => '<p>Setiap orang punya proses dan waktunya masing-masing. Apa yang terlihat sederhana bagi orang lain, bisa jadi merupakan hal besar yang berhasil kita perjuangkan dengan susah payah.</p>',
+                ],
+                [
+                    'title' => 'Main Character, Si Paling Sibuk, atau Si Santai? Kenali Versi Dirimu di Dunia Perkuliahan',
+                    'slug' => 'Kenali-Versi-Dirimu-di-Dunia-Perkuliahan',
+                    'date' => '2026-11-03',
+                    'author' => 'Sri Deviana',
+                    'editor' => 'Faruz',
+                    'category' => 'Skill Development',
+                    'img' => 'articles/01M6FDE3JSARG6G6Z95E4MMK67.png',
+                    'text' => '<p>Dunia perkuliahan sering kali digambarkan sebagai masa-masa yang penuh warna, kebebasan, dan eksplorasi diri.</p>',
+                ],
+                [
+                    'title' => 'Sering Kewalahan dengan Tugas? Ini Metode Time Management Biar Gak Mudah Burnout!',
+                    'slug' => 'Metode-Time-Management-Biar-Gak-Mudah-Burnout',
+                    'date' => '2026-10-22',
+                    'author' => 'Sri Deviana',
+                    'editor' => 'Faruz',
+                    'category' => 'Skill Development',
+                    'img' => 'articles/01M5H24T5N63D8G6S0N3EVD9BT.png',
+                    'text' => '<p>Menjalani aktivitas sehari-hari sering kali terasa seperti perlombaan dengan waktu. Tugas kuliah yang terus berdatangan, urusan organisasi yang nggak ada habisnya, hingga tuntutan pekerjaan atau proyek sampingan bisa dengan mudah membuat energi kita terkuras.</p>',
+                ],
+                [
+                    'title' => '3 Skills Yang Bikin Kawaners Ga Bakal Tergantikan Oleh AI di Tahun 2026',
+                    'slug' => '3 Skills Yang Bikin Kawaners Ga Bakal-Tergantikan-Oleh-AI-di-Tahun-2026',
+                    'date' => '2026-06-22',
+                    'author' => 'Yusrina Rachma Fauziah',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Skill Development',
+                    'img' => 'articles/01KVQS7NC710R777F0BQ2NQ8RX.png',
+                    'text' => '<p>Perkembangan teknologi artificial intelligence (AI) berkembang dengan sangat cepat dan mempengaruhi berbagai aspek kehidupan kita.</p>',
+                ],
+                [
+                    'title' => 'Digital Marketing Yang Sedang Tren di Tahun 2026',
+                    'slug' => 'Digital-Marketing-Yang Sedang-Tren-di-Tahun-2026',
+                    'date' => '2026-06-22',
+                    'author' => 'Yusrina Rachma Fauziah',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Skill Development',
+                    'img' => 'articles/01KVQRZEPPV5V2GB37AYY5C054.png',
+                    'text' => '<p>Tren digital marketing terus bertransformasi seiring dengan perubahan teknologi dan kebiasaan konsumen di era modern.</p>',
+                ],
+                [
+                    'title' => 'Tips Bangun Personal Branding Dari Nol. Langsung Bisa Kawaners Praktekkan!',
+                    'slug' => 'Tips-Bangun-Personal-Branding-Dari-Nol',
+                    'date' => '2026-06-22',
+                    'author' => 'Yusrina Rachma Fauziah',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Career Development',
+                    'img' => 'articles/01KVQRHA2MHD0NP5JCQZ7973J2.png',
+                    'text' => '<p>Membangun citra diri atau personal branding yang profesional menjadi nilai tambah yang sangat penting dalam dunia karier saat ini.</p>',
+                ],
+                [
+                    'title' => 'CV ATS atau CV Kreatif, Mana Yang Lebih Efektif Untuk Lamar Kerja?',
+                    'slug' => 'cv-ats-atau-cv-kreatif-mana-yang-lebih-efektif-untuk-lamar-kerja',
+                    'date' => '2026-05-17',
+                    'author' => 'Yusrina',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Career Development',
+                    'img' => 'articles/01KRRTRRN7JXW1HZ5G1RMM1AGW.png',
+                    'text' => '<p>Perdebatan antara penggunaan CV format ATS friendly dan CV kreatif kerap membingungkan para pencari kerja.</p>',
+                ],
+                [
+                    'title' => 'Banyak Freshgraduate Masih Bingung Soal Karier? Kenapa Ya?',
+                    'slug' => 'banyak-freshgraduate-masih-bingung-soal-karier-kenapa-ya',
+                    'date' => '2026-05-17',
+                    'author' => 'Yusrina',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Career Development',
+                    'img' => 'articles/01KRRTPX973KVVPCS0A85WGYRZ.png',
+                    'text' => '<p>Transisi dari bangku perkuliahan menuju dunia profesional seringkali menimbulkan rasa cemas dan kebingungan bagi lulusan baru.</p>',
+                ],
+                [
+                    'title' => 'Bootcamp GRATIS Untuk Kamu Yang Ingin Mulai Karir Di Bidang Digital Marketing',
+                    'slug' => 'bootcamp-gratis-untuk-pemula-yang-ingin-belajar-digital-marketing',
+                    'date' => '2026-05-17',
+                    'author' => 'Yusrina',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Career Development',
+                    'img' => 'articles/01KRRTK4W9ZVY27GD5369NSHZP.jpg',
+                    'text' => '<p>Memulai karier baru di ranah digital kini semakin mudah dengan beragam pilihan pelatihan dan bootcamp tanpa biaya.</p>',
+                ],
+                [
+                    'title' => 'INFO! Rekomendasi Paid Internship di Beberapa Perusahaan Terkenal Indonesia',
+                    'slug' => 'rekomendasi-paid-internship-di-beberapa-perusahaan-terkenal-indonesia',
+                    'date' => '2026-05-17',
+                    'author' => 'Yusrina',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Career Development',
+                    'img' => 'articles/01KRRTGWM1A6TY0WMCTG931CKS.png',
+                    'text' => '<p>Informasi program magang berbayar di berbagai perusahaan terkemuka yang dapat menjadi batu loncatan kariermu.</p>',
+                ],
+                [
+                    'title' => 'Julukan Gen Z Di Dunia Kerja : Generasi Melek Teknologi dan Penjujung Tinggi Work Life Balance',
+                    'slug' => 'julukan-gen-z-di-dunia-kerja-generasi-melek-teknologi-dan-penjujung-tinggi-work-life-balance',
+                    'date' => '2026-05-17',
+                    'author' => 'Yusrina',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Career Development',
+                    'img' => 'articles/01KRRT9WXD4W11AQKR1A67ZHC9.png',
+                    'text' => '<p>Mengenal karakter, kebiasaan kerja, dan nilai-nilai yang dibawa oleh generasi Z ke dalam lingkungan kerja masa kini.</p>',
+                ],
+                [
+                    'title' => 'Bagaimana Penelitian Memperkuat Perkembangan Pribadi?',
+                    'slug' => 'bagaimana-penelitian-memperkuat-perkembangan-pribadi',
+                    'date' => '2025-05-16',
+                    'author' => 'admin',
+                    'editor' => 'Tim Editorial HI',
+                    'category' => 'Skill Development',
+                    'img' => 'articles/01KK73JSQN5049VVV4NVMBCDQ0.jpg',
+                    'text' => '<p>Penelitian bukan hanya sekadar aktivitas akademis, melainkan juga proses refleksi dan pengembangan kemampuan berpikir kritis.</p>',
+                ],
+            ];
+        }
+
+        foreach ($articles as $item) {
+            $slug = $item['slug'];
+            $img = isset($item['imgUrl']) ? 'articles/' . basename($item['imgUrl']) : ($item['img'] ?? null);
+
+            try {
+                $date = Carbon::parse($item['date'])->format('Y-m-d');
+            } catch (\Throwable $e) {
+                $date = Carbon::now()->format('Y-m-d');
+            }
+
+            // Normalisasi kategori ke 5 kategori resmi: promotional, education, entertainment, engagement, inspiration
+            $rawCat = strtolower(trim((string)($item['category'] ?? '')));
+            $titleLower = strtolower(trim((string)$item['title']));
+
+            if (str_contains($rawCat, 'promo') || str_contains($titleLower, 'bootcamp') || str_contains($titleLower, 'internship di beberapa')) {
+                $category = 'promotional';
+            } elseif (str_contains($rawCat, 'entertain') || str_contains($titleLower, 'main character') || str_contains($titleLower, 'julukan gen z')) {
+                $category = 'entertainment';
+            } elseif (str_contains($rawCat, 'engage') || str_contains($titleLower, 'ceritakan pencapaian') || str_contains($titleLower, 'syukuri')) {
+                $category = 'engagement';
+            } elseif (str_contains($rawCat, 'inspira') || str_contains($titleLower, 'personal branding') || str_contains($titleLower, 'freshgraduate masih bingung')) {
+                $category = 'inspiration';
+            } else {
+                $category = 'education';
+            }
+
+            Article::updateOrCreate(
+                ['slug' => $slug],
+                [
+                    'title' => $item['title'],
+                    'text' => $item['text'],
+                    'img' => $img,
+                    'author' => $item['author'] ?? 'House Ilmu',
+                    'editor' => $item['editor'] ?? 'House Ilmu',
+                    'date' => $date,
+                    'category' => $category,
                 ]
             );
         }

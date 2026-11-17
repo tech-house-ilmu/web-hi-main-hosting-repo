@@ -28,8 +28,7 @@
 .hi-page .hi-serif,
 .hi-page h1,
 .hi-page h2,
-.hi-page h3,
-.hi-page blockquote {
+.hi-page h3 {
   font-family: var(--hi-serif);
 }
 
@@ -196,10 +195,11 @@
   background: var(--hi-navy);
   border-radius: .75rem;
   padding: 1.75rem 1.25rem;
-  min-height: 215px;
+  min-height: 260px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
+  justify-content: flex-start;
 }
 
 .hi-deal b {
@@ -219,6 +219,13 @@
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
+}
+
+.hi-deal p {
+  color: rgba(255, 255, 255, .86);
+  font-size: .9rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Founder */
@@ -255,16 +262,6 @@
 
 .hi-founder p {
   margin: 0 0 .5rem;
-}
-
-.hi-founder blockquote {
-  margin: 1.75rem 0 0;
-  padding: 1.5rem 2rem;
-  background: var(--hi-cream);
-  border-left: 4px solid var(--hi-orange);
-  font-size: 1.15rem;
-  font-style: italic;
-  font-weight: 600;
 }
 
 /* Journey / timeline */
@@ -367,12 +364,14 @@
   align-items: center;
   justify-content: center;
   min-height: 260px;
+  aspect-ratio: 4 / 5;
 }
 
 .hi-tl-media img {
-  max-height: 425px;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -514,6 +513,14 @@
   overflow-x: auto;
 }
 
+.organization-chart {
+  display: block;
+  width: 100%;
+  min-width: 850px;
+  height: auto;
+  border-radius: 8px;
+}
+
 .org-tree {
   min-width: 850px;
   display: flex;
@@ -624,108 +631,320 @@
 
 /* Filter */
 .team-filter {
-  margin-top: 35px;
-  margin-bottom: 50px;
+  margin-top: 25px;
+  margin-bottom: 35px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 16px;
 }
 
-.team-filter label {
-  display: block;
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 960px;
+}
+
+.filter-pill {
+  border: 1px solid #d5dfec;
+  background: white;
+  color: #092e5e;
   font-size: 13px;
   font-weight: 700;
-  margin-bottom: 6px;
-  color: #092e5e;
+  padding: 9px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all .25s ease;
+  font-family: 'Nunito', sans-serif;
+  display: inline-flex;
+  align-items: center;
+}
+
+.filter-pill .pill-count {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: rgba(9, 44, 91, 0.08);
+  margin-left: 6px;
+  transition: all .2s ease;
+}
+
+.filter-pill:hover {
+  background: #f0f4fa;
+  color: #245fb5;
+  border-color: #245fb5;
+  transform: translateY(-1px);
+}
+
+.filter-pill.active {
+  background: #092e5e;
+  color: white;
+  border-color: #092e5e;
+  box-shadow: 0 4px 12px rgba(9, 46, 94, 0.22);
+}
+
+.filter-pill.active .pill-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.filter-dropdown-wrap {
+  display: none;
+  width: 100%;
+  max-width: 320px;
 }
 
 .team-filter select {
-  min-width: 220px;
-  padding: 9px 14px;
+  width: 100%;
+  padding: 11px 14px;
   background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #ccd6e3;
+  border-radius: 8px;
   color: #092e5e;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
   outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
 }
 
-/* Division Sections */
-.division-section {
-  padding: 20px 0 40px;
-}
-
-.division-title {
+.gallery-counter {
+  font-size: 13.5px;
+  color: #5a6e85;
   text-align: center;
-  font-family: "Nunito", sans-serif;
+}
+
+.gallery-counter strong {
   color: #092e5e;
-  font-size: 27px;
+}
+
+@media (max-width: 768px) {
+  .filter-pills {
+    display: none;
+  }
+  .filter-dropdown-wrap {
+    display: block;
+  }
+}
+
+/* GAYA 3 ENHANCED: DIVISION CARD CONTAINERS & HEADERS */
+.team-gallery-section {
+  padding: 30px 0 70px;
+}
+
+.gallery-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.gallery-heading h2 {
+  font-size: 28px;
   font-weight: 800;
-  margin-bottom: 38px;
+  color: #092e5e;
+  margin: 0 0 8px;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.5px;
 }
 
-.team-group {
-  width: min(1224px, 92%);
-  margin: 0 auto 35px;
-  background: #245fb5;
-  border-radius: 14px;
-  padding: 24px;
-  color: white;
+.gallery-heading p {
+  color: #718198;
+  font-size: 15px;
+  margin: 0 0 16px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.team-group.orange {
+.heading-line {
+  width: 45px;
+  height: 3px;
   background: #ff8515;
+  margin: 0 auto;
+  border-radius: 3px;
 }
 
-.team-group h3 {
-  font-size: 20px;
-  font-weight: 800;
-  color: white;
-  margin: 0 0 18px 8px;
+/* Division Block (Pembatas Card per Divisi) */
+.division-block {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(9, 44, 91, 0.09);
+  box-shadow: 0 6px 22px rgba(9, 44, 91, 0.04);
+  padding: 30px 28px 36px;
+  margin-bottom: 35px;
+  transition: all .3s ease;
+  animation: fadeInBlock .35s ease forwards;
 }
 
-.carousel-wrapper {
+@keyframes fadeInBlock {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.division-block:hover {
+  box-shadow: 0 10px 30px rgba(9, 44, 91, 0.08);
+  border-color: rgba(9, 44, 91, 0.15);
+}
+
+.division-block-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f1f4f9;
+  flex-wrap: wrap;
   gap: 12px;
-  position: relative;
 }
 
-.team-track {
+.header-left {
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  padding: 8px 4px;
+  align-items: center;
+  gap: 14px;
+}
+
+.division-icon-badge {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: #092e5e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 3px 10px rgba(9, 46, 94, 0.2);
+}
+
+.division-block-info h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #092e5e;
+  margin: 0 0 2px;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.division-block-info span {
+  font-size: 12.5px;
+  color: #718198;
+  font-weight: 600;
+}
+
+.division-count-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: #f1f5fa;
+  color: #245fb5;
+  font-size: 12.5px;
+  font-weight: 700;
+  border: 1px solid #e1e8f2;
+}
+
+.team-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   width: 100%;
 }
 
-.team-track::-webkit-scrollbar {
-  display: none;
+.team-gallery-grid.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.team-card {
-  flex: 0 0 220px;
+@media (max-width: 1120px) {
+  .team-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .division-block {
+    padding: 22px 18px 26px;
+    border-radius: 16px;
+  }
+  .division-block-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .team-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gallery-card {
   background: white;
-  border-radius: 10px;
-  padding: 12px;
+  border-radius: 16px;
+  padding: 14px;
   text-align: center;
   color: #142c4b;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform .2s ease;
+  box-shadow: 0 4px 16px rgba(9, 44, 91, 0.06);
+  border: 1px solid rgba(9, 44, 91, 0.08);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: fadeInCard .35s ease forwards;
 }
 
-.team-card:hover {
-  transform: translateY(-4px);
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.member-photo {
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(9, 44, 91, 0.14);
+}
+
+.photo-leader-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #092e5e;
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 4px 11px;
+  border-radius: 20px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(9, 46, 94, 0.25);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.gallery-card .member-photo {
   width: 100%;
-  height: 145px;
-  background: #ededed;
-  border-radius: 8px;
+  height: 220px;
+  background: #f1f4f9;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -733,50 +952,123 @@
   flex-direction: column;
   gap: 8px;
   overflow: hidden;
+  margin-bottom: 12px;
+  position: relative;
 }
 
-.member-photo img {
+.gallery-card .member-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
-.member-photo i {
-  font-size: 55px;
-  color: #999;
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 8px;
 }
 
-.member-photo span {
-  font-size: 11px;
-  letter-spacing: 1px;
+.badge-division {
+  font-size: 10.5px;
   font-weight: 700;
-  color: #777;
+  color: #245fb5;
+  background: #eaf1fb;
+  padding: 3px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
-.member-name {
+.badge-subdivision {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #475569;
+  background: #f1f5f9;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.badge-subdivision.is-head {
+  color: #e86e00;
+  background: #fff2e5;
+  font-weight: 800;
+}
+
+.gallery-card .member-name {
   color: #092e5e;
   font-weight: 800;
-  font-size: 14px;
-  margin: 10px 0 3px;
+  font-size: 14.5px;
+  margin: 0 0 3px;
+  line-height: 1.35;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.member-role {
+.gallery-card .member-role {
   color: #ff8515;
   font-weight: 700;
   font-size: 12px;
-  margin: 0 0 2px;
+  margin: 0 0 12px;
 }
 
-.member-subdivision {
-  color: #777;
+.gallery-card .member-email {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 7px 12px;
+  background: #f4f6fa;
+  border: 1px solid #e1e7f0;
+  border-radius: 8px;
+  color: #245fb5;
   font-size: 11px;
-  margin: 0;
+  font-weight: 600;
+  text-decoration: none;
+  max-width: 100%;
+  overflow: hidden;
+  transition: all .2s ease;
 }
 
-.member-division {
+.gallery-card .member-email:hover {
+  background: #245fb5;
+  color: #ffffff;
+  border-color: #245fb5;
+}
+
+.gallery-card .member-email span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gallery-empty {
+  text-align: center;
+  padding: 60px 20px;
   color: #718198;
-  font-size: 10px;
-  margin-top: 3px;
+}
+
+.gallery-empty i {
+  font-size: 48px;
+  margin-bottom: 14px;
+  color: #ff8515;
+}
+
+.gallery-empty p {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.member-email span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .carousel-btn {

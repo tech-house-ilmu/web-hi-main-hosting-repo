@@ -32,9 +32,11 @@ class ArticleResource extends Resource
             Select::make('category')
                 ->label('Kategori')
                 ->options([
-                    'entrepreneur' => 'Entrepreneur',
-                    'career-development' => 'Career Development',
-                    'skill-development' => 'Skill Development',
+                    'promotional' => 'Promotional',
+                    'education' => 'Education',
+                    'entertainment' => 'Entertainment',
+                    'engagement' => 'Engagement',
+                    'inspiration' => 'Inspiration',
                 ])
                 ->required(),
             TextInput::make('editor')->required(),

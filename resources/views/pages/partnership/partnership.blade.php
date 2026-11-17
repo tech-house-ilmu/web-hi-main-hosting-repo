@@ -28,11 +28,10 @@
                     <div x-data="{
                         activeSlide: 0,
                         slides: [
-                            { img: '{{ asset('img/partnership-hero-zoom.webp') }}', alt: 'Zoom Meeting Kolaborasi Komunitas House Ilmu Indonesia' },
-                            { img: '{{ asset('img/event-history/gb-circle-meetup-session.png') }}', alt: 'Girls Beyond Circle Meetup Session' },
-                            { img: '{{ asset('img/homepage/BoMTalks-GerAce.webp') }}', alt: 'BoM Talks Session' },
-                            { img: '{{ asset('img/homepage/poster-HITCC.webp') }}', alt: 'HITCC Opportunities Fair' },
-                            { img: '{{ asset('img/homepage/banner-cindy2.webp') }}', alt: 'House Ilmu Indonesia Program' }
+                            { img: '{{ asset('img/partnership/community-collab-1.png') }}', alt: 'Community Collaboration Poster House Ilmu Indonesia' },
+                            { img: '{{ asset('img/partnership/community-collab-2.png') }}', alt: 'Collaboration Poster with Pemimpin.id' },
+                            { img: '{{ asset('img/partnership/community-collab-3.png') }}', alt: 'Collaboration Poster with Phillip Sekuritas' },
+                            { img: '{{ asset('img/partnership/community-collab-4.png') }}', alt: 'Community collaboration poster House Ilmu Indonesia' }
                         ],
                         timer: null,
                         startAutoplay() {
@@ -53,10 +52,9 @@
                     x-init="startAutoplay()"
                     @mouseenter="stopAutoplay()"
                     @mouseleave="startAutoplay()"
-                    class="relative w-full max-w-[560px] mx-auto lg:ml-auto">
+                    class="relative w-full max-w-[420px] mx-auto lg:ml-auto">
                         
-                        <!-- Slider Screen Frame -->
-                        <div class="relative w-full aspect-[16/10] bg-[#111827] rounded-2xl overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.18)] border border-gray-800">
+                        <div class="relative w-full aspect-[4/5] bg-[#111827] rounded-[28px] overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.18)] border border-gray-200">
                             <template x-for="(slide, index) in slides" :key="index">
                                 <div x-show="activeSlide === index"
                                      x-transition:enter="transition ease-out duration-400"
@@ -72,7 +70,6 @@
                                 </div>
                             </template>
 
-                            <!-- Prev Button -->
                             <button type="button"
                                     @click="prev()"
                                     class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-colors z-10 focus:outline-none cursor-pointer border-none"
@@ -80,7 +77,6 @@
                                 <i class="fa-solid fa-chevron-left text-xs"></i>
                             </button>
 
-                            <!-- Next Button -->
                             <button type="button"
                                     @click="next()"
                                     class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-colors z-10 focus:outline-none cursor-pointer border-none"
@@ -89,7 +85,6 @@
                             </button>
                         </div>
 
-                        <!-- Pagination Dots -->
                         <div class="flex items-center justify-center gap-2 mt-4">
                             <template x-for="(slide, index) in slides" :key="index">
                                 <button type="button"
@@ -291,45 +286,48 @@
                 </p>
             </div>
 
-            <!-- Frame Box with Translucent Border -->
-            <div class="max-w-4xl mx-auto border border-white/20 rounded-2xl p-6 sm:p-10 bg-white/5 backdrop-blur-xs" data-aos="fade-up" data-aos-delay="100">
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 items-center justify-items-center">
-                    
-                    <!-- Girls Beyond -->
-                    <div class="w-full max-w-[200px] h-28 bg-white rounded-xl shadow-md flex flex-col items-center justify-center p-4 transition-transform duration-200 hover:scale-105" style="background-color: #ffffff !important;">
-                        <span class="font-sans font-black text-sm tracking-[0.15em] text-[#111827]">GIRLS</span>
-                        <span class="font-sans font-black text-sm tracking-[0.15em] text-[#111827] mt-0.5">BEYOND</span>
-                    </div>
+            <!-- Frame Box with Translucent Border (Symmetrical Stretchable Grid) -->
+            <div class="max-w-6xl mx-auto border border-white/20 rounded-2xl p-6 sm:p-8 bg-white/5 backdrop-blur-xs" data-aos="fade-up" data-aos-delay="100">
+                @php
+                    $partnerList = [
+                        ['name' => 'Black Swan Community', 'logo' => 'img/partners/black-swan-community.jpg'],
+                        ['name' => 'Doteens', 'logo' => 'img/partners/doteens.png'],
+                        ['name' => 'FYI Psikologi', 'logo' => 'img/partners/fyi-psikologi.jpg'],
+                        ['name' => 'Gritty.', 'logo' => 'img/partners/gritty.jpg'],
+                        ['name' => 'ImproveHub', 'logo' => 'img/partners/improve-hub.png'],
+                        ['name' => 'Kelas Kampus', 'logo' => 'img/partners/kelas-kampus.png'],
+                        ['name' => 'Growth Education', 'logo' => 'img/partners/growth-education.png'],
+                        ['name' => 'GrowthHub', 'logo' => 'img/partners/growth-hub.png'],
+                        ['name' => 'HCK', 'logo' => 'img/partners/hck.png'],
+                        ['name' => 'Ideal', 'logo' => 'img/partners/ideal.png'],
+                        ['name' => 'Kejar Mimpi Jakarta', 'logo' => 'img/partners/kejar-mimpi-jakarta.png'],
+                        ['name' => 'Mataharikita', 'logo' => 'img/partners/mataharikita.png'],
+                        ['name' => 'Oh Be Shine', 'logo' => 'img/partners/oh-be-shine.png'],
+                        ['name' => 'Ousean', 'logo' => 'img/partners/ousean.png'],
+                        ['name' => 'Quria', 'logo' => 'img/partners/quria.jpg'],
+                        ['name' => 'Teman Ambiss', 'logo' => 'img/partners/teman-ambiss.png'],
+                        ['name' => 'Young On Top (YOT)', 'logo' => 'img/partners/yot.png'],
+                        ['name' => 'Omah Jiwa', 'logo' => 'img/partners/omah-jiwa.png'],
+                        ['name' => 'Cakap', 'logo' => 'img/partners/cakap.png'],
+                        ['name' => 'Indorelawan', 'logo' => 'img/partners/indorelawan.png'],
+                        ['name' => 'Pemimpin.id', 'logo' => 'img/partners/pemimpin-id.jpg'],
+                        ['name' => 'Institut.id', 'logo' => 'img/partners/institut-id.png'],
+                        ['name' => 'Phillip Sekuritas', 'logo' => 'img/partners/phillip-sekuritas.png'],
+                        ['name' => 'Girls Beyond', 'logo' => 'img/partners/girls-beyond.png'],
+                    ];
+                @endphp
 
-                    <!-- ideal -->
-                    <div class="w-full max-w-[200px] h-28 bg-white rounded-xl shadow-md flex items-center justify-center p-4 transition-transform duration-200 hover:scale-105" style="background-color: #ffffff !important;">
-                        @if(file_exists(public_path('img/homepage/partners/logo-ideal.png')))
-                            <img src="{{ asset('img/homepage/partners/logo-ideal.png') }}"
-                                 alt="IDEAL"
-                                 class="max-h-12 max-w-[130px] object-contain" />
-                        @else
-                            <span class="font-sans font-bold text-2xl text-[#1E5FA8] tracking-tight">ideal</span>
-                        @endif
-                    </div>
-
-                    <!-- pemimpin.id -->
-                    <div class="w-full max-w-[200px] h-28 bg-[#09497E] rounded-xl shadow-md flex flex-col items-center justify-center p-4 transition-transform duration-200 hover:scale-105">
-                        <span class="font-sans font-bold text-sm text-white leading-tight">pe</span>
-                        <span class="font-sans font-bold text-sm text-white leading-tight">mimpin</span>
-                        <span class="font-sans font-bold text-sm text-[#FF8A16] leading-tight">.id</span>
-                    </div>
-
-                    <!-- Phillip Sekuritas Indonesia -->
-                    <div class="w-full max-w-[200px] h-28 bg-white rounded-xl shadow-md flex items-center justify-center p-4 transition-transform duration-200 hover:scale-105" style="background-color: #ffffff !important;">
-                        @if(file_exists(public_path('img/homepage/logo-phillip-sekuritas.webp')))
-                            <img src="{{ asset('img/homepage/logo-phillip-sekuritas.webp') }}"
-                                 alt="Phillip Sekuritas Indonesia"
-                                 class="max-h-14 max-w-[160px] object-contain" />
-                        @else
-                            <span class="font-sans font-bold text-xs text-[#0B2247] text-center">Phillip Sekuritas Indonesia</span>
-                        @endif
-                    </div>
-
+                <!-- 24 Partner Logos: 6 cols x 4 rows on desktop, perfectly symmetrical & stretchable -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch justify-items-stretch">
+                    @foreach($partnerList as $partner)
+                        <div class="w-full h-24 sm:h-28 bg-white rounded-xl shadow-xs flex items-center justify-center p-3 sm:p-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-md" style="background-color: #ffffff !important;">
+                            <img src="{{ asset($partner['logo']) }}"
+                                 alt="{{ $partner['name'] }}"
+                                 title="{{ $partner['name'] }}"
+                                 class="max-h-14 sm:max-h-16 max-w-full object-contain"
+                                 loading="lazy" />
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
