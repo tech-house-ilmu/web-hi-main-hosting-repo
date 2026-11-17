@@ -1,0 +1,112 @@
+/* start styling about section */
+.about-title .about-title-container h1, .timeline .timeline-container h1,
+.timeline .timeline-container .timeline-desc h2, .profiles .profiles-container h1, 
+.profiles .profiles-container .chief h1, .profiles .profiles-container .vice h1{
+    font-weight: 900;
+}    
+    /* start styling timeline circle line */
+    @media only screen and (max-width: 425px){
+        .timeline .timeline-img .vertical-img{
+            height: 350px;
+        }
+    }
+
+    @media only screen and (min-width: 768px){
+        .timeline .timeline-img .horizontal-img{
+            width: 600px;
+        }
+    }
+
+    @media only screen and (min-width: 1024px){
+        .timeline .timeline-img .horizontal-img{
+            width: 800px;
+        }
+    }
+
+    @media only screen and (min-width: 1360px){
+        .timeline .timeline-img .horizontal-img{
+            width: 900px;
+        }
+    }
+
+    @media only screen and (min-width: 1440px){
+        .timeline .timeline-img .horizontal-img{
+            width: 1100px;
+        }
+    }
+    /* end styling timeline circle line */
+
+/* start styling vp profiles section */
+.profiles .chief .chief-member img{
+    width: 100%;
+}
+
+.profiles .vice .vice-member img{
+    width: 60%;
+}
+
+.profiles .chief .chief-member h3, .profiles .vice .vice-member h3{
+    font-size: 6vw;
+    color: #1746A2;
+}
+
+.profiles .chief .chief-member h5, .profiles .vice .vice-member h5{
+    font-size: 5vw;
+}
+
+    @media only screen and (min-width: 768px){
+        .profiles .chief .chief-member h3, .profiles .vice .vice-member h3{
+            font-size: 2vw;
+        }
+
+        .profiles .chief .chief-member h5, .profiles .vice .vice-member h5{
+            font-size: 1.8vw;
+        }
+    }
+
+    /* start styling vp profiles sosmed overlay section */
+    .profiles .chief .chief-member .member-sosmed .member-sosmed-links,
+    .profiles .vice .vice-member .member-sosmed .member-sosmed-links{
+        bottom: 15px;
+        left: 0;
+        height: 0;
+        width: 100%;
+        position: absolute;
+        background-color: #000;
+        opacity: 0.8;
+        transition: all ease-in-out .5s;
+    }
+
+    .profiles .vice .vice-member .member-sosmed .member-sosmed-links{
+        bottom: 15px;
+        left: 20%;
+        height: 0;
+        width: 60%;
+        position: absolute;
+        background-color: #000;
+        opacity: 0.8;
+        transition: all ease-in-out .5s;
+    }
+
+    .profiles .chief .chief-member .member-sosmed:hover .member-sosmed-links,
+    .profiles .vice .vice-member .member-sosmed:hover .member-sosmed-links{
+        height: 100%;
+        bottom: 0px;
+    }
+
+    .profiles .chief .chief-member .member-sosmed .member-sosmed-links a,
+    .profiles .vice .vice-member .member-sosmed .member-sosmed-links a{
+        opacity: 0;
+        font-size: 2.5rem;
+        transition: all ease-in-out .5s;
+    }
+
+    .profiles .chief .chief-member .member-sosmed:hover .member-sosmed-links a,
+    .profiles .vice .vice-member .member-sosmed:hover .member-sosmed-links a{
+        opacity: 1;
+    }
+    /* end styling vp profiles sosmed overlay section */
+
+/* end styling vp profiles section */
+
+/* end styling about section */

@@ -1,0 +1,88 @@
+nav {
+  border-bottom: 3px solid #1746a2;
+}
+
+nav button {
+  min-height: 60px;
+  min-width: 70px;
+}
+
+nav .nav-img img {
+  width: 120px;
+}
+
+@media only screen and (max-width: 767px) {
+  nav .nav-img {
+    width: 100%;
+  }
+}
+
+nav .navbar-nav a:hover,
+nav .navbar-nav .nav-link.active,
+.navbar-nav .nav-link.active:visited {
+  color: #083d77;
+  font-weight: bold;
+}
+
+/* Dropdown Hover Effect */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Chevron Animation */
+.nav-item.dropdown .fa-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+.nav-item.dropdown:hover .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* Non-clickable parent link */
+.nav-item.dropdown > .nav-link {
+  pointer-events: none;
+}
+
+/* Make dropdown items clickable */
+.dropdown-menu {
+  margin-top: 0;
+  border: 1px solid #1746a2;
+  border-top: none;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  color: #083d77;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background-color: #fff7e9;
+  color: #1746a2;
+  font-weight: bold;
+}
+
+footer .footer-info img {
+  width: 10rem;
+}
+
+footer .footer-info .footer-nav a,
+footer .footer-info .footer-sosmed a {
+  color: #1746a2;
+}
+
+footer .footer-info .footer-nav a:hover,
+footer .footer-info .footer-sosmed a:hover {
+  color: #ff9900;
+}
+
+@media only screen and (max-width: 425px) {
+  footer .footer-info img {
+    position: relative;
+    right: 30px;
+  }
+
+  footer .footer-copyright p {
+    font-size: 2.6vw;
+  }
+}

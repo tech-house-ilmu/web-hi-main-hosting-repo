@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HI Opportunities | House Ilmu Indonesia</title>
+    <link rel="icon" href="/assets/img/logo.png" />
+    <!-- Link CDN Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Link CDN Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link CDN Animation on Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- css local styles -->
+    <link rel="stylesheet" href="/assets/css/opp-cards.css" />
+    <!-- Link CSS Navbar -->
+    <link rel="stylesheet" href="/assets/css/navbar-footer.css" />
+    <!-- Link CSS Programme Page -->
+    <link rel="stylesheet" href="/assets/css/programme.css" />
+    <!-- Link CSS Global Reset -->
+    <link rel="stylesheet" href="/assets/css/global.css" />
+  </head>
+
+  <body>
+    <!-- Navigation content -->
+    <div id="nav-container"></div>
+
+    <!-- Main -->
+    <section class="container-xxl my-4">
+      <!-- Search Bar -->
+      <div class="search-container container text-white">
+        <div class="input-group">
+          <input
+            type="text"
+            id="searchInput"
+            class="form-control"
+            placeholder="Search by Internship, competition, volunteer, & exchange"
+          />
+          <button class="btn search-btn-custom btn-lg">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+          </button>
+        </div>
+        <!-- button filtered -->
+        <!-- filter masih d-none karna belum fix isinya -->
+        <div class="filter-component d-none align-items-center mt-3 gap-2">
+          <span class="text-white">Urutkan:</span>
+          <button class="btn filter-btn-custom text-white">
+            Terbaru
+            <i class="fa-solid fa-chevron-down ms-1"></i>
+          </button>
+          <button class="btn filter-btn-custom text-white">
+            Jenis
+            <i class="fa-solid fa-chevron-down ms-1"></i>
+          </button>
+          <button class="btn filter-btn-custom text-white">
+            Tipe
+            <i class="fa-solid fa-chevron-down ms-1"></i>
+          </button>
+          <button class="btn filter-btn-custom text-white">
+            Lokasi
+            <i class="fa-solid fa-chevron-down ms-1"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Cards -->
+      <div class="category-card container justify-content-between mt-4 gap-1">
+        <div class="category-item text-center border-custom p-0">
+          <img src="/assets/img-opp/semua.jpg" alt="Logo"/>
+          <div class="d-flex justify-content-center card-img">
+            <span class="category-label">Semua</span>
+          </div>
+        </div>
+        <div class="category-item text-center border-custom p-0">
+          <img src="/assets/img-opp/internship.jpg" alt="Logo"/>
+          <div class="card-img d-flex justify-content-center">
+            <span class="category-label">Internship</span>
+          </div>
+        </div>
+        <div class="category-item text-center border-custom p-0">
+          <img src="/assets/img-opp/competition.jpg" alt="Logo"/>
+          <div class="card-img d-flex justify-content-center">
+            <span class="category-label">Competition</span>
+          </div>
+        </div>
+        <div class="category-item text-center border-custom p-0">
+          <img src="/assets/img-opp/volunteer.jpg" alt="Logo"/>
+          <div class="card-img d-flex justify-content-center">
+            <span class="category-label">Volunteer</span>
+          </div>
+        </div>
+        <div class="category-item text-center border-custom p-0">
+          <img src="/assets/img-opp/exchange.jpg" alt="Logo"/>
+          <div class="card-img d-flex justify-content-center">
+            <span class="category-label">Exchange</span>
+          </div>
+        </div>
+        <div class="category-item text-center border-custom p-0">
+            <img src="/assets/img-opp/beasiswa/beasiswa.jpeg" alt="Logo">
+            <div class="card-img d-flex justify-content-center">
+                <span class="category-label">Beasiswa</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="cards-container container-xxl d-flex flex-wrap my-4 gap-3 justify-content-center align-items-start">
+
+        <!--Internship-->
+          <div class="internship card-box px-4 px-md-0">
+            <a href="/programme/internship/intern-virtual-internship-pemuda.html" class="card-custom d-flex align-items-center">
+                <img src="/assets/img-opp/internship/poster-pemuda-internasional.png" class="card-img-top" alt="Card Image">
+                <div class="card-overlay"></div>
+                <div class="card-body small-text">
+                    <div class="card-title d-flex align-items-center gap-2">
+                        <img src="/assets/img-opp/internship/logo-pemuda-internasional.png" class="logo col-3"
+                            alt="Logo">
+                        <div class="col-9 d-flex flex-column gap-2">
+                            <h1 style="font-size: clamp(0.9rem, 1vw, 0.8rem);">Virtual Internship Pemuda Internasional Batch #2</h1>
+                            <h5>Pemuda Internasional</h5>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex flex-row align-items-center gap-2 mt-4">
+                        <div
+                            class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                            <p>Internship</p>
+                            <p>Marketing etc.</p>
+                            <p>25 Agustus 2025</p>
+                        </div>
+                    </div>
+                    <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                </div>
+            </a>
+          </div>
+
+          <div class="internship card-box px-4 px-md-0">
+            <a href="/programme/internship/intern-gradify-internship.html" class="card-custom d-flex align-items-center">
+                <img src="/assets/img-opp/internship/poster-gradify.png" class="card-img-top" alt="Card Image">
+                <div class="card-overlay"></div>
+                <div class="card-body small-text">
+                    <div class="card-title d-flex align-items-center gap-2">
+                        <img src="/assets/img-opp/internship/logo-gradify.png" class="logo col-3"
+                            alt="Logo">
+                        <div class="col-9 d-flex flex-column gap-2 mt-4">
+                            <h1>Gradify Internship Batch 1</h1>
+                            <h5 class="mt-1">Gradify Group</h5>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex flex-row align-items-center gap-2 mt-4">
+                        <div
+                            class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                            <p>Internship</p>
+                            <p>Operational etc.</p>
+                            <p>31 Juli 2025</p>
+                        </div>
+                    </div>
+                    <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                </div>
+            </a>
+          </div>
+
+          <div class="internship card-box px-4 px-md-0">
+            <a href="/programme/internship/intern-program-magang-leaders.html" class="card-custom d-flex align-items-center">
+                <img src="/assets/img-opp/internship/poster-LEADERS.ID.png" class="card-img-top" alt="Card Image">
+                <div class="card-overlay"></div>
+                <div class="card-body small-text">
+                    <div class="card-title d-flex align-items-center gap-2">
+                        <img src="/assets/img-opp/internship/logo-LEADERS.ID.png" class="logo col-3"
+                            alt="Logo">
+                        <div class="col-9 d-flex flex-column gap-2 mt-4">
+                            <h1>Program Magang LEADERS.ID</h1>
+                            <h5 class="mt-1">LEADERS.ID</h5>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex flex-row align-items-center gap-2 mt-4">
+                        <div
+                            class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                            <p>Internship</p>
+                            <p>Customer Service etc.</p>
+                            <p>3 September 2025</p>
+                        </div>
+                    </div>
+                    <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                </div>
+            </a>
+          </div>
+
+          <div class="internship card-box px-4 px-md-0">
+            <a href="/programme/internship/intern-aif-fif-sustainability.html" class="card-custom d-flex align-items-center">
+                <img src="/assets/img-opp/internship/logo-fifgroup.png" class="card-img-top no-poster" alt="Card Image">
+                <div class="card-overlay"></div>
+                <div class="card-body no-poster small-text">
+                    <div class="card-title d-flex align-items-center gap-2">
+                        <img src="/assets/img-opp/internship/logo-fifgroup.png" class="logo col-3"
+                            alt="Logo">
+                        <div class="col-9 d-flex flex-column gap-2">
+                            <h1>AIF - FIF - Sustainability Management Internship</h1>
+                            <h5>PT Federal International Finance</h5>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex flex-row align-items-center gap-2 mt-3">
+                        <div
+                            class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                            <p>Internship</p>
+                            <p>Sustainability Management</p>
+                            <p>30 Agustus 2025</p>
+                        </div>
+                    </div>
+                    <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                </div>
+            </a>
+          </div>
+
+          <div class="internship card-box px-4 px-md-0">
+            <a href="/programme/internship/intern-aif-sera-hse.html" class="card-custom d-flex align-items-center">
+                <img src="/assets/img-opp/internship/logo-sera.png" class="card-img-top" alt="Card Image">
+                <div class="card-overlay"></div>
+                <div class="card-body small-text">
+                    <div class="card-title d-flex align-items-center gap-2">
+                        <img src="/assets/img-opp/internship/logo-sera.png" class="logo col-3"
+                            alt="Logo">
+                        <div class="col-9 d-flex flex-column gap-2">
+                            <h1>AIF - SERA - HSE Intern</h1>
+                            <h5>SERA</h5>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex flex-row align-items-center gap-2 mt-4">
+                        <div
+                            class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                            <p>Internship</p>
+                            <p>HSE Intern</p>
+                            <p>31 Agustus 2025</p>
+                        </div>
+                    </div>
+                    <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                </div>
+            </a>
+          </div>
+<!-- 
+          <div class="internship card-box px-4 px-md-0">
+            <a href="/programme/internship/intern-project-intern.html" class="card-custom d-flex align-items-center">
+                <img src="/assets/img-opp/internship/poster-project-intern.jpg" class="card-img-top" alt="Card Image">
+                <div class="card-overlay"></div>
+                <div class="card-body small-text">
+                    <div class="card-title d-flex align-items-center gap-2">
+                        <img src="/assets/img-opp/internship/logo-project-intern.png" class="logo col-3"
+                            alt="Logo">
+                        <div class="col-9 d-flex flex-column gap-2">
+                            <h1>Project Intern</h1>
+                            <h5>Campaign</h5>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex flex-row align-items-center gap-2 mt-4">
+                        <div
+                            class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                            <p>Internship</p>
+                            <p>Not Specified</p>
+                            <p>15 Juni 2025</p>
+                        </div>
+                    </div>
+                    <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span>
+                </div>
+            </a>
+          </div> -->
+
+        <!--Beasiswa-->
+          <div class="beasiswa card-box px-4 px-md-0">
+            <a href="/programme/beasiswa/beasiswa-ilimac.html" class="card-custom d-flex align-items-center">
+                <img src="/assets/img-opp/beasiswa/poster-ilmac.png" class="card-img-top" alt="Card Image">
+                <div class="card-overlay"></div>
+                <div class="card-body small-text">
+                    <div class="card-title d-flex align-items-center gap-2">
+                        <img src="/assets/img-opp/beasiswa/logo-ilimac.png" class="logo col-3"
+                            alt="Logo">
+                        <div class="col-9 d-flex flex-column gap-2 mt-2">
+                            <h1>Beasiswa iLiMAC</h1>
+                            <h5 class="mt-1">Ilimac Foundation</h5>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex flex-row align-items-center gap-2 mt-4">
+                        <div
+                            class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                            <p>Partial Funded</p>
+                            <p>Beasiswa</p>
+                            <p>2 Agustus 2025</p>
+                        </div>
+                    </div>
+                    <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                </div>
+            </a>
+          </div>
+
+          <div class="beasiswa card-box px-4 px-md-0">
+            <a href="/programme/beasiswa/beasiswa-cahaya-prestasi.html" class="card-custom d-flex align-items-center">
+                <img src="/assets/img-opp/beasiswa/poster-cahaya-prestasi.png" class="card-img-top" alt="Card Image">
+                <div class="card-overlay"></div>
+                <div class="card-body small-text">
+                    <div class="card-title d-flex align-items-center gap-2">
+                        <img src="/assets/img-opp/beasiswa/logo-cahaya-prestasi.png" class="logo col-3"
+                            alt="Logo">
+                        <div class="col-9 d-flex flex-column gap-2">
+                            <h1>Beasiswa Cahaya Prestasi 2025</h1>
+                            <h5>CV Divya Cahaya Prestasi</h5>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex flex-row align-items-center gap-2 mt-4">
+                        <div
+                            class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                            <p>Partial Funded</p>
+                            <p>Beasiswa</p>
+                            <p>1 Desember 2025</p>
+                        </div>
+                    </div>
+                    <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                </div>
+            </a>
+          </div>
+
+            <div class="beasiswa card-box px-4 px-md-0">
+                <a href="/programme/beasiswa/beasiswa-festival-pelajar-unggulan.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/beasiswa/poster-festival-pelajar-unggulan.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/beasiswa/logo-festival-pelajar-unggulan.png" class="logo col-3"
+                                alt="Logo">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1>Beasiswa Festival Pelajar Unggulan (FPU)</h1>
+                                <h5>Duta Inspirasi Indonesia</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center  gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Partial Funded</p>
+                                <p>Beasiswa</p>
+                                <p>11 Agustus 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+
+            <div class="beasiswa card-box px-4 px-md-0">
+                <a href="/programme/beasiswa/beasiswa-kip-kuliah.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/beasiswa/logo-kip-kuliah.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/beasiswa/logo-kip-kuliah.png" class="logo col-3"
+                                alt="Logo">
+                            <div class="col-9 d-flex flex-column gap-2 mt-3">
+                                <h1>Beasiswa KIP Kuliah</h1>
+                                <h5 class="mt-1">Kemendiktisaintek</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-4">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Fully Funded</p>
+                                <p>Beasiswa</p>
+                                <p>31 Oktober 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+
+            <div class="beasiswa card-box px-4 px-md-0">
+                <a href="/programme/beasiswa/beasiswa-grabscholar.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/beasiswa/poster-grabscholar.png" class="card-img-top" alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/beasiswa/logo-grabcsholar.png" class="logo col-3"
+                                alt="Logo">
+                            <div class="col-9 d-flex flex-column gap-2 mt-3">
+                                <h1>Beasiswa GrabScholar 2025</h1>
+                                <h5 class="mt-1">Grab</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-4">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Fully Funded</p>
+                                <p>Beasiswa</p>
+                                <p>31 Juli 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+            
+            <!--Lomba-->
+              <div class="competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-global-student-awards.html"
+                    class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-global-student-awards.png" class="card-img-top"
+                        alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-global-student-awards.png" class="logo col-3"
+                                alt="Logo">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1 style="font-size: clamp(0.8rem, 1vw, 0.7rem);">Global Student Awards for Health × Health Challenges in Tropical Diseases</h1>
+                                <h5 style="font-size: clamp(0.7rem, 1vw, 0.7rem);">Center for Indonesian Medical Students’ Activities </h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Pelajar</p>
+                                <p>Lomba Seni</p>
+                                <p>24 Juli 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+              </div>
+
+              <div class="competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-kompetisi-bisnis-bizclash.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-Bisnis-nasional.png" class="card-img-top"
+                        alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-bizclash.png" class="logo col-3"
+                                alt="Logo">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1 class="mt-4">Kompetisi Bisnis Nasional</h1>
+                                <h5 class="mt-1">Kasir Pintar</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-4">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Mahasiswa</p>
+                                <p>Akademik</p>
+                                <p>5 Agustus 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+              </div>
+
+              <div class="competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-pengembangan-website-sekolah.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-Pengembangan-Website-Sekolah.png" class="card-img-top"
+                        alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-infra-competition-2025.png" class="logo col-3"
+                                alt="Logo">
+                            <div class="col-9 d-flex flex-column gap-2 mt-2">
+                                <h1>Lomba Pengembangan Website Sekolah</h1>
+                                <h5>Jagoan Hosting</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-4">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Siswa SMA/K Sederajat</p>
+                                <p>Akademik</p>
+                                <p>10 Agustus 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+              </div>
+              
+              <div class="competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-karya-tulis-ilmiah.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-Karya-Tulis-Ilmiah-Nasional.png" class="card-img-top"
+                        alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-himpunan-mahasiswa-tambang-universitas-jember.png" class="logo col-3"
+                                alt="Logo">
+                            <div class="col-9 d-flex flex-column gap-2">
+                                <h1 class="mt-4">Lomba Karya Tulis Ilmiah Nasional</h1>
+                                <h5 class="mt-1">HMT Universitas Jember</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-4">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>Mahasiswa</p>
+                                <p>Akademik</p>
+                                <p>3 Agustus 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+              </div>
+
+            <div class="competition card-box px-4 px-md-0">
+                <a href="/programme/lomba/lomba-medical-olympiad.html" class="card-custom d-flex align-items-center">
+                    <img src="/assets/img-opp/lomba/lomba-medical.png" class="card-img-top"
+                        alt="Card Image">
+                    <div class="card-overlay"></div>
+                    <div class="card-body small-text">
+                        <div class="card-title d-flex align-items-center gap-2">
+                            <img src="/assets/img-opp/lomba/logo-Meddipsxarpo.png" class="logo col-3"
+                                alt="Logo">
+                            <div class="col-9 d-flex flex-column gap-2 mt-2">
+                                <h1 class="mt-4">Medical Olympiad</h1>
+                                <h5 class="mt-1">Himpunan FK UNDIP</h5>
+                            </div>
+                        </div>
+                        <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-4">
+                            <div
+                                class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-award"></i>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                                <p>SMA/K Sederajat</p>
+                                <p>Akademik</p>
+                                <p>4 Agustus 2025</p>
+                            </div>
+                        </div>
+                        <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+                    </div>
+                </a>
+            </div>
+              
+        <!-- Volunteeer -->
+        <div class="volunteer card-box px-4 px-md-0">
+          <a href="/programme/volunteer/volunteer-kehati-kalimantan-barat.html" class="card-custom d-flex align-items-center">
+            <img src="/assets/img-opp/volunteer/poster-kehati.jpg" class="card-img-top" alt="Poster"/>
+            <div class="card-overlay"></div>
+            <div class="card-body small-text">
+              <div class="card-title d-flex align-items-center gap-2">
+                  <img src="/assets/img-opp/volunteer/logo-kehati.png" class="logo col-3" alt="Logo"/>
+                  <div class="col-9 d-flex flex-column gap-2 mt-3">
+                    <h1>Volunteer Kehati Kalimantan Barat Batch 3</h1>
+                    <h5>Rangkong</h5>
+                  </div>
+              </div>
+              <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-3">
+                  <div class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                    <p>Fully Funded</p>
+                    <p>Volunteer Konservasi</p>
+                    <p>20 Juli 2025</p>
+                  </div>
+              </div>
+              <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+            </div>
+          </a>
+        </div>
+
+        <div class="volunteer card-box px-4 px-md-0">
+          <a href="/programme/volunteer/volunteer-yb3-relawan.html" class="card-custom d-flex align-items-center">
+            <img src="/assets/img-opp/volunteer/poster-YB3.jpg" class="card-img-top" alt="Poster"/>
+            <div class="card-overlay"></div>
+            <div class="card-body small-text">
+              <div class="card-title d-flex align-items-center gap-2 mt-4">
+                  <img src="/assets/img-opp/volunteer/logo-YB3.png" class="logo col-3" alt="Logo"/>
+                  <div class="col-9 d-flex flex-column gap-2">
+                    <h1>YB3 Relawan</h1>
+                    <h5>Yayasan Bina Berdaya Bangsa</h5>
+                  </div>
+              </div>
+              <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-4">
+                  <div class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                    <p>Fully Funded</p>
+                    <p>Volunteer Pengajaran</p>
+                    <p>30 Juli 2025</p>
+                  </div>
+              </div>
+              <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+            </div>
+          </a>
+        </div>
+
+        <div class="volunteer card-box px-4 px-md-0">
+          <a href="/programme/volunteer/volunteer-projek-indonesia.html" class="card-custom d-flex align-items-center">
+            <img src="/assets/img-opp/volunteer/poster-Projek-Indonesia.jpg" class="card-img-top" alt="Poster"/>
+            <div class="card-overlay"></div>
+            <div class="card-body small-text">
+              <div class="card-title d-flex align-items-center gap-2">
+                  <img src="/assets/img-opp/volunteer/logo-Projek-Indonesia.png" class="logo col-3" alt="Logo Semesta Manusia"/>
+                  <div class="col-9 d-flex flex-column gap-2">
+                    <h1>Projek Indonesia #5 BROMO BATCH 2</h1>
+                    <h5>Global Youth Ambassador</h5>
+                  </div>
+              </div>
+              <div class="card-details mt-3 d-flex flex-row align-items-center gap-2">
+                  <div class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                    <p>Fully Funded</p>
+                    <p>Volunteer Pengajaran</p>
+                    <p>28 Juli 2025</p>
+                  </div>
+              </div>
+              <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+            </div>
+          </a>
+        </div>
+
+        <div class="volunteer card-box px-4 px-md-0">
+          <a href="/programme/volunteer/volunteer-ekspedisi-negeri-toraja.html" class="card-custom d-flex align-items-center">
+            <img src="/assets/img-opp/volunteer/poster-ekspedisi-negeri-toraja.png" class="card-img-top" alt="Poster"/>
+            <div class="card-overlay"></div>
+            <div class="card-body small-text">
+              <div class="card-title d-flex align-items-center gap-2">
+                  <img src="/assets/img-opp/volunteer/logo-ekspedisi-negeri-toraja.png" class="logo col-3" alt="Logo Semesta Manusia"/>
+                  <div class="col-9 d-flex flex-column gap-2 mt-1">
+                    <h1>Ekspedisi Negeri Di Atas Awan Toraja Utara</h1>
+                    <h5>Rabbanians Youth Movement</h5>
+                  </div>
+              </div>
+              <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-3">
+                  <div class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                    <p>Fully Funded</p>
+                    <p>Volunteer Pengajaran</p>
+                    <p>18 Juli 2025</p>
+                  </div>
+              </div>
+              <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+            </div>
+          </a>
+        </div>
+
+        <div class="volunteer card-box px-4 px-md-0">
+          <a href="/programme/volunteer/volunteer-pulau-terluar.html" class="card-custom d-flex align-items-center">
+            <img src="/assets/img-opp/volunteer/poster-ekspedisi-pulau-terluar.jpg" class="card-img-top" alt="Poster"/>
+            <div class="card-overlay"></div>
+            <div class="card-body small-text">
+              <div class="card-title d-flex align-items-center gap-2">
+                  <img src="/assets/img-opp/volunteer/logo-ekspedisi-pulau-terluar.png" class="logo col-3" alt="Logo Semesta Manusia"/>
+                  <div class="col-9 d-flex flex-column gap-2 mt-4">
+                    <h1>Ekspedisi Pulau Terluar 6.0</h1>
+                    <h5 class="mt-1">Barakati Indonesia</h5>
+                  </div>
+              </div>
+              <div class="card-details mt-3 d-flex flex-row align-items-center gap-2 mt-4">
+                  <div class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                    <p>Fully Funded</p>
+                    <p>Volunteer konservasi</p>
+                    <p>15 Juli 2025</p>
+                  </div>
+              </div>
+              <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+            </div>
+          </a>
+        </div>
+
+        <!--Exchange-->
+        <div class="exchange card-box px-4 px-md-0">
+          <a href="/programme/exchange/exchange-young-southeast-asean.html" class="card-custom d-flex align-items-center">
+              <img src="/assets/img-opp/exchange/exchange-Young-Southeast-Asian-Leaders-Initiative-Academic-Fellows-Program.png" class="card-img-top" alt="Card Image">
+              <div class="card-overlay"></div>
+              <div class="card-body small-text">
+                  <div class="card-title d-flex align-items-center gap-2">
+                      <img src="/assets/img-opp/exchange/logo-Young-Southeast-Asian-Leaders-Initiative.png" class="logo col-3"
+                          alt="Logo">
+                      <div class="col-9 d-flex flex-column gap-2">
+                          <h1>Young Southeast Asian Leaders Initiative: Academic Fellows Program</h1>
+                          <h5>U.S Department of State</h5>
+                      </div>
+                  </div>
+                  <div class="card-details mt-3 d-flex flex-row align-items-center  gap-2">
+                      <div
+                          class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                          <i class="fa-solid fa-money-bill-wave"></i>
+                          <i class="fa-solid fa-user-graduate"></i>
+                          <i class="fa-solid fa-clock"></i>
+                      </div>
+                      <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                          <p>Fully Funded</p>
+                          <p>Fellowship</p>
+                          <p>21 Juli 2025</p>
+                      </div>
+                  </div>
+                  <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+              </div>
+          </a>
+        </div>
+
+        <div class="exchange card-box px-4 px-md-0">
+          <a href="/programme/exchange/exchange-australia-awards.html" class="card-custom d-flex align-items-center">
+              <img src="/assets/img-opp/exchange/exchange-australia-awards-short-course.png" class="card-img-top" alt="Card Image">
+              <div class="card-overlay"></div>
+              <div class="card-body small-text">
+                  <div class="card-title d-flex align-items-center gap-2">
+                      <img src="/assets/img-opp/exchange/logo-australia-awards.png" class="logo col-3"
+                          alt="Logo">
+                      <div class="col-9 d-flex flex-column gap-2">
+                          <h1>Australia Awards Short Course - Sustainable Tourism Management</h1>
+                          <h5>U.S Department of State</h5>
+                      </div>
+                  </div>
+                  <div class="card-details mt-3 d-flex flex-row align-items-center  gap-2">
+                      <div
+                          class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                          <i class="fa-solid fa-money-bill-wave"></i>
+                          <i class="fa-solid fa-user-graduate"></i>
+                          <i class="fa-solid fa-clock"></i>
+                      </div>
+                      <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                          <p>Fully Funded</p>
+                          <p>Course</p>
+                          <p>21 Juli 2025</p>
+                      </div>
+                  </div>
+                  <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+              </div>
+          </a>
+        </div>
+
+        <div class="exchange card-box px-4 px-md-0">
+          <a href="/programme/exchange/exchange-one-young-world.html" class="card-custom d-flex align-items-center">
+              <img src="/assets/img-opp/exchange/exchange-one-young-world-summit-in-germany.png" class="card-img-top" alt="Card Image">
+              <div class="card-overlay"></div>
+              <div class="card-body small-text">
+                  <div class="card-title d-flex align-items-center gap-2">
+                      <img src="/assets/img-opp/exchange/logo-one-young-world.png" class="logo col-3"
+                          alt="Logo">
+                      <div class="col-9 d-flex flex-column gap-2">
+                          <h1>One Young World Summit in Germany</h1>
+                          <h5>One Young World</h5>
+                      </div>
+                  </div>
+                  <div class="card-details mt-3 d-flex flex-row align-items-center  gap-2">
+                      <div
+                          class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                          <i class="fa-solid fa-money-bill-wave"></i>
+                          <i class="fa-solid fa-user-graduate"></i>
+                          <i class="fa-solid fa-clock"></i>
+                      </div>
+                      <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                          <p>Fully Funded</p>
+                          <p>Delegate</p>
+                          <p>28 Juli 2025</p>
+                      </div>
+                  </div>
+                  <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+              </div>
+          </a>
+        </div>
+
+        <div class="exchange card-box px-4 px-md-0">
+          <a href="/programme/exchange/exchange-indonesian-youth-exchange.html" class="card-custom d-flex align-items-center">
+              <img src="/assets/img-opp/exchange/exchange-IYE-chapter malaysia.png" class="card-img-top" alt="Card Image">
+              <div class="card-overlay"></div>
+              <div class="card-body small-text">
+                  <div class="card-title d-flex align-items-center gap-2">
+                      <img src="/assets/img-opp/exchange/logo-indonesian-youth-exchange.png" class="logo col-3"
+                          alt="Logo">
+                      <div class="col-9 d-flex flex-column gap-2">
+                          <h1>Indonesian Youth Exchange (IYX) Chapter - Malaysia</h1>
+                          <h5>Indonesian Youth Exchange</h5>
+                      </div>
+                  </div>
+                  <div class="card-details mt-3 d-flex flex-row align-items-center  gap-2">
+                      <div
+                          class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                          <i class="fa-solid fa-money-bill-wave"></i>
+                          <i class="fa-solid fa-user-graduate"></i>
+                          <i class="fa-solid fa-clock"></i>
+                      </div>
+                      <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                          <p>Fully Funded</p>
+                          <p>Delegate</p>
+                          <p>25 Juli 2025</p>
+                      </div>
+                  </div>
+                  <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+              </div>
+          </a>
+        </div>
+
+        <div class="exchange card-box px-4 px-md-0">
+          <a href="/programme/exchange/exchange-sg-academies-south.html" class="card-custom d-flex align-items-center">
+              <img src="/assets/img-opp/exchange/exchange-SG-Academies-South-East-Asia-Fellowship (SASEAF).png" class="card-img-top" alt="Card Image">
+              <div class="card-overlay"></div>
+              <div class="card-body small-text">
+                  <div class="card-title d-flex align-items-center gap-2">
+                      <img src="/assets/img-opp/exchange/logo-The Singapore National Academy of Science (SNAS).png" class="logo col-3"
+                          alt="Logo">
+                      <div class="col-9 d-flex flex-column gap-2">
+                          <h1>SG Academies South-East Asia Fellowship (SASEAF)</h1>
+                          <h5>Singapore National Academy of Science</h5>
+                      </div>
+                  </div>
+                  <div class="card-details mt-3 d-flex flex-row align-items-center  gap-2">
+                      <div
+                          class="card-icon col-3 d-flex flex-column align-items-center justify-content-start gap-3">
+                          <i class="fa-solid fa-money-bill-wave"></i>
+                          <i class="fa-solid fa-user-graduate"></i>
+                          <i class="fa-solid fa-clock"></i>
+                      </div>
+                      <div class="card-info col-9 d-flex flex-column align-items-start gap-2">
+                          <p>Fully Funded</p>
+                          <p>Fellowship</p>
+                          <p>1 Agustus 2025</p>
+                      </div>
+                  </div>
+                  <!-- <span class="badge custom-badge mt-5">Kesempatan lebih tinggi</span> -->
+              </div>
+          </a>
+        </div>
+
+    </section>
+
+    <!-- Footer content -->
+    <div id="footer-container"></div>
+
+    <!-- CDN Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CDN animate on scroll -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Initialize swiper and aos -->
+    <script type="module" src="/assets/js/main.js"></script>
+    <!-- Initialize Navigation -->
+    <script src="/assets/js/global/nav.js"></script>
+    <!-- Initialize Footer -->
+    <script src="/assets/js/global/footer.js"></script>
+    <!-- local js for card category -->
+    <script src="/assets/js/filter-card.js"></script>
+  </body>
+</html>

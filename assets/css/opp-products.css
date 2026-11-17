@@ -1,0 +1,133 @@
+.breadcrumb {
+  height: 50px;
+  background-color: #ffd59e;
+}
+
+.opp-container .opp-details .opp-titles {
+  border-radius: 20px 20px 0 0;
+  border: 2px solid #fe9000;
+  border-bottom: none;
+}
+
+.opp-container .opp-details .opp-titles img,
+.opp-container .opp-details .opp-titles .opp-organizer {
+  z-index: 0;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(15, 48, 59);
+  background: linear-gradient(
+    45deg,
+    rgba(15, 48, 59, 1) 40%,
+    rgba(15, 48, 59, 0) 100%
+  );
+  border-radius: 20px 20px 0 0;
+}
+
+.opp-titles .logo{
+  mix-blend-mode: multiply;
+  filter: brightness(1.2);
+}
+
+.opp-details .opp-titles .opp-organizer .opp-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+#button-apply {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fe9000;
+  border-radius: 20px;
+  color: #ffffff;
+  transition: all 0.5s;
+}
+
+#button-apply:hover {
+  background-color: #c27a1b;
+}
+
+.opp-details .opp-details-container,
+.opp-contact-container .opp-contact {
+  background-color: #ffd59e;
+  border: 2px solid #fe9000;
+}
+
+.opp-contact-container .opp-contact {
+  border-radius: 20px;
+}
+
+.opp-details .opp-details-container {
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+}
+
+.opp-details .opp-details-container h4 {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
+.opp-details .opp-details-container ul {
+  margin-top: 10px;
+}
+
+.opp-details .opp-details-container ul li {
+  font-size: clamp(0.8rem, 4vw, 1.1rem);
+}
+
+.opp-details .opp-details-container .opp-general,
+.opp-details .opp-details-container .opp-selection,
+.opp-details .opp-details-container .opp-information,
+.opp-details .opp-details-container .opp-jobdesc,
+.opp-details .opp-details-container .opp-qualification,
+.opp-details .opp-details-container .opp-operation,
+.opp-details .opp-details-container .opp-condition,
+.opp-details .opp-details-container .opp-register,
+.opp-details .opp-details-container .opp-prize,
+.opp-details .opp-details-container .opp-additional,
+.opp-contact-container .opp-contact .opp-details-organizer {
+  background-color: #01153e;
+  border-radius: 20px;
+  border: 2px solid #fe9000;
+  color: #ffffff;
+}
+
+/* =================================== Products HI ============================================= */
+
+.productsHI-container .productsHI-details {
+  background-color: #fe9000;
+  border-radius: 20px;
+  border: 2px solid #0a44bc;
+  text-align: center;
+}
+
+.productsHI-container .productsHI-details img {
+  border-radius: 20px 20px 0 0;
+  height: 120px;
+  width: 100%;
+  background-size: cover;
+}
+
+.productsHI-container .productsHI-details p {
+  font-size: clamp(0.7rem, 4vw, 0.8rem);
+}
+
+.productsHI-container .productsHI-details a {
+  background-color: #01153e;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: clamp(0.7rem, 4vw, 0.8rem);
+  color: #ffffff;
+  transition: all 0.5s;
+}
+
+.productsHI-container .productsHI-details a:hover {
+  background-color: #2469d6;
+}
