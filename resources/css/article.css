@@ -1,0 +1,75 @@
+.filter .filter-row li {
+    cursor: pointer;
+    color: #a9a9a9;
+}
+
+.filter .filter-row .active {
+    background-color: #174ea6;
+    color: #fff;
+}
+
+.filter .articles .articles-list p {
+    font-size: 0.8rem;
+}
+
+.filter .articles-list {
+    transition: 0.3s ease-in-out;
+}
+
+.filter .articles-list:hover {
+    transform: scale(1.1);
+}
+
+.filter .articles a {
+    color: #000;
+}
+
+.filter .articles .footnote img {
+    max-width: 5.5rem;
+}
+
+.filter .filter-select select {
+    padding: 10px 20px;
+    border-radius: 2rem;
+    background-color: #ff731d;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    appearance: none;
+}
+
+.filter .filter-select i {
+    position: relative;
+    right: 40px;
+    color: #1746a2;
+}
+
+.article .back a {
+    color: #1746a2;
+}
+
+.back:hover a,
+.back:hover i {
+    color: #ff9900;
+}
+
+.article .article-sosmed i {
+    font-size: 2rem;
+}
+
+.comment-form,
+.comment-form label,
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+}
+
+.post-btn {
+    background-color: #ff731d;
+    color: #fff;
+}
+
+.post-btn:hover {
+    background-color: #1746a2;
+    color: #ffdd95;
+}

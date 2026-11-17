@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Community Collaboration (Partnership) Page Styles
+   ========================================================================== */
+
+.partnership-hero-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    letter-spacing: -0.02em;
+}
+
+.partnership-section-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    letter-spacing: -0.01em;
+}
+
+/* Subtle glassmorphism and card elevation */
+.partnership-card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.partnership-card-shadow:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* FAQ Accordion pure white styling */
+.partnership-faq-card,
+.partnership-faq-btn,
+.partnership-faq-content {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+.partnership-faq-btn:hover {
+    background-color: #ffffff !important;
+}

@@ -1,0 +1,78 @@
+/* font Poppins is loaded in partials/head.blade.php */
+
+/* reset html */
+html {
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-hi: #01153e;
+    --primary_light-hi: #1746a2;
+    --secondary-hi: #ff731d;
+    --background-hi: #fff7e9;
+    --surface-hi: #00c897;
+    --hover-hi: #ffdd95;
+}
+
+body {
+    background-color: #fff7e9;
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body a {
+    text-decoration: none;
+}
+
+body h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+/* start styling swiper section */
+.partner .swiper,
+.testimonial .swiper,
+.alumni .swiper {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-button-upcoming-container-next,
+.swiper-button-upcoming-container-prev {
+    color: #1746a2;
+}
+
+.swiper-button-upcoming-events-next,
+.swiper-button-upcoming-events-prev {
+    color: #fff;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #1746a2;
+}
+
+@media only screen and (max-width: 992px) {
+    .swiper-button-upcoming-container-next,
+    .swiper-button-upcoming-container-prev {
+        display: none;
+    }
+}
+/* end styling swiper section */

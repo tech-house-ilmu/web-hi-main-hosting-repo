@@ -1,0 +1,155 @@
+/* Defining Color Variables */
+:root {
+    --primary-color: #01153e;
+    --secondary-color: #fe9000;
+    --hover-color: #495057;
+    --text-light-color: #f8f9fa;
+    --text-muted-color: #6c757d;
+    --bg-color: #ebebd3;
+    --btn-hover-color: #f8f9fa;
+}
+
+/* Body Styling */
+body {
+    background-color: var(--bg-color);
+    font-family: "Poppins", serif;
+    color: var(--text-muted-color);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+/* Sidebar Customization */
+#sidebar {
+    background-color: var(--primary-color) !important;
+    width: 300px;
+    transition: width 0.9s ease-out, padding 0.5s ease-in-out;
+    position: sticky;
+    top: 0;
+}
+
+#sidebar h6 {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: var(--text-light-color) !important;
+}
+
+#sidebar .sidebar-menu .nav a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#sidebar i {
+    font-size: 1.2rem;
+}
+
+#sidebar .sidebar-text {
+    padding: 0px 5px;
+}
+
+/* Sidebar collapsed state */
+
+#sidebar.collapsed i {
+    margin-left: 5px;
+}
+
+#sidebar.collapsed {
+    width: 95px;
+    padding: 5px 0;
+}
+
+#sidebar i {
+    margin-left: 15px;
+}
+
+#sidebar.collapsed .sidebar-menu .nav a {
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar .nav-link {
+    color: var(--text-light-color);
+    transition: background-color 0.3s ease;
+}
+
+#sidebar .nav-link:hover {
+    background-color: var(--hover-color);
+}
+
+#sidebar .nav-link.active {
+    background-color: var(--hover-color);
+    font-weight: bold;
+}
+
+/* Custom Navbar */
+.custom-navbar {
+    background-color: var(--primary-color) !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-toggler-icon {
+    background-color: var(--text-light-color) !important;
+}
+
+.navbar-toggler i {
+    color: var(--text-light-color) !important;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-light-color) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--text-light-color) !important;
+}
+
+.overview-title {
+    position: absolute;
+    color: var(--text-light-color);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Toggle Button Customization */
+nav button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* Button Customization */
+#sidebar .profile-btn {
+    background-color: var(--secondary-color);
+    border-radius: 16px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+#sidebar .sidebar-container button.profile-btn:hover {
+    background-color: #ffb300;
+}
+
+#sidebar .profile-btn .custom-icon {
+    font-size: 33px !important;
+}
+
+#sidebar.collapsed .profile-btn {
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+
+#sidebar .profile-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+#sidebar.collapsed .profile-btn .custom-icon {
+    display: none;
+}

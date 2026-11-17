@@ -1,0 +1,265 @@
+/* styling banner */
+.banner .banner-container .banner-img img {
+    max-width: 100%;
+}
+
+/* start styling upcoming home section */
+.upevent {
+    background-color: #ffdd95;
+    padding: 1rem 0;
+}
+
+.upevent .event-container {
+    align-items: stretch !important; 
+}
+
+.upevent .event-image-container {
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.upevent .event-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.upevent .single-image-poster {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.upevent .nested-swiper-slide {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.upevent .nested-swiper-pagination .swiper-pagination-bullet {
+    background-color: #fff !important;
+    opacity: 0.7;
+    border: 1px solid rgba(0,0,0,0.5);
+}
+
+.upevent .nested-swiper-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.text-shadow-lg {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.upevent .btn-daftar {
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    border: none;
+    padding: 0.75rem 1.75rem;
+}
+.upevent .btn-daftar:hover {
+    background-color: #2469d6 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.swiper-pagination-bullet {
+  background: #000 !important;
+  opacity: 0.6;
+}
+.swiper-pagination-bullet-active {
+  background: #000 !important;
+  opacity: 1;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000 !important; 
+}
+
+/* Penyesuaian untuk Mobile */
+@media (max-width: 767px) {
+    .upevent .event-image-container {
+        height: 250px;
+    }
+}
+/* end styling upcoming home section */
+
+/* start styling opportunities home section */
+
+.opportunities .opp-title span.oranye-HI {
+    color: #fe9000;
+}
+.opportunities .opp-title span.blue-HI {
+    color: #01153e;
+}
+
+.opportunities .opp-title h1,
+.opportunities .opp-title span.oranye-HI {
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.opportunities .opp-card .card {
+    overflow: hidden;
+    width: 15rem;
+    min-height: 300px;
+    max-height: 500px;
+    border-radius: 20px;
+    border: 2px solid #fe9000;
+}
+.opportunities #card-1:before,
+.opportunities #card-2::before,
+.opportunities #card-3::before,
+.opportunities #card-4::before,
+.opportunities #card-5::before,
+.opportunities #card-6::before,
+.opportunities #card-7::before,
+.opportunities #card-8::before,
+.opportunities #card-9::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0)
+    );
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+.opportunities .opp-card .opp-card-title {
+    margin-top: 50%;
+}
+
+.opportunities .opp-card .opp-card-title .opp-programe-name .opp-title {
+    font-size: clamp(0.8rem, 3vw, 1.1rem);
+}
+
+.opportunities .opp-card .opp-card-title .opp-programe-name .organizer {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+.opportunities .opp-card a:hover .card {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.opportunities .opp-card a .more {
+    background-image: url("/img/homepage/poster-HITCC.webp");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.opportunities .opp-card a.more::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* end styling opportunities home section */
+
+/* start styling programme home section */
+.programme .programme-container .programme-box .programme-list {
+    min-height: 350px;
+}
+
+.programme .programme-container .programme-box .programme-list:hover {
+    transform: scale(1.1);
+}
+
+.programme-container .programme-box .programme-list a {
+    color: #1746a2;
+}
+.programme-container .programme-box .programme-list a:hover {
+    color: #215dd1;
+}
+/* end styling programme home section */
+
+/* start styling partner home section */
+.partner .partner-container img {
+    max-width: 50%;
+}
+/* end styling partner home section */
+
+/* start styling testimonial home section */
+.testimonial .splide .odd {
+    background-color: #ffdd95;
+    min-height: 300px;
+}
+
+.testimonial .splide .even {
+    background-color: #ebebd3;
+    min-height: 300px;
+}
+
+.testimonial .splide .splide__slide #testi-name {
+    color: #1746a2;
+    font-weight: 700;
+}
+
+.testimonial .splide .splide__slide #testi-role {
+    color: #ff731d;
+}
+/* end styling testimonial home section */
+
+/* start styling mentor home section */
+.mentors .mentors-container .mentors-img h4 {
+    color: #ff9900;
+}
+
+/* Penyesuaian untuk gambar */
+.mentors-info img {
+    width: 100%;
+    height: 250px; /* Menyamakan tinggi gambar */
+    object-fit: cover; /* Mencegah distorsi */
+    display: block; /* Menghilangkan spasi aneh di bawah gambar */
+}
+
+.mentors-info .mentors-exp {
+    bottom: 0px;
+    left: 0;
+    height: 0;
+    width: 100%;
+    position: absolute;
+    background-color: #ff9900;
+    opacity: 0.8;
+    transition: height 0.4s ease-in-out; /* Transisi untuk tinggi saja */
+    overflow: hidden;
+}
+
+.mentors-text {
+    min-height: 130px; /* Atur tinggi minimum yang sama untuk semua blok biru. Angka ini bisa Anda sesuaikan. */
+}
+
+.mentors-info:hover .mentors-exp {
+    height: 100%;
+}
+
+.mentors-info .mentors-exp ul {
+    opacity: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    visibility: hidden; /* PENTING: Sembunyikan elemen sepenuhnya dari layout */
+    transition: opacity 0.3s ease-in-out; /* Transisi hanya untuk opacity */
+    transition-delay: 0.2s;
+}
+
+.mentors-info:hover .mentors-exp ul {
+    opacity: 1;
+    visibility: visible;
+}
+/* end styling mentor home section */

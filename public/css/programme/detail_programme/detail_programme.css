@@ -1,0 +1,76 @@
+#detailSection {
+    width: 98%;
+    padding: 0;
+    margin: 0;
+    padding-left: 0;
+    transform: translateY(-118px);
+    overflow: hidden;
+}
+
+.detail-card{
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 4px 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 12px;
+          padding-left: 0;
+          margin: 0;
+          padding: 0;
+}
+
+#backButton1 {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: #000000; 
+    font-size: 16px;
+    text-align: left;
+    margin-left: 12px;
+    transform: translateY(3px); 
+    padding: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#backButton1:hover {
+          color: #F18805;
+}
+
+#backButton1 i {
+    margin-right: 5px; 
+    padding: 0;
+}
+
+#detailTitle {
+    margin-left: -30%;
+    font-size: 20px;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    color: #000000;
+}
+
+.content-box {
+    display: inline-block; 
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+#detailImage {
+    width: 200px;
+    height: 300px;
+    transform: translateY(40px); 
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.content-box p {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+#detailDescription, .content-box p {
+    max-height: 50px; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+}
