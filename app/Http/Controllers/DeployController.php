@@ -44,12 +44,25 @@ class DeployController extends Controller
             ];
         }
 
-        // 2. Clear Laravel caches
+        // 2. Run migrations & ensure LeadersDetailsAbout is seeded
         try {
-            Artisan::call('view:clear');
-            Artisan::call('route:clear');
-            Artisan::call('config:clear');
-            Artisan::call('cache:clear');
+            Artisan::call('migrate', ['--force' => true]);
+            $results['migrate'] = trim(Artisan::output());
+
+            Artisan::call('storage:link');
+            $results['storage_link'] = true;
+
+            if (\App\Models\LeadersDetailsAbout::count() === 0) {
+                (new \Database\Seeders\LeadersDetailsAboutSeeder())->run();
+                $results['leaders_seeded'] = true;
+            }
+        } catch (\Throwable $e) {
+            $results['migrate_error'] = $e->getMessage();
+        }
+
+        // 3. Clear Laravel caches
+        try {
+            Artisan::call('optimize:clear');
             $results['cache_cleared'] = true;
         } catch (\Throwable $e) {
             $results['cache_error'] = $e->getMessage();

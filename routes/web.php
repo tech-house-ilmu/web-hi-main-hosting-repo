@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticlePageController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DeployController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HIProgrammeEventController;
 use App\Http\Controllers\HITCCProgrammeController;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Deployment Webhook / Sync
+Route::match(['get', 'post'], '/deploy-update', [DeployController::class, 'deploy'])->name('server.deploy');
 
 // About Us
 Route::get('/about-us', [LeadersDetailsController::class, 'index'])->name('about');
